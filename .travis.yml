@@ -2,3 +2,7 @@ language: java
 
 notifications:
   slack: sixeswild:6j5v7uJhL0MruplJO5FlTu9v
+
+cache:
+  directories:
+      - $HOME/.gradle
