@@ -2,9 +2,9 @@ package view;
 
 import javax.swing.*;
 
-public class Application extends JFrame {
+public class Player extends JFrame {
 
-    public Application() {
+    public Player() {
         initialize();
     }
 

@@ -4,7 +4,7 @@ apply plugin: 'application'
 sourceCompatibility = 1.7
 version = '1.0'
 
-mainClassName = "application.Main"
+mainClassName = "application.PlayerLauncher"
 
 repositories {
     mavenCentral()
