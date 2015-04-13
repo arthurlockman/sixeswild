@@ -1,9 +1,9 @@
 package application;
 
-import view.Builder;
+import view.BuilderApplication;
 
 public class BuilderLauncher {
     public static void main(String[] args) {
-        final Builder sixeswild = new Builder();
+        final BuilderApplication sixeswild = new BuilderApplication();
     }
 }

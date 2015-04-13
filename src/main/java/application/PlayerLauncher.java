@@ -1,9 +1,9 @@
 package application;
 
-import view.Player;
+import view.PlayerApplication;
 
 public class PlayerLauncher {
     public static void main(String[] args) {
-        final Player sixeswild = new Player();
+        final PlayerApplication sixeswild = new PlayerApplication();
     }
 }
