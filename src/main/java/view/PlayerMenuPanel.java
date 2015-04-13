@@ -32,6 +32,17 @@ public class PlayerMenuPanel {
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+        playGameButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseReleased(MouseEvent e)
+            {
+                super.mouseReleased(e);
+                JPanel parent = (JPanel) playerMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                layout.show(parent, "levelSelect");
+                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+            }
+        });
     }
 
     {

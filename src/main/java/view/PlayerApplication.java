@@ -3,12 +3,15 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerApplication extends JFrame {
+public class PlayerApplication extends JFrame
+{
     private JPanel playerApplication;
     private SplashScreen splashScreen;
     private PlayerMenuPanel menuPanel;
+    private PlayerLevelSelectPanel playerLevelSelectPanel;
 
-    public PlayerApplication() {
+    public PlayerApplication()
+    {
         super("Sixes Wild");
         setContentPane(playerApplication);
         pack();
@@ -34,19 +37,23 @@ public class PlayerApplication extends JFrame {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         playerApplication = new JPanel();
         playerApplication.setLayout(new CardLayout(0, 0));
         splashScreen = new SplashScreen();
         playerApplication.add(splashScreen.$$$getRootComponent$$$(), "splash");
         menuPanel = new PlayerMenuPanel();
         playerApplication.add(menuPanel.$$$getRootComponent$$$(), "menuPanel");
+        playerLevelSelectPanel = new PlayerLevelSelectPanel();
+        playerApplication.add(playerLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
     }
 
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return playerApplication;
     }
 }

@@ -33,6 +33,19 @@ public class BuilderMenuPanel {
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+        editLevelButton.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseReleased(MouseEvent e)
+            {
+                super.mouseReleased(e);
+                JPanel parent = (JPanel) builderMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                layout.show(parent, "levelSelect");
+                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
+                topLevelFrame.setLocationRelativeTo(null);
+            }
+        });
     }
 
     {
