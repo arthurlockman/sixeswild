@@ -20,6 +20,7 @@ public class BuilderApplication extends JFrame
         setVisible(true);
         ((CardLayout) builderApplication.getLayout()).show(builderApplication, "splash");
         this.setResizable(false);
+        setSize(new Dimension(500, 600));
         this.setTitle("Sixes Wild");
     }
 

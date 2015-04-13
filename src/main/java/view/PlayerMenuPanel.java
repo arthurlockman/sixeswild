@@ -28,7 +28,7 @@ public class PlayerMenuPanel {
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "splash");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
-                topLevelFrame.setSize(new Dimension(500, 660));
+                topLevelFrame.setSize(new Dimension(500, 600));
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
