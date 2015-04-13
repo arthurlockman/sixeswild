@@ -2,19 +2,21 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.PlayerApplication">
   <grid id="27dc6" binding="playerApplication" layout-manager="CardLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="504" height="701"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="1359b" class="javax.swing.JLabel">
+      <nested-form id="ddb18" form-file="view/SplashScreen.form" binding="splashScreen">
         <constraints>
-          <card name="Card1"/>
+          <card name="splash"/>
         </constraints>
-        <properties>
-          <text value="Label"/>
-        </properties>
-      </component>
+      </nested-form>
+      <nested-form id="ccbd4" form-file="view/PlayerMenuPanel.form" binding="menuPanel">
+        <constraints>
+          <card name="menuPanel"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>

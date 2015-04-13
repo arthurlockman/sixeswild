@@ -3,21 +3,21 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class PlayerApplication extends JFrame
-{
+public class PlayerApplication extends JFrame {
     private JPanel playerApplication;
+    private SplashScreen splashScreen;
+    private PlayerMenuPanel menuPanel;
 
-    public PlayerApplication()
-    {
+    public PlayerApplication() {
         super("Sixes Wild");
-
         setContentPane(playerApplication);
-
         pack();
-
+        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         setVisible(true);
+        ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
+        this.setResizable(false);
+        this.setTitle("Sixes Wild");
     }
 
     {
@@ -34,20 +34,19 @@ public class PlayerApplication extends JFrame
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         playerApplication = new JPanel();
         playerApplication.setLayout(new CardLayout(0, 0));
-        final JLabel label1 = new JLabel();
-        label1.setText("Label");
-        playerApplication.add(label1, "Card1");
+        splashScreen = new SplashScreen();
+        playerApplication.add(splashScreen.$$$getRootComponent$$$(), "splash");
+        menuPanel = new PlayerMenuPanel();
+        playerApplication.add(menuPanel.$$$getRootComponent$$$(), "menuPanel");
     }
 
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return playerApplication;
     }
 }
