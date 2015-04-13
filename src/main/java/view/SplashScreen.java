@@ -11,26 +11,22 @@ import java.awt.event.MouseEvent;
 /**
  * Created by arthurlockman on 4/12/15.
  */
-public class SplashScreen extends JPanel
-{
+public class SplashScreen extends JPanel {
     private JPanel splashScreen;
     private JLabel logoView;
     private JLabel creditsView;
     protected JButton playButton;
 
-    public SplashScreen()
-    {
-        playButton.addMouseListener(new MouseAdapter()
-        {
+    public SplashScreen() {
+        playButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseReleased(MouseEvent e)
-            {
+            public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
                 JPanel parent = (JPanel) splashScreen.getParent();
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "menuPanel");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, splashScreen);
-                topLevelFrame.setSize(new Dimension(800, 800));
+                topLevelFrame.setSize(new Dimension(500, 500));
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
@@ -50,8 +46,7 @@ public class SplashScreen extends JPanel
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         splashScreen = new JPanel();
         splashScreen.setLayout(new BorderLayout(0, 0));
         splashScreen.setMaximumSize(new Dimension(500, 660));
@@ -74,7 +69,7 @@ public class SplashScreen extends JPanel
         creditsView.setHorizontalTextPosition(0);
         creditsView.setMaximumSize(new Dimension(500, 160));
         creditsView.setMinimumSize(new Dimension(50, 160));
-        creditsView.setText("<html><center><h1>Sixes Wild</h1>\n<br><br>\nConcept by George Heineman\n<br><br>\nImplementation Team:<br>\nArthur Lockman<br>\nBryce Kaw-uh<br>\nJesse Marciano<br>\nBrendan Casey<br>\nDavid Laovoravit<br><center>\n</html>");
+        creditsView.setText("<html><center><h1>Sixes Wild</h1>\n<br>\nConcept by George Heineman\n<br><br>\n<strong>Implementation Team</strong><br>\nArthur Lockman<br>\nBryce Kaw-uh<br>\nJesse Marciano<br>\nBrendan Casey<br>\nDavid Laovoravit<br><center>\n</html>");
         creditsView.setVerticalAlignment(0);
         panel1.add(creditsView, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         playButton = new JButton();
@@ -85,8 +80,7 @@ public class SplashScreen extends JPanel
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return splashScreen;
     }
 }
