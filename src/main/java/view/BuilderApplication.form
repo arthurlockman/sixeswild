@@ -6,6 +6,17 @@
     </constraints>
     <properties/>
     <border type="none"/>
-    <children/>
+    <children>
+      <nested-form id="86e88" form-file="view/BuilderMenuPanel.form" binding="builderMenuPanel">
+        <constraints>
+          <card name="menuPanel"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6909" form-file="view/SplashScreen.form" binding="splashScreen">
+        <constraints>
+          <card name="splash"/>
+        </constraints>
+      </nested-form>
+    </children>
   </grid>
 </form>

@@ -1,6 +1,5 @@
 package application;
 
-import view.Builder;
 import view.BuilderApplication;
 
 public class BuilderLauncher {

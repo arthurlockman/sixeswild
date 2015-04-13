@@ -6,18 +6,20 @@ import java.awt.*;
 public class BuilderApplication extends JFrame
 {
     private JPanel builderApplication;
+    private BuilderMenuPanel builderMenuPanel;
+    private SplashScreen splashScreen;
 
     public BuilderApplication()
     {
         super("Sixes Wild");
-
         setContentPane(builderApplication);
-
         pack();
-
+        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
         setVisible(true);
+        ((CardLayout) builderApplication.getLayout()).show(builderApplication, "splash");
+        this.setResizable(false);
+        this.setTitle("Sixes Wild");
     }
 
     {
@@ -38,9 +40,10 @@ public class BuilderApplication extends JFrame
     {
         builderApplication = new JPanel();
         builderApplication.setLayout(new CardLayout(0, 0));
-        final JLabel label1 = new JLabel();
-        label1.setText("This is a label.");
-        builderApplication.add(label1, "Card1");
+        builderMenuPanel = new BuilderMenuPanel();
+        builderApplication.add(builderMenuPanel.$$$getRootComponent$$$(), "menuPanel");
+        splashScreen = new SplashScreen();
+        builderApplication.add(splashScreen.$$$getRootComponent$$$(), "splash");
     }
 
     /**
