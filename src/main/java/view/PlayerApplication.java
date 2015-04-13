@@ -17,6 +17,7 @@ public class PlayerApplication extends JFrame {
         setVisible(true);
         ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
         this.setResizable(false);
+        setSize(new Dimension(500, 600));
         this.setTitle("Sixes Wild");
     }
 
