@@ -3,6 +3,7 @@ package view;
 import model.Level;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class LevelCellRenderer extends JLabel implements ListCellRenderer<Level>
@@ -33,8 +34,8 @@ public class LevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 
         setIcon(icon);
         setText(number);
-
         setOpaque(true);
+        setBorder(new EmptyBorder(5, 5, 5, 5));
         if (isSelected)
         {
             setBackground(new Color(86, 95, 182));
