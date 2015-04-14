@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class BuilderLevelSelectPanel extends JPanel
+public class BuilderLevelSelectPanel
 {
     private JPanel builderLevelSelectPanel;
     private JButton backButton;
