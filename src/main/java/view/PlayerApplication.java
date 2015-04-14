@@ -15,12 +15,12 @@ public class PlayerApplication extends JFrame
         super("Sixes Wild");
         setContentPane(playerApplication);
         pack();
-        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
         this.setResizable(false);
         setSize(new Dimension(500, 600));
+        this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
     }
 

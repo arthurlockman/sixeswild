@@ -15,12 +15,12 @@ public class BuilderApplication extends JFrame
         super("Sixes Wild");
         setContentPane(builderApplication);
         pack();
-        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         ((CardLayout) builderApplication.getLayout()).show(builderApplication, "splash");
         this.setResizable(false);
         setSize(new Dimension(500, 600));
+        this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
     }
 
