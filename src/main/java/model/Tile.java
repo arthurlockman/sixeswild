@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class Tile
 {
     int value;
@@ -16,6 +13,6 @@ public class Tile
 
     int getScore()
     {
-
+        return value * multiplier;
     }
 }

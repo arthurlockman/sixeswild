@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class UserMove implements IMove
 {
     Square [] squares;
@@ -12,9 +9,9 @@ public class UserMove implements IMove
         this.squares = squares;
     }
 
-    public void doMove()
+    public boolean doMove()
     {
-
+        return false;
     }
 
     public void undo()
@@ -24,6 +21,6 @@ public class UserMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

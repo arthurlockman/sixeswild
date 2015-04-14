@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class Square
 {
     Tile tile;
@@ -16,16 +13,21 @@ public class Square
 
     public boolean removeTile()
     {
-
+        return false;
     }
 
-    public Tile swap(Square s)
+    public void swap(Square s)
     {
 
     }
 
-    public Tile replace(Tile t)
+    public void replace(Tile t)
     {
+        this.tile = t;
+    }
 
+    public Tile getTile()
+    {
+        return this.tile;
     }
 }

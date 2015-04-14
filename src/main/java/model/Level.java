@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class Level
 {
     String name;

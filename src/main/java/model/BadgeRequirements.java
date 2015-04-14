@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class BadgeRequirements
 {
 
@@ -18,7 +15,7 @@ public class BadgeRequirements
     boolean checkEarned()
     {
 
-
+        return false;
     }
 
 }

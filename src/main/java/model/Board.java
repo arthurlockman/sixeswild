@@ -1,12 +1,9 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class Board
 {
     Timer timer;
-    Score score;
+    int score;
     Level level;
     int moveCount;
     Square [] squares;
@@ -16,14 +13,14 @@ public class Board
 
     }
 
-    public boolean makeMove(Move m)
+    public boolean makeMove()
     {
-
+        return false;
     }
 
     public boolean isWon()
     {
-
+        return false;
     }
 
     public void refresh()

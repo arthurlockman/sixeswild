@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class SwapSpecialMove implements IMove
 {
     Square square1;
@@ -10,12 +7,13 @@ public class SwapSpecialMove implements IMove
 
     public SwapSpecialMove(Square s1, Square s2)
     {
-
+        this.square1 = s1;
+        this.square2 = s2;
     }
 
-    public void doMove()
+    public boolean doMove()
     {
-
+        return false;
     }
 
     public void undo()
@@ -25,6 +23,6 @@ public class SwapSpecialMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

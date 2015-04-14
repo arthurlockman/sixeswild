@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class ResetSpecialMove implements IMove
 {
     Board board;
@@ -12,9 +9,9 @@ public class ResetSpecialMove implements IMove
         this.board = b;
     }
 
-    public void doMove()
+    public boolean doMove()
     {
-
+        return false;
     }
 
     public void undo()
@@ -24,6 +21,6 @@ public class ResetSpecialMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

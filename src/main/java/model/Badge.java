@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class Badge
 {
     String name;
@@ -20,20 +17,20 @@ public class Badge
     public boolean isEarned()
     {
 
-
+        return false;
     }
 
     public String getName()
     {
 
 
-
+        return null;
     }
 
     public String getDescription()
     {
 
-
+        return null;
     }
 
 }

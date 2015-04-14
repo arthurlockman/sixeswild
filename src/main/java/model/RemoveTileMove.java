@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Yiðit on 13.4.2015.
- */
 public class RemoveTileMove implements IMove
 {
     Square square;
@@ -13,13 +10,13 @@ public class RemoveTileMove implements IMove
         this.square = s;
     }
 
-    public void doMove()
+    public boolean doMove()
     {
-
+        return false;
     }
 
     public boolean isValid()
     {
-
+        return false;
     }
 }
