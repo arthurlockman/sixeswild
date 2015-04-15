@@ -76,7 +76,7 @@ public class SquareViewPanel
         if (currentTile.getMultiplier() != 1)
             multiplierLabel.setText(currentTile.getMultiplier() + "x");
         else
-            multiplierLabel.setText("");
+            multiplierLabel.setText(" ");
     }
 
     private void createUIComponents()

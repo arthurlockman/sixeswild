@@ -6,12 +6,13 @@ import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Created by arthurlockman on 4/15/15.
  */
-public class BuilderOptionsPanel
-{
+public class BuilderOptionsPanel {
     private JPanel builderOptionsPanel;
     private JTextField textField1;
     private JTextField textField2;
@@ -25,9 +26,17 @@ public class BuilderOptionsPanel
     private JButton defaultsButton;
     private JButton closeButton;
 
-    public BuilderOptionsPanel()
-    {
+    public BuilderOptionsPanel() {
 
+        closeButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                JPanel parent = (JPanel) builderOptionsPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                layout.show(parent, "boardView");
+
+            }
+        });
     }
 
     {
@@ -44,8 +53,7 @@ public class BuilderOptionsPanel
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         builderOptionsPanel = new JPanel();
         builderOptionsPanel.setLayout(new GridLayoutManager(4, 1, new Insets(0, 0, 0, 0), -1, -1));
         builderOptionsPanel.setBackground(new Color(-6974533));
@@ -170,8 +178,7 @@ public class BuilderOptionsPanel
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return builderOptionsPanel;
     }
 }

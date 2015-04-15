@@ -12,8 +12,7 @@ import java.awt.event.MouseEvent;
 /**
  * Created by arthurlockman on 4/15/15.
  */
-public class BuilderEditorPanel
-{
+public class BuilderEditorPanel {
     private JPanel builderEditorPanel;
     private JPanel menuBarPanel;
     private JButton backButton;
@@ -34,19 +33,16 @@ public class BuilderEditorPanel
     private JButton previewButton;
     private JButton undoButton;
     private JButton redoButton;
+    private BuilderOptionsPanel optionsPanel;
 
-    public BuilderEditorPanel()
-    {
-        backButton.addMouseListener(new MouseAdapter()
-        {
+    public BuilderEditorPanel() {
+        backButton.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e)
-            {
+            public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? " +
                         "Level will not be saved.", "Wait!", JOptionPane.OK_CANCEL_OPTION);
-                if (result == 0)
-                {
+                if (result == 0) {
                     JPanel parent = (JPanel) builderEditorPanel.getParent();
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "menuPanel");
@@ -54,6 +50,12 @@ public class BuilderEditorPanel
                     topLevelFrame.setSize(new Dimension(500, 500));
                     topLevelFrame.setLocationRelativeTo(null);
                 }
+            }
+        });
+        setFrequenciesButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                ((CardLayout) boardArea.getLayout()).show(boardArea, "optionsPanel");
             }
         });
     }
@@ -72,8 +74,7 @@ public class BuilderEditorPanel
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         builderEditorPanel = new JPanel();
         builderEditorPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         builderEditorPanel.setMaximumSize(new Dimension(880, 625));
@@ -86,7 +87,7 @@ public class BuilderEditorPanel
         panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         menuBarPanel = new JPanel();
-        menuBarPanel.setLayout(new GridLayoutManager(1, 8, new Insets(0, 0, 0, 0), -1, -1));
+        menuBarPanel.setLayout(new GridLayoutManager(1, 8, new Insets(0, 10, 0, 0), -1, -1));
         menuBarPanel.setBackground(new Color(-3167898));
         panel2.add(menuBarPanel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         backButton = new JButton();
@@ -197,11 +198,16 @@ public class BuilderEditorPanel
         final JLabel label6 = new JLabel();
         label6.setText("<html><h1>Tiles</h1></html");
         panel5.add(label6, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JPanel panel14 = new JPanel();
+        panel14.setLayout(new GridLayoutManager(1, 1, new Insets(0, 15, 15, 0), -1, -1));
+        panel4.add(panel14, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         boardArea = new JPanel();
-        boardArea.setLayout(new GridLayoutManager(1, 1, new Insets(5, 15, 15, 10), -1, -1));
-        panel4.add(boardArea, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        boardArea.setLayout(new CardLayout(-1, -1));
+        panel14.add(boardArea, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         boardViewPanel = new BoardViewPanel();
-        boardArea.add(boardViewPanel.$$$getRootComponent$$$(), new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        boardArea.add(boardViewPanel.$$$getRootComponent$$$(), "boardView");
+        optionsPanel = new BuilderOptionsPanel();
+        boardArea.add(optionsPanel.$$$getRootComponent$$$(), "optionsPanel");
         ButtonGroup buttonGroup;
         buttonGroup = new ButtonGroup();
         buttonGroup.add(activeRadioButton);
@@ -213,8 +219,7 @@ public class BuilderEditorPanel
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return builderEditorPanel;
     }
 }
