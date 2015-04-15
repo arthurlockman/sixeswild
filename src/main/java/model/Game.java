@@ -8,14 +8,16 @@ public class Game
 
     public Game()
     {
-
-
+        board = new Board();
     }
 
     public void initializeLevel(int levelNumber)
     {
 
-
     }
 
+    public Board getBoard()
+    {
+        return board;
+    }
 }

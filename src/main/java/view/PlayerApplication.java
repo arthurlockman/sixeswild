@@ -1,5 +1,7 @@
 package view;
 
+import model.Game;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,6 +12,7 @@ public class PlayerApplication extends JFrame
     private PlayerMenuPanel menuPanel;
     private PlayerLevelSelectPanel playerLevelSelectPanel;
     private PlayerPlayPanel playerPlayPanel;
+    private Game game;
 
     public PlayerApplication()
     {
@@ -23,6 +26,8 @@ public class PlayerApplication extends JFrame
         setSize(new Dimension(500, 600));
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
+        this.game = new Game();
+        this.playerPlayPanel.setBoard(this.game.getBoard());
     }
 
     {
