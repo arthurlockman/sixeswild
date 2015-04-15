@@ -2,8 +2,8 @@ package model;
 
 public class Tile
 {
-    int value;
-    int multiplier;
+    protected int value;
+    protected int multiplier;
 
     public Tile(int value, int multiplier)
     {
@@ -11,8 +11,18 @@ public class Tile
         this.multiplier = multiplier;
     }
 
-    int getScore()
+    public int getScore()
     {
         return value * multiplier;
+    }
+
+    public int getValue()
+    {
+        return value;
+    }
+
+    public int getMultiplier()
+    {
+        return multiplier;
     }
 }

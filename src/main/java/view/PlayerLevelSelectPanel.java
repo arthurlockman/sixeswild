@@ -66,11 +66,21 @@ public class PlayerLevelSelectPanel
             {
                 super.mouseClicked(e);
                 if (!((Level) levelList.getSelectedValue()).isLocked())
+                {
                     //Change card to level viewer, set current level of player to
                     //retrieved level.
                     System.out.println(levelList.getSelectedValue().toString());
+                    JPanel parent = (JPanel) playerLevelSelectPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "playPanel");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
+                    topLevelFrame.setSize(new Dimension(700, 600));
+                    topLevelFrame.setLocationRelativeTo(null);
+                }
                 else
+                {
                     System.out.println("Level locked.");
+                }
             }
         });
     }
