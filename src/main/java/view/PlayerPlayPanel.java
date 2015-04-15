@@ -3,6 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Board;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +28,7 @@ public class PlayerPlayPanel
     private JPanel playPanel;
     private JLabel scoreLabel;
     private JLabel titleLabel;
+    private Board board;
 
     public PlayerPlayPanel()
     {
@@ -44,6 +46,12 @@ public class PlayerPlayPanel
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+    }
+
+    public void setBoard(Board b)
+    {
+        this.board = b;
+        this.boardViewPanel.setBoard(this.board);
     }
 
     {

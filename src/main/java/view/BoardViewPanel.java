@@ -102,14 +102,17 @@ public class BoardViewPanel
 
     public BoardViewPanel()
     {
-        this.board = new Board();
+    }
+
+    public void setBoard(Board b)
+    {
+        this.board = b;
         initializeBoardView();
     }
 
     protected void initializeBoardView()
     {
         squareViewPanel1.setSquare(board.getSquares()[0]);
-        System.out.println(board.getSquares()[0]);
         squareViewPanel2.setSquare(board.getSquares()[1]);
         squareViewPanel3.setSquare(board.getSquares()[2]);
         squareViewPanel4.setSquare(board.getSquares()[3]);
