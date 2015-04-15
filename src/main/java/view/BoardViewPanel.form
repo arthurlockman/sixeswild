@@ -5,9 +5,7 @@
     <constraints>
       <xy x="20" y="20" width="538" height="498"/>
     </constraints>
-    <properties>
-      <background color="-13487511"/>
-    </properties>
+    <properties/>
     <border type="none"/>
     <children>
       <nested-form id="589d1" form-file="view/SquareViewPanel.form" binding="squareViewPanel1" default-binding="true">
