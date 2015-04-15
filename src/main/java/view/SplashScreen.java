@@ -53,13 +53,19 @@ public class SplashScreen {
         logoView.setHorizontalTextPosition(0);
         logoView.setIcon(new ImageIcon(getClass().getResource("/view/splash.png")));
         logoView.setInheritsPopupMenu(false);
-        logoView.setMaximumSize(new Dimension(500, 500));
-        logoView.setMinimumSize(new Dimension(500, 500));
+        logoView.setMaximumSize(new Dimension(500, 300));
+        logoView.setMinimumSize(new Dimension(500, 300));
         logoView.setOpaque(false);
+        logoView.setPreferredSize(new Dimension(500, 300));
         logoView.setText("");
+        logoView.setVerticalAlignment(1);
+        logoView.setVerticalTextPosition(1);
         splashScreen.add(logoView, BorderLayout.CENTER);
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setMaximumSize(new Dimension(500, 275));
+        panel1.setMinimumSize(new Dimension(500, 275));
+        panel1.setPreferredSize(new Dimension(500, 275));
         splashScreen.add(panel1, BorderLayout.SOUTH);
         creditsView = new JLabel();
         creditsView.setHorizontalAlignment(0);
@@ -69,9 +75,12 @@ public class SplashScreen {
         creditsView.setText("<html><center><h1>Sixes Wild</h1>\n<br>\nConcept by George Heineman\n<br><br>\n<strong>Implementation Team</strong><br>\nArthur Lockman<br>\nBryce Kaw-uh<br>\nJesse Marciano<br>\nBrendan Casey<br>\nDavid Laovoravit<br><center>\n</html>");
         creditsView.setVerticalAlignment(0);
         panel1.add(creditsView, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 25, 10, 25), -1, -1));
+        panel1.add(panel2, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         playButton = new JButton();
         playButton.setText("Play Game");
-        panel1.add(playButton, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel2.add(playButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

@@ -29,7 +29,7 @@ public class BuilderMenuPanel {
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "splash");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
-                topLevelFrame.setSize(new Dimension(500, 600));
+                topLevelFrame.setSize(new Dimension(500, 625));
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
@@ -43,6 +43,19 @@ public class BuilderMenuPanel {
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "levelSelect");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
+                topLevelFrame.setLocationRelativeTo(null);
+            }
+        });
+        newLevelButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                super.mouseClicked(e);
+                JPanel parent = (JPanel) builderMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                layout.show(parent, "editPanel");
+                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
+                topLevelFrame.setSize(new Dimension(880, 600));
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
