@@ -2,6 +2,7 @@ package view;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import model.Board;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,6 +91,106 @@ public class BoardViewPanel
     private SquareViewPanel squareViewPanel79;
     private SquareViewPanel squareViewPanel80;
     private SquareViewPanel squareViewPanel81;
+
+    private Board board;
+
+    public BoardViewPanel(Board b)
+    {
+        this.board = b;
+        initializeBoardView();
+    }
+
+    public BoardViewPanel()
+    {
+        this.board = new Board();
+        initializeBoardView();
+    }
+
+    protected void initializeBoardView()
+    {
+        squareViewPanel1.setSquare(board.getSquares()[0]);
+        System.out.println(board.getSquares()[0]);
+        squareViewPanel2.setSquare(board.getSquares()[1]);
+        squareViewPanel3.setSquare(board.getSquares()[2]);
+        squareViewPanel4.setSquare(board.getSquares()[3]);
+        squareViewPanel5.setSquare(board.getSquares()[4]);
+        squareViewPanel6.setSquare(board.getSquares()[5]);
+        squareViewPanel7.setSquare(board.getSquares()[6]);
+        squareViewPanel8.setSquare(board.getSquares()[7]);
+        squareViewPanel9.setSquare(board.getSquares()[8]);
+        squareViewPanel10.setSquare(board.getSquares()[9]);
+        squareViewPanel11.setSquare(board.getSquares()[10]);
+        squareViewPanel12.setSquare(board.getSquares()[11]);
+        squareViewPanel13.setSquare(board.getSquares()[12]);
+        squareViewPanel14.setSquare(board.getSquares()[13]);
+        squareViewPanel15.setSquare(board.getSquares()[14]);
+        squareViewPanel16.setSquare(board.getSquares()[15]);
+        squareViewPanel17.setSquare(board.getSquares()[16]);
+        squareViewPanel18.setSquare(board.getSquares()[17]);
+        squareViewPanel19.setSquare(board.getSquares()[18]);
+        squareViewPanel20.setSquare(board.getSquares()[19]);
+        squareViewPanel21.setSquare(board.getSquares()[20]);
+        squareViewPanel22.setSquare(board.getSquares()[21]);
+        squareViewPanel23.setSquare(board.getSquares()[22]);
+        squareViewPanel24.setSquare(board.getSquares()[23]);
+        squareViewPanel25.setSquare(board.getSquares()[24]);
+        squareViewPanel26.setSquare(board.getSquares()[25]);
+        squareViewPanel27.setSquare(board.getSquares()[26]);
+        squareViewPanel28.setSquare(board.getSquares()[27]);
+        squareViewPanel29.setSquare(board.getSquares()[28]);
+        squareViewPanel30.setSquare(board.getSquares()[29]);
+        squareViewPanel31.setSquare(board.getSquares()[30]);
+        squareViewPanel32.setSquare(board.getSquares()[31]);
+        squareViewPanel33.setSquare(board.getSquares()[32]);
+        squareViewPanel34.setSquare(board.getSquares()[33]);
+        squareViewPanel35.setSquare(board.getSquares()[34]);
+        squareViewPanel36.setSquare(board.getSquares()[35]);
+        squareViewPanel37.setSquare(board.getSquares()[36]);
+        squareViewPanel38.setSquare(board.getSquares()[37]);
+        squareViewPanel39.setSquare(board.getSquares()[38]);
+        squareViewPanel40.setSquare(board.getSquares()[39]);
+        squareViewPanel41.setSquare(board.getSquares()[40]);
+        squareViewPanel42.setSquare(board.getSquares()[41]);
+        squareViewPanel43.setSquare(board.getSquares()[42]);
+        squareViewPanel44.setSquare(board.getSquares()[43]);
+        squareViewPanel45.setSquare(board.getSquares()[44]);
+        squareViewPanel46.setSquare(board.getSquares()[45]);
+        squareViewPanel48.setSquare(board.getSquares()[46]);
+        squareViewPanel47.setSquare(board.getSquares()[47]);
+        squareViewPanel49.setSquare(board.getSquares()[48]);
+        squareViewPanel50.setSquare(board.getSquares()[49]);
+        squareViewPanel51.setSquare(board.getSquares()[50]);
+        squareViewPanel52.setSquare(board.getSquares()[51]);
+        squareViewPanel53.setSquare(board.getSquares()[52]);
+        squareViewPanel54.setSquare(board.getSquares()[53]);
+        squareViewPanel55.setSquare(board.getSquares()[54]);
+        squareViewPanel56.setSquare(board.getSquares()[55]);
+        squareViewPanel57.setSquare(board.getSquares()[56]);
+        squareViewPanel58.setSquare(board.getSquares()[57]);
+        squareViewPanel59.setSquare(board.getSquares()[58]);
+        squareViewPanel60.setSquare(board.getSquares()[59]);
+        squareViewPanel61.setSquare(board.getSquares()[60]);
+        squareViewPanel62.setSquare(board.getSquares()[61]);
+        squareViewPanel63.setSquare(board.getSquares()[62]);
+        squareViewPanel64.setSquare(board.getSquares()[63]);
+        squareViewPanel65.setSquare(board.getSquares()[64]);
+        squareViewPanel66.setSquare(board.getSquares()[65]);
+        squareViewPanel67.setSquare(board.getSquares()[66]);
+        squareViewPanel68.setSquare(board.getSquares()[67]);
+        squareViewPanel69.setSquare(board.getSquares()[68]);
+        squareViewPanel70.setSquare(board.getSquares()[69]);
+        squareViewPanel71.setSquare(board.getSquares()[70]);
+        squareViewPanel72.setSquare(board.getSquares()[71]);
+        squareViewPanel73.setSquare(board.getSquares()[72]);
+        squareViewPanel74.setSquare(board.getSquares()[73]);
+        squareViewPanel75.setSquare(board.getSquares()[74]);
+        squareViewPanel76.setSquare(board.getSquares()[75]);
+        squareViewPanel77.setSquare(board.getSquares()[76]);
+        squareViewPanel78.setSquare(board.getSquares()[77]);
+        squareViewPanel79.setSquare(board.getSquares()[78]);
+        squareViewPanel80.setSquare(board.getSquares()[79]);
+        squareViewPanel81.setSquare(board.getSquares()[80]);
+    }
 
     {
 // GUI initializer generated by IntelliJ IDEA GUI Designer
