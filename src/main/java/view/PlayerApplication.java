@@ -9,6 +9,7 @@ public class PlayerApplication extends JFrame
     private SplashScreen splashScreen;
     private PlayerMenuPanel menuPanel;
     private PlayerLevelSelectPanel playerLevelSelectPanel;
+    private PlayerPlayPanel playerPlayPanel;
 
     public PlayerApplication()
     {
@@ -48,6 +49,8 @@ public class PlayerApplication extends JFrame
         playerApplication.add(menuPanel.$$$getRootComponent$$$(), "menuPanel");
         playerLevelSelectPanel = new PlayerLevelSelectPanel();
         playerApplication.add(playerLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
+        playerPlayPanel = new PlayerPlayPanel();
+        playerApplication.add(playerPlayPanel.$$$getRootComponent$$$(), "playPanel");
     }
 
     /**

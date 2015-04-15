@@ -8,9 +8,6 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Created by arthurlockman on 4/12/15.
- */
 public class SplashScreen {
     private JPanel splashScreen;
     private JLabel logoView;
