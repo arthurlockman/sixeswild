@@ -5,6 +5,7 @@ import model.Level;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.net.URL;
 
 public class LevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 {
@@ -18,7 +19,9 @@ public class LevelCellRenderer extends JLabel implements ListCellRenderer<Level>
         rsrc = (value.isLocked()) ? "/view/" + value.getType().toLowerCase() +
                 "lock.png" : "/view/" + value.getType().toLowerCase() + "icn.png";
 
-        icon = new ImageIcon(getClass().getResource(rsrc));
+        URL iconURL = getClass().getResource(rsrc);
+        iconURL = (iconURL == null) ? getClass().getResource("/view/puzzlelock.png") : iconURL;
+        icon = new ImageIcon(iconURL);
 
         setIcon(icon);
         setText(description);

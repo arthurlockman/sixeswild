@@ -3,7 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
-import model.Level;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,10 +39,22 @@ public class PlayerLevelSelectPanel
         });
 
         levelListModel = new DefaultListModel<Level>();
-        levelListModel.addElement(new Level("Level 1", "This is a level", 1, 10, 10, false));
-        levelListModel.addElement(new Level("Level 2", "This is a level", 2, 10, 10, true));
-        levelListModel.addElement(new Level("Level 3", "This is a level", 3, 10, 10, true));
-        levelListModel.addElement(new Level("Level 4", "This is a level", 4, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 1", "This is a level", 1, 10, 10, false));
+        levelListModel.addElement(new LightningLevel("Level 2", "This is a level", 2, 10, 10, true));
+        levelListModel.addElement(new EliminationLevel("Level 3", "This is a level", 3, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 4", "This is a level", 4, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 5", "This is a level", 5, 10, 10, true));
+        levelListModel.addElement(new LightningLevel("Level 6", "This is a level", 6, 10, 10, true));
+        levelListModel.addElement(new EliminationLevel("Level 7", "This is a level", 7, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 8", "This is a level", 8, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 9", "This is a level", 9, 10, 10, true));
+        levelListModel.addElement(new LightningLevel("Level 10", "This is a level", 10, 10, 10, true));
+        levelListModel.addElement(new EliminationLevel("Level 11", "This is a level", 11, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 12", "This is a level", 12, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 13", "This is a level", 13, 10, 10, true));
+        levelListModel.addElement(new LightningLevel("Level 14", "This is a level", 14, 10, 10, true));
+        levelListModel.addElement(new EliminationLevel("Level 15", "This is a level", 15, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 16", "This is a level", 16, 10, 10, true));
         levelList.setModel(levelListModel);
         levelList.setCellRenderer(new LevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
