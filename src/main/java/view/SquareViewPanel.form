@@ -9,7 +9,7 @@
       <minimumSize width="50" height="50"/>
       <preferredSize width="50" height="50"/>
     </properties>
-    <border type="none"/>
+    <border type="etched"/>
     <children>
       <component id="b058d" class="javax.swing.JLabel" binding="squareNumber" custom-create="true">
         <constraints>
