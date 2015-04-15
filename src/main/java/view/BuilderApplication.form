@@ -17,6 +17,11 @@
           <card name="splash"/>
         </constraints>
       </nested-form>
+      <nested-form id="34f89" form-file="view/BuilderLevelSelectPanel.form" binding="builderLevelSelectPanel">
+        <constraints>
+          <card name="levelSelect"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>

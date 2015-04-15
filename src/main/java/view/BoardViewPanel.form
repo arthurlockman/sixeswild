@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.BoardViewPanel">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="9" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="538" height="498"/>
+    </constraints>
+    <properties>
+      <background color="-13487511"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <nested-form id="589d1" form-file="view/SquareViewPanel.form" binding="squareViewPanel1" default-binding="true">
+        <constraints>
+          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="979bb" form-file="view/SquareViewPanel.form" binding="squareViewPanel2" default-binding="true">
+        <constraints>
+          <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="74b75" form-file="view/SquareViewPanel.form" binding="squareViewPanel3" default-binding="true">
+        <constraints>
+          <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="abffe" form-file="view/SquareViewPanel.form" binding="squareViewPanel4" default-binding="true">
+        <constraints>
+          <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="a3de8" form-file="view/SquareViewPanel.form" binding="squareViewPanel5" default-binding="true">
+        <constraints>
+          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="f3bf" form-file="view/SquareViewPanel.form" binding="squareViewPanel6" default-binding="true">
+        <constraints>
+          <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="2017f" form-file="view/SquareViewPanel.form" binding="squareViewPanel7" default-binding="true">
+        <constraints>
+          <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6211b" form-file="view/SquareViewPanel.form" binding="squareViewPanel8" default-binding="true">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="e3768" form-file="view/SquareViewPanel.form" binding="squareViewPanel9" default-binding="true">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="9ffd8" form-file="view/SquareViewPanel.form" binding="squareViewPanel10" default-binding="true">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="b239d" form-file="view/SquareViewPanel.form" binding="squareViewPanel11" default-binding="true">
+        <constraints>
+          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="f924f" form-file="view/SquareViewPanel.form" binding="squareViewPanel12" default-binding="true">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="e105f" form-file="view/SquareViewPanel.form" binding="squareViewPanel13" default-binding="true">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="798a0" form-file="view/SquareViewPanel.form" binding="squareViewPanel14" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="94f41" form-file="view/SquareViewPanel.form" binding="squareViewPanel15" default-binding="true">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="7a8d0" form-file="view/SquareViewPanel.form" binding="squareViewPanel16" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="258ac" form-file="view/SquareViewPanel.form" binding="squareViewPanel17" default-binding="true">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="e45ab" form-file="view/SquareViewPanel.form" binding="squareViewPanel18" default-binding="true">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="97fc0" form-file="view/SquareViewPanel.form" binding="squareViewPanel19" default-binding="true">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="da7c4" form-file="view/SquareViewPanel.form" binding="squareViewPanel20" default-binding="true">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="78f82" form-file="view/SquareViewPanel.form" binding="squareViewPanel21" default-binding="true">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="dd9be" form-file="view/SquareViewPanel.form" binding="squareViewPanel22" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6d3b5" form-file="view/SquareViewPanel.form" binding="squareViewPanel23" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="84f01" form-file="view/SquareViewPanel.form" binding="squareViewPanel24" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="92f6c" form-file="view/SquareViewPanel.form" binding="squareViewPanel25" default-binding="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="47e54" form-file="view/SquareViewPanel.form" binding="squareViewPanel26" default-binding="true">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="8d92a" form-file="view/SquareViewPanel.form" binding="squareViewPanel27" default-binding="true">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="c44a8" form-file="view/SquareViewPanel.form" binding="squareViewPanel28" default-binding="true">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="8f7b4" form-file="view/SquareViewPanel.form" binding="squareViewPanel29" default-binding="true">
+        <constraints>
+          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="d10ac" form-file="view/SquareViewPanel.form" binding="squareViewPanel30" default-binding="true">
+        <constraints>
+          <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="64b9a" form-file="view/SquareViewPanel.form" binding="squareViewPanel31" default-binding="true">
+        <constraints>
+          <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="509e" form-file="view/SquareViewPanel.form" binding="squareViewPanel32" default-binding="true">
+        <constraints>
+          <grid row="7" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="a3b6d" form-file="view/SquareViewPanel.form" binding="squareViewPanel33" default-binding="true">
+        <constraints>
+          <grid row="7" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="32974" form-file="view/SquareViewPanel.form" binding="squareViewPanel34" default-binding="true">
+        <constraints>
+          <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="7dc24" form-file="view/SquareViewPanel.form" binding="squareViewPanel35" default-binding="true">
+        <constraints>
+          <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="de0bc" form-file="view/SquareViewPanel.form" binding="squareViewPanel36" default-binding="true">
+        <constraints>
+          <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="e6c86" form-file="view/SquareViewPanel.form" binding="squareViewPanel37" default-binding="true">
+        <constraints>
+          <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="7c940" form-file="view/SquareViewPanel.form" binding="squareViewPanel38" default-binding="true">
+        <constraints>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="80ffa" form-file="view/SquareViewPanel.form" binding="squareViewPanel39" default-binding="true">
+        <constraints>
+          <grid row="5" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="be4f6" form-file="view/SquareViewPanel.form" binding="squareViewPanel40" default-binding="true">
+        <constraints>
+          <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="3b988" form-file="view/SquareViewPanel.form" binding="squareViewPanel41" default-binding="true">
+        <constraints>
+          <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="49be8" form-file="view/SquareViewPanel.form" binding="squareViewPanel42" default-binding="true">
+        <constraints>
+          <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="12b75" form-file="view/SquareViewPanel.form" binding="squareViewPanel43" default-binding="true">
+        <constraints>
+          <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="ea4c6" form-file="view/SquareViewPanel.form" binding="squareViewPanel44" default-binding="true">
+        <constraints>
+          <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="aca76" form-file="view/SquareViewPanel.form" binding="squareViewPanel45" default-binding="true">
+        <constraints>
+          <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6a1a3" form-file="view/SquareViewPanel.form" binding="squareViewPanel46" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="66d44" form-file="view/SquareViewPanel.form" binding="squareViewPanel48" default-binding="true">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="125b8" form-file="view/SquareViewPanel.form" binding="squareViewPanel47" default-binding="true">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="121d2" form-file="view/SquareViewPanel.form" binding="squareViewPanel49" default-binding="true">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="7b504" form-file="view/SquareViewPanel.form" binding="squareViewPanel50" default-binding="true">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="61847" form-file="view/SquareViewPanel.form" binding="squareViewPanel51" default-binding="true">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="4e560" form-file="view/SquareViewPanel.form" binding="squareViewPanel52" default-binding="true">
+        <constraints>
+          <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6734d" form-file="view/SquareViewPanel.form" binding="squareViewPanel53" default-binding="true">
+        <constraints>
+          <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="710d8" form-file="view/SquareViewPanel.form" binding="squareViewPanel54" default-binding="true">
+        <constraints>
+          <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="8a7a6" form-file="view/SquareViewPanel.form" binding="squareViewPanel55" default-binding="true">
+        <constraints>
+          <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="3ce59" form-file="view/SquareViewPanel.form" binding="squareViewPanel56" default-binding="true">
+        <constraints>
+          <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="d788a" form-file="view/SquareViewPanel.form" binding="squareViewPanel57" default-binding="true">
+        <constraints>
+          <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="c2acd" form-file="view/SquareViewPanel.form" binding="squareViewPanel58" default-binding="true">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="2dbe1" form-file="view/SquareViewPanel.form" binding="squareViewPanel59" default-binding="true">
+        <constraints>
+          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="34796" form-file="view/SquareViewPanel.form" binding="squareViewPanel60" default-binding="true">
+        <constraints>
+          <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="442c5" form-file="view/SquareViewPanel.form" binding="squareViewPanel61" default-binding="true">
+        <constraints>
+          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="faabd" form-file="view/SquareViewPanel.form" binding="squareViewPanel62" default-binding="true">
+        <constraints>
+          <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="f3a03" form-file="view/SquareViewPanel.form" binding="squareViewPanel63" default-binding="true">
+        <constraints>
+          <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="6d91a" form-file="view/SquareViewPanel.form" binding="squareViewPanel64" default-binding="true">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="d1d82" form-file="view/SquareViewPanel.form" binding="squareViewPanel65" default-binding="true">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="fab8f" form-file="view/SquareViewPanel.form" binding="squareViewPanel66" default-binding="true">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="d0cc" form-file="view/SquareViewPanel.form" binding="squareViewPanel67" default-binding="true">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="ad033" form-file="view/SquareViewPanel.form" binding="squareViewPanel68" default-binding="true">
+        <constraints>
+          <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="983fe" form-file="view/SquareViewPanel.form" binding="squareViewPanel69" default-binding="true">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="dbd74" form-file="view/SquareViewPanel.form" binding="squareViewPanel70" default-binding="true">
+        <constraints>
+          <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="add1" form-file="view/SquareViewPanel.form" binding="squareViewPanel71" default-binding="true">
+        <constraints>
+          <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="5384b" form-file="view/SquareViewPanel.form" binding="squareViewPanel72" default-binding="true">
+        <constraints>
+          <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="bb32d" form-file="view/SquareViewPanel.form" binding="squareViewPanel73" default-binding="true">
+        <constraints>
+          <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="76299" form-file="view/SquareViewPanel.form" binding="squareViewPanel74" default-binding="true">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="fb5cf" form-file="view/SquareViewPanel.form" binding="squareViewPanel75" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="b9817" form-file="view/SquareViewPanel.form" binding="squareViewPanel76" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="20044" form-file="view/SquareViewPanel.form" binding="squareViewPanel77" default-binding="true">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="a01ae" form-file="view/SquareViewPanel.form" binding="squareViewPanel78" default-binding="true">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="3ecc1" form-file="view/SquareViewPanel.form" binding="squareViewPanel79" default-binding="true">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="a7cd7" form-file="view/SquareViewPanel.form" binding="squareViewPanel80" default-binding="true">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+      <nested-form id="a59af" form-file="view/SquareViewPanel.form" binding="squareViewPanel81" default-binding="true">
+        <constraints>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </nested-form>
+    </children>
+  </grid>
+</form>
