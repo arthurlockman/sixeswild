@@ -29,7 +29,7 @@ public class BuilderMenuPanel {
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "splash");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
-                topLevelFrame.setSize(new Dimension(500, 600));
+                topLevelFrame.setSize(new Dimension(500, 625));
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });

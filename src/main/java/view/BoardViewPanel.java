@@ -213,6 +213,9 @@ public class BoardViewPanel
     {
         panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(9, 9, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setMinimumSize(new Dimension(534, 534));
+        panel1.setOpaque(false);
+        panel1.setPreferredSize(new Dimension(534, 534));
         squareViewPanel1 = new SquareViewPanel();
         panel1.add(squareViewPanel1.$$$getRootComponent$$$(), new GridConstraints(1, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         squareViewPanel2 = new SquareViewPanel();

@@ -73,7 +73,7 @@ public class PlayerLevelSelectPanel
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "playPanel");
                     JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
-                    topLevelFrame.setSize(new Dimension(700, 600));
+                    topLevelFrame.setSize(new Dimension(700, 625));
                     topLevelFrame.setLocationRelativeTo(null);
                 } else
                 {

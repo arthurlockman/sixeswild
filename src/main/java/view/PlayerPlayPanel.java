@@ -72,9 +72,9 @@ public class PlayerPlayPanel
     {
         playPanel = new JPanel();
         playPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
-        playPanel.setMaximumSize(new Dimension(700, 600));
-        playPanel.setMinimumSize(new Dimension(700, 600));
-        playPanel.setPreferredSize(new Dimension(700, 600));
+        playPanel.setMaximumSize(new Dimension(700, 625));
+        playPanel.setMinimumSize(new Dimension(700, 625));
+        playPanel.setPreferredSize(new Dimension(700, 625));
         menuBarPanel = new JPanel();
         menuBarPanel.setLayout(new GridLayoutManager(1, 3, new Insets(0, 0, 0, 0), -1, -1));
         menuBarPanel.setBackground(new Color(-3167898));
