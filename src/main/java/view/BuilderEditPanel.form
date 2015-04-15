@@ -228,7 +228,6 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <foreground color="-1"/>
                   <text value=""/>
                 </properties>
               </component>
