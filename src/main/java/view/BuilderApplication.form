@@ -22,6 +22,11 @@
           <card name="levelSelect"/>
         </constraints>
       </nested-form>
+      <nested-form id="34f90" form-file="view/BuilderEditorPanel.form" binding="builderEditorPanel">
+        <constraints>
+          <card name="editPanel"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>

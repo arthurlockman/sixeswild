@@ -9,6 +9,7 @@ public class BuilderApplication extends JFrame
     private BuilderMenuPanel builderMenuPanel;
     private SplashScreen splashScreen;
     private BuilderLevelSelectPanel builderLevelSelectPanel;
+    private BuilderEditorPanel builderEditorPanel;
 
     public BuilderApplication()
     {
@@ -48,6 +49,8 @@ public class BuilderApplication extends JFrame
         builderApplication.add(splashScreen.$$$getRootComponent$$$(), "splash");
         builderLevelSelectPanel = new BuilderLevelSelectPanel();
         builderApplication.add(builderLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
+        builderEditorPanel = new BuilderEditorPanel();
+        builderApplication.add(builderEditorPanel.$$$getRootComponent$$$(), "editPanel");
     }
 
     /**
