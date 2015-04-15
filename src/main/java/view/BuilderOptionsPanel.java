@@ -61,7 +61,7 @@ public class BuilderOptionsPanel {
         builderOptionsPanel.setMinimumSize(new Dimension(534, 534));
         builderOptionsPanel.setPreferredSize(new Dimension(534, 534));
         final JPanel panel1 = new JPanel();
-        panel1.setLayout(new GridLayoutManager(6, 2, new Insets(0, 10, 0, 10), -1, -1));
+        panel1.setLayout(new GridLayoutManager(6, 2, new Insets(0, 30, 0, 30), -1, -1));
         panel1.setOpaque(false);
         builderOptionsPanel.add(panel1, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel2 = new JPanel();
@@ -146,14 +146,14 @@ public class BuilderOptionsPanel {
         textField4 = new JTextField();
         panel10.add(textField4, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JPanel panel11 = new JPanel();
-        panel11.setLayout(new GridLayoutManager(1, 1, new Insets(10, 10, 10, 10), -1, -1));
+        panel11.setLayout(new GridLayoutManager(1, 1, new Insets(10, 50, 10, 50), -1, -1));
         panel11.setOpaque(false);
         builderOptionsPanel.add(panel11, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 1, false));
         defaultsButton = new JButton();
         defaultsButton.setText("Defaults");
         panel11.add(defaultsButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel12 = new JPanel();
-        panel12.setLayout(new GridLayoutManager(1, 2, new Insets(5, 10, 0, 10), -1, -1));
+        panel12.setLayout(new GridLayoutManager(1, 2, new Insets(5, 10, 0, 20), -1, -1));
         panel12.setOpaque(false);
         builderOptionsPanel.add(panel12, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         closeButton = new JButton();
@@ -162,7 +162,7 @@ public class BuilderOptionsPanel {
         final Spacer spacer1 = new Spacer();
         panel12.add(spacer1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final JPanel panel13 = new JPanel();
-        panel13.setLayout(new GridLayoutManager(1, 3, new Insets(0, 10, 0, 10), -1, -1));
+        panel13.setLayout(new GridLayoutManager(1, 3, new Insets(0, 30, 0, 30), -1, -1));
         panel13.setOpaque(false);
         builderOptionsPanel.add(panel13, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label10 = new JLabel();
