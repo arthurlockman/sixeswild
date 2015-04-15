@@ -3,6 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import com.sun.codemodel.internal.JOp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,12 +44,17 @@ public class BuilderEditorPanel
             public void mouseClicked(MouseEvent e)
             {
                 super.mouseClicked(e);
-                JPanel parent = (JPanel) builderEditorPanel.getParent();
-                CardLayout layout = (CardLayout) parent.getLayout();
-                layout.show(parent, "menuPanel");
-                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderEditorPanel);
-                topLevelFrame.setSize(new Dimension(500, 500));
-                topLevelFrame.setLocationRelativeTo(null);
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? " +
+                        "Level will not be saved.", "Wait!", JOptionPane.OK_CANCEL_OPTION);
+                if (result == 0)
+                {
+                    JPanel parent = (JPanel) builderEditorPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "menuPanel");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderEditorPanel);
+                    topLevelFrame.setSize(new Dimension(500, 500));
+                    topLevelFrame.setLocationRelativeTo(null);
+                }
             }
         });
     }
