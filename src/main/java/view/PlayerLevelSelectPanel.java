@@ -39,22 +39,22 @@ public class PlayerLevelSelectPanel
         });
 
         levelListModel = new DefaultListModel<Level>();
-        levelListModel.addElement(new ReleaseLevel("Level 1", "This is a level", 1, 10, 10, false));
+        levelListModel.addElement(new PuzzleLevel("Level 1", "This is a level", 1, 10, 10, false));
         levelListModel.addElement(new LightningLevel("Level 2", "This is a level", 2, 10, 10, true));
         levelListModel.addElement(new EliminationLevel("Level 3", "This is a level", 3, 10, 10, true));
-        levelListModel.addElement(new PuzzleLevel("Level 4", "This is a level", 4, 10, 10, true));
-        levelListModel.addElement(new ReleaseLevel("Level 5", "This is a level", 5, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 4", "This is a level", 4, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 5", "This is a level", 5, 10, 10, true));
         levelListModel.addElement(new LightningLevel("Level 6", "This is a level", 6, 10, 10, true));
         levelListModel.addElement(new EliminationLevel("Level 7", "This is a level", 7, 10, 10, true));
-        levelListModel.addElement(new PuzzleLevel("Level 8", "This is a level", 8, 10, 10, true));
-        levelListModel.addElement(new ReleaseLevel("Level 9", "This is a level", 9, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 8", "This is a level", 8, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 9", "This is a level", 9, 10, 10, true));
         levelListModel.addElement(new LightningLevel("Level 10", "This is a level", 10, 10, 10, true));
         levelListModel.addElement(new EliminationLevel("Level 11", "This is a level", 11, 10, 10, true));
-        levelListModel.addElement(new PuzzleLevel("Level 12", "This is a level", 12, 10, 10, true));
-        levelListModel.addElement(new ReleaseLevel("Level 13", "This is a level", 13, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 12", "This is a level", 12, 10, 10, true));
+        levelListModel.addElement(new PuzzleLevel("Level 13", "This is a level", 13, 10, 10, true));
         levelListModel.addElement(new LightningLevel("Level 14", "This is a level", 14, 10, 10, true));
         levelListModel.addElement(new EliminationLevel("Level 15", "This is a level", 15, 10, 10, true));
-        levelListModel.addElement(new PuzzleLevel("Level 16", "This is a level", 16, 10, 10, true));
+        levelListModel.addElement(new ReleaseLevel("Level 16", "This is a level", 16, 10, 10, true));
         levelList.setModel(levelListModel);
         levelList.setCellRenderer(new LevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -69,17 +69,16 @@ public class PlayerLevelSelectPanel
                 {
                     //Change card to level viewer, set current level of player to
                     //retrieved level.
-                    System.out.println(levelList.getSelectedValue().toString());
                     JPanel parent = (JPanel) playerLevelSelectPanel.getParent();
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "playPanel");
                     JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
                     topLevelFrame.setSize(new Dimension(700, 600));
                     topLevelFrame.setLocationRelativeTo(null);
-                }
-                else
+                } else
                 {
-                    System.out.println("Level locked.");
+                    JOptionPane.showMessageDialog(null, "Sorry, you'll have to unlock that level " +
+                            "before you can play it. Keep trying!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
@@ -121,6 +120,7 @@ public class PlayerLevelSelectPanel
         final Spacer spacer2 = new Spacer();
         menuBarPanel.add(spacer2, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         playButton = new JButton();
+        playButton.setHorizontalTextPosition(2);
         playButton.setText("Play");
         menuBarPanel.add(playButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelListScrollPane = new JScrollPane();

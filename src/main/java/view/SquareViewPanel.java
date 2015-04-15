@@ -2,6 +2,7 @@ package view;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import model.Square;
 import model.Tile;
 
 import javax.swing.*;
@@ -13,26 +14,29 @@ public class SquareViewPanel
     private JPanel squarePanel;
     private JLabel squareNumber;
     private JLabel multiplierLabel;
-    private Tile currentTile;
+    private Square currentSquare;
 
     public SquareViewPanel()
     {
-        this.currentTile = new Tile(3, 1);
+        this.currentSquare = new Square();
     }
 
-    public SquareViewPanel(Tile t)
+    public SquareViewPanel(Square s)
     {
-        this.currentTile = t;
+        this.currentSquare = s;
     }
 
-    private void createUIComponents()
+    public void setSquare(Square s)
     {
-        // TODO: place custom component creation code here
-        squarePanel = new JPanel();
-        squareNumber = new JLabel();
-        multiplierLabel = new JLabel();
+        this.currentSquare = s;
+        Tile currentTile = this.currentSquare.getTile();
         if (currentTile == null)
-            this.currentTile = new Tile(1 + (int) (Math.random() * 6), 1 + (int) (Math.random() * 3));
+        {
+            int tileNum = 1 + (int) (Math.random() * 6);
+            int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
+            currentSquare.replace(new Tile(tileNum, tileMult));
+        }
+        currentTile = this.currentSquare.getTile();
         switch (currentTile.getValue())
         {
             case 1:
@@ -73,6 +77,13 @@ public class SquareViewPanel
             multiplierLabel.setText(currentTile.getMultiplier() + "x");
         else
             multiplierLabel.setText("");
+    }
+
+    private void createUIComponents()
+    {
+        squarePanel = new JPanel();
+        squareNumber = new JLabel();
+        multiplierLabel = new JLabel();
     }
 
     {
