@@ -106,6 +106,7 @@ public class SquareViewPanel
         squarePanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         squarePanel.setMinimumSize(new Dimension(50, 50));
         squarePanel.setPreferredSize(new Dimension(50, 50));
+        squarePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), null));
         squareNumber.setHorizontalAlignment(0);
         squareNumber.setHorizontalTextPosition(0);
         squarePanel.add(squareNumber, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(25, 25), null, 0, false));
