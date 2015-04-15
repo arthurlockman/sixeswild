@@ -4,8 +4,15 @@ public class PuzzleLevel extends Level
 {
     int moveLimit;
 
-    public PuzzleLevel(String data)
+    public PuzzleLevel(String name, String description, int number,
+                       int highScore, int expectedScore, boolean locked)
     {
-        super(data);
+        super(name, description, number, highScore, expectedScore, locked);
+    }
+
+    @Override
+    public String getType()
+    {
+        return "Puzzle";
     }
 }

@@ -17,6 +17,11 @@
           <card name="menuPanel"/>
         </constraints>
       </nested-form>
+      <nested-form id="ccbd5" form-file="view/PlayerLevelSelectPanel.form" binding="playerLevelSelectPanel">
+        <constraints>
+          <card name="levelSelect"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>

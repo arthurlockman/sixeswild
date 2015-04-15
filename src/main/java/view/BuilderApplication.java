@@ -8,18 +8,19 @@ public class BuilderApplication extends JFrame
     private JPanel builderApplication;
     private BuilderMenuPanel builderMenuPanel;
     private SplashScreen splashScreen;
+    private BuilderLevelSelectPanel builderLevelSelectPanel;
 
     public BuilderApplication()
     {
         super("Sixes Wild");
         setContentPane(builderApplication);
         pack();
-        this.setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         ((CardLayout) builderApplication.getLayout()).show(builderApplication, "splash");
         this.setResizable(false);
         setSize(new Dimension(500, 600));
+        this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
     }
 
@@ -45,6 +46,8 @@ public class BuilderApplication extends JFrame
         builderApplication.add(builderMenuPanel.$$$getRootComponent$$$(), "menuPanel");
         splashScreen = new SplashScreen();
         builderApplication.add(splashScreen.$$$getRootComponent$$$(), "splash");
+        builderLevelSelectPanel = new BuilderLevelSelectPanel();
+        builderApplication.add(builderLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
     }
 
     /**
