@@ -58,11 +58,31 @@ public class PlayerLevelSelectPanel
         levelList.setModel(levelListModel);
         levelList.setCellRenderer(new LevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        playButton.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                super.mouseClicked(e);
+                if (!((Level) levelList.getSelectedValue()).isLocked())
+                    //Change card to level viewer, set current level of player to
+                    //retrieved level.
+                    System.out.println(levelList.getSelectedValue().toString());
+                else
+                    System.out.println("Level locked.");
+            }
+        });
     }
 
     private void createUIComponents()
     {
         // TODO: place custom component creation code here
+    }
+
+    public JButton getPlayButton()
+    {
+        return playButton;
     }
 
     /**
