@@ -8,7 +8,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class PlayerMenuPanel {
+public class PlayerMenuPanel
+{
     private JPanel playerMenuPanel;
     private JPanel menuPanel;
     private JPanel leftPanel;
@@ -21,8 +22,10 @@ public class PlayerMenuPanel {
 
     public PlayerMenuPanel()
     {
-        creditsButton.addMouseListener(new MouseAdapter() {
-            public void mouseReleased(MouseEvent e) {
+        creditsButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseReleased(MouseEvent e)
+            {
                 super.mouseReleased(e);
                 JPanel parent = (JPanel) playerMenuPanel.getParent();
                 CardLayout layout = (CardLayout) parent.getLayout();
@@ -59,7 +62,8 @@ public class PlayerMenuPanel {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         playerMenuPanel = new JPanel();
         playerMenuPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         bannerImage = new JLabel();
@@ -75,6 +79,7 @@ public class PlayerMenuPanel {
         leftPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         menuPanel.add(leftPanel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         playGameButton = new JButton();
+        playGameButton.setHorizontalTextPosition(2);
         playGameButton.setText("Play Game");
         leftPanel.add(playGameButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, new Dimension(-1, 100), new Dimension(-1, 100), new Dimension(-1, 100), 0, false));
         creditsButton = new JButton();
@@ -94,7 +99,8 @@ public class PlayerMenuPanel {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return playerMenuPanel;
     }
 }

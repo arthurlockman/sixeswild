@@ -75,8 +75,7 @@ public class PlayerLevelSelectPanel
                     JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
                     topLevelFrame.setSize(new Dimension(700, 600));
                     topLevelFrame.setLocationRelativeTo(null);
-                }
-                else
+                } else
                 {
                     JOptionPane.showMessageDialog(null, "Sorry, you'll have to unlock that level " +
                             "before you can play it. Keep trying!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
@@ -121,6 +120,7 @@ public class PlayerLevelSelectPanel
         final Spacer spacer2 = new Spacer();
         menuBarPanel.add(spacer2, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         playButton = new JButton();
+        playButton.setHorizontalTextPosition(2);
         playButton.setText("Play");
         menuBarPanel.add(playButton, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelListScrollPane = new JScrollPane();
