@@ -69,7 +69,6 @@ public class PlayerLevelSelectPanel
                 {
                     //Change card to level viewer, set current level of player to
                     //retrieved level.
-                    System.out.println(levelList.getSelectedValue().toString());
                     JPanel parent = (JPanel) playerLevelSelectPanel.getParent();
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "playPanel");
@@ -79,7 +78,8 @@ public class PlayerLevelSelectPanel
                 }
                 else
                 {
-                    System.out.println("Level locked.");
+                    JOptionPane.showMessageDialog(null, "Sorry, you'll have to unlock that level " +
+                            "before you can play it. Keep trying!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });

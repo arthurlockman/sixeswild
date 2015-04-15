@@ -27,12 +27,15 @@ public class SquareViewPanel
 
     private void createUIComponents()
     {
-        // TODO: place custom component creation code here
         squarePanel = new JPanel();
         squareNumber = new JLabel();
         multiplierLabel = new JLabel();
         if (currentTile == null)
-            this.currentTile = new Tile(1 + (int) (Math.random() * 6), 1 + (int) (Math.random() * 3));
+        {
+            int tileNum = 1 + (int) (Math.random() * 6);
+            int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
+            this.currentTile = new Tile(tileNum, tileMult);
+        }
         switch (currentTile.getValue())
         {
             case 1:
