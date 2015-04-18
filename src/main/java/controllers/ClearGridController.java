@@ -2,11 +2,11 @@ package controllers;
 
 import view.BuilderApplication;
 
-public class SetSpawnFrequencyController
+public class ClearGridController
 {
     BuilderApplication app;
 
-    public SetSpawnFrequencyController(BuilderApplication app)
+    public ClearGridController(BuilderApplication app)
     {
         this.app = app;
     }

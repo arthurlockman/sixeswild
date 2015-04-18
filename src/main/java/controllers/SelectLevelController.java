@@ -2,11 +2,11 @@ package controllers;
 
 import view.BuilderApplication;
 
-public class SetSpawnFrequencyController
+public class SelectLevelController
 {
     BuilderApplication app;
 
-    public SetSpawnFrequencyController(BuilderApplication app)
+    public SelectLevelController(BuilderApplication app)
     {
         this.app = app;
     }

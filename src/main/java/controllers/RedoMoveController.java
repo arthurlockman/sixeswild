@@ -2,11 +2,11 @@ package controllers;
 
 import view.BuilderApplication;
 
-public class SetSpawnFrequencyController
+public class RedoMoveController
 {
     BuilderApplication app;
 
-    public SetSpawnFrequencyController(BuilderApplication app)
+    public RedoMoveController(BuilderApplication app)
     {
         this.app = app;
     }
