@@ -6,7 +6,7 @@ public class SetLevelTimeController
 {
     BuilderApplication app;
 
-    public SetLEvelTimeController(BuilderApplication app)
+    public SetLevelTimeController(BuilderApplication app)
     {
         this.app = app;
     }
