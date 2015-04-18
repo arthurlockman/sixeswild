@@ -6,7 +6,7 @@ public class SetLevelSizeController
 {
     BuilderApplication app;
 
-    public SetLEvelSizeController(BuilderApplication app)
+    public SetLevelSizeController(BuilderApplication app)
     {
         this.app = app;
     }
