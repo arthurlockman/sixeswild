@@ -25,6 +25,6 @@ public class SwapSpecialMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

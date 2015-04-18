@@ -19,21 +19,17 @@ public class Badge
 
     public boolean isEarned()
     {
-
-
+        return false;
     }
 
     public String getName()
     {
-
-
-
+        return "String";
     }
 
     public String getDescription()
     {
-
-
+        return "String";
     }
 
 }

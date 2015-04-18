@@ -5,13 +5,6 @@ package model;
  */
 public interface IMove
 {
-    public void doMove()
-    {
-
-    }
-
-    public boolean isValid()
-    {
-
-    }
+    public void doMove();
+    public boolean isValid();
 }

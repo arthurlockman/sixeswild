@@ -7,9 +7,9 @@ public class LightningLevel extends Level
 {
     int timeLimit;
 
-    public LightningLevel()
+    public LightningLevel(String data)
     {
-
+        super(data);
     }
 
 

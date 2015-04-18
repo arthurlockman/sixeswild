@@ -17,8 +17,7 @@ public class BadgeRequirements
 
     boolean checkEarned()
     {
-
-
+        return false;
     }
 
 }

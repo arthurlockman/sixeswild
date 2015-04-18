@@ -6,10 +6,9 @@ package model;
 public class ReleaseLevel extends Level
 {
 
-    
-    public ReleaseLevel()
+    public ReleaseLevel(String data)
     {
-
+        super(data);
     }
 
 }

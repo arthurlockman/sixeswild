@@ -24,6 +24,6 @@ public class UserMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

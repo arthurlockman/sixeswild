@@ -20,6 +20,6 @@ public class RemoveTileMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

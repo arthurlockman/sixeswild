@@ -15,6 +15,6 @@ public class Timer
 
     public boolean run()
     {
-
+        return false;
     }
 }

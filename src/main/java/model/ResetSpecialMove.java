@@ -24,6 +24,6 @@ public class ResetSpecialMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

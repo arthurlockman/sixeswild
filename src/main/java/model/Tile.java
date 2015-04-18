@@ -16,6 +16,6 @@ public class Tile
 
     int getScore()
     {
-
+        return 0;
     }
 }

@@ -16,14 +16,14 @@ public class Board
 
     }
 
-    public boolean makeMove(Move m)
+    public boolean makeMove(IMove m)
     {
-
+        return true;
     }
 
     public boolean isWon()
     {
-
+        return true;
     }
 
     public void refresh()

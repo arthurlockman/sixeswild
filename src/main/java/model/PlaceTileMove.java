@@ -21,6 +21,6 @@ public class PlaceTileMove implements IMove
 
     public boolean isValid()
     {
-
+        return false;
     }
 }

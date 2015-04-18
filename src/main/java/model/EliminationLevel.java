@@ -7,9 +7,9 @@ public class EliminationLevel extends Level
 {
 
 
-    public EliminationLevel()
+    public EliminationLevel(String data)
     {
-
+        super(data);
 
     }
 
