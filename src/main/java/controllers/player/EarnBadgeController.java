@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class EarnBadgeController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public EarnBadgeController(BuilderApplication app)
+    public EarnBadgeController(PlayerApplication app)
     {
         this.app = app;
     }

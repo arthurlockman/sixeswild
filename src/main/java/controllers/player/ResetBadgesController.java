@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class ResetBadgesController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public ResetBadgesController(BuilderApplication app)
+    public ResetBadgesController(PlayerApplication app)
     {
         this.app = app;
     }

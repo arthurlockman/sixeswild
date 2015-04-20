@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class RemoveTileController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public RemoveTileController(BuilderApplication app)
+    public RemoveTileController(PlayerApplication app)
     {
         this.app = app;
     }

@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class CompleteLevelController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public CompleteLevelController(BuilderApplication app)
+    public CompleteLevelController(PlayerApplication app)
     {
         this.app = app;
     }

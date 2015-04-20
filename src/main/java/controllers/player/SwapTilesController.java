@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class SwapTilesController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public SwapTilesController(BuilderApplication app)
+    public SwapTilesController(PlayerApplication app)
     {
         this.app = app;
     }

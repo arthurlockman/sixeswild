@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class CompleteMoveController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public CompleteMoveController(BuilderApplication app)
+    public CompleteMoveController(PlayerApplication app)
     {
         this.app = app;
     }

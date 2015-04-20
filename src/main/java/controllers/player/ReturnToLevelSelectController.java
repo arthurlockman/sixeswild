@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class ReturnToLevelSelectController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public ReturnToLevelSelectController(BuilderApplication app)
+    public ReturnToLevelSelectController(PlayerApplication app)
     {
         this.app = app;
     }

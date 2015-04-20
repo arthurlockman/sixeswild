@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class StartGameController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public StartGameController(BuilderApplication app)
+    public StartGameController(PlayerApplication app)
     {
         this.app = app;
     }

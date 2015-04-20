@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class ResetBoardController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public ResetBoardController(BuilderApplication app)
+    public ResetBoardController(PlayerApplication app)
     {
         this.app = app;
     }

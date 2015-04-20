@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class ConnectTilesController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public ConnectTilesController(BuilderApplication app)
+    public ConnectTilesController(PlayerApplication app)
     {
         this.app = app;
     }

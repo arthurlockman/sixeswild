@@ -1,12 +1,12 @@
 package controllers.player;
 
-import view.BuilderApplication;
+import view.PlayerApplication;
 
 public class SelectLevelController
 {
-    BuilderApplication app;
+    PlayerApplication app;
 
-    public SelectLevelController(BuilderApplication app)
+    public SelectLevelController(PlayerApplication app)
     {
         this.app = app;
     }
