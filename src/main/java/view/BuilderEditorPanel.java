@@ -12,7 +12,8 @@ import java.awt.event.MouseEvent;
 /**
  * Created by arthurlockman on 4/15/15.
  */
-public class BuilderEditorPanel {
+public class BuilderEditorPanel
+{
     private JPanel builderEditorPanel;
     private JPanel menuBarPanel;
     private JButton backButton;
@@ -34,15 +35,20 @@ public class BuilderEditorPanel {
     private JButton undoButton;
     private JButton redoButton;
     private BuilderOptionsPanel optionsPanel;
+    private ButtonGroup tileSelectButtonGroup;
 
-    public BuilderEditorPanel() {
-        backButton.addMouseListener(new MouseAdapter() {
+    public BuilderEditorPanel()
+    {
+        backButton.addMouseListener(new MouseAdapter()
+        {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e)
+            {
                 super.mouseClicked(e);
                 int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? " +
                         "Level will not be saved.", "Wait!", JOptionPane.OK_CANCEL_OPTION);
-                if (result == 0) {
+                if (result == 0)
+                {
                     JPanel parent = (JPanel) builderEditorPanel.getParent();
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "menuPanel");
@@ -52,12 +58,25 @@ public class BuilderEditorPanel {
                 }
             }
         });
-        setFrequenciesButton.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
+        setFrequenciesButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
                 super.mouseClicked(e);
                 ((CardLayout) boardArea.getLayout()).show(boardArea, "optionsPanel");
             }
         });
+
+        tileSelectButtonGroup = new ButtonGroup();
+        tileSelectButtonGroup.add(inactiveRadioButton);
+        tileSelectButtonGroup.add(activeRadioButton);
+        tileSelectButtonGroup.add(sixRadioButton);
+        tileSelectButtonGroup.add(bucketRadioButton);
+    }
+
+    public ButtonGroup getTileSelectButtonGroup()
+    {
+        return tileSelectButtonGroup;
     }
 
     {
@@ -74,7 +93,8 @@ public class BuilderEditorPanel {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         builderEditorPanel = new JPanel();
         builderEditorPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         builderEditorPanel.setMaximumSize(new Dimension(880, 625));
@@ -219,7 +239,8 @@ public class BuilderEditorPanel {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return builderEditorPanel;
     }
 }
