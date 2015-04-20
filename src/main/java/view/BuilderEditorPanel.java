@@ -3,15 +3,14 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Board;
+import model.Level;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Created by arthurlockman on 4/15/15.
- */
 public class BuilderEditorPanel
 {
     private JPanel builderEditorPanel;
@@ -36,6 +35,8 @@ public class BuilderEditorPanel
     private JButton redoButton;
     private BuilderOptionsPanel optionsPanel;
     private ButtonGroup tileSelectButtonGroup;
+    private Level currentLevel;
+    private Board currentBoard;
 
     public BuilderEditorPanel()
     {
@@ -72,6 +73,13 @@ public class BuilderEditorPanel
         tileSelectButtonGroup.add(activeRadioButton);
         tileSelectButtonGroup.add(sixRadioButton);
         tileSelectButtonGroup.add(bucketRadioButton);
+        tileSelectButtonGroup.setSelected(activeRadioButton.getModel(), true);
+    }
+
+    public void createNewLevel()
+    {
+        currentBoard = new Board();
+        boardViewPanel.setBoard(currentBoard);
     }
 
     public ButtonGroup getTileSelectButtonGroup()

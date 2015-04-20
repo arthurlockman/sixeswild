@@ -79,6 +79,11 @@ public class SquareViewPanel
             multiplierLabel.setText(" ");
     }
 
+    public Square getSquare()
+    {
+        return this.currentSquare;
+    }
+
     private void createUIComponents()
     {
         squarePanel = new JPanel();
