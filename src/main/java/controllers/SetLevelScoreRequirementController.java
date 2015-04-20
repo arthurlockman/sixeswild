@@ -2,11 +2,11 @@ package controllers;
 
 import view.BuilderApplication;
 
-public class SetLevelParController
+public class SetLevelScoreRequirementController
 {
     BuilderApplication app;
 
-    public SetLevelParController(BuilderApplication app)
+    public SetLevelScoreRequirementController(BuilderApplication app)
     {
         this.app = app;
     }
