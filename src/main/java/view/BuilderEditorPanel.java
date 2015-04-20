@@ -8,6 +8,8 @@ import model.Level;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -24,7 +26,7 @@ public class BuilderEditorPanel
     private JRadioButton bucketRadioButton;
     private JTextField timeLimitSelector;
     private JTextField moveLimitSelector;
-    private JTextField scoreRequirementSelector;
+    private JTextField threeStarSelector;
     private JCheckBox specialMovesAllowedSelector;
     private JComboBox levelTypeSelector;
     private JButton setFrequenciesButton;
@@ -34,6 +36,7 @@ public class BuilderEditorPanel
     private JButton undoButton;
     private JButton redoButton;
     private BuilderOptionsPanel optionsPanel;
+    private JTextField twoStarSelector;
     private ButtonGroup tileSelectButtonGroup;
     private Level currentLevel;
     private Board currentBoard;
@@ -74,12 +77,83 @@ public class BuilderEditorPanel
         tileSelectButtonGroup.add(sixRadioButton);
         tileSelectButtonGroup.add(bucketRadioButton);
         tileSelectButtonGroup.setSelected(activeRadioButton.getModel(), true);
+
+        timeLimitSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        moveLimitSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        threeStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        threeStarSelector.setText("50");
+        twoStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        twoStarSelector.setText("10");
+
+        levelTypeSelector.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                JComboBox box = (JComboBox) e.getSource();
+                Object selected = box.getSelectedItem();
+                if (selected.toString().equals("Elimination"))
+                {
+                    timeLimitSelector.setEnabled(false);
+                    moveLimitSelector.setEnabled(false);
+                } else if (selected.toString().equals("Lightning"))
+                {
+                    timeLimitSelector.setEnabled(true);
+                    moveLimitSelector.setEnabled(false);
+                } else if (selected.toString().equals("Puzzle"))
+                {
+                    timeLimitSelector.setEnabled(false);
+                    moveLimitSelector.setEnabled(true);
+                } else if (selected.toString().equals("Release"))
+                {
+                    timeLimitSelector.setEnabled(false);
+                    moveLimitSelector.setEnabled(false);
+                }
+            }
+        });
+
+        levelTypeSelector.setSelectedIndex(0);
     }
 
     public void createNewLevel()
     {
         currentBoard = new Board();
         boardViewPanel.setBoard(currentBoard);
+    }
+
+    public BuilderOptionsPanel getOptionsPanel()
+    {
+        return optionsPanel;
+    }
+
+    public JComboBox getLevelTypeSelector()
+    {
+        return levelTypeSelector;
+    }
+
+    public JTextField getTimeLimitSelector()
+    {
+        return timeLimitSelector;
+    }
+
+    public JTextField getMoveLimitSelector()
+    {
+        return moveLimitSelector;
+    }
+
+    public JTextField getThreeStarSelector()
+    {
+        return threeStarSelector;
+    }
+
+    public JTextField getTwoStarSelector()
+    {
+        return twoStarSelector;
+    }
+
+    public JCheckBox getSpecialMovesAllowedSelector()
+    {
+        return specialMovesAllowedSelector;
     }
 
     public ButtonGroup getTileSelectButtonGroup()
@@ -155,14 +229,14 @@ public class BuilderEditorPanel
         panel6.setLayout(new GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel5.add(panel6, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel7 = new JPanel();
-        panel7.setLayout(new GridLayoutManager(5, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel7.setLayout(new GridLayoutManager(6, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel6.add(panel7, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         timeLimitSelector = new JTextField();
         panel7.add(timeLimitSelector, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         moveLimitSelector = new JTextField();
         panel7.add(moveLimitSelector, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        scoreRequirementSelector = new JTextField();
-        panel7.add(scoreRequirementSelector, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        threeStarSelector = new JTextField();
+        panel7.add(threeStarSelector, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         levelTypeSelector = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         defaultComboBoxModel1.addElement("Release");
@@ -172,7 +246,7 @@ public class BuilderEditorPanel
         levelTypeSelector.setModel(defaultComboBoxModel1);
         panel7.add(levelTypeSelector, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
-        label1.setText("Time Limit");
+        label1.setText("Time Limit (sec)");
         panel7.add(label1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("Move Limit");
@@ -183,13 +257,18 @@ public class BuilderEditorPanel
         final JLabel label4 = new JLabel();
         label4.setText("Level Type");
         panel7.add(label4, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label5 = new JLabel();
+        label5.setText("Two Star Score");
+        panel7.add(label5, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        twoStarSelector = new JTextField();
+        panel7.add(twoStarSelector, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         specialMovesAllowedSelector = new JCheckBox();
         specialMovesAllowedSelector.setHorizontalAlignment(0);
         specialMovesAllowedSelector.setText("Allow Special Moves");
         panel6.add(specialMovesAllowedSelector, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label5 = new JLabel();
-        label5.setText("<html><h1>Settings</h1></html>");
-        panel6.add(label5, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label6 = new JLabel();
+        label6.setText("<html><h1>Settings</h1></html>");
+        panel6.add(label6, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel8 = new JPanel();
         panel8.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel5.add(panel8, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -223,9 +302,9 @@ public class BuilderEditorPanel
         bucketRadioButton = new JRadioButton();
         bucketRadioButton.setText("Bucket");
         panel13.add(bucketRadioButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label6 = new JLabel();
-        label6.setText("<html><h1>Tiles</h1></html");
-        panel5.add(label6, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label7 = new JLabel();
+        label7.setText("<html><h1>Tiles</h1></html");
+        panel5.add(label7, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel14 = new JPanel();
         panel14.setLayout(new GridLayoutManager(1, 1, new Insets(0, 15, 15, 0), -1, -1));
         panel4.add(panel14, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
