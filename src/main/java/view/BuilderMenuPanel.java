@@ -21,6 +21,10 @@ public class BuilderMenuPanel {
 
     public BuilderMenuPanel()
     {
+        newLevelButton.setName("New Level");
+        editLevelButton.setName("Edit Level");
+        instructionsButton.setName("Instructions");
+        creditsButton.setName("Credits");
 
         creditsButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {

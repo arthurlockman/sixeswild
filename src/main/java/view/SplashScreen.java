@@ -27,6 +27,7 @@ public class SplashScreen {
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+        playButton.setName("Play Game");
     }
 
     {
