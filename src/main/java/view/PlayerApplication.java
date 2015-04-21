@@ -4,6 +4,8 @@ import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class PlayerApplication extends JFrame
 {
@@ -18,9 +20,7 @@ public class PlayerApplication extends JFrame
     {
         super("Sixes Wild");
         setContentPane(playerApplication);
-        pack();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
         ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
         this.setResizable(false);
         setSize(new Dimension(500, 600));
@@ -28,6 +28,53 @@ public class PlayerApplication extends JFrame
         this.setTitle("Sixes Wild");
         this.game = new Game();
         this.playerPlayPanel.setBoard(this.game.getBoard());
+
+        this.addWindowListener(new WindowListener()
+        {
+            //Add controllers once window is initialized.
+            @Override
+            public void windowOpened(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e)
+            {
+
+            }
+        });
+        setVisible(true);
     }
 
     {

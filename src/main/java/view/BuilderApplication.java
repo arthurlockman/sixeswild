@@ -28,10 +28,13 @@ public class BuilderApplication extends JFrame
 
         this.addWindowListener(new WindowListener()
         {
+            //Add controllers once window is initialized.
             @Override
             public void windowOpened(WindowEvent e)
             {
-
+                builderEditorPanel.getLevelTypeSelector().addActionListener(new
+                        SetLevelTypeController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
             }
 
             @Override
@@ -58,13 +61,10 @@ public class BuilderApplication extends JFrame
 
             }
 
-            //Add controllers once window is initialized.
             @Override
             public void windowActivated(WindowEvent e)
             {
-                builderEditorPanel.getLevelTypeSelector().addActionListener(new
-                        SetLevelTypeController((BuilderApplication) e.getWindow()));
-                builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
+
             }
 
             @Override
