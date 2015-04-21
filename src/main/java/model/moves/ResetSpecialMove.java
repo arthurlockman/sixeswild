@@ -1,12 +1,14 @@
-package model;
+package model.moves;
 
-public class UserMove implements IMove
+import model.Board;
+
+public class ResetSpecialMove implements IMove
 {
-    Square [] squares;
+    Board board;
 
-    public UserMove(Square [] squares)
+    public ResetSpecialMove(Board b)
     {
-        this.squares = squares;
+        this.board = b;
     }
 
     public boolean doMove()

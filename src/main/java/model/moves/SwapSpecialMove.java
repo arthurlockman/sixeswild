@@ -1,4 +1,6 @@
-package model;
+package model.moves;
+
+import model.Square;
 
 public class SwapSpecialMove implements IMove
 {
