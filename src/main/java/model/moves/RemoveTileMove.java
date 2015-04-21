@@ -1,4 +1,7 @@
-package model;
+package model.moves;
+
+import model.Square;
+import model.Tile;
 
 public class RemoveTileMove implements IMove
 {
