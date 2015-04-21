@@ -3,7 +3,6 @@ package model;
 public class Level
 {
     protected String name;
-    protected String description;
     protected int levelNumber;
     protected int highScore;
     protected int expectedScore;
@@ -15,15 +14,15 @@ public class Level
 
     }
 
-    public Level(String name, String description, int number,
-                 int highScore, int expectedScore, boolean locked)
+    public Level(String name, int number,
+                 int highScore, int expectedScore, String levelData, boolean locked)
     {
         this.name = name;
         this.levelNumber = number;
         this.highScore = highScore;
         this.expectedScore = expectedScore;
+        this.levelData = levelData;
         this.locked = locked;
-        this.description = description;
     }
 
     public String getName()
@@ -31,10 +30,6 @@ public class Level
         return name;
     }
 
-    public String getDescription()
-    {
-        return description;
-    }
 
     public int getHighScore()
     {
@@ -44,7 +39,7 @@ public class Level
     @Override
     public String toString()
     {
-        return "<html><b>Level " + levelNumber + ":</b> " + description +
+        return "<html><b>Level " + levelNumber + ":</b> " +
                 " <i>(High Score: " + highScore + ", Type: " + this.getType() + ")</i></html>";
     }
 

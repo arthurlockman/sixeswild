@@ -4,10 +4,11 @@ public class PuzzleLevel extends Level
 {
     int moveLimit;
 
-    public PuzzleLevel(String name, String description, int number,
-                       int highScore, int expectedScore, boolean locked)
+    public PuzzleLevel(String name, int number,
+                       int highScore, int expectedScore, String levelData, boolean locked, int mLim)
     {
-        super(name, description, number, highScore, expectedScore, locked);
+        super(name, number, highScore, expectedScore, levelData, locked);
+        moveLimit = mLim;
     }
 
     @Override

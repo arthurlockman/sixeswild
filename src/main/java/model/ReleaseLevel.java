@@ -2,10 +2,10 @@ package model;
 
 public class ReleaseLevel extends Level
 {
-    public ReleaseLevel(String name, String description, int number,
-                        int highScore, int expectedScore, boolean locked)
+    public ReleaseLevel(String name, int number,
+                        int highScore, int expectedScore, String levelData, boolean locked)
     {
-        super(name, description, number, highScore, expectedScore, locked);
+        super(name, number, highScore, expectedScore, levelData, locked);
     }
 
     @Override
