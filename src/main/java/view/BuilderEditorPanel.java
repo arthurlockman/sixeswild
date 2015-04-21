@@ -3,6 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import controllers.builder.SetLevelTypeController;
 import model.Board;
 import model.Level;
 
@@ -84,41 +85,17 @@ public class BuilderEditorPanel
         threeStarSelector.setText("50");
         twoStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
         twoStarSelector.setText("10");
-
-        levelTypeSelector.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                JComboBox box = (JComboBox) e.getSource();
-                Object selected = box.getSelectedItem();
-                if (selected.toString().equals("Elimination"))
-                {
-                    timeLimitSelector.setEnabled(false);
-                    moveLimitSelector.setEnabled(false);
-                } else if (selected.toString().equals("Lightning"))
-                {
-                    timeLimitSelector.setEnabled(true);
-                    moveLimitSelector.setEnabled(false);
-                } else if (selected.toString().equals("Puzzle"))
-                {
-                    timeLimitSelector.setEnabled(false);
-                    moveLimitSelector.setEnabled(true);
-                } else if (selected.toString().equals("Release"))
-                {
-                    timeLimitSelector.setEnabled(false);
-                    moveLimitSelector.setEnabled(false);
-                }
-            }
-        });
-
-        levelTypeSelector.setSelectedIndex(0);
     }
 
     public void createNewLevel()
     {
         currentBoard = new Board();
         boardViewPanel.setBoard(currentBoard);
+    }
+
+    public void setCurrentLevel(Level l)
+    {
+        currentLevel = l;
     }
 
     public BuilderOptionsPanel getOptionsPanel()
@@ -134,6 +111,11 @@ public class BuilderEditorPanel
     public JTextField getTimeLimitSelector()
     {
         return timeLimitSelector;
+    }
+
+    public Level getCurrentLevel()
+    {
+        return currentLevel;
     }
 
     public JTextField getMoveLimitSelector()

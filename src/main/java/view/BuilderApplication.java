@@ -1,7 +1,11 @@
 package view;
 
+import controllers.builder.SetLevelTypeController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class BuilderApplication extends JFrame
 {
@@ -23,6 +27,53 @@ public class BuilderApplication extends JFrame
         setSize(new Dimension(500, 600));
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
+
+        this.addWindowListener(new WindowListener()
+        {
+            @Override
+            public void windowOpened(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowIconified(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e)
+            {
+
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e)
+            {
+                builderEditorPanel.getLevelTypeSelector().addActionListener(new
+                        SetLevelTypeController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e)
+            {
+
+            }
+        });
     }
 
     public JPanel getBuilderApplication()
