@@ -51,18 +51,27 @@ public class BuilderOptionsPanel
             }
         });
 
+        defaultsButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                super.mouseClicked(e);
+                setFrequenciesToDefault();
+            }
+        });
+
         Integer min = 0;
         Integer max = 100;
         Integer step = 1;
-        tile1Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        tile2Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        tile3Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        tile4Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        tile5Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        tile6Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        mult2Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        mult1Model = new SpinnerNumberModel(new Integer(10), min, max, step);
-        mult3Model = new SpinnerNumberModel(new Integer(10), min, max, step);
+        tile1Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        tile2Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        tile3Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        tile4Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        tile5Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        tile6Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        mult2Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        mult1Model = new SpinnerNumberModel(new Integer(0), min, max, step);
+        mult3Model = new SpinnerNumberModel(new Integer(0), min, max, step);
 
         tile1Freq.setModel(tile1Model);
         mult1Freq.setModel(mult1Model);
@@ -99,6 +108,36 @@ public class BuilderOptionsPanel
         mult2Model.addChangeListener(modelChangeListener);
         mult1Model.addChangeListener(modelChangeListener);
         mult3Model.addChangeListener(modelChangeListener);
+
+        this.setFrequenciesToDefault();
+
+    }
+
+    public void setFrequencies(int tile1, int tile2, int tile3, int tile4,
+                               int tile5, int tile6, int mult1, int mult2, int mult3)
+    {
+        tile1Model.setValue(tile1);
+        tile2Model.setValue(tile2);
+        tile3Model.setValue(tile3);
+        tile4Model.setValue(tile4);
+        tile5Model.setValue(tile5);
+        tile6Model.setValue(tile6);
+        mult1Model.setValue(mult1);
+        mult2Model.setValue(mult2);
+        mult3Model.setValue(mult3);
+    }
+
+    public void setFrequenciesToDefault()
+    {
+        tile1Model.setValue(20);
+        tile2Model.setValue(30);
+        tile3Model.setValue(20);
+        tile4Model.setValue(15);
+        tile5Model.setValue(10);
+        tile6Model.setValue(5);
+        mult1Model.setValue(70);
+        mult2Model.setValue(20);
+        mult3Model.setValue(10);
     }
 
     {

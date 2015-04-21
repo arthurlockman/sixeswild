@@ -60,6 +60,7 @@ public class BuilderApplication extends JFrame
 
             }
 
+            //Add controllers once window is initialized.
             @Override
             public void windowActivated(WindowEvent e)
             {
