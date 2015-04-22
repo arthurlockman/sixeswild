@@ -5,9 +5,9 @@ import lib.GUITestCase;
 
 import java.awt.*;
 
-public class TestPlaceTileController extends GUITestCase
+public class TestPlaceTilesController extends GUITestCase
 {
-    public TestPlaceTileController()
+    public TestPlaceTilesController()
     {
         super(BuilderLauncher.class);
     }
