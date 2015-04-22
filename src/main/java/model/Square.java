@@ -4,7 +4,7 @@ public class Square
 {
     Tile tile;
     boolean isInert;
-    boolean isMarked;
+    boolean marked;
 
     public Square(Tile t)
     {
@@ -56,6 +56,15 @@ public class Square
     public Tile getTile()
     {
         return this.tile;
+    }
+
+    public void setMarked(boolean m) {
+        marked = m;
+    }
+
+    public boolean isMarked()
+    {
+        return marked;
     }
 
     @Override

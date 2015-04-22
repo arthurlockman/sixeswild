@@ -151,7 +151,9 @@
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                             </constraints>
-                            <properties/>
+                            <properties>
+                              <name value="timeLimitSelector"/>
+                            </properties>
                           </component>
                           <component id="6176c" class="javax.swing.JTextField" binding="moveLimitSelector">
                             <constraints>
@@ -159,7 +161,9 @@
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                             </constraints>
-                            <properties/>
+                            <properties>
+                              <name value="moveLimitSelector"/>
+                            </properties>
                           </component>
                           <component id="82437" class="javax.swing.JTextField" binding="threeStarSelector">
                             <constraints>
@@ -167,7 +171,9 @@
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                             </constraints>
-                            <properties/>
+                            <properties>
+                              <name value="threeStarScoreSelector"/>
+                            </properties>
                           </component>
                           <component id="fd065" class="javax.swing.JComboBox" binding="levelTypeSelector">
                             <constraints>
@@ -180,6 +186,7 @@
                                 <item value="Lightning"/>
                                 <item value="Puzzle"/>
                               </model>
+                              <name value="levelTypeSelector"/>
                             </properties>
                           </component>
                           <component id="a7909" class="javax.swing.JLabel">
@@ -228,7 +235,9 @@
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                             </constraints>
-                            <properties/>
+                            <properties>
+                              <name value="twoStarScoreSelector"/>
+                            </properties>
                           </component>
                         </children>
                       </grid>
@@ -238,6 +247,7 @@
                         </constraints>
                         <properties>
                           <horizontalAlignment value="0"/>
+                          <name value="allowSpecialSelector"/>
                           <text value="Allow Special Moves"/>
                         </properties>
                       </component>
@@ -290,6 +300,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <name value="activeTileButton"/>
                               <text value="Active"/>
                             </properties>
                           </component>
@@ -308,6 +319,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <name value="inactiveTileButton"/>
                               <text value="Inactive"/>
                             </properties>
                           </component>
@@ -326,6 +338,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <name value="sixTileButton"/>
                               <text value="Six"/>
                             </properties>
                           </component>
@@ -344,6 +357,7 @@
                               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                             </constraints>
                             <properties>
+                              <name value="bucketTileButton"/>
                               <text value="Bucket"/>
                             </properties>
                           </component>

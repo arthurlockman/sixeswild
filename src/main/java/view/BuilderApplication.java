@@ -1,5 +1,6 @@
 package view;
 
+import controllers.builder.PlaceTileController;
 import controllers.builder.SetLevelTypeController;
 
 import javax.swing.*;
@@ -35,6 +36,10 @@ public class BuilderApplication extends JFrame
                 builderEditorPanel.getLevelTypeSelector().addActionListener(new
                         SetLevelTypeController((BuilderApplication) e.getWindow()));
                 builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
+                for (Integer i = 0; i <= 80; i++)
+                    builderEditorPanel.getBoardViewPanel().getSquareView(i).attachMouseAdapter(new
+                            PlaceTileController((BuilderApplication) e.getWindow(),
+                            builderEditorPanel.getBoardViewPanel().getSquareView(i)));
             }
 
             @Override

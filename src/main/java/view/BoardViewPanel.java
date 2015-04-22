@@ -6,6 +6,7 @@ import model.Board;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.util.HashMap;
 
 public class BoardViewPanel
@@ -180,6 +181,11 @@ public class BoardViewPanel
         boardMap.put(78, squareViewPanel79);
         boardMap.put(79, squareViewPanel80);
         boardMap.put(80, squareViewPanel81);
+
+        for (Integer i = 0; i <= 80; i++)
+        {
+            this.getSquareView(i).setName("square" + i);
+        }
     }
 
     public BoardViewPanel(Board b)

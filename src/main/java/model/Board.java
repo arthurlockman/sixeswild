@@ -26,9 +26,11 @@ public class Board
         squares = new Square[81];
         for (int i = 0; i < 81; i++)
         {
-            int tileNum = 1 + (int) (Math.random() * 6);
-            int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
-            squares[i] = new Square(new Tile(tileNum, tileMult));
+//            int tileNum = 1 + (int) (Math.random() * 6);
+//            int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
+//            squares[i] = new Square(new Tile(tileNum, tileMult));
+            squares[i] = new Square();
+            squares[i].setInactive();
         }
     }
 
