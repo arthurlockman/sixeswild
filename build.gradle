@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:1.0.2'
+    }
+}
+
+apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
@@ -22,6 +32,28 @@ jacocoTestReport {
         xml.enabled false
         csv.enabled false
         html.destination "${buildDir}/reports/jacocoHtml"
+    }
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'com/intellij/**')
+        })
+    }
+}
+
+coveralls {
+    sourceDirs = files(subprojects.sourceSets.main.allSource.srcDirs).files.absolutePath
+}
+
+task jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
+    dependsOn = subprojects.test
+    sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
+    classDirectories =  files(subprojects.sourceSets.main.output)
+    executionData = files(subprojects.jacocoTestReport.executionData)
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        csv.enabled = false
+        xml.destination = "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
     }
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
