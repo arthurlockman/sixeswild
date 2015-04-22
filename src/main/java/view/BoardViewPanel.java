@@ -206,6 +206,15 @@ public class BoardViewPanel
         this.refresh();
     }
 
+    /**
+     * Get the currently active board.
+     * @return The board.
+     */
+    public Board getBoard()
+    {
+        return board;
+    }
+
 
     /**
      * Refresh the board view to reflect board changes.

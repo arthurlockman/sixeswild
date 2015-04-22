@@ -1,6 +1,8 @@
 package view;
 
-import controllers.builder.PlaceTileController;
+import controllers.builder.RedoEditController;
+import controllers.builder.UndoEditController;
+import controllers.builder.UpdateSquareController;
 import controllers.builder.SetLevelTypeController;
 
 import javax.swing.*;
@@ -38,8 +40,12 @@ public class BuilderApplication extends JFrame
                 builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
                 for (Integer i = 0; i <= 80; i++)
                     builderEditorPanel.getBoardViewPanel().getSquareView(i).attachMouseAdapter(new
-                            PlaceTileController((BuilderApplication) e.getWindow(),
+                            UpdateSquareController((BuilderApplication) e.getWindow(),
                             builderEditorPanel.getBoardViewPanel().getSquareView(i)));
+                builderEditorPanel.getUndoButton().addMouseListener(new
+                        UndoEditController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getRedoButton().addMouseListener(new
+                        RedoEditController((BuilderApplication) e.getWindow()));
             }
 
             @Override
