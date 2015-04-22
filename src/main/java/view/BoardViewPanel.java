@@ -146,8 +146,8 @@ public class BoardViewPanel
         boardMap.put(43, squareViewPanel44);
         boardMap.put(44, squareViewPanel45);
         boardMap.put(45, squareViewPanel46);
-        boardMap.put(46, squareViewPanel48);
-        boardMap.put(47, squareViewPanel47);
+        boardMap.put(46, squareViewPanel47);
+        boardMap.put(47, squareViewPanel48);
         boardMap.put(48, squareViewPanel49);
         boardMap.put(49, squareViewPanel50);
         boardMap.put(50, squareViewPanel51);

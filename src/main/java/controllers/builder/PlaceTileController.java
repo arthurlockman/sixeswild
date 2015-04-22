@@ -28,20 +28,25 @@ public class PlaceTileController extends MouseAdapter
     {
         super.mouseClicked(e);
         String tileType = "";
-        for (Enumeration<AbstractButton> buttons = tileSelect.getElements(); buttons.hasMoreElements();) {
+        for (Enumeration<AbstractButton> buttons = tileSelect.getElements(); buttons.hasMoreElements(); )
+        {
             AbstractButton button = buttons.nextElement();
 
-            if (button.isSelected()) {
-                System.out.println(button.getText());
+            if (button.isSelected())
+            {
                 tileType = button.getText();
             }
         }
 
         //Place tile based on selected type.
-        square.getSquare().setMarked(false);
-        square.getSquare().setActive();
+        if (!tileType.equals(""))
+        {
+            square.getSquare().setMarked(false);
+            square.getSquare().setActive();
+        }
         if (tileType.equals("Active"))
         {
+            square.getSquare().replace(new Tile(0, 1));
         } else if (tileType.equals("Inactive"))
         {
             square.getSquare().setInactive();

@@ -50,8 +50,8 @@ public class SquareViewPanel
             //TODO: Remove this once actual boards are generated.
             if (currentTile == null)
             {
-//                int tileNum = 1 + (int) (Math.random() * 6);
-//                int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
+                int tileNum = 1 + (int) (Math.random() * 6);
+                int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
                 currentSquare.replace(new Tile(0, 1));
             }
             currentTile = this.currentSquare.getTile();
@@ -59,6 +59,7 @@ public class SquareViewPanel
             {
                 case 0:
                     squarePanel.setBackground(new Color(187, 242, 226));
+                    break;
                 case 1:
                     squarePanel.setBackground(new Color(99, 189, 179)); //1
                     break;
@@ -95,7 +96,7 @@ public class SquareViewPanel
             if (currentTile.getValue() != 0)
                 squareNumber.setText("" + currentTile.getValue());
             else
-                squareNumber.setText("");
+                squareNumber.setText(" ");
             if (currentTile.getMultiplier() != 1)
                 multiplierLabel.setText(currentTile.getMultiplier() + "x");
             else
