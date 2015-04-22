@@ -3,28 +3,28 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Board;
+import model.Level;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-/**
- * Created by arthurlockman on 4/15/15.
- */
-public class BuilderEditorPanel {
+public class BuilderEditorPanel
+{
     private JPanel builderEditorPanel;
     private JPanel menuBarPanel;
     private JButton backButton;
     private JLabel titleLabel;
-    private JButton saveButton;
+    private JButton saveAndExitButton;
     private JRadioButton inactiveRadioButton;
     private JRadioButton activeRadioButton;
     private JRadioButton sixRadioButton;
     private JRadioButton bucketRadioButton;
     private JTextField timeLimitSelector;
     private JTextField moveLimitSelector;
-    private JTextField scoreRequirementSelector;
+    private JTextField threeStarSelector;
     private JCheckBox specialMovesAllowedSelector;
     private JComboBox levelTypeSelector;
     private JButton setFrequenciesButton;
@@ -34,15 +34,23 @@ public class BuilderEditorPanel {
     private JButton undoButton;
     private JButton redoButton;
     private BuilderOptionsPanel optionsPanel;
+    private JTextField twoStarSelector;
+    private ButtonGroup tileSelectButtonGroup;
+    private Level currentLevel;
+    private Board currentBoard;
 
-    public BuilderEditorPanel() {
-        backButton.addMouseListener(new MouseAdapter() {
+    public BuilderEditorPanel()
+    {
+        backButton.addMouseListener(new MouseAdapter()
+        {
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseClicked(MouseEvent e)
+            {
                 super.mouseClicked(e);
                 int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit? " +
                         "Level will not be saved.", "Wait!", JOptionPane.OK_CANCEL_OPTION);
-                if (result == 0) {
+                if (result == 0)
+                {
                     JPanel parent = (JPanel) builderEditorPanel.getParent();
                     CardLayout layout = (CardLayout) parent.getLayout();
                     layout.show(parent, "menuPanel");
@@ -52,12 +60,89 @@ public class BuilderEditorPanel {
                 }
             }
         });
-        setFrequenciesButton.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
+        setFrequenciesButton.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
                 super.mouseClicked(e);
                 ((CardLayout) boardArea.getLayout()).show(boardArea, "optionsPanel");
             }
         });
+
+        tileSelectButtonGroup = new ButtonGroup();
+        tileSelectButtonGroup.add(inactiveRadioButton);
+        tileSelectButtonGroup.add(activeRadioButton);
+        tileSelectButtonGroup.add(sixRadioButton);
+        tileSelectButtonGroup.add(bucketRadioButton);
+        tileSelectButtonGroup.setSelected(activeRadioButton.getModel(), true);
+
+        timeLimitSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        moveLimitSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        threeStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        threeStarSelector.setText("50");
+        twoStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
+        twoStarSelector.setText("10");
+    }
+
+    public void createNewLevel()
+    {
+        currentBoard = new Board();
+        boardViewPanel.setBoard(currentBoard);
+    }
+
+    public void setCurrentLevel(Level l)
+    {
+        currentLevel = l;
+    }
+
+    public BuilderOptionsPanel getOptionsPanel()
+    {
+        return optionsPanel;
+    }
+
+    public JComboBox getLevelTypeSelector()
+    {
+        return levelTypeSelector;
+    }
+
+    public JTextField getTimeLimitSelector()
+    {
+        return timeLimitSelector;
+    }
+
+    public Level getCurrentLevel()
+    {
+        return currentLevel;
+    }
+
+    public JTextField getMoveLimitSelector()
+    {
+        return moveLimitSelector;
+    }
+
+    public JTextField getThreeStarSelector()
+    {
+        return threeStarSelector;
+    }
+
+    public JTextField getTwoStarSelector()
+    {
+        return twoStarSelector;
+    }
+
+    public JCheckBox getSpecialMovesAllowedSelector()
+    {
+        return specialMovesAllowedSelector;
+    }
+
+    public ButtonGroup getTileSelectButtonGroup()
+    {
+        return tileSelectButtonGroup;
+    }
+
+    public BoardViewPanel getBoardViewPanel()
+    {
+        return boardViewPanel;
     }
 
     {
@@ -74,7 +159,8 @@ public class BuilderEditorPanel {
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$() {
+    private void $$$setupUI$$$()
+    {
         builderEditorPanel = new JPanel();
         builderEditorPanel.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         builderEditorPanel.setMaximumSize(new Dimension(880, 625));
@@ -87,36 +173,36 @@ public class BuilderEditorPanel {
         panel2.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel2, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         menuBarPanel = new JPanel();
-        menuBarPanel.setLayout(new GridLayoutManager(1, 8, new Insets(0, 10, 0, 0), -1, -1));
+        menuBarPanel.setLayout(new GridLayoutManager(1, 9, new Insets(0, 10, 0, 0), -1, -1));
         menuBarPanel.setBackground(new Color(-3167898));
         panel2.add(menuBarPanel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         backButton = new JButton();
-        backButton.setText("Back");
+        backButton.setText("Exit");
         menuBarPanel.add(backButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
-        menuBarPanel.add(spacer1, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        menuBarPanel.add(spacer1, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         titleLabel = new JLabel();
         titleLabel.setText("Edit Level");
-        menuBarPanel.add(titleLabel, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        menuBarPanel.add(titleLabel, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
-        menuBarPanel.add(spacer2, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        menuBarPanel.add(spacer2, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();
-        panel3.setLayout(new GridLayoutManager(1, 4, new Insets(0, 0, 0, 15), -1, -1));
+        panel3.setLayout(new GridLayoutManager(1, 3, new Insets(0, 0, 0, 15), -1, -1));
         panel3.setOpaque(false);
-        menuBarPanel.add(panel3, new GridConstraints(0, 4, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        saveButton = new JButton();
-        saveButton.setHorizontalTextPosition(2);
-        saveButton.setText("Save");
-        panel3.add(saveButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        menuBarPanel.add(panel3, new GridConstraints(0, 5, 1, 4, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         previewButton = new JButton();
         previewButton.setText("Preview");
-        panel3.add(previewButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel3.add(previewButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         undoButton = new JButton();
         undoButton.setIcon(new ImageIcon(getClass().getResource("/view/numix-icons/16x16/undo.png")));
-        panel3.add(undoButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel3.add(undoButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         redoButton = new JButton();
         redoButton.setIcon(new ImageIcon(getClass().getResource("/view/numix-icons/16x16/redo.png")));
-        panel3.add(redoButton, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel3.add(redoButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        saveAndExitButton = new JButton();
+        saveAndExitButton.setHorizontalTextPosition(2);
+        saveAndExitButton.setText("Save and Exit");
+        menuBarPanel.add(saveAndExitButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel1.add(panel4, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -127,14 +213,17 @@ public class BuilderEditorPanel {
         panel6.setLayout(new GridLayoutManager(3, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel5.add(panel6, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel7 = new JPanel();
-        panel7.setLayout(new GridLayoutManager(5, 2, new Insets(0, 0, 0, 0), -1, -1));
+        panel7.setLayout(new GridLayoutManager(6, 2, new Insets(0, 0, 0, 0), -1, -1));
         panel6.add(panel7, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         timeLimitSelector = new JTextField();
+        timeLimitSelector.setName("timeLimitSelector");
         panel7.add(timeLimitSelector, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         moveLimitSelector = new JTextField();
+        moveLimitSelector.setName("moveLimitSelector");
         panel7.add(moveLimitSelector, new GridConstraints(2, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        scoreRequirementSelector = new JTextField();
-        panel7.add(scoreRequirementSelector, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        threeStarSelector = new JTextField();
+        threeStarSelector.setName("threeStarScoreSelector");
+        panel7.add(threeStarSelector, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         levelTypeSelector = new JComboBox();
         final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
         defaultComboBoxModel1.addElement("Release");
@@ -142,9 +231,10 @@ public class BuilderEditorPanel {
         defaultComboBoxModel1.addElement("Lightning");
         defaultComboBoxModel1.addElement("Puzzle");
         levelTypeSelector.setModel(defaultComboBoxModel1);
+        levelTypeSelector.setName("levelTypeSelector");
         panel7.add(levelTypeSelector, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
-        label1.setText("Time Limit");
+        label1.setText("Time Limit (sec)");
         panel7.add(label1, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("Move Limit");
@@ -155,13 +245,20 @@ public class BuilderEditorPanel {
         final JLabel label4 = new JLabel();
         label4.setText("Level Type");
         panel7.add(label4, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label5 = new JLabel();
+        label5.setText("Two Star Score");
+        panel7.add(label5, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        twoStarSelector = new JTextField();
+        twoStarSelector.setName("twoStarScoreSelector");
+        panel7.add(twoStarSelector, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         specialMovesAllowedSelector = new JCheckBox();
         specialMovesAllowedSelector.setHorizontalAlignment(0);
+        specialMovesAllowedSelector.setName("allowSpecialSelector");
         specialMovesAllowedSelector.setText("Allow Special Moves");
         panel6.add(specialMovesAllowedSelector, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label5 = new JLabel();
-        label5.setText("<html><h1>Settings</h1></html>");
-        panel6.add(label5, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label6 = new JLabel();
+        label6.setText("<html><h1>Settings</h1></html>");
+        panel6.add(label6, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel8 = new JPanel();
         panel8.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel5.add(panel8, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -175,29 +272,33 @@ public class BuilderEditorPanel {
         panel10.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel9.add(panel10, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         activeRadioButton = new JRadioButton();
+        activeRadioButton.setName("activeTileButton");
         activeRadioButton.setText("Active");
         panel10.add(activeRadioButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel11 = new JPanel();
         panel11.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel9.add(panel11, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         inactiveRadioButton = new JRadioButton();
+        inactiveRadioButton.setName("inactiveTileButton");
         inactiveRadioButton.setText("Inactive");
         panel11.add(inactiveRadioButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel12 = new JPanel();
         panel12.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel9.add(panel12, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         sixRadioButton = new JRadioButton();
+        sixRadioButton.setName("sixTileButton");
         sixRadioButton.setText("Six");
         panel12.add(sixRadioButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel13 = new JPanel();
         panel13.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         panel9.add(panel13, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         bucketRadioButton = new JRadioButton();
+        bucketRadioButton.setName("bucketTileButton");
         bucketRadioButton.setText("Bucket");
         panel13.add(bucketRadioButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label6 = new JLabel();
-        label6.setText("<html><h1>Tiles</h1></html");
-        panel5.add(label6, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label7 = new JLabel();
+        label7.setText("<html><h1>Tiles</h1></html");
+        panel5.add(label7, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel14 = new JPanel();
         panel14.setLayout(new GridLayoutManager(1, 1, new Insets(0, 15, 15, 0), -1, -1));
         panel4.add(panel14, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -219,7 +320,8 @@ public class BuilderEditorPanel {
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$() {
+    public JComponent $$$getRootComponent$$$()
+    {
         return builderEditorPanel;
     }
 }

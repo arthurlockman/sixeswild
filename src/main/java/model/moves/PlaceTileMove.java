@@ -7,6 +7,7 @@ public class PlaceTileMove implements IMove
 {
     Tile tile;
     Square square;
+    Tile previous;
 
     public PlaceTileMove(Tile t, Square s)
     {
@@ -16,11 +17,20 @@ public class PlaceTileMove implements IMove
 
     public boolean doMove()
     {
-        return false;
+        if (!isValid()) return false;
+        previous = square.getTile();
+        square.replace(tile);
+        return true;
     }
 
     public boolean isValid()
     {
-        return false;
+        return true;
+    }
+
+    public boolean undo()
+    {
+        square.replace(previous);
+        return true;
     }
 }

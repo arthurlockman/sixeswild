@@ -6,8 +6,10 @@ import model.Square;
 import model.Tile;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionAdapter;
 
 public class SquareViewPanel
 {
@@ -15,68 +17,119 @@ public class SquareViewPanel
     private JLabel squareNumber;
     private JLabel multiplierLabel;
     private Square currentSquare;
+    private MouseAdapter currentMouseAdapter;
+    private MouseMotionAdapter currentMouseMotionAdapter;
 
     public SquareViewPanel()
     {
-        this.currentSquare = new Square();
+        $$$setupUI$$$();
+        this.setSquare(new Square());
     }
 
     public SquareViewPanel(Square s)
     {
-        this.currentSquare = s;
+        $$$setupUI$$$();
+        this.setSquare(s);
     }
 
     public void setSquare(Square s)
     {
         this.currentSquare = s;
-        Tile currentTile = this.currentSquare.getTile();
-        if (currentTile == null)
-        {
-            int tileNum = 1 + (int) (Math.random() * 6);
-            int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
-            currentSquare.replace(new Tile(tileNum, tileMult));
-        }
-        currentTile = this.currentSquare.getTile();
-        switch (currentTile.getValue())
-        {
-            case 1:
-                squarePanel.setBackground(new Color(99, 189, 179)); //1
-                break;
-            case 2:
-                squarePanel.setBackground(new Color(207, 169, 102)); //2
-                break;
-            case 3:
-                squarePanel.setBackground(new Color(86, 95, 182)); //3
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
-                break;
-            case 4:
-                squarePanel.setBackground(new Color(91, 44, 125)); //4
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
-                break;
-            case 5:
-                squarePanel.setBackground(new Color(120, 0, 50)); //5
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
-                break;
-            case 6:
-                squarePanel.setBackground(new Color(65, 0, 50)); //6
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
-                break;
-            default:
-                squarePanel.setBackground(new Color(65, 0, 50)); //6
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
-                break;
-        }
+        refresh();
+    }
 
-        squareNumber.setText("" + currentTile.getValue());
-        if (currentTile.getMultiplier() != 1)
-            multiplierLabel.setText(currentTile.getMultiplier() + "x");
-        else
+    public void refresh()
+    {
+        if (currentSquare.isMarked())
+        {
+            squareNumber.setText("Bckt");
+            squarePanel.setBackground(new Color(227, 242, 209));
+        } else if (currentSquare.isActive())
+        {
+            Tile currentTile = this.currentSquare.getTile();
+            //TODO: Remove this once actual boards are generated.
+            if (currentTile == null)
+            {
+                int tileNum = 1 + (int) (Math.random() * 6);
+                int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
+                currentSquare.replace(new Tile(0, 1));
+            }
+            currentTile = this.currentSquare.getTile();
+            switch (currentTile.getValue())
+            {
+                case 0:
+                    squarePanel.setBackground(new Color(187, 242, 226));
+                    break;
+                case 1:
+                    squarePanel.setBackground(new Color(99, 189, 179)); //1
+                    break;
+                case 2:
+                    squarePanel.setBackground(new Color(207, 169, 102)); //2
+                    break;
+                case 3:
+                    squarePanel.setBackground(new Color(86, 95, 182)); //3
+                    multiplierLabel.setForeground(new Color(255, 255, 255));
+                    squareNumber.setForeground(new Color(255, 255, 255));
+                    break;
+                case 4:
+                    squarePanel.setBackground(new Color(91, 44, 125)); //4
+                    multiplierLabel.setForeground(new Color(255, 255, 255));
+                    squareNumber.setForeground(new Color(255, 255, 255));
+                    break;
+                case 5:
+                    squarePanel.setBackground(new Color(120, 0, 50)); //5
+                    multiplierLabel.setForeground(new Color(255, 255, 255));
+                    squareNumber.setForeground(new Color(255, 255, 255));
+                    break;
+                case 6:
+                    squarePanel.setBackground(new Color(65, 0, 50)); //6
+                    multiplierLabel.setForeground(new Color(255, 255, 255));
+                    squareNumber.setForeground(new Color(255, 255, 255));
+                    break;
+                default:
+                    squarePanel.setBackground(new Color(65, 0, 50)); //6
+                    multiplierLabel.setForeground(new Color(255, 255, 255));
+                    squareNumber.setForeground(new Color(255, 255, 255));
+                    break;
+            }
+
+            if (currentTile.getValue() != 0)
+                squareNumber.setText("" + currentTile.getValue());
+            else
+                squareNumber.setText(" ");
+            if (currentTile.getMultiplier() != 1)
+                multiplierLabel.setText(currentTile.getMultiplier() + "x");
+            else
+                multiplierLabel.setText(" ");
+        } else
+        {
             multiplierLabel.setText(" ");
+            squareNumber.setText(" ");
+            squarePanel.setBackground(new Color(200, 200, 200));
+        }
+    }
+
+    public Square getSquare()
+    {
+        return this.currentSquare;
+    }
+
+    public void attachMouseAdapter(MouseAdapter ma)
+    {
+        squarePanel.addMouseListener(ma);
+        currentMouseAdapter = ma;
+    }
+
+    public void attachMouseMotionAdapter(MouseMotionAdapter mma)
+    {
+        squarePanel.addMouseMotionListener(mma);
+        currentMouseMotionAdapter = mma;
+    }
+
+    public void removeMouseAdapters()
+    {
+        squarePanel.removeMouseListener(currentMouseAdapter);
+        squarePanel.removeMouseMotionListener(currentMouseMotionAdapter);
     }
 
     private void createUIComponents()
@@ -86,11 +139,15 @@ public class SquareViewPanel
         multiplierLabel = new JLabel();
     }
 
+    /**
+     * Set component name for FEST testing.
+     * @param name The name to set.
+     */
+    protected void setName(String name)
     {
-// GUI initializer generated by IntelliJ IDEA GUI Designer
-// >>> IMPORTANT!! <<<
-// DO NOT EDIT OR ADD ANY CODE HERE!
-        $$$setupUI$$$();
+        squarePanel.setName(name);
+        squareNumber.setName(name + "numberlabel");
+        multiplierLabel.setName(name + "multiplierlabel");
     }
 
     /**

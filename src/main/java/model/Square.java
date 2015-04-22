@@ -4,16 +4,17 @@ public class Square
 {
     Tile tile;
     boolean isInert;
-    boolean isMarked;
+    boolean marked;
 
     public Square(Tile t)
     {
         this.tile = t;
+        this.isInert = false;
     }
 
     public Square()
     {
-
+        this.isInert = false;
     }
 
     public boolean removeTile()
@@ -21,9 +22,30 @@ public class Square
         return false;
     }
 
+    /**
+     * Swap a tile with another square.
+     * @param s The square to swap with.
+     */
     public void swap(Square s)
     {
+        Tile tmp = s.getTile();
+        s.replace(this.tile);
+        this.tile = tmp;
+    }
 
+    public void setInactive()
+    {
+        isInert = true;
+    }
+
+    public void setActive()
+    {
+        isInert = false;
+    }
+
+    public boolean isActive()
+    {
+        return !isInert;
     }
 
     public void replace(Tile t)
@@ -34,6 +56,15 @@ public class Square
     public Tile getTile()
     {
         return this.tile;
+    }
+
+    public void setMarked(boolean m) {
+        marked = m;
+    }
+
+    public boolean isMarked()
+    {
+        return marked;
     }
 
     @Override

@@ -21,6 +21,10 @@ public class BuilderMenuPanel {
 
     public BuilderMenuPanel()
     {
+        newLevelButton.setName("New Level");
+        editLevelButton.setName("Edit Level");
+        instructionsButton.setName("Instructions");
+        creditsButton.setName("Credits");
 
         creditsButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
@@ -53,10 +57,11 @@ public class BuilderMenuPanel {
                 super.mouseClicked(e);
                 JPanel parent = (JPanel) builderMenuPanel.getParent();
                 CardLayout layout = (CardLayout) parent.getLayout();
-                layout.show(parent, "editPanel");
-                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, builderMenuPanel);
+                BuilderApplication topLevelFrame = (BuilderApplication) SwingUtilities.getAncestorOfClass(BuilderApplication.class, builderMenuPanel);
                 topLevelFrame.setSize(new Dimension(880, 600));
                 topLevelFrame.setLocationRelativeTo(null);
+                topLevelFrame.getBuilderEditorPanel().createNewLevel();
+                layout.show(parent, "editPanel");
             }
         });
     }
