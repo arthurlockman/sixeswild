@@ -145,6 +145,8 @@ public class SquareViewPanel
     protected void setName(String name)
     {
         squarePanel.setName(name);
+        squareNumber.setName(name + "numberlabel");
+        multiplierLabel.setName(name + "multiplierlabel");
     }
 
     /**
