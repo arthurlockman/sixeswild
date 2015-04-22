@@ -12,4 +12,4 @@ before_install:
     - "sh -e /etc/init.d/xvfb start"
 
 after_success:
-    - ./gradlew jacocoRootReport coveralls
+    - ./gradlew jacocoTestReport coveralls

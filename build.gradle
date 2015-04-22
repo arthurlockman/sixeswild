@@ -29,31 +29,9 @@ dependencies {
 
 jacocoTestReport {
     reports {
-        xml.enabled false
+        xml.enabled true
         csv.enabled false
-        html.destination "${buildDir}/reports/jacocoHtml"
-    }
-    afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: 'com/intellij/**')
-        })
-    }
-}
-
-coveralls {
-    sourceDirs = files(subprojects.sourceSets.main.allSource.srcDirs).files.absolutePath
-}
-
-task jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
-    dependsOn = subprojects.test
-    sourceDirectories = files(subprojects.sourceSets.main.allSource.srcDirs)
-    classDirectories =  files(subprojects.sourceSets.main.output.classesDir)
-    executionData = files(subprojects.jacocoTestReport.executionData)
-    reports {
-        html.enabled = true
-        xml.enabled = true
-        csv.enabled = false
-        xml.destination = "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
+        html.enabled true
     }
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
