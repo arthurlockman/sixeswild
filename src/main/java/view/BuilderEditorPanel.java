@@ -205,9 +205,11 @@ public class BuilderEditorPanel
         panel3.add(previewButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         undoButton = new JButton();
         undoButton.setIcon(new ImageIcon(getClass().getResource("/view/numix-icons/16x16/undo.png")));
+        undoButton.setName("undoButton");
         panel3.add(undoButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         redoButton = new JButton();
         redoButton.setIcon(new ImageIcon(getClass().getResource("/view/numix-icons/16x16/redo.png")));
+        redoButton.setName("redoButton");
         panel3.add(redoButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         saveAndExitButton = new JButton();
         saveAndExitButton.setHorizontalTextPosition(2);

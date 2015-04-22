@@ -10,6 +10,8 @@ public class UpdateSquareMove implements IReversibleMove
     Tile previous;
     boolean active;
     boolean bucket;
+    boolean previousBucket;
+    boolean previousActive;
 
     /**
      * Update a square. For use in the level builder.
@@ -29,6 +31,8 @@ public class UpdateSquareMove implements IReversibleMove
     public boolean doMove()
     {
         if (!isValid()) return false;
+        previousBucket = square.isMarked();
+        previousActive = square.isActive();
         if (tile != null)
         {
             previous = square.getTile();
@@ -53,8 +57,8 @@ public class UpdateSquareMove implements IReversibleMove
         {
             square.replace(previous);
         }
-        square.setMarked(!bucket);
-        if (!active) square.setActive();
+        square.setMarked(previousBucket);
+        if (previousActive) square.setActive();
         else square.setInactive();
         return true;
     }

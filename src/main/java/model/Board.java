@@ -74,9 +74,12 @@ public class Board
      */
     public boolean undoLastMove()
     {
-        IReversibleMove tmpmove = undoHistory.pop();
-        tmpmove.undo();
-        redoHistory.push(tmpmove);
+        if (!undoHistory.empty())
+        {
+            IReversibleMove tmpmove = undoHistory.pop();
+            tmpmove.undo();
+            redoHistory.push(tmpmove);
+        }
         return true;
     }
 
@@ -87,9 +90,12 @@ public class Board
      */
     public boolean redoLastMove()
     {
-        IReversibleMove tmpmove = redoHistory.pop();
-        tmpmove.doMove();
-        undoHistory.push(tmpmove);
+        if (!redoHistory.empty())
+        {
+            IReversibleMove tmpmove = redoHistory.pop();
+            tmpmove.doMove();
+            undoHistory.push(tmpmove);
+        }
         return true;
     }
 
