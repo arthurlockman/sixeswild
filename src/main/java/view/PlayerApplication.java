@@ -27,7 +27,7 @@ public class PlayerApplication extends JFrame
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
         this.game = new Game();
-        this.playerPlayPanel.setBoard(this.game.getBoard());
+//        this.playerPlayPanel.setBoard(this.game.getBoard());
 
         this.addWindowListener(new WindowListener()
         {
@@ -35,7 +35,7 @@ public class PlayerApplication extends JFrame
             @Override
             public void windowOpened(WindowEvent e)
             {
-
+                playerLevelSelectPanel.updateLevelList(game);
             }
 
             @Override
