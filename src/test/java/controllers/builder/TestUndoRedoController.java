@@ -7,13 +7,6 @@ import java.awt.*;
 
 public class TestUndoRedoController extends GUITestCase
 {
-    /**
-     * Initialize the test case class with the class that needs to be
-     * launched to test it. Either <code>BuilderLauncher.class</code>
-     * or <code>PlayerLauncher.class</code> is ideal here.
-     *
-     * @param testClass The class to test.
-     */
     public TestUndoRedoController()
     {
         super(BuilderLauncher.class);

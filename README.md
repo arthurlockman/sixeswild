@@ -1,5 +1,6 @@
 #Sixes Wild
 [![Build Status](https://travis-ci.org/arthurlockman/sixeswild.svg?branch=master)](https://travis-ci.org/arthurlockman/sixeswild)
+[![Coverage Status](https://coveralls.io/repos/arthurlockman/sixeswild/badge.svg?branch=master)](https://coveralls.io/r/arthurlockman/sixeswild?branch=master)
 
 ##Running
 The executables in our project are as follows:
