@@ -7,7 +7,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.net.URL;
 
-public class LevelCellRenderer extends JLabel implements ListCellRenderer<Level>
+public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 {
     @Override
     public Component getListCellRendererComponent(JList<? extends Level> list, Level value, int index, boolean isSelected, boolean cellHasFocus)

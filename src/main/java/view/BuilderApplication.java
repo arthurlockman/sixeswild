@@ -1,9 +1,7 @@
 package view;
 
-import controllers.builder.RedoEditController;
-import controllers.builder.UndoEditController;
-import controllers.builder.UpdateSquareController;
-import controllers.builder.SetLevelTypeController;
+import controllers.builder.*;
+import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +15,7 @@ public class BuilderApplication extends JFrame
     private SplashScreen splashScreen;
     private BuilderLevelSelectPanel builderLevelSelectPanel;
     private BuilderEditorPanel builderEditorPanel;
+    private Game game;
 
     public BuilderApplication()
     {
@@ -28,6 +27,7 @@ public class BuilderApplication extends JFrame
         setSize(new Dimension(500, 600));
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
+        this.game = new Game();
 
         this.addWindowListener(new WindowListener()
         {
@@ -46,6 +46,9 @@ public class BuilderApplication extends JFrame
                         UndoEditController((BuilderApplication) e.getWindow()));
                 builderEditorPanel.getRedoButton().addMouseListener(new
                         RedoEditController((BuilderApplication) e.getWindow()));
+                builderLevelSelectPanel.updateLevelList(game);
+                builderLevelSelectPanel.getEditButton().addMouseListener(new
+                        LoadLevelController((BuilderApplication) e.getWindow()));
             }
 
             @Override
@@ -105,6 +108,11 @@ public class BuilderApplication extends JFrame
     public BuilderEditorPanel getBuilderEditorPanel()
     {
         return builderEditorPanel;
+    }
+
+    public Game getGame()
+    {
+        return game;
     }
 
     {

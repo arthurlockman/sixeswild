@@ -15,8 +15,10 @@ public class Board
     Stack<IReversibleMove> undoHistory;
     Stack<IReversibleMove> redoHistory;
 
-    public Board(Level l)
+    public Board(Level l, boolean populate)
     {
+        undoHistory = new Stack<IReversibleMove>();
+        redoHistory = new Stack<IReversibleMove>();
         this.level = l;
         //Process level
         String delims = " ";
@@ -45,15 +47,41 @@ public class Board
         //consider: do we even need to save frequencies of f6 and fx3?
 
         squares = new Square[81];
-        SquareFactory sFac = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freqx1, freqx2);
+        if (populate)
+        {
+            SquareFactory sFac = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freqx1, freqx2);
 
-        for (int i = 0; i < 81; i++) {
+            for (int i = 0; i < 81; i++)
+            {
 
-            int state = Integer.parseInt(tData[17+i]);
+                int state = Integer.parseInt(tData[17 + i]);
 
-            squares[i] = sFac.gen(state);
-
+                squares[i] = sFac.gen(state);
+            }
+        } else {
+            for (int i = 0; i < 81; i++)
+            {
+                int state = Integer.parseInt(tData[17 + i]);
+                System.out.println(state);
+                if (state == 0)
+                {
+                    squares[i] = new Square(new Tile(0, 1));
+                    squares[i].setInactive();
+                } else if (state == 1)
+                {
+                    squares[i] = new Square(new Tile(0, 1));
+                    squares[i].setActive();
+                } else if (state == 2)
+                {
+                    squares[i] = new Square(new Tile(0, 1));
+                    squares[i].mark();
+                } else if (state == 3)
+                {
+                    squares[i] = new Square(new Tile(6, 1));
+                }
+            }
         }
+
     }
 
     public Board()

@@ -93,6 +93,9 @@ public class BuilderEditorPanel
     public void setCurrentLevel(Level l)
     {
         currentLevel = l;
+        this.currentBoard = new Board(currentLevel, false);
+        boardViewPanel.setBoard(currentBoard);
+        boardViewPanel.refresh();
     }
 
     public BuilderOptionsPanel getOptionsPanel()

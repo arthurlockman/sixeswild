@@ -40,7 +40,7 @@ public class PlayerLevelSelectPanel
 
         levelListModel = new DefaultListModel<Level>();
         levelList.setModel(levelListModel);
-        levelList.setCellRenderer(new LevelCellRenderer());
+        levelList.setCellRenderer(new PlayerLevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         playButton.addMouseListener(new MouseAdapter()
@@ -76,6 +76,7 @@ public class PlayerLevelSelectPanel
             levelListModel.addElement(l);
         }
         levelList.setModel(levelListModel);
+        levelList.setSelectedIndex(0);
     }
 
     private void createUIComponents()

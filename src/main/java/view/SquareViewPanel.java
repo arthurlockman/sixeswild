@@ -44,6 +44,8 @@ public class SquareViewPanel
         {
             squareNumber.setText("Bckt");
             squarePanel.setBackground(new Color(227, 242, 209));
+            squareNumber.setForeground(new Color(0, 0, 0));
+            squareNumber.setForeground(new Color(0, 0, 0));
         } else if (currentSquare.isActive())
         {
             Tile currentTile = this.currentSquare.getTile();
@@ -59,9 +61,13 @@ public class SquareViewPanel
             {
                 case 0:
                     squarePanel.setBackground(new Color(187, 242, 226));
+                    squareNumber.setForeground(new Color(0, 0, 0));
+                    squareNumber.setForeground(new Color(0, 0, 0));
                     break;
                 case 1:
                     squarePanel.setBackground(new Color(99, 189, 179)); //1
+                    squareNumber.setForeground(new Color(0, 0, 0));
+                    squareNumber.setForeground(new Color(0, 0, 0));
                     break;
                 case 2:
                     squarePanel.setBackground(new Color(207, 169, 102)); //2
