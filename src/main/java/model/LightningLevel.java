@@ -16,4 +16,9 @@ public class LightningLevel extends Level
     {
         return "Lightning";
     }
+    
+    public int getTimeLimit()
+    {
+        return timeLimit;
+    }
 }

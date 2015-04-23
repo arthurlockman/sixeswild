@@ -3,6 +3,8 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Board;
+import model.SquareFactory;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -125,6 +127,20 @@ public class BuilderOptionsPanel
         mult1Model.setValue(mult1);
         mult2Model.setValue(mult2);
         mult3Model.setValue(mult3);
+    }
+
+    public void setFrequencies(Board b)
+    {
+        SquareFactory f = b.getFactory();
+        tile1Model.setValue(f.getFreq1());
+        tile2Model.setValue(f.getFreq2());
+        tile3Model.setValue(f.getFreq3());
+        tile4Model.setValue(f.getFreq4());
+        tile5Model.setValue(f.getFreq5());
+        tile6Model.setValue(f.getFreq6());
+        mult1Model.setValue(f.getFreqx1());
+        mult2Model.setValue(f.getFreqx2());
+        mult3Model.setValue(f.getFreqx3());
     }
 
     public void setFrequenciesToDefault()

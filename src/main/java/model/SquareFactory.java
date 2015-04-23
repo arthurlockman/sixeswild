@@ -14,7 +14,26 @@ public class SquareFactory {
     protected int limx1;
     protected int limx2;
 
-    SquareFactory(float f1, float f2, float f3, float f4, float f5, float fx1, float fx2){
+    protected int freq1;
+    protected int freq2;
+    protected int freq3;
+    protected int freq4;
+    protected int freq5;
+    protected int freq6;
+    protected int freqx1;
+    protected int freqx2;
+    protected int freqx3;
+
+    SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3){
+        this.freq1 = (int)(f1 * 100.0);
+        this.freq2 = (int)(f2 * 100.0);
+        this.freq3 = (int)(f3 * 100.0);
+        this.freq4 = (int)(f4 * 100.0);
+        this.freq5 = (int)(f5 * 100.0);
+        this.freq6 = (int)(f6 * 100.0);
+        this.freqx1 = (int)(fx1 * 100.0);
+        this.freqx2 = (int)(fx2 * 100.0);
+        this.freqx3 = (int)(fx3 * 100.0);
         this.lim1 = (int) (f1*100);
         this.lim2 = (int) (f2*100) + this.lim1;
         this.lim3 = (int) (f3*100) + this.lim2;
@@ -79,4 +98,48 @@ public class SquareFactory {
 
     }
 
+    public int getFreq1()
+    {
+        return freq1;
+    }
+
+    public int getFreq2()
+    {
+        return freq2;
+    }
+
+    public int getFreq3()
+    {
+        return freq3;
+    }
+
+    public int getFreq4()
+    {
+        return freq4;
+    }
+
+    public int getFreq5()
+    {
+        return freq5;
+    }
+
+    public int getFreq6()
+    {
+        return freq6;
+    }
+
+    public int getFreqx1()
+    {
+        return freqx1;
+    }
+
+    public int getFreqx2()
+    {
+        return freqx2;
+    }
+
+    public int getFreqx3()
+    {
+        return freqx3;
+    }
 }

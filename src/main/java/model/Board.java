@@ -14,6 +14,7 @@ public class Board
     Square[] squares;
     Stack<IReversibleMove> undoHistory;
     Stack<IReversibleMove> redoHistory;
+    SquareFactory factory;
 
     public Board(Level l, boolean populate)
     {
@@ -40,29 +41,26 @@ public class Board
         float freq3 = Float.parseFloat(tData[8]);
         float freq4 = Float.parseFloat(tData[9]);
         float freq5 = Float.parseFloat(tData[10]);
-        //float freq6 = Float.parseFloat(tData[11]);
+        float freq6 = Float.parseFloat(tData[11]);
         float freqx1 = Float.parseFloat(tData[12]);
         float freqx2 = Float.parseFloat(tData[13]);
-        //float freqx3 = Float.parseFloat(tData[14]);
-        //consider: do we even need to save frequencies of f6 and fx3?
+        float freqx3 = Float.parseFloat(tData[14]);
 
         squares = new Square[81];
+        factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
         if (populate)
         {
-            SquareFactory sFac = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freqx1, freqx2);
-
             for (int i = 0; i < 81; i++)
             {
 
                 int state = Integer.parseInt(tData[17 + i]);
 
-                squares[i] = sFac.gen(state);
+                squares[i] = factory.gen(state);
             }
         } else {
             for (int i = 0; i < 81; i++)
             {
                 int state = Integer.parseInt(tData[17 + i]);
-                System.out.println(state);
                 if (state == 0)
                 {
                     squares[i] = new Square(new Tile(0, 1));
@@ -165,6 +163,11 @@ public class Board
     public Square[] getSquares()
     {
         return squares;
+    }
+
+    public SquareFactory getFactory()
+    {
+        return factory;
     }
 
     public String toString() {

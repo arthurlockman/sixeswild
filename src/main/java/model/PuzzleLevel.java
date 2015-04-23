@@ -16,4 +16,9 @@ public class PuzzleLevel extends Level
     {
         return "Puzzle";
     }
+
+    public int getMoveLimit()
+    {
+        return moveLimit;
+    }
 }

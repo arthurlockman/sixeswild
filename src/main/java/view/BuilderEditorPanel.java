@@ -5,6 +5,8 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import model.Board;
 import model.Level;
+import model.LightningLevel;
+import model.PuzzleLevel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -90,12 +92,27 @@ public class BuilderEditorPanel
         boardViewPanel.setBoard(currentBoard);
     }
 
+    /**
+     * Configure view for the current level under editing.
+     * @param l The level to configure the view for.
+     */
     public void setCurrentLevel(Level l)
     {
         currentLevel = l;
         this.currentBoard = new Board(currentLevel, false);
         boardViewPanel.setBoard(currentBoard);
         boardViewPanel.refresh();
+        levelTypeSelector.getModel().setSelectedItem(l.getType());
+        optionsPanel.setFrequencies(currentBoard);
+        if (l.getType().equals("Puzzle"))
+        {
+            PuzzleLevel pl = (PuzzleLevel) currentLevel;
+            moveLimitSelector.setText("" + pl.getMoveLimit());
+        } else if (l.getType().equals("Lightning"))
+        {
+            LightningLevel ll = (LightningLevel) currentLevel;
+            timeLimitSelector.setText("" + ll.getTimeLimit());
+        }
     }
 
     public BuilderOptionsPanel getOptionsPanel()
