@@ -14,6 +14,7 @@ public class Level
     protected String levelData;
     protected boolean locked;
     protected File diskLocation;
+    protected boolean specialMovesAllowed;
 
     public Level(String data)
     {
@@ -22,7 +23,7 @@ public class Level
 
     public Level(String name, int number,
                  int highScore, int twoStarScore, int threeStarScore, String levelData,
-                 boolean locked, File diskLocation)
+                 boolean locked, boolean specialMovesAllowed, File diskLocation)
     {
         this.name = name;
         this.levelNumber = number;
@@ -32,6 +33,7 @@ public class Level
         this.levelData = levelData;
         this.locked = locked;
         this.diskLocation = diskLocation;
+        this.specialMovesAllowed = specialMovesAllowed;
     }
 
     public String getName()
@@ -62,11 +64,6 @@ public class Level
         return "Puzzle";
     }
 
-    public String getMemento()
-    {
-        return "";
-    }
-
     /**
      * Save a level to its location on disk.
      */
@@ -74,10 +71,33 @@ public class Level
     {
         try {
             FileWriter writer = new FileWriter(diskLocation, false);
-            writer.write(this.getMemento());
+            writer.write(this.levelData);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getLevelMetadata()
+    {
+        String dat = "";
+        dat += name + " ";
+        dat += this.getType() + " ";
+        dat += "1 1 ";
+        dat += this.twoStarScore + " ";
+        dat += this.threeStarScore + " ";
+        if (this.specialMovesAllowed) dat += "1 ";
+        else dat += "0 ";
+        return dat;
+    }
+
+    public void setBoardData(String boardData)
+    {
+        this.levelData = this.getLevelMetadata() + boardData;
+    }
+
+    public String getLevelData()
+    {
+        return this.levelData;
     }
 }

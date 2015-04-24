@@ -108,7 +108,7 @@
                     </constraints>
                     <properties>
                       <horizontalTextPosition value="2"/>
-                      <text value="Save and Exit"/>
+                      <text value="Save"/>
                     </properties>
                   </component>
                 </children>

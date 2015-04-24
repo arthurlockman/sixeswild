@@ -212,4 +212,31 @@ public class Board
     public int getTwoStarScore() {
         return twoStarScore;
     }
+
+    public String getBoardData()
+    {
+        String dat = "";
+        dat += factory.toString();
+        dat += level.getHighScore() + " ";
+        if (level.locked) dat += "0 ";
+        else dat += "1 ";
+        for (int i = 0; i <= 80; i++)
+        {
+            Square s = this.getSquares()[i];
+            if (s.isMarked())
+            {
+                dat += "2 ";
+            } else if (s.getTile().getValue() == 6)
+            {
+                dat += "3 ";
+            } else if (s.isActive())
+            {
+                dat += "1 ";
+            } else
+            {
+                dat += "0 ";
+            }
+        }
+        return dat;
+    }
 }

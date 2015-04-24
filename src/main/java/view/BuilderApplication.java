@@ -49,6 +49,8 @@ public class BuilderApplication extends JFrame
                 builderLevelSelectPanel.updateLevelList(game);
                 builderLevelSelectPanel.getEditButton().addMouseListener(new
                         LoadLevelController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getSaveAndExitButton().addMouseListener(new
+                        SaveLevelController((BuilderApplication) e.getWindow()));
             }
 
             @Override

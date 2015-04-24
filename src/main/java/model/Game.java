@@ -65,21 +65,26 @@ public class Game
         if(Integer.parseInt(levData[17]) == 1){
             lock = false;
         }
+        boolean specialAllowed = false;
+        if(Integer.parseInt(levData[6]) == 1)
+        {
+            specialAllowed = true;
+        }
 
         if(type.equals("Puzzle")){
             int mLim = Integer.parseInt(levData[3]);
             levels.add(new PuzzleLevel(name, num, highScore, twoStarScore, threeStarScore,
-                    levelData, lock, mLim, diskLocation));
+                    levelData, lock, mLim, specialAllowed, diskLocation));
         } else if(type.equals("Lightning")){
             int tLim = Integer.parseInt(levData[2]);
             levels.add(new LightningLevel(name, num, highScore, twoStarScore, threeStarScore,
-                    levelData, lock, tLim, diskLocation));
+                    levelData, lock, tLim, specialAllowed, diskLocation));
         } else if(type.equals("Release")){
             levels.add(new ReleaseLevel(name, num, highScore, twoStarScore, threeStarScore,
-                    levelData, lock, diskLocation));
+                    levelData, lock, specialAllowed, diskLocation));
         } else if(type.equals("Elimination")){
             levels.add(new EliminationLevel(name, num, highScore, twoStarScore, threeStarScore,
-                    levelData, lock, diskLocation));
+                    levelData, lock, specialAllowed, diskLocation));
         } else{
             System.out.println("ERROR: invalid level data");
         }

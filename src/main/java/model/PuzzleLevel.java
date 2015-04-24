@@ -8,9 +8,9 @@ public class PuzzleLevel extends Level
 
     public PuzzleLevel(String name, int number,
                        int highScore, int twoStarScore, int threeStarScore, String levelData,
-                       boolean locked, int mLim, File diskLocation)
+                       boolean locked, int mLim, boolean specialAllowed, File diskLocation)
     {
-        super(name, number, highScore, twoStarScore, threeStarScore, levelData, locked, diskLocation);
+        super(name, number, highScore, twoStarScore, threeStarScore, levelData, locked, specialAllowed, diskLocation);
         moveLimit = mLim;
     }
 
@@ -26,8 +26,17 @@ public class PuzzleLevel extends Level
     }
 
     @Override
-    public String getMemento()
+    public String getLevelMetadata()
     {
-        return "";
+        String dat = "";
+        dat += name + " ";
+        dat += this.getType() + " ";
+        dat += "1 ";
+        dat += this.getMoveLimit() + " ";
+        dat += this.twoStarScore + " ";
+        dat += this.threeStarScore + " ";
+        if (this.specialMovesAllowed) dat += "1 ";
+        else dat += "0 ";
+        return dat;
     }
 }

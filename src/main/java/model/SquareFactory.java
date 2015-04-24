@@ -142,4 +142,20 @@ public class SquareFactory {
     {
         return freqx3;
     }
+
+    @Override
+    public String toString()
+    {
+        String dat = "";
+        dat += ((float)freq1) / 100.0 + " ";
+        dat += ((float)freq2) / 100.0 + " ";
+        dat += ((float)freq3) / 100.0 + " ";
+        dat += ((float)freq4) / 100.0 + " ";
+        dat += ((float)freq5) / 100.0 + " ";
+        dat += ((float)freq6) / 100.0 + " ";
+        dat += ((float)freqx1) / 100.0 + " ";
+        dat += ((float)freqx2) / 100.0 + " ";
+        dat += ((float)freqx3) / 100.0 + " ";
+        return dat;
+    }
 }
