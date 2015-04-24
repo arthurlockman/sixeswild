@@ -40,12 +40,12 @@ public class Game
                 e.printStackTrace();
             }
             i++;
-            this.initializeLevel(i, content);
+            this.initializeLevel(i, content, file);
        //     }
         }
     }
 
-    public void initializeLevel(int levelNumber, String levelData)
+    public void initializeLevel(int levelNumber, String levelData, File diskLocation)
     {
         String lData = levelData;
         System.out.println("DATA FOR LEVEL: " + levelNumber + ": " + levelData);
@@ -65,14 +65,14 @@ public class Game
 
         if(type.equals("Puzzle")){
             int mLim = Integer.parseInt(levData[3]);
-            levels.add(new PuzzleLevel(name, num, highScore, expScore, levelData, lock, mLim));
+            levels.add(new PuzzleLevel(name, num, highScore, expScore, levelData, lock, mLim, diskLocation));
         } else if(type.equals("Lightning")){
             int tLim = Integer.parseInt(levData[2]);
-            levels.add(new LightningLevel(name, num, highScore, expScore, levelData, lock, tLim));
+            levels.add(new LightningLevel(name, num, highScore, expScore, levelData, lock, tLim, diskLocation));
         } else if(type.equals("Release")){
-            levels.add(new ReleaseLevel(name, num, highScore, expScore, levelData, lock));
+            levels.add(new ReleaseLevel(name, num, highScore, expScore, levelData, lock, diskLocation));
         } else if(type.equals("Elimination")){
-            levels.add(new EliminationLevel(name, num, highScore, expScore, levelData, lock));
+            levels.add(new EliminationLevel(name, num, highScore, expScore, levelData, lock, diskLocation));
         } else{
             System.out.println("ERROR: invalid level data");
         }

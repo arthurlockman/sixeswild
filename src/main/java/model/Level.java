@@ -1,5 +1,7 @@
 package model;
 
+import java.io.File;
+
 public class Level
 {
     protected String name;
@@ -8,6 +10,7 @@ public class Level
     protected int expectedScore;
     protected String levelData;
     protected boolean locked;
+    protected File diskLocation;
 
     public Level(String data)
     {
@@ -15,7 +18,8 @@ public class Level
     }
 
     public Level(String name, int number,
-                 int highScore, int expectedScore, String levelData, boolean locked)
+                 int highScore, int expectedScore, String levelData,
+                 boolean locked, File diskLocation)
     {
         this.name = name;
         this.levelNumber = number;
@@ -23,6 +27,7 @@ public class Level
         this.expectedScore = expectedScore;
         this.levelData = levelData;
         this.locked = locked;
+        this.diskLocation = diskLocation;
     }
 
     public String getName()
