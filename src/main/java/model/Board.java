@@ -15,6 +15,7 @@ public class Board
     Stack<IReversibleMove> undoHistory;
     Stack<IReversibleMove> redoHistory;
     SquareFactory factory;
+    int twoStarScore, threeStarScore;
 
     public Board(Level l, boolean populate)
     {
@@ -30,21 +31,22 @@ public class Board
         String type = tData[1];
         int time = Integer.parseInt(tData[2]);
         int move = Integer.parseInt(tData[3]);
-        int expectedScore = Integer.parseInt(tData[4]);
+        this.twoStarScore = Integer.parseInt(tData[4]);
+        this.threeStarScore = Integer.parseInt(tData[5]);
         boolean specMoves = true;
-        if(Integer.parseInt(tData[5]) == 0){
+        if(Integer.parseInt(tData[6]) == 0){
             specMoves = false;
         }
 
-        float freq1 = Float.parseFloat(tData[6]);
-        float freq2 = Float.parseFloat(tData[7]);
-        float freq3 = Float.parseFloat(tData[8]);
-        float freq4 = Float.parseFloat(tData[9]);
-        float freq5 = Float.parseFloat(tData[10]);
-        float freq6 = Float.parseFloat(tData[11]);
-        float freqx1 = Float.parseFloat(tData[12]);
-        float freqx2 = Float.parseFloat(tData[13]);
-        float freqx3 = Float.parseFloat(tData[14]);
+        float freq1 = Float.parseFloat(tData[7]);
+        float freq2 = Float.parseFloat(tData[8]);
+        float freq3 = Float.parseFloat(tData[9]);
+        float freq4 = Float.parseFloat(tData[10]);
+        float freq5 = Float.parseFloat(tData[11]);
+        float freq6 = Float.parseFloat(tData[12]);
+        float freqx1 = Float.parseFloat(tData[13]);
+        float freqx2 = Float.parseFloat(tData[14]);
+        float freqx3 = Float.parseFloat(tData[15]);
 
         squares = new Square[81];
         factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
@@ -53,14 +55,14 @@ public class Board
             for (int i = 0; i < 81; i++)
             {
 
-                int state = Integer.parseInt(tData[17 + i]);
+                int state = Integer.parseInt(tData[18 + i]);
 
                 squares[i] = factory.gen(state);
             }
         } else {
             for (int i = 0; i < 81; i++)
             {
-                int state = Integer.parseInt(tData[17 + i]);
+                int state = Integer.parseInt(tData[18 + i]);
                 if (state == 0)
                 {
                     squares[i] = new Square(new Tile(0, 1));

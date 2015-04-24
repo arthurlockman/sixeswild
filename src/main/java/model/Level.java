@@ -9,7 +9,8 @@ public class Level
     protected String name;
     protected int levelNumber;
     protected int highScore;
-    protected int expectedScore;
+    protected int twoStarScore;
+    protected int threeStarScore;
     protected String levelData;
     protected boolean locked;
     protected File diskLocation;
@@ -20,13 +21,14 @@ public class Level
     }
 
     public Level(String name, int number,
-                 int highScore, int expectedScore, String levelData,
+                 int highScore, int twoStarScore, int threeStarScore, String levelData,
                  boolean locked, File diskLocation)
     {
         this.name = name;
         this.levelNumber = number;
         this.highScore = highScore;
-        this.expectedScore = expectedScore;
+        this.twoStarScore = twoStarScore;
+        this.threeStarScore = threeStarScore;
         this.levelData = levelData;
         this.locked = locked;
         this.diskLocation = diskLocation;
@@ -65,6 +67,9 @@ public class Level
         return "";
     }
 
+    /**
+     * Save a level to its location on disk.
+     */
     public void saveLevel()
     {
         try {

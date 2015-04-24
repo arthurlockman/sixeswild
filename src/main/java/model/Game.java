@@ -56,25 +56,30 @@ public class Game
 
         String name = levData[0];
         String type = levData[1];
-        int expScore = Integer.parseInt(levData[4]);
+        int twoStarScore = Integer.parseInt(levData[4]);
+        int threeStarScore = Integer.parseInt(levData[5]);
 
-        int highScore = Integer.parseInt(levData[15]);
+        int highScore = Integer.parseInt(levData[16]);
         int num = levelNumber;
         boolean lock = true;
-        if(Integer.parseInt(levData[16]) == 1){
+        if(Integer.parseInt(levData[17]) == 1){
             lock = false;
         }
 
         if(type.equals("Puzzle")){
             int mLim = Integer.parseInt(levData[3]);
-            levels.add(new PuzzleLevel(name, num, highScore, expScore, levelData, lock, mLim, diskLocation));
+            levels.add(new PuzzleLevel(name, num, highScore, twoStarScore, threeStarScore,
+                    levelData, lock, mLim, diskLocation));
         } else if(type.equals("Lightning")){
             int tLim = Integer.parseInt(levData[2]);
-            levels.add(new LightningLevel(name, num, highScore, expScore, levelData, lock, tLim, diskLocation));
+            levels.add(new LightningLevel(name, num, highScore, twoStarScore, threeStarScore,
+                    levelData, lock, tLim, diskLocation));
         } else if(type.equals("Release")){
-            levels.add(new ReleaseLevel(name, num, highScore, expScore, levelData, lock, diskLocation));
+            levels.add(new ReleaseLevel(name, num, highScore, twoStarScore, threeStarScore,
+                    levelData, lock, diskLocation));
         } else if(type.equals("Elimination")){
-            levels.add(new EliminationLevel(name, num, highScore, expScore, levelData, lock, diskLocation));
+            levels.add(new EliminationLevel(name, num, highScore, twoStarScore, threeStarScore,
+                    levelData, lock, diskLocation));
         } else{
             System.out.println("ERROR: invalid level data");
         }
