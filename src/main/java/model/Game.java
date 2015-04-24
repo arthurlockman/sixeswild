@@ -38,7 +38,6 @@ public class Game
         for(File file : listOfFiles)
         {
             String content = null;
-            // TODO fix try catch
             try {
                 Scanner scanner = new Scanner(file);
                 content = scanner.useDelimiter("\\Z").next();

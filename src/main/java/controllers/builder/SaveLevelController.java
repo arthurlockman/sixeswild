@@ -11,17 +11,38 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.net.URISyntaxException;
 
+/**
+ * This controller handles saving levels from the level builder. It will handle creating a new level
+ * on disk if one does not exist, and saving over existing ones.
+ *
+ * @author Arthur Lockman
+ */
 public class SaveLevelController extends MouseAdapter
 {
+    /**
+     * The builder application.
+     */
     BuilderApplication app;
+
+    /**
+     * The root game.
+     */
     Game game;
 
+    /**
+     * Constructs the controller.
+     * @param app The builder application.
+     */
     public SaveLevelController(BuilderApplication app)
     {
         this.app = app;
         this.game = app.getGame();
     }
 
+    /**
+     * Save the level when the mouse is clicked on the save button.
+     * @param me The mouse event.
+     */
     @Override
     public void mouseClicked(MouseEvent me)
     {

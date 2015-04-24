@@ -49,13 +49,6 @@ public class SquareViewPanel
         } else if (currentSquare.isActive())
         {
             Tile currentTile = this.currentSquare.getTile();
-            //TODO: Remove this once actual boards are generated.
-            if (currentTile == null)
-            {
-                int tileNum = 1 + (int) (Math.random() * 6);
-                int tileMult = (tileNum == 6) ? 1 : 1 + (int) (Math.random() * 3);
-                currentSquare.replace(new Tile(0, 1));
-            }
             currentTile = this.currentSquare.getTile();
             switch (currentTile.getValue())
             {
