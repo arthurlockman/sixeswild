@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Game
@@ -14,7 +15,12 @@ public class Game
 
     public Game()
     {
-        int i = 0;
+        reloadFromDisk();
+    }
+
+    public void reloadFromDisk()
+    {
+        int i = 1;
 
         levels = new ArrayList<Level>();
 
@@ -31,19 +37,20 @@ public class Game
 
         for(File file : listOfFiles)
         {
-     //       if (file.isFile()){
             String content = null;
             // TODO fix try catch
             try {
                 Scanner scanner = new Scanner(file);
                 content = scanner.useDelimiter("\\Z").next();
                 scanner.close();
+                this.initializeLevel(i, content, file);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+            } catch (NoSuchElementException e)
+            {
+                System.out.println("Empty level file.");
             }
             i++;
-            this.initializeLevel(i, content, file);
-       //     }
         }
     }
 

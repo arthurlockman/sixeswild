@@ -4,8 +4,6 @@ package model;
  * Created by jamarciano on 4/18/15.
  */
 public class SquareFactory {
-
-
     protected int lim1;
     protected int lim2;
     protected int lim3;
@@ -24,7 +22,7 @@ public class SquareFactory {
     protected int freqx2;
     protected int freqx3;
 
-    SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3){
+    public SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3){
         this.freq1 = (int)(f1 * 100.0);
         this.freq2 = (int)(f2 * 100.0);
         this.freq3 = (int)(f3 * 100.0);
@@ -41,6 +39,24 @@ public class SquareFactory {
         this.lim5 = (int) (f5*100) + this.lim4;
         this.limx1 = (int) (fx1*100);
         this.limx2 = (int) (fx2*100) + this.limx1;
+    }
+
+    public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3)
+    {
+        this.freq1 = f1;
+        this.freq2 = f2;
+        this.freq3 = f3;
+        this.freq4 = f4;
+        this.freq5 = f5;
+        this.freq6 = f6;
+        this.freqx1 = fx1;
+        this.freqx2 = fx2;
+        this.freqx3 = fx3;
+        this.lim1 = f1;
+        this.lim2 = f2 + this.lim1;
+        this.lim3 = f3 + this.lim2;
+        this.lim4 = f4 + this.lim3;
+        this.lim5 = f5 + this.lim4;
     }
 
     Square gen(int state){

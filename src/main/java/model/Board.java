@@ -226,7 +226,7 @@ public class Board
             if (s.isMarked())
             {
                 dat += "2 ";
-            } else if (s.getTile().getValue() == 6)
+            } else if (s.getTile() != null && s.getTile().getValue() == 6)
             {
                 dat += "3 ";
             } else if (s.isActive())
@@ -238,5 +238,15 @@ public class Board
             }
         }
         return dat;
+    }
+
+    public void setSquareFactory(SquareFactory f)
+    {
+        this.factory = f;
+    }
+
+    public void setLevel(Level l)
+    {
+        level = l;
     }
 }

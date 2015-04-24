@@ -12,6 +12,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 
 public class BuilderOptionsPanel
 {
@@ -154,6 +155,21 @@ public class BuilderOptionsPanel
         mult1Model.setValue(70);
         mult2Model.setValue(20);
         mult3Model.setValue(10);
+    }
+
+    public HashMap<String, Integer> getFrequencies()
+    {
+        HashMap<String, Integer> hm = new HashMap<String, Integer>();
+        hm.put("1", (Integer) tile1Model.getValue());
+        hm.put("2", (Integer) tile2Model.getValue());
+        hm.put("3", (Integer) tile3Model.getValue());
+        hm.put("4", (Integer) tile4Model.getValue());
+        hm.put("5", (Integer) tile5Model.getValue());
+        hm.put("6", (Integer) tile6Model.getValue());
+        hm.put("x1", (Integer) mult1Model.getValue());
+        hm.put("x2", (Integer) mult2Model.getValue());
+        hm.put("x3", (Integer) mult3Model.getValue());
+        return hm;
     }
 
     {

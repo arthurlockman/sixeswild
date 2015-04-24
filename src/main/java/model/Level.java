@@ -1,8 +1,6 @@
 package model;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Level
 {
@@ -69,12 +67,14 @@ public class Level
      */
     public void saveLevel()
     {
+        Writer writer = null;
         try {
-            FileWriter writer = new FileWriter(diskLocation, false);
-            writer.write(this.levelData);
+            writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(diskLocation), "utf-8"));
+            writer.write(levelData);
             writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
