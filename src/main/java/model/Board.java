@@ -8,9 +8,13 @@ import java.util.Stack;
 public class Board
 {
     Timer timer;
+    int movesAllowed;
+    int timeLimit;
     int score;
     Level level;
     int moveCount;
+    String name, type;
+    boolean specialMovesAllowed;
     Square[] squares;
     Stack<IReversibleMove> undoHistory;
     Stack<IReversibleMove> redoHistory;
@@ -22,20 +26,21 @@ public class Board
         undoHistory = new Stack<IReversibleMove>();
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
+
         //Process level
         String delims = " ";
 
         String[] tData = level.levelData.split(delims);
 
-        String name = tData[0];
-        String type = tData[1];
-        int time = Integer.parseInt(tData[2]);
-        int move = Integer.parseInt(tData[3]);
+        this.name = tData[0];
+        this.type = tData[1];
+        this.timeLimit = Integer.parseInt(tData[2]);
+        this.movesAllowed = Integer.parseInt(tData[3]);
         this.twoStarScore = Integer.parseInt(tData[4]);
         this.threeStarScore = Integer.parseInt(tData[5]);
-        boolean specMoves = true;
+        this.specialMovesAllowed = true;
         if(Integer.parseInt(tData[6]) == 0){
-            specMoves = false;
+            specialMovesAllowed = false;
         }
 
         float freq1 = Float.parseFloat(tData[7]);
@@ -81,7 +86,6 @@ public class Board
                 }
             }
         }
-
     }
 
     public Board()
@@ -185,4 +189,27 @@ public class Board
         return result;
     }
 
+    public int getTimeLimit() {
+        return timeLimit;
+    }
+
+    public int getMovesAllowed() {
+        return movesAllowed;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public boolean isSpecialMovesAllowed() {
+        return specialMovesAllowed;
+    }
+
+    public int getThreeStarScore() {
+        return threeStarScore;
+    }
+
+    public int getTwoStarScore() {
+        return twoStarScore;
+    }
 }

@@ -113,6 +113,9 @@ public class BuilderEditorPanel
             LightningLevel ll = (LightningLevel) currentLevel;
             timeLimitSelector.setText("" + ll.getTimeLimit());
         }
+        specialMovesAllowedSelector.setSelected(currentBoard.isSpecialMovesAllowed());
+        twoStarSelector.setText("" + currentBoard.getTwoStarScore());
+        threeStarSelector.setText("" + currentBoard.getThreeStarScore());
     }
 
     public BuilderOptionsPanel getOptionsPanel()
