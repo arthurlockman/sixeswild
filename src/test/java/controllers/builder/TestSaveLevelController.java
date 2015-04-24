@@ -21,4 +21,9 @@ public class TestSaveLevelController extends GUITestCase
     {
         super(testClass);
     }
+
+    public void testSavePuzzleLevel()
+    {
+        assertEquals(true, true);
+    }
 }
