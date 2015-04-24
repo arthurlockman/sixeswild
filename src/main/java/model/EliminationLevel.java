@@ -16,4 +16,10 @@ public class EliminationLevel extends Level
     {
         return "Elimination";
     }
+
+    @Override
+    public String getMemento()
+    {
+        return "";
+    }
 }

@@ -1,6 +1,8 @@
 package model;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Level
 {
@@ -56,5 +58,21 @@ public class Level
     public String getType()
     {
         return "Puzzle";
+    }
+
+    public String getMemento()
+    {
+        return "";
+    }
+
+    public void saveLevel()
+    {
+        try {
+            FileWriter writer = new FileWriter(diskLocation, false);
+            writer.write(this.getMemento());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -16,4 +16,10 @@ public class ReleaseLevel extends Level
     {
         return "Release";
     }
+
+    @Override
+    public String getMemento()
+    {
+        return "";
+    }
 }

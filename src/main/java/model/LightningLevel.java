@@ -24,4 +24,10 @@ public class LightningLevel extends Level
     {
         return timeLimit;
     }
+
+    @Override
+    public String getMemento()
+    {
+        return "";
+    }
 }

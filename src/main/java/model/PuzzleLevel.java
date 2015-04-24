@@ -24,4 +24,10 @@ public class PuzzleLevel extends Level
     {
         return moveLimit;
     }
+
+    @Override
+    public String getMemento()
+    {
+        return "";
+    }
 }

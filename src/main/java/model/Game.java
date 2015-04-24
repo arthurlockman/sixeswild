@@ -35,7 +35,9 @@ public class Game
             String content = null;
             // TODO fix try catch
             try {
-                content = new Scanner(file).useDelimiter("\\Z").next();
+                Scanner scanner = new Scanner(file);
+                content = scanner.useDelimiter("\\Z").next();
+                scanner.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
