@@ -95,8 +95,8 @@ public class SaveLevelController extends MouseAdapter
             {
 //                l = new ReleaseLevel("NewLevel", );
             }
-            game.reloadFromDisk();
-            app.getBuilderLevelSelectPanel().updateLevelList(game);
         }
+        game.reloadFromDisk();
+        app.getBuilderLevelSelectPanel().updateLevelList(game);
     }
 }
