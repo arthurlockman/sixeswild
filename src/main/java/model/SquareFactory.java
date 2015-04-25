@@ -32,13 +32,13 @@ public class SquareFactory {
         this.freqx1 = (int)(fx1 * 100.0);
         this.freqx2 = (int)(fx2 * 100.0);
         this.freqx3 = (int)(fx3 * 100.0);
-        this.lim1 = (int) (f1*100);
-        this.lim2 = (int) (f2*100) + this.lim1;
-        this.lim3 = (int) (f3*100) + this.lim2;
-        this.lim4 = (int) (f4*100) + this.lim3;
-        this.lim5 = (int) (f5*100) + this.lim4;
-        this.limx1 = (int) (fx1*100);
-        this.limx2 = (int) (fx2*100) + this.limx1;
+        this.lim1 = (int) (f1*100.0);
+        this.lim2 = (int) (f2*100.0) + this.lim1;
+        this.lim3 = (int) (f3*100.0) + this.lim2;
+        this.lim4 = (int) (f4*100.0) + this.lim3;
+        this.lim5 = (int) (f5*100.0) + this.lim4;
+        this.limx1 = (int) (fx1*100.0);
+        this.limx2 = (int) (fx2*100.0) + this.limx1;
     }
 
     public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3)
@@ -57,6 +57,8 @@ public class SquareFactory {
         this.lim3 = f3 + this.lim2;
         this.lim4 = f4 + this.lim3;
         this.lim5 = f5 + this.lim4;
+        limx1 = fx1;
+        lim2 = fx2 + this.limx1;
     }
 
     Square gen(int state){
@@ -163,15 +165,15 @@ public class SquareFactory {
     public String toString()
     {
         String dat = "";
-        dat += ((float)freq1) / 100.0 + " ";
-        dat += ((float)freq2) / 100.0 + " ";
-        dat += ((float)freq3) / 100.0 + " ";
-        dat += ((float)freq4) / 100.0 + " ";
-        dat += ((float)freq5) / 100.0 + " ";
-        dat += ((float)freq6) / 100.0 + " ";
-        dat += ((float)freqx1) / 100.0 + " ";
-        dat += ((float)freqx2) / 100.0 + " ";
-        dat += ((float)freqx3) / 100.0 + " ";
+        dat += freq1 + " ";
+        dat += freq2 + " ";
+        dat += freq3 + " ";
+        dat += freq4 + " ";
+        dat += freq5 + " ";
+        dat += freq6 + " ";
+        dat += freqx1 + " ";
+        dat += freqx2 + " ";
+        dat += freqx3 + " ";
         return dat;
     }
 }

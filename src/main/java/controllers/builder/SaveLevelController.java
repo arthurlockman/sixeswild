@@ -71,21 +71,25 @@ public class SaveLevelController extends MouseAdapter
         int freqx1 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("x1");
         int freqx2 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("x2");
         int freqx3 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("x3");
-
+        SquareFactory sf1 = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
+        System.out.println(sf1.toString());
         if (app.getBuilderEditorPanel().getCurrentLevel() != null)
         {
             //TODO: Fix this to pull data from the frequencies.
             if (levelType.equals(app.getBuilderEditorPanel().getCurrentLevel().getType()))
             {
-                String bd = app.getBuilderEditorPanel().getBoardViewPanel().getBoard().getBoardData();
+                Board board = app.getBuilderEditorPanel().getBoardViewPanel().getBoard();
+                board.setSquareFactory(new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3));
+                String bd = board.getBoardData();
                 app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
-                System.out.println(app.getBuilderEditorPanel().getCurrentLevel().getLevelData());
                 app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
+            } else { //Handle if the saved level type is different than the desired one.
+                
             }
         } else
         {
             System.out.println("New level, " + levelType);
-            Level l;
+            Level l = null;
             File outFile = null;
             try
             {
@@ -103,19 +107,23 @@ public class SaveLevelController extends MouseAdapter
             {
                 l = new PuzzleLevel("NewLevel", game.getLevels().size() + 1, 0, twoStar,
                         threeStar, "", true, moveLimit, specialMoves, outFile);
-                app.getBuilderEditorPanel().getBoardViewPanel().getBoard().setLevel(l);
-                l.setBoardData(app.getBuilderEditorPanel().getBoardViewPanel().getBoard().getBoardData());
-                l.saveLevel();
-            } else if (levelType.equals("Elimination")) //TODO: Add elimination level saving.
+            } else if (levelType.equals("Elimination"))
             {
-//                l = new EliminationLevel("NewLevel", );
-            } else if (levelType.equals("Lightning")) //TODO: Add lightning level saving.
+                l = new EliminationLevel("NewLevel", game.getLevels().size() + 1, 0, twoStar,
+                        threeStar, "", true, specialMoves, outFile);
+            } else if (levelType.equals("Lightning"))
             {
-//                l = new LightningLevel("NewLevel", );
-            } else if (levelType.equals("Release")) //TODO: Add release level saving.
+                l = new LightningLevel("NewLevel", game.getLevels().size() + 1, 0, twoStar,
+                        threeStar, "", true, timeLimit, specialMoves, outFile);
+            } else if (levelType.equals("Release"))
             {
-//                l = new ReleaseLevel("NewLevel", );
+                l = new ReleaseLevel("NewLevel", game.getLevels().size() + 1, 0, twoStar,
+                        threeStar, "", true, specialMoves, outFile);
             }
+            app.getBuilderEditorPanel().getBoardViewPanel().getBoard().setLevel(l);
+            assert l != null;
+            l.setBoardData(app.getBuilderEditorPanel().getBoardViewPanel().getBoard().getBoardData());
+            l.saveLevel();
         }
         game.reloadFromDisk();
         app.getBuilderLevelSelectPanel().updateLevelList(game);

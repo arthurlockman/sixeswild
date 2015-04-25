@@ -43,15 +43,15 @@ public class Board
             specialMovesAllowed = false;
         }
 
-        float freq1 = Float.parseFloat(tData[7]);
-        float freq2 = Float.parseFloat(tData[8]);
-        float freq3 = Float.parseFloat(tData[9]);
-        float freq4 = Float.parseFloat(tData[10]);
-        float freq5 = Float.parseFloat(tData[11]);
-        float freq6 = Float.parseFloat(tData[12]);
-        float freqx1 = Float.parseFloat(tData[13]);
-        float freqx2 = Float.parseFloat(tData[14]);
-        float freqx3 = Float.parseFloat(tData[15]);
+        int freq1 = Integer.parseInt(tData[7]);
+        int freq2 = Integer.parseInt(tData[8]);
+        int freq3 = Integer.parseInt(tData[9]);
+        int freq4 = Integer.parseInt(tData[10]);
+        int freq5 = Integer.parseInt(tData[11]);
+        int freq6 = Integer.parseInt(tData[12]);
+        int freqx1 = Integer.parseInt(tData[13]);
+        int freqx2 = Integer.parseInt(tData[14]);
+        int freqx3 = Integer.parseInt(tData[15]);
 
         squares = new Square[81];
         factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);

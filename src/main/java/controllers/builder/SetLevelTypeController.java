@@ -28,7 +28,6 @@ public class SetLevelTypeController implements ActionListener
         JTextField moveLimitSelector = app.getBuilderEditorPanel().getMoveLimitSelector();
         ButtonGroup tileSelect = app.getBuilderEditorPanel().getTileSelectButtonGroup();
 
-        //TODO: Create correct level of correct type for each selection.
         if (selected.toString().equals("Elimination"))
         {
             timeLimitSelector.setEnabled(false);
