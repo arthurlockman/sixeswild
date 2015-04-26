@@ -4,6 +4,12 @@ import view.PlayerApplication;
 
 import javax.swing.*;
 
+/**
+ *  PlayerLauncher Class.
+ *  Responsible for launching the Sixes Wild Player application.
+ *
+ *  @authors Arthur Lockman, Bryce Kaw-uh
+ */
 public class PlayerLauncher {
     public static void main(String[] args) {
         try

@@ -12,6 +12,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Enumeration;
 
+/**
+ * UpdateSquareController Class.
+ * Manages the updating of Squares.
+ *
+ * @authors  ..., Bryce Kaw-uh
+ */
 public class UpdateSquareController extends MouseAdapter
 {
     BuilderApplication app;
@@ -19,6 +25,12 @@ public class UpdateSquareController extends MouseAdapter
     SquareViewPanel square;
     BoardViewPanel boardView;
 
+    /**
+     * UpdateSquareController Constructor.
+     *
+     * @param app: the Builder application
+     * @param s:   the SquareViewPanel being controlled
+     */
     public UpdateSquareController(BuilderApplication app, SquareViewPanel s)
     {
         this.app = app;
@@ -28,6 +40,10 @@ public class UpdateSquareController extends MouseAdapter
     }
 
     @Override
+    /**
+     *  Updates the Square type as specified by the user's selection.
+     *  @param e:  the mouse event that initiated this move
+     */
     public void mouseClicked(MouseEvent e)
     {
         super.mouseClicked(e);

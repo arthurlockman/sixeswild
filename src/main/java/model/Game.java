@@ -7,17 +7,28 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Game Class.
+ * Manages the contents and behavior of Sixes Wild Games.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class Game
 {
     protected Board board;
     protected Badge [] badges;
     protected ArrayList<Level> levels;
 
+    /**
+     * Game Constructor.
+     * Loads the Game from disk.
+     */
     public Game()
     {
         reloadFromDisk();
     }
 
+    /** Reloads the Game from its location on disk. */
     public void reloadFromDisk()
     {
         int i = 1;
@@ -53,6 +64,11 @@ public class Game
         }
     }
 
+    /**
+     * Replaces a Level.
+     * @param l:  Level to replace.
+     * @param index: ?
+     */
     public boolean replaceLevel(Level l, int index)
     {
         if (index - 1 > levels.size())
@@ -61,6 +77,12 @@ public class Game
         return true;
     }
 
+    /**
+     * Initializes the Level with the given information.
+     * @param levelNumber:  what number the level will be
+     * @param levelData:  a String representation of the level data
+     * @param diskLocation:  where on disk the Level will be stored
+     */
     public void initializeLevel(int levelNumber, String levelData, File diskLocation)
     {
         String lData = levelData;
@@ -104,11 +126,17 @@ public class Game
         }
     }
 
+    /**
+     * Returns a list of the Levels.
+     */
     public ArrayList<Level> getLevels()
     {
         return levels;
     }
 
+    /**
+     * Returns the board.
+     */
     public Board getBoard()
     {
         return board;

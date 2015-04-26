@@ -10,6 +10,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * PlayerPlayPanel Class.
+ * Manages the contents and behavior of PlayerPlayPanels.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class PlayerPlayPanel
 {
     private JPanel menuBarPanel;
@@ -30,8 +36,14 @@ public class PlayerPlayPanel
     private JLabel titleLabel;
     private Board board;
 
+    /**
+     * PlayerPlayPanel Constructor.
+     */
     public PlayerPlayPanel()
     {
+        /**
+         * Adds a MouseListener
+         */
         quitButton.addMouseListener(new MouseAdapter()
         {
             @Override
@@ -48,6 +60,10 @@ public class PlayerPlayPanel
         });
     }
 
+    /**
+     * Sets the Board
+     * @param b: the Board
+     */
     public void setBoard(Board b)
     {
         this.board = b;

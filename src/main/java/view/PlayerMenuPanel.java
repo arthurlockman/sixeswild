@@ -8,6 +8,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * PlayerMenuPanel Class.
+ * Manages the contents and behavior of PlayerMenuPanels.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class PlayerMenuPanel
 {
     private JPanel playerMenuPanel;
@@ -20,8 +26,12 @@ public class PlayerMenuPanel
     private JButton instructionsButton;
     private JLabel bannerImage;
 
+    /**
+     * PlayerMenuPanel Constructor.
+     */
     public PlayerMenuPanel()
     {
+        /** Adds a mouse listener */
         creditsButton.addMouseListener(new MouseAdapter()
         {
             public void mouseReleased(MouseEvent e)
@@ -35,6 +45,7 @@ public class PlayerMenuPanel
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+        /** Adds a mouse listener */
         playGameButton.addMouseListener(new MouseAdapter()
         {
             public void mouseReleased(MouseEvent e)
