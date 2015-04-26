@@ -25,6 +25,11 @@ public class LightningLevel extends Level
         return timeLimit;
     }
 
+    public void setTimeLimit(int tl)
+    {
+        this.timeLimit = tl;
+    }
+
     @Override
     public String getLevelMetadata()
     {

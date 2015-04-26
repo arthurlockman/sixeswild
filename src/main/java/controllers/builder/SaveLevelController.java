@@ -1,5 +1,6 @@
 package controllers.builder;
 
+import javafx.scene.effect.Light;
 import model.*;
 import view.BuilderApplication;
 import view.BuilderEditorPanel;
@@ -72,10 +73,8 @@ public class SaveLevelController extends MouseAdapter
         int freqx2 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("x2");
         int freqx3 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("x3");
         SquareFactory sf1 = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
-        System.out.println(sf1.toString());
         if (app.getBuilderEditorPanel().getCurrentLevel() != null)
         {
-            //TODO: Fix this to pull data from the frequencies.
             if (levelType.equals(app.getBuilderEditorPanel().getCurrentLevel().getType()))
             {
                 Board board = app.getBuilderEditorPanel().getBoardViewPanel().getBoard();
@@ -83,8 +82,18 @@ public class SaveLevelController extends MouseAdapter
                 String bd = board.getBoardData();
                 app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
                 app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
-            } else { //Handle if the saved level type is different than the desired one.
-                
+            } else { //TODO: Handle if the saved level type is different than the desired one.
+                Level oldLevel = app.getBuilderEditorPanel().getCurrentLevel();
+                int idx = game.getLevels().indexOf(oldLevel);
+                if (levelType.equals("Release"))
+                {
+                } else if (levelType.equals("Lightning"))
+                {
+                } else if (levelType.equals("Elimination"))
+                {
+                } else if (levelType.equals("Puzzle"))
+                {
+                }
             }
         } else
         {

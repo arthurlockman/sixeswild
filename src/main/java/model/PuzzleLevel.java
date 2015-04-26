@@ -25,6 +25,11 @@ public class PuzzleLevel extends Level
         return moveLimit;
     }
 
+    public void setMoveLimit(int ml)
+    {
+        moveLimit = ml;
+    }
+
     @Override
     public String getLevelMetadata()
     {

@@ -53,6 +53,14 @@ public class Game
         }
     }
 
+    public boolean replaceLevel(Level l, int index)
+    {
+        if (index - 1 > levels.size())
+            return false;
+        levels.set(index, l);
+        return true;
+    }
+
     public void initializeLevel(int levelNumber, String levelData, File diskLocation)
     {
         String lData = levelData;
