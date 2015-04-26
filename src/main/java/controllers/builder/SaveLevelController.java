@@ -1,12 +1,8 @@
 package controllers.builder;
 
-import javafx.scene.effect.Light;
 import model.*;
 import view.BuilderApplication;
-import view.BuilderEditorPanel;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
