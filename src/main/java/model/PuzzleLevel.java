@@ -14,6 +14,15 @@ public class PuzzleLevel extends Level
         moveLimit = mLim;
     }
 
+    /**
+     * A constructor used to cast the superclass Level
+     * to this type of level.
+     * @param l The level to cast.
+     */
+    public PuzzleLevel(Level l)
+    {
+        super(l);
+    }
     @Override
     public String getType()
     {

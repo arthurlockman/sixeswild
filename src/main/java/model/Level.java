@@ -34,6 +34,63 @@ public class Level
         this.specialMovesAllowed = specialMovesAllowed;
     }
 
+    /**
+     * Constructs a level from an existing level.
+     * @param l The level to clone.
+     */
+    public Level(Level l)
+    {
+        this.name = l.getName();
+        this.levelNumber = l.getLevelNumber();
+        this.highScore = l.getHighScore();
+        this.twoStarScore = l.getTwoStarScore();
+        this.threeStarScore = l.getThreeStarScore();
+        this.levelData = l.getLevelData();
+        this.locked = l.isLocked();
+        this.diskLocation = l.getDiskLocation();
+        this.specialMovesAllowed = l.isSpecialMovesAllowed();
+    }
+
+    public int getLevelNumber() {
+        return levelNumber;
+    }
+
+    public void setLevelNumber(int levelNumber) {
+        this.levelNumber = levelNumber;
+    }
+
+    public int getTwoStarScore() {
+        return twoStarScore;
+    }
+
+    public void setTwoStarScore(int twoStarScore) {
+        this.twoStarScore = twoStarScore;
+    }
+
+    public int getThreeStarScore() {
+        return threeStarScore;
+    }
+
+    public void setThreeStarScore(int threeStarScore) {
+        this.threeStarScore = threeStarScore;
+    }
+
+    public File getDiskLocation() {
+        return diskLocation;
+    }
+
+    public void setDiskLocation(File diskLocation) {
+        this.diskLocation = diskLocation;
+    }
+
+    public boolean isSpecialMovesAllowed() {
+        return specialMovesAllowed;
+    }
+
+    public void setSpecialMovesAllowed(boolean specialMovesAllowed) {
+        this.specialMovesAllowed = specialMovesAllowed;
+    }
+
     public String getName()
     {
         return name;
@@ -99,5 +156,13 @@ public class Level
     public String getLevelData()
     {
         return this.levelData;
+    }
+
+    public Level getBasicLevel()
+    {
+        Level l = new Level(this.name, this.levelNumber, this.highScore,
+                this.twoStarScore, this.threeStarScore, this.levelData,
+                this.locked, this.specialMovesAllowed, this.diskLocation);
+        return l;
     }
 }

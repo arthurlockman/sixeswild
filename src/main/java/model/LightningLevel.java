@@ -14,6 +14,16 @@ public class LightningLevel extends Level
         timeLimit = tLim;
     }
 
+    /**
+     * A constructor used to cast the superclass Level
+     * to this type of level.
+     * @param l The level to cast.
+     */
+    public LightningLevel(Level l)
+    {
+        super(l);
+    }
+
     @Override
     public String getType()
     {
@@ -36,7 +46,7 @@ public class LightningLevel extends Level
         String dat = "";
         dat += name + " ";
         dat += this.getType() + " ";
-        dat += this.getTimeLimit();
+        dat += this.getTimeLimit() + " ";
         dat += "1 ";
         dat += this.twoStarScore + " ";
         dat += this.threeStarScore + " ";

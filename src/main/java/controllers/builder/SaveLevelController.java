@@ -74,22 +74,43 @@ public class SaveLevelController extends MouseAdapter
             if (levelType.equals(app.getBuilderEditorPanel().getCurrentLevel().getType()))
             {
                 Board board = app.getBuilderEditorPanel().getBoardViewPanel().getBoard();
-                board.setSquareFactory(new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3));
+                board.setSquareFactory(new SquareFactory(freq1, freq2, freq3, freq4, freq5,
+                        freq6, freqx1, freqx2, freqx3));
                 String bd = board.getBoardData();
                 app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
                 app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
-            } else { //TODO: Handle if the saved level type is different than the desired one.
+            } else { //TODO: Fix the fact that the level type is not set until second save button click.
+                System.out.println(levelType);
+                Board board = app.getBuilderEditorPanel().getBoardViewPanel().getBoard();
+                board.setSquareFactory(new SquareFactory(freq1, freq2, freq3, freq4, freq5,
+                        freq6, freqx1, freqx2, freqx3));
+                String bd = board.getBoardData();
+                app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
+
                 Level oldLevel = app.getBuilderEditorPanel().getCurrentLevel();
                 int idx = game.getLevels().indexOf(oldLevel);
+                System.out.println(idx);
                 if (levelType.equals("Release"))
                 {
+                    ReleaseLevel nl = new ReleaseLevel(oldLevel.getBasicLevel());
+                    game.replaceLevel(nl, idx);
                 } else if (levelType.equals("Lightning"))
                 {
+                    LightningLevel nl = new LightningLevel(oldLevel.getBasicLevel());
+                    nl.setTimeLimit(timeLimit);
+                    game.replaceLevel(nl, idx);
                 } else if (levelType.equals("Elimination"))
                 {
+                    EliminationLevel nl = new EliminationLevel(oldLevel.getBasicLevel());
+                    game.replaceLevel(nl, idx);
                 } else if (levelType.equals("Puzzle"))
                 {
+                    PuzzleLevel nl = new PuzzleLevel(oldLevel.getBasicLevel());
+                    nl.setMoveLimit(moveLimit);
+                    game.replaceLevel(nl, idx);
                 }
+                app.getBuilderEditorPanel().setCurrentLevel(game.getLevels().get(idx));
+                app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
             }
         } else
         {
