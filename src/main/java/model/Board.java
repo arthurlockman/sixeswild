@@ -59,7 +59,6 @@ public class Board
         {
             for (int i = 0; i < 81; i++)
             {
-
                 int state = Integer.parseInt(tData[18 + i]);
 
                 squares[i] = factory.gen(state);
@@ -83,6 +82,7 @@ public class Board
                 } else if (state == 3)
                 {
                     squares[i] = new Square(new Tile(6, 1));
+                    squares[i].setActive();
                 }
             }
         }
@@ -217,9 +217,13 @@ public class Board
     {
         String dat = "";
         dat += factory.toString();
-        dat += level.getHighScore() + " ";
-        if (level.locked) dat += "0 ";
-        else dat += "1 ";
+        if (level != null) {
+            dat += level.getHighScore() + " ";
+            if (level.locked) dat += "0 ";
+            else dat += "1 ";
+        } else {
+            dat += "0 0 ";
+        }
         for (int i = 0; i <= 80; i++)
         {
             Square s = this.getSquares()[i];

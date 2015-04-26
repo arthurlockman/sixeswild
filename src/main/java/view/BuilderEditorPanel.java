@@ -89,6 +89,8 @@ public class BuilderEditorPanel
     public void createNewLevel()
     {
         currentBoard = new Board();
+        this.currentLevel = null;
+        currentBoard.setLevel(null);
         boardViewPanel.setBoard(currentBoard);
     }
 
