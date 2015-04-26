@@ -3,6 +3,7 @@ package controllers.builder;
 import model.*;
 import view.BuilderApplication;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -79,17 +80,13 @@ public class SaveLevelController extends MouseAdapter
                 String bd = board.getBoardData();
                 app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
                 app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
-            } else { //TODO: Fix the fact that the level type is not set until second save button click.
-                System.out.println(levelType);
+            } else {
                 Board board = app.getBuilderEditorPanel().getBoardViewPanel().getBoard();
                 board.setSquareFactory(new SquareFactory(freq1, freq2, freq3, freq4, freq5,
                         freq6, freqx1, freqx2, freqx3));
                 String bd = board.getBoardData();
-                app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
-
                 Level oldLevel = app.getBuilderEditorPanel().getCurrentLevel();
                 int idx = game.getLevels().indexOf(oldLevel);
-                System.out.println(idx);
                 if (levelType.equals("Release"))
                 {
                     ReleaseLevel nl = new ReleaseLevel(oldLevel.getBasicLevel());
@@ -110,11 +107,11 @@ public class SaveLevelController extends MouseAdapter
                     game.replaceLevel(nl, idx);
                 }
                 app.getBuilderEditorPanel().setCurrentLevel(game.getLevels().get(idx));
+                app.getBuilderEditorPanel().getCurrentLevel().setBoardData(bd);
                 app.getBuilderEditorPanel().getCurrentLevel().saveLevel();
             }
         } else
         {
-            System.out.println("New level, " + levelType);
             Level l = null;
             File outFile = null;
             try
@@ -153,5 +150,6 @@ public class SaveLevelController extends MouseAdapter
         }
         game.reloadFromDisk();
         app.getBuilderLevelSelectPanel().updateLevelList(game);
+        JOptionPane.showMessageDialog(null, "Level saved successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }
