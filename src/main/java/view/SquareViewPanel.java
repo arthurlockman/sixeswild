@@ -11,6 +11,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
+/**
+ * SquareViewPanel Class.
+ * Manage the contents and behavior of Sixes Wild SquareViewPanel objects.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class SquareViewPanel
 {
     private JPanel squarePanel;
@@ -20,24 +26,38 @@ public class SquareViewPanel
     private MouseAdapter currentMouseAdapter;
     private MouseMotionAdapter currentMouseMotionAdapter;
 
+    /**
+     * SquareViewPanel Constructor with no parameters
+     */
     public SquareViewPanel()
     {
         $$$setupUI$$$();
         this.setSquare(new Square());
     }
 
+    /**
+     * SquareViewPanel Constructor
+     * @param s: the Square
+     */
     public SquareViewPanel(Square s)
     {
         $$$setupUI$$$();
         this.setSquare(s);
     }
 
+    /**
+     * Sets the Square
+     * @param s: the Square it is to be set as
+     */
     public void setSquare(Square s)
     {
         this.currentSquare = s;
         refresh();
     }
 
+    /**
+     * Refreshes the SquareViewPanel
+     */
     public void refresh()
     {
         if (currentSquare.isMarked())
@@ -114,29 +134,34 @@ public class SquareViewPanel
         }
     }
 
+    /** Returns the Square */
     public Square getSquare()
     {
         return this.currentSquare;
     }
 
+    /** Attaches a Mouse Adapter */
     public void attachMouseAdapter(MouseAdapter ma)
     {
         squarePanel.addMouseListener(ma);
         currentMouseAdapter = ma;
     }
 
+    /** Attaches a Mouse Motion Adapter */
     public void attachMouseMotionAdapter(MouseMotionAdapter mma)
     {
         squarePanel.addMouseMotionListener(mma);
         currentMouseMotionAdapter = mma;
     }
 
+    /** Removes the Mouse Adapters */
     public void removeMouseAdapters()
     {
         squarePanel.removeMouseListener(currentMouseAdapter);
         squarePanel.removeMouseMotionListener(currentMouseMotionAdapter);
     }
 
+    /** Creates UI components */
     private void createUIComponents()
     {
         squarePanel = new JPanel();

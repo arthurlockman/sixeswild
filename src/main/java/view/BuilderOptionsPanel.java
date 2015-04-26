@@ -14,6 +14,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
+/**
+ * BuilderOptionsPanel Class.
+ * Manages the contents and behavior of BuilderOptionsPanels.
+ *
+ * @authors ...
+ */
 public class BuilderOptionsPanel
 {
     private JPanel builderOptionsPanel;
@@ -39,9 +45,12 @@ public class BuilderOptionsPanel
     private SpinnerNumberModel mult1Model;
     private SpinnerNumberModel mult3Model;
 
+    /**
+     * BuilderOptionsPanel Constructor.
+     */
     public BuilderOptionsPanel()
     {
-
+        /** Adds a mouse listener to the close button */
         closeButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -53,7 +62,7 @@ public class BuilderOptionsPanel
 
             }
         });
-
+        /** Adds a mouse listener to the defaults button */
         defaultsButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -86,6 +95,7 @@ public class BuilderOptionsPanel
         tile5Freq.setModel(tile5Model);
         tile6Freq.setModel(tile6Model);
 
+        /** Makes a model change listener */
         ChangeListener modelChangeListener = new ChangeListener()
         {
             @Override
@@ -116,6 +126,18 @@ public class BuilderOptionsPanel
 
     }
 
+    /**
+     * Sets the frequencies of given tiles.
+     * @param tile1
+     * @param tile2
+     * @param tile3
+     * @param tile4
+     * @param tile5
+     * @param tile6
+     * @param mult1
+     * @param mult2
+     * @param mult3
+     */
     public void setFrequencies(int tile1, int tile2, int tile3, int tile4,
                                int tile5, int tile6, int mult1, int mult2, int mult3)
     {
@@ -130,6 +152,10 @@ public class BuilderOptionsPanel
         mult3Model.setValue(mult3);
     }
 
+    /**
+     * Sets frequencies of the Board
+     * @param b: the Board
+     */
     public void setFrequencies(Board b)
     {
         SquareFactory f = b.getFactory();
@@ -144,6 +170,9 @@ public class BuilderOptionsPanel
         mult3Model.setValue(f.getFreqx3());
     }
 
+    /**
+     * Sets frequencies of tiles as defaults
+     */
     public void setFrequenciesToDefault()
     {
         tile1Model.setValue(20);
@@ -157,6 +186,7 @@ public class BuilderOptionsPanel
         mult3Model.setValue(10);
     }
 
+    /** Returns a hash map of Frequencies */
     public HashMap<String, Integer> getFrequencies()
     {
         HashMap<String, Integer> hm = new HashMap<String, Integer>();

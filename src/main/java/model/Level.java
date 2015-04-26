@@ -2,6 +2,12 @@ package model;
 
 import java.io.*;
 
+/**
+ * Level Class.
+ * Manages the contents and behavior of the Sixes Wild Level objects.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class Level
 {
     protected String name;
@@ -14,11 +20,27 @@ public class Level
     protected File diskLocation;
     protected boolean specialMovesAllowed;
 
+    /**
+     * Level Constructor.
+     * @param data:  the String representation of the level.
+     */
     public Level(String data)
     {
 
     }
 
+    /**
+     * Level Constructor.
+     * @param name
+     * @param number
+     * @param highScore
+     * @param twoStarScore
+     * @param threeStarScore
+     * @param levelData
+     * @param locked
+     * @param specialMovesAllowed
+     * @param diskLocation
+     */
     public Level(String name, int number,
                  int highScore, int twoStarScore, int threeStarScore, String levelData,
                  boolean locked, boolean specialMovesAllowed, File diskLocation)
@@ -96,24 +118,27 @@ public class Level
         return name;
     }
 
-
+    /** Returns the Level high score */
     public int getHighScore()
     {
         return highScore;
     }
 
     @Override
+    /** Returns the String representation of the Level */
     public String toString()
     {
         return "<html><b>Level " + levelNumber + ":</b> " +
                 " <i>(High Score: " + highScore + ", Type: " + this.getType() + ")</i></html>";
     }
 
+    /** Returns whether or not the Level is locked */
     public boolean isLocked()
     {
         return this.locked;
     }
 
+    /** Returns the Type of the Level */
     public String getType()
     {
         return "Puzzle";
@@ -135,6 +160,7 @@ public class Level
         }
     }
 
+    /** Returns the Level metadata in the form of a String */
     public String getLevelMetadata()
     {
         String dat = "";
@@ -148,11 +174,13 @@ public class Level
         return dat;
     }
 
+    /** Sets the Board data */
     public void setBoardData(String boardData)
     {
         this.levelData = this.getLevelMetadata() + boardData;
     }
 
+    /** Returns the Level data */
     public String getLevelData()
     {
         return this.levelData;

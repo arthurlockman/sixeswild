@@ -13,6 +13,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * BuilderEditorPanel Class.
+ * Manages the contents and behavior of the BuilderEditorPanel.
+ *
+ * @authors ...
+ */
 public class BuilderEditorPanel
 {
     private JPanel builderEditorPanel;
@@ -41,8 +47,12 @@ public class BuilderEditorPanel
     private Level currentLevel;
     private Board currentBoard;
 
+    /**
+     * BuilderEditorPanel Constructor.
+     */
     public BuilderEditorPanel()
     {
+        /** Adds a mouse listener to the back button */
         backButton.addMouseListener(new MouseAdapter()
         {
             @Override
@@ -62,6 +72,8 @@ public class BuilderEditorPanel
                 }
             }
         });
+
+        /** Adds a mouse listener to the set frequencies button */
         setFrequenciesButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -86,6 +98,9 @@ public class BuilderEditorPanel
         twoStarSelector.setText("10");
     }
 
+    /**
+     * Creates a new Level
+     */
     public void createNewLevel()
     {
         currentBoard = new Board();
@@ -97,7 +112,7 @@ public class BuilderEditorPanel
     /**
      * Configure view for the current level under editing.
      *
-     * @param l The level to configure the view for.
+     * @param l: The level to configure the view for.
      */
     public void setCurrentLevel(Level l)
     {
@@ -121,66 +136,79 @@ public class BuilderEditorPanel
         threeStarSelector.setText("" + currentBoard.getThreeStarScore());
     }
 
+    /** Returns the Builder Options Panel */
     public BuilderOptionsPanel getOptionsPanel()
     {
         return optionsPanel;
     }
 
+    /** Returns the Level Type Selector */
     public JComboBox getLevelTypeSelector()
     {
         return levelTypeSelector;
     }
 
+    /** Returns the Time Limit Selector */
     public JTextField getTimeLimitSelector()
     {
         return timeLimitSelector;
     }
 
+    /** Returns the current Level */
     public Level getCurrentLevel()
     {
         return currentLevel;
     }
 
+    /** Returns the Move Limit Selector */
     public JTextField getMoveLimitSelector()
     {
         return moveLimitSelector;
     }
 
+    /** Returns the Three Star Selector */
     public JTextField getThreeStarSelector()
     {
         return threeStarSelector;
     }
 
+    /** Returns the Two Star Selector */
     public JTextField getTwoStarSelector()
     {
         return twoStarSelector;
     }
 
+    /** Returns the SpecialMovesAllowedSelector */
     public JCheckBox getSpecialMovesAllowedSelector()
     {
         return specialMovesAllowedSelector;
     }
 
+    /** Returns the TileSelectButtonGroup */
     public ButtonGroup getTileSelectButtonGroup()
     {
         return tileSelectButtonGroup;
     }
 
+    /** Returns the BoardViewPanel */
     public BoardViewPanel getBoardViewPanel()
     {
         return boardViewPanel;
     }
 
+    /** Returns the Undo Button */
     public JButton getUndoButton()
     {
         return undoButton;
     }
 
+    /** Returns the Redo Button */
     public JButton getRedoButton()
     {
         return redoButton;
     }
 
+    /** Returns the Save And Exit Button */
     public JButton getSaveAndExitButton()
     {
         return saveAndExitButton;

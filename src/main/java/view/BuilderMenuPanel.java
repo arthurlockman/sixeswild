@@ -8,6 +8,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * BuilderMenuPanel Class.
+ * Manages the contents and behavior of BuilderMenuPanels.
+ *
+ * @authors ...
+ */
 public class BuilderMenuPanel {
     private JPanel builderMenuPanel;
     private JLabel bannerImage;
@@ -19,6 +25,9 @@ public class BuilderMenuPanel {
     private JPanel leftButtons;
     private JPanel rightButtons;
 
+    /**
+     * BuilderMenuPanel Constructor.
+     */
     public BuilderMenuPanel()
     {
         newLevelButton.setName("New Level");
@@ -26,6 +35,7 @@ public class BuilderMenuPanel {
         instructionsButton.setName("Instructions");
         creditsButton.setName("Credits");
 
+        /** Adds a mouse listener to the credits button */
         creditsButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
@@ -37,6 +47,8 @@ public class BuilderMenuPanel {
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+
+        /** Adds a mouse listener to the edit level button */
         editLevelButton.addMouseListener(new MouseAdapter()
         {
             @Override
@@ -50,6 +62,8 @@ public class BuilderMenuPanel {
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+
+        /** Adds a mouse listener to the new level button */
         newLevelButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
