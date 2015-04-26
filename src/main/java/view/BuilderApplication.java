@@ -8,6 +8,12 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * BuilderApplication Class.
+ * Manages the contents and behavior of the Sixes Wild Builder Application.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class BuilderApplication extends JFrame
 {
     private JPanel builderApplication;
@@ -17,6 +23,7 @@ public class BuilderApplication extends JFrame
     private BuilderEditorPanel builderEditorPanel;
     private Game game;
 
+    /** BuilderApplication Constructor */
     public BuilderApplication()
     {
         super("Sixes Wild");
@@ -31,8 +38,8 @@ public class BuilderApplication extends JFrame
 
         this.addWindowListener(new WindowListener()
         {
-            //Add controllers once window is initialized.
             @Override
+            /** Add controllers once window is initialized. */
             public void windowOpened(WindowEvent e)
             {
                 builderEditorPanel.getLevelTypeSelector().addActionListener(new
@@ -54,6 +61,7 @@ public class BuilderApplication extends JFrame
             }
 
             @Override
+            /** Close windows? */
             public void windowClosing(WindowEvent e)
             {
 
@@ -92,26 +100,33 @@ public class BuilderApplication extends JFrame
         setVisible(true);
     }
 
+    /** Returns the Builder Application */
     public JPanel getBuilderApplication()
     {
         return builderApplication;
     }
 
+    /** Returns the Builder Menu Panel */
     public BuilderMenuPanel getBuilderMenu()
     {
         return builderMenuPanel;
     }
 
+    /** Returns the Builder Level Select Panel */
     public BuilderLevelSelectPanel getBuilderLevelSelectPanel()
     {
         return builderLevelSelectPanel;
     }
 
+    /**
+     * Returns the Builder Editor Panel
+     */
     public BuilderEditorPanel getBuilderEditorPanel()
     {
         return builderEditorPanel;
     }
 
+    /** Returns the Game */
     public Game getGame()
     {
         return game;

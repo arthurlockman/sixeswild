@@ -5,6 +5,12 @@ import model.moves.IReversibleMove;
 
 import java.util.Stack;
 
+/**
+ *  Board Class.
+ *  Manages the contents and behavior of Sixes Wild Board objects.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class Board
 {
     Timer timer;
@@ -21,6 +27,11 @@ public class Board
     SquareFactory factory;
     int twoStarScore, threeStarScore;
 
+    /**
+     * Board Constructor.
+     * @param l:  the Level whose board will be represented
+     * @param populate:  what does this do?
+     */
     public Board(Level l, boolean populate)
     {
         undoHistory = new Stack<IReversibleMove>();
@@ -88,6 +99,9 @@ public class Board
         }
     }
 
+    /**
+     * Board Constructor with no parameters
+     */
     public Board()
     {
         undoHistory = new Stack<IReversibleMove>();
@@ -156,26 +170,31 @@ public class Board
         return true;
     }
 
+    /** Returns true if the game has been won */
     public boolean isWon()
     {
         return false;
     }
 
+    /** Refreshes the Board */
     public void refresh()
     {
 
     }
 
+    /** Returns an array of the Board's Squares */
     public Square[] getSquares()
     {
         return squares;
     }
 
+    /** Returns the Board's SquareFactory */
     public SquareFactory getFactory()
     {
         return factory;
     }
 
+    /** Returns a String representation of the Board */
     public String toString() {
         String result = "";
 
@@ -189,30 +208,37 @@ public class Board
         return result;
     }
 
+    /** Returns the time limit */
     public int getTimeLimit() {
         return timeLimit;
     }
 
+    /** Returns the number of moves allowed */
     public int getMovesAllowed() {
         return movesAllowed;
     }
 
+    /** Returns the count of moves */
     public int getMoveCount() {
         return moveCount;
     }
 
+    /** Returns true if special moves are allowed */
     public boolean isSpecialMovesAllowed() {
         return specialMovesAllowed;
     }
 
+    /** Returns the score necessary for three stars */
     public int getThreeStarScore() {
         return threeStarScore;
     }
 
+    /** Returns the score necessary for two stars */
     public int getTwoStarScore() {
         return twoStarScore;
     }
 
+    /** Returns the Board data in the form of a String */
     public String getBoardData()
     {
         String dat = "";
@@ -240,11 +266,13 @@ public class Board
         return dat;
     }
 
+    /** Sets the Board Square Factory */
     public void setSquareFactory(SquareFactory f)
     {
         this.factory = f;
     }
 
+    /** Sets the Board Level */
     public void setLevel(Level l)
     {
         level = l;

@@ -4,6 +4,12 @@ import view.BuilderApplication;
 
 import javax.swing.*;
 
+/**
+ *  BuilderLauncher Class.
+ *  Responsible for launching the Sixes Wild Builder application.
+ *
+ *  @authors Arthur Lockman, Bryce Kaw-uh
+ */
 public class BuilderLauncher {
     public static void main(String[] args) {
         try

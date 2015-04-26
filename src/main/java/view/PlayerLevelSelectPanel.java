@@ -10,6 +10,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * PlayerLevelSelectPanel Class.
+ * Manages the contents and behavior of PlayerLevelSelectPanels.
+ *
+ * @authors ...
+ */
 public class PlayerLevelSelectPanel
 {
     private JPanel playerLevelSelectPanel;
@@ -22,6 +28,9 @@ public class PlayerLevelSelectPanel
 
     private DefaultListModel<Level> levelListModel;
 
+    /**
+     * PlayerLevelSelectPanel Constructor.
+     */
     public PlayerLevelSelectPanel()
     {
         $$$setupUI$$$();
@@ -43,6 +52,7 @@ public class PlayerLevelSelectPanel
         levelList.setCellRenderer(new PlayerLevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+        /** Adds a mouse listener */
         playButton.addMouseListener(new MouseAdapter()
         {
             @Override
@@ -68,6 +78,10 @@ public class PlayerLevelSelectPanel
         });
     }
 
+    /**
+     * Updates the Level List
+     * @param g: the Game
+     */
     public void updateLevelList(Game g)
     {
         levelListModel = new DefaultListModel<Level>();
@@ -79,11 +93,13 @@ public class PlayerLevelSelectPanel
         levelList.setSelectedIndex(0);
     }
 
+    /** Creates UI Components */
     private void createUIComponents()
     {
         // TODO: place custom component creation code here
     }
 
+    /** Returns the Play Button */
     public JButton getPlayButton()
     {
         return playButton;
