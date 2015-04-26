@@ -4,6 +4,7 @@ package model;
  * Created by jamarciano on 4/18/15.
  */
 public class SquareFactory {
+
     protected int lim1;
     protected int lim2;
     protected int lim3;
@@ -22,7 +23,7 @@ public class SquareFactory {
     protected int freqx2;
     protected int freqx3;
 
-    public SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3){
+    public SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3, Board creator){
         this.freq1 = (int)(f1 * 100.0);
         this.freq2 = (int)(f2 * 100.0);
         this.freq3 = (int)(f3 * 100.0);
@@ -39,9 +40,10 @@ public class SquareFactory {
         this.lim5 = (int) (f5*100.0) + this.lim4;
         this.limx1 = (int) (fx1*100.0);
         this.limx2 = (int) (fx2*100.0) + this.limx1;
+        this.creator = creator;
     }
 
-    public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3)
+    public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3, Board creator)
     {
         this.freq1 = f1;
         this.freq2 = f2;
@@ -116,6 +118,42 @@ public class SquareFactory {
 
     }
 
+    public Tile genTile(){
+        int tileRoll = (int) (Math.random() * 100) + 1;
+        int multRoll = (int) (Math.random() * 100) + 1;
+
+        int tileVal = 0;
+        int tileMult = 0;
+
+        if(tileRoll < lim1){
+            tileVal = 1;
+        } else if(tileRoll < lim2) {
+            tileVal = 2;
+        } else if(tileRoll < lim3) {
+            tileVal = 3;
+        } else if(tileRoll < lim4) {
+            tileVal = 4;
+        } else if(tileRoll < lim5) {
+            tileVal = 5;
+        } else {
+            tileVal = 6;
+        }
+
+        if(tileVal < 6) {
+            if (multRoll < limx1) {
+                tileMult = 1;
+            } else if (multRoll < limx2) {
+                tileMult = 2;
+            } else {
+                tileMult = 3;
+            }
+        } else {
+            tileMult = 1;
+        }
+
+        return new Tile(tileVal, tileMult);
+    }
+
     public int getFreq1()
     {
         return freq1;
@@ -156,10 +194,7 @@ public class SquareFactory {
         return freqx2;
     }
 
-    public int getFreqx3()
-    {
-        return freqx3;
-    }
+    public int getFreqx3() { return freqx3; }
 
     @Override
     public String toString()

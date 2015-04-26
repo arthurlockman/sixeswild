@@ -21,8 +21,7 @@ public class Board
     SquareFactory factory;
     int twoStarScore, threeStarScore;
 
-    public Board(Level l, boolean populate)
-    {
+    public Board(Level l, boolean populate) {
         undoHistory = new Stack<IReversibleMove>();
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
@@ -55,8 +54,7 @@ public class Board
 
         squares = new Square[81];
         factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
-        if (populate)
-        {
+        if (populate) {
             for (int i = 0; i < 81; i++)
             {
 
@@ -249,4 +247,32 @@ public class Board
     {
         level = l;
     }
+
+
+    public void pullDown(int index){
+        if(!squares[index].isActive() || !squares[index].isCleared()){
+            return;
+        } else if (index < 9 || (!squares[index-9].isActive())) {
+            //generate new tile from board’s square factory
+            squares[index].setTile(factory.genTile());
+            squares[index].flipCleared();
+        } else if(!squares[index-9].isCleared()) {
+            //above square’s tile is now this square’s tile
+            squares[index].setTile(squares[index - 9].getTile());
+            squares[index].flipCleared();
+
+            //above square called for pulldown
+            squares[index-9].flipCleared();
+            pullDown(index - 9);
+        } else if (squares[index-9].isCleared()){
+            //above square calls pullDown
+            pullDown(index - 9);
+            //above square 's tile is now my tile
+            squares[index].setTile(squares[index - 9].getTile());
+            squares[index-9].flipCleared();
+            squares[index].flipCleared();
+        }
+        return;
+    }
+
 }

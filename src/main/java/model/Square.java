@@ -6,17 +6,26 @@ public class Square
     boolean isInert;
     boolean marked;
 
+    boolean cleared;
+
+
     public Square(Tile t)
     {
         this.tile = t;
         if(tile.getValue() == 0 || tile.getValue() == 6){
             isInert = true;
         }
+
+        this.cleared = false;
     }
 
     public Square()
     {
 
+    }
+
+    public void setTile(Tile t){
+        this.tile = t;
     }
 
     public void mark()
@@ -72,6 +81,18 @@ public class Square
     public boolean isMarked()
     {
         return marked;
+    }
+
+    public boolean isCleared(){
+        return cleared;
+    }
+
+    public void flipCleared(){
+        if(cleared == true){
+            cleared = false;
+        } else{
+            cleared = true;
+        }
     }
 
     @Override
