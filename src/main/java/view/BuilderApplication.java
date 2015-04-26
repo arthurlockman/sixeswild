@@ -1,7 +1,7 @@
 package view;
 
-import controllers.builder.PlaceTileController;
-import controllers.builder.SetLevelTypeController;
+import controllers.builder.*;
+import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +15,7 @@ public class BuilderApplication extends JFrame
     private SplashScreen splashScreen;
     private BuilderLevelSelectPanel builderLevelSelectPanel;
     private BuilderEditorPanel builderEditorPanel;
+    private Game game;
 
     public BuilderApplication()
     {
@@ -26,6 +27,7 @@ public class BuilderApplication extends JFrame
         setSize(new Dimension(500, 600));
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
+        this.game = new Game();
 
         this.addWindowListener(new WindowListener()
         {
@@ -38,8 +40,17 @@ public class BuilderApplication extends JFrame
                 builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
                 for (Integer i = 0; i <= 80; i++)
                     builderEditorPanel.getBoardViewPanel().getSquareView(i).attachMouseAdapter(new
-                            PlaceTileController((BuilderApplication) e.getWindow(),
+                            UpdateSquareController((BuilderApplication) e.getWindow(),
                             builderEditorPanel.getBoardViewPanel().getSquareView(i)));
+                builderEditorPanel.getUndoButton().addMouseListener(new
+                        UndoEditController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getRedoButton().addMouseListener(new
+                        RedoEditController((BuilderApplication) e.getWindow()));
+                builderLevelSelectPanel.updateLevelList(game);
+                builderLevelSelectPanel.getEditButton().addMouseListener(new
+                        LoadLevelController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getSaveAndExitButton().addMouseListener(new
+                        SaveLevelController((BuilderApplication) e.getWindow()));
             }
 
             @Override
@@ -99,6 +110,11 @@ public class BuilderApplication extends JFrame
     public BuilderEditorPanel getBuilderEditorPanel()
     {
         return builderEditorPanel;
+    }
+
+    public Game getGame()
+    {
+        return game;
     }
 
     {

@@ -2,6 +2,8 @@ package controllers.builder;
 
 import model.Square;
 import model.Tile;
+import model.moves.UpdateSquareMove;
+import view.BoardViewPanel;
 import view.BuilderApplication;
 import view.SquareViewPanel;
 
@@ -10,17 +12,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Enumeration;
 
-public class PlaceTileController extends MouseAdapter
+public class UpdateSquareController extends MouseAdapter
 {
     BuilderApplication app;
     ButtonGroup tileSelect;
     SquareViewPanel square;
+    BoardViewPanel boardView;
 
-    public PlaceTileController(BuilderApplication app, SquareViewPanel s)
+    public UpdateSquareController(BuilderApplication app, SquareViewPanel s)
     {
         this.app = app;
         tileSelect = app.getBuilderEditorPanel().getTileSelectButtonGroup();
         this.square = s;
+        this.boardView = app.getBuilderEditorPanel().getBoardViewPanel();
     }
 
     @Override
@@ -39,25 +43,25 @@ public class PlaceTileController extends MouseAdapter
         }
 
         //Place tile based on selected type.
-        if (!tileType.equals(""))
-        {
-            square.getSquare().setMarked(false);
-            square.getSquare().setActive();
-        }
+        UpdateSquareMove move;
         if (tileType.equals("Active"))
         {
-            square.getSquare().replace(new Tile(0, 1));
+            move = new UpdateSquareMove(new Tile(0, 1), square.getSquare(), true, false);
         } else if (tileType.equals("Inactive"))
         {
-            square.getSquare().setInactive();
+            move = new UpdateSquareMove(null, square.getSquare(), false, false);
         } else if (tileType.equals("Bucket"))
         {
-            square.getSquare().setMarked(true);
+            move = new UpdateSquareMove(null, square.getSquare(), true, true);
         } else if (tileType.equals("Six"))
         {
-            square.getSquare().replace(new Tile(6, 1));
+            move = new UpdateSquareMove(new Tile(6, 1), square.getSquare(), true, false);
+        } else {
+            move = new UpdateSquareMove(null, square.getSquare(),
+                    square.getSquare().isActive(), square.getSquare().isMarked());
         }
 
-        app.getBuilderEditorPanel().getBoardViewPanel().refresh();
+        boardView.getBoard().makeMove(move);
+        boardView.refresh();
     }
 }

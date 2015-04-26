@@ -3,6 +3,8 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Board;
+import model.SquareFactory;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -10,6 +12,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
 
 public class BuilderOptionsPanel
 {
@@ -127,6 +130,20 @@ public class BuilderOptionsPanel
         mult3Model.setValue(mult3);
     }
 
+    public void setFrequencies(Board b)
+    {
+        SquareFactory f = b.getFactory();
+        tile1Model.setValue(f.getFreq1());
+        tile2Model.setValue(f.getFreq2());
+        tile3Model.setValue(f.getFreq3());
+        tile4Model.setValue(f.getFreq4());
+        tile5Model.setValue(f.getFreq5());
+        tile6Model.setValue(f.getFreq6());
+        mult1Model.setValue(f.getFreqx1());
+        mult2Model.setValue(f.getFreqx2());
+        mult3Model.setValue(f.getFreqx3());
+    }
+
     public void setFrequenciesToDefault()
     {
         tile1Model.setValue(20);
@@ -138,6 +155,21 @@ public class BuilderOptionsPanel
         mult1Model.setValue(70);
         mult2Model.setValue(20);
         mult3Model.setValue(10);
+    }
+
+    public HashMap<String, Integer> getFrequencies()
+    {
+        HashMap<String, Integer> hm = new HashMap<String, Integer>();
+        hm.put("1", (Integer) tile1Model.getValue());
+        hm.put("2", (Integer) tile2Model.getValue());
+        hm.put("3", (Integer) tile3Model.getValue());
+        hm.put("4", (Integer) tile4Model.getValue());
+        hm.put("5", (Integer) tile5Model.getValue());
+        hm.put("6", (Integer) tile6Model.getValue());
+        hm.put("x1", (Integer) mult1Model.getValue());
+        hm.put("x2", (Integer) mult2Model.getValue());
+        hm.put("x3", (Integer) mult3Model.getValue());
+        return hm;
     }
 
     {

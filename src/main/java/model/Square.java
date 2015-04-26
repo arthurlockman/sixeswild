@@ -9,12 +9,19 @@ public class Square
     public Square(Tile t)
     {
         this.tile = t;
-        this.isInert = false;
+        if(tile.getValue() == 0 || tile.getValue() == 6){
+            isInert = true;
+        }
     }
 
     public Square()
     {
-        this.isInert = false;
+
+    }
+
+    public void mark()
+    {
+        marked = true;
     }
 
     public boolean removeTile()
@@ -72,4 +79,5 @@ public class Square
     {
         return "Square " + tile.getValue() + "x" + tile.getMultiplier();
     }
+
 }

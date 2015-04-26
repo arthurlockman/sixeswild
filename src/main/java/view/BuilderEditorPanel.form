@@ -88,6 +88,7 @@
                         </constraints>
                         <properties>
                           <icon value="view/numix-icons/16x16/undo.png"/>
+                          <name value="undoButton"/>
                         </properties>
                       </component>
                       <component id="748bc" class="javax.swing.JButton" binding="redoButton">
@@ -96,6 +97,7 @@
                         </constraints>
                         <properties>
                           <icon value="view/numix-icons/16x16/redo.png"/>
+                          <name value="redoButton"/>
                         </properties>
                       </component>
                     </children>
@@ -106,7 +108,7 @@
                     </constraints>
                     <properties>
                       <horizontalTextPosition value="2"/>
-                      <text value="Save and Exit"/>
+                      <text value="Save"/>
                     </properties>
                   </component>
                 </children>
