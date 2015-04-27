@@ -4,9 +4,7 @@ import application.BuilderLauncher;
 import lib.GUITestCase;
 
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.util.Scanner;
@@ -317,6 +315,19 @@ public class TestSaveLevelController extends GUITestCase
         }
 
         assertEquals(finalData, content);
+        PrintWriter writer = null;
+        try
+        {
+            writer = new PrintWriter(listOfFiles[0].getPath(), "UTF-8");
+            writer.println(initialData);
+            writer.close();
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -359,8 +370,8 @@ public class TestSaveLevelController extends GUITestCase
         String initialData = "TheFirst Puzzle 30 30 200 300 1 20 20 20 20 10 10 80 " +
                 "25 5 1000 1 1 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 " +
                 "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 " +
-                "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1";
-        assertTrue(content.contains(initialData));
+                "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ";
+        assertEquals(initialData, content);
 
         //Change level type and options
         window.button("setFrequenciesButton").click();
@@ -378,7 +389,7 @@ public class TestSaveLevelController extends GUITestCase
 
         String finalData = "TheFirst Puzzle 1 30 200 300 1 15 20 20 20 15 10 90 18 2 1000 1 0 1 3 1" +
                 " 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1" +
-                " 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0";
+                " 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 ";
 
         scanner = null;
         try
@@ -390,6 +401,21 @@ public class TestSaveLevelController extends GUITestCase
         {
             e.printStackTrace();
         }
-        assertTrue(content.contains(finalData));
+
+        assertEquals(finalData, content);
+
+        PrintWriter writer = null;
+        try
+        {
+            writer = new PrintWriter(listOfFiles[0].getPath(), "UTF-8");
+            writer.println(initialData);
+            writer.close();
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
