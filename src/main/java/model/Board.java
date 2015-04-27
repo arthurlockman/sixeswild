@@ -29,8 +29,11 @@ public class Board
 
     /**
      * Board Constructor.
-     * @param l:  the Level whose board will be represented
-     * @param populate:  what does this do?
+     * @param l the Level whose board will be represented
+     * @param populate True if the board should fill squares with tiles
+     *                 according to the spawn frequencies described in the
+     *                 level, false if board should be filled with blank
+     *                 tiles.
      */
     public Board(Level l, boolean populate) {
         undoHistory = new Stack<IReversibleMove>();
@@ -196,13 +199,11 @@ public class Board
     public String toString() {
         String result = "";
 
-        for(int i = 0; i < 81; i++) {
-
-            result.concat(squares[i].getTile().getValue() + "x" + squares[i].getTile().getValue() + " ");
+        for(int i = 1; i <= 81; i++)
+        {
+            result += this.getSquares()[i - 1].toString() + "\t";
+            if (i % 9 == 0 && i > 1) result += "\n";
         }
-
-        System.out.println(result);
-
         return result;
     }
 
@@ -280,6 +281,16 @@ public class Board
         level = l;
     }
 
+    /**
+     * Refill the entire board and any emptied squares.
+     */
+    public void refill()
+    {
+        for (int i = 80; i >= 0; i--)
+        {
+            this.pullDown(i);
+        }
+    }
 
     public void pullDown(int index){
         if(!squares[index].isActive() || !squares[index].isCleared()){

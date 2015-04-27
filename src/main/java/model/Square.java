@@ -120,7 +120,7 @@ public class Square
     }
 
     public void flipCleared(){
-        if(cleared == true){
+        if(cleared){
             cleared = false;
         } else{
             cleared = true;
