@@ -51,6 +51,7 @@ public class BuilderLevelCellRenderer extends JLabel implements ListCellRenderer
             setBackground(list.getBackground());
             setForeground(list.getForeground());
         }
+        this.setName("level" + index);
         return this;
     }
 }
