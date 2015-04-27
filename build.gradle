@@ -39,3 +39,6 @@ jacocoTestReport {
         })
     }
 }
+
+test.dependsOn 'clean'
+test.mustRunAfter 'clean'

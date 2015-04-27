@@ -93,12 +93,6 @@ public class PlayerLevelSelectPanel
         levelList.setSelectedIndex(0);
     }
 
-    /** Creates UI Components */
-    private void createUIComponents()
-    {
-        // TODO: place custom component creation code here
-    }
-
     /** Returns the Play Button */
     public JButton getPlayButton()
     {

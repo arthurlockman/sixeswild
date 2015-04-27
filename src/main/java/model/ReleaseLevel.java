@@ -29,6 +29,16 @@ public class ReleaseLevel extends Level
         super(name, number, highScore, twoStarScore, threeStarScore, levelData, locked, specialAllowed, diskLocation);
     }
 
+    /**
+     * A constructor used to cast the superclass Level
+     * to this type of level.
+     * @param l The level to cast.
+     */
+    public ReleaseLevel(Level l)
+    {
+        super(l);
+    }
+
     @Override
     /** Returns the Level type */
     public String getType()
