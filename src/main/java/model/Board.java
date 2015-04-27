@@ -3,6 +3,9 @@ package model;
 import model.moves.IMove;
 import model.moves.IReversibleMove;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -187,6 +190,24 @@ public class Board
     public Square[] getSquares()
     {
         return squares;
+    }
+
+    /**
+     * Determine if two squares are neighboring on the board.
+     * @param s1 The first square.
+     * @param s2 The second square.
+     * @return True if the squares are neighboring.
+     */
+    public boolean areNeighboring(Square s1, Square s2)
+    {
+        List<Square> l = Arrays.asList(this.squares);
+        if (!l.contains(s1) || !l.contains(s2)) return false;
+
+        int idx1 = l.indexOf(s1);
+        int idx2 = l.indexOf(s2);
+        int diff = Math.abs(idx1 - idx2);
+
+        return diff <= 1 || diff == 9;
     }
 
     /** Returns the Board's SquareFactory */

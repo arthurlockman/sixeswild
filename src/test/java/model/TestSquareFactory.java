@@ -19,7 +19,8 @@ public class TestSquareFactory extends TestCase
         int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0,
                 count6 = 0, countx1 = 0, countx2 = 0, countx3 = 0;
         int countMult = 0;
-        for (int i = 0; i < 1000; i++)
+        int countTile = 10000;
+        for (int i = 0; i < countTile; i++)
         {
             Tile t = sf.genTile();
             switch (t.getValue())
@@ -60,12 +61,12 @@ public class TestSquareFactory extends TestCase
                 }
             }
         }
-        assertTrue(this.inRange(((double)count1/1000.0), 0.16, 0.1));
-        assertTrue(this.inRange(((double)count2/1000.0), 0.16, 0.1));
-        assertTrue(this.inRange(((double)count3/1000.0), 0.16, 0.1));
-        assertTrue(this.inRange(((double)count4/1000.0), 0.16, 0.1));
-        assertTrue(this.inRange(((double)count5/1000.0), 0.16, 0.1));
-        assertTrue(this.inRange(((double)count6/1000.0), 0.2, 0.1));
+        assertTrue(this.inRange(((double)count1/(double)countTile), 0.16, 0.1));
+        assertTrue(this.inRange(((double)count2/(double)countTile), 0.16, 0.1));
+        assertTrue(this.inRange(((double)count3/(double)countTile), 0.16, 0.1));
+        assertTrue(this.inRange(((double)count4/(double)countTile), 0.16, 0.1));
+        assertTrue(this.inRange(((double)count5/(double)countTile), 0.16, 0.1));
+        assertTrue(this.inRange(((double)count6/(double)countTile), 0.2, 0.1));
         assertTrue(this.inRange(((double)countx1/(double)countMult), 0.33, 0.1));
         assertTrue(this.inRange(((double)countx2/(double)countMult), 0.33, 0.1));
         assertTrue(this.inRange(((double)countx3/(double)countMult), 0.34, 0.1));
@@ -76,7 +77,7 @@ public class TestSquareFactory extends TestCase
      * @param number The input number.
      * @param target The target number.
      * @param range The range of acceptable values around the target.
-     * @return
+     * @return A boolean, true if the number is in the acceptable range.
      */
     public boolean inRange(double number, double target, double range)
     {

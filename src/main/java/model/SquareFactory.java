@@ -89,7 +89,7 @@ public class SquareFactory {
      * @param state
      * @return
      */
-    Square gen(int state){
+    public Square gen(int state){
         Square ret;
 
         if(state == 0) {
@@ -106,42 +106,7 @@ public class SquareFactory {
         } else if (state != 1){
             // TODO exception
         }
-
-        int tileRoll = (int) (Math.random() * 100) + 1;
-        int multRoll = (int) (Math.random() * 100) + 1;
-
-        int tileVal = 0;
-        int tileMult = 0;
-
-        if(tileRoll < lim1){
-            tileVal = 1;
-        } else if(tileRoll < lim2) {
-            tileVal = 2;
-        } else if(tileRoll < lim3) {
-            tileVal = 3;
-        } else if(tileRoll < lim4) {
-            tileVal = 4;
-        } else if(tileRoll < lim5) {
-            tileVal = 5;
-        } else {
-            tileVal = 6;
-        }
-
-        if(tileVal < 6) {
-            if (multRoll < limx1) {
-                tileMult = 1;
-            } else if (multRoll < limx2) {
-                tileMult = 2;
-            } else {
-                tileMult = 3;
-            }
-        } else {
-            tileMult = 1;
-        }
-
-
-        return new Square(new Tile(tileVal, tileMult));
-
+        return new Square(this.genTile());
     }
 
     /**
@@ -166,7 +131,6 @@ public class SquareFactory {
         }
         if (tile != 6)
         {
-            randomIndex = -1;
             random = Math.random() * totalWeightMult;
             for (int i = 0; i < multWeights.length; i++)
             {
