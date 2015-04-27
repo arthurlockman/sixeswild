@@ -19,7 +19,7 @@ public class Square
     public Square(Tile t)
     {
         this.tile = t;
-        if(tile.getValue() == 0 || tile.getValue() == 6){
+        if(tile.getValue() == 0){
             isInert = true;
         }
     }
@@ -29,7 +29,7 @@ public class Square
      */
     public Square()
     {
-
+        this.isInert = true;
     }
 
     /**
@@ -43,7 +43,9 @@ public class Square
     /** Removes the Square's Tile. */
     public boolean removeTile()
     {
-        return false;
+        if (this.tile == null) return false;
+        this.tile = null;
+        return true;
     }
 
     /**
