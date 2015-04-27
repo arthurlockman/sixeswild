@@ -7,6 +7,12 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * PlayerApplication Class.
+ * Manages the contents and behavior of the PlayerApplication.
+ *
+ * @authors ...
+ */
 public class PlayerApplication extends JFrame
 {
     private JPanel playerApplication;
@@ -16,6 +22,9 @@ public class PlayerApplication extends JFrame
     private PlayerPlayPanel playerPlayPanel;
     private Game game;
 
+    /**
+     * PlayerApplication Constructor.
+     */
     public PlayerApplication()
     {
         super("Sixes Wild");
@@ -29,6 +38,7 @@ public class PlayerApplication extends JFrame
         this.game = new Game();
 //        this.playerPlayPanel.setBoard(this.game.getBoard());
 
+        /** Adds a window listener */
         this.addWindowListener(new WindowListener()
         {
             //Add controllers once window is initialized.

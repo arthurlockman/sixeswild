@@ -11,6 +11,12 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * BuilderLevelSelectPanel Class.
+ * Manages the contents and behavior of the BuilderLevelSelectPanel.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class BuilderLevelSelectPanel
 {
     private JPanel builderLevelSelectPanel;
@@ -22,10 +28,14 @@ public class BuilderLevelSelectPanel
 
     private DefaultListModel<Level> levelListModel;
 
+    /**
+     * BuilderLevelSelectPanel Constructor
+     */
     public BuilderLevelSelectPanel()
     {
 
         $$$setupUI$$$();
+        /** Adds a mouse listener to the back button */
         backButton.addMouseListener(new MouseAdapter()
         {
             public void mouseReleased(MouseEvent e)
@@ -45,6 +55,10 @@ public class BuilderLevelSelectPanel
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
+    /**
+     * Updates the level list
+     * @param g: the Game
+     */
     public void updateLevelList(Game g)
     {
         levelListModel = new DefaultListModel<Level>();
@@ -56,19 +70,20 @@ public class BuilderLevelSelectPanel
         levelList.setSelectedIndex(0);
     }
 
+    /**
+     * Returns the selected Level
+     */
     public Level getSelected()
     {
         return levelListModel.get(levelList.getSelectedIndex());
     }
 
+    /**
+     * Returns the Edit button
+     */
     public JButton getEditButton()
     {
         return editButton;
-    }
-
-    private void createUIComponents()
-    {
-        // TODO: place custom component creation code here
     }
 
     /**

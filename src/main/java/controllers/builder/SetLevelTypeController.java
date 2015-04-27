@@ -9,16 +9,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
 
+/**
+ *  SetLevelTypeController Class.
+ *  Manages the setting of level types for levels in the Builder.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class SetLevelTypeController implements ActionListener
 {
     BuilderApplication app;
 
+    /**
+     * SetLevelTypeController Constructor.
+     * @param app:  the Builder application
+     */
     public SetLevelTypeController(BuilderApplication app)
     {
         this.app = app;
     }
 
     @Override
+    /**
+     * Sets the level type to either Elimination, Lightning, Puzzle,
+     * or Release as specified by the user.
+     *
+     * @param e:  the ActionEvent that initiated this action.
+     */
     public void actionPerformed(ActionEvent e)
     {
         JComboBox box = (JComboBox) e.getSource();

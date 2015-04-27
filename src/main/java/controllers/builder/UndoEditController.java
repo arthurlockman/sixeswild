@@ -5,16 +5,30 @@ import view.BuilderApplication;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * UndoEditController Class.
+ * Manages the undoing functionality of the level editor.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class UndoEditController extends MouseAdapter
 {
     BuilderApplication app;
 
+    /**
+     * UndoEditController Constructor.
+     * @param app:  the Builder application.
+     */
     public UndoEditController(BuilderApplication app)
     {
         this.app = app;
     }
 
     @Override
+    /**
+     * Undoes the last editing move done by the user.
+     * @param me: the MouseEvent that initiated this action
+     */
     public void mouseClicked(MouseEvent me)
     {
         super.mouseClicked(me);

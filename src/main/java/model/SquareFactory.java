@@ -1,7 +1,10 @@
 package model;
 
 /**
- * Created by jamarciano on 4/18/15.
+ * SquareFactory Class.
+ * Jesse, please write the description since you know way more about this Class than I do.
+ *
+ * @authors Jesse Marciano, ...
  */
 public class SquareFactory {
 
@@ -23,6 +26,9 @@ public class SquareFactory {
     protected int freqx2;
     protected int freqx3;
 
+    protected Board creator;
+
+    /** SquareFactory Constructor with floats */
     public SquareFactory(float f1, float f2, float f3, float f4, float f5, float f6, float fx1, float fx2, float fx3, Board creator){
         this.freq1 = (int)(f1 * 100.0);
         this.freq2 = (int)(f2 * 100.0);
@@ -43,6 +49,7 @@ public class SquareFactory {
         this.creator = creator;
     }
 
+    /** SquareFactory Constructor with integers */
     public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3, Board creator)
     {
         this.freq1 = f1;
@@ -61,8 +68,35 @@ public class SquareFactory {
         this.lim5 = f5 + this.lim4;
         limx1 = fx1;
         lim2 = fx2 + this.limx1;
+        this.creator = creator;
+    }
+    /** SquareFactory Constructor with integers and no creator */
+    public SquareFactory(int f1, int f2, int f3, int f4, int f5, int f6, int fx1, int fx2, int fx3)
+    {
+        this.freq1 = f1;
+        this.freq2 = f2;
+        this.freq3 = f3;
+        this.freq4 = f4;
+        this.freq5 = f5;
+        this.freq6 = f6;
+        this.freqx1 = fx1;
+        this.freqx2 = fx2;
+        this.freqx3 = fx3;
+        this.lim1 = f1;
+        this.lim2 = f2 + this.lim1;
+        this.lim3 = f3 + this.lim2;
+        this.lim4 = f4 + this.lim3;
+        this.lim5 = f5 + this.lim4;
+        limx1 = fx1;
+        lim2 = fx2 + this.limx1;
+        this.creator = null;
     }
 
+    /**
+     * Jesse, what does this do?
+     * @param state
+     * @return
+     */
     Square gen(int state){
         Square ret;
 

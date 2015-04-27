@@ -14,6 +14,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
+/**
+ * BuilderOptionsPanel Class.
+ * Manages the contents and behavior of BuilderOptionsPanels.
+ *
+ * @authors ...
+ */
 public class BuilderOptionsPanel
 {
     private JPanel builderOptionsPanel;
@@ -39,9 +45,12 @@ public class BuilderOptionsPanel
     private SpinnerNumberModel mult1Model;
     private SpinnerNumberModel mult3Model;
 
+    /**
+     * BuilderOptionsPanel Constructor.
+     */
     public BuilderOptionsPanel()
     {
-
+        /** Adds a mouse listener to the close button */
         closeButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -53,7 +62,7 @@ public class BuilderOptionsPanel
 
             }
         });
-
+        /** Adds a mouse listener to the defaults button */
         defaultsButton.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -86,6 +95,7 @@ public class BuilderOptionsPanel
         tile5Freq.setModel(tile5Model);
         tile6Freq.setModel(tile6Model);
 
+        /** Makes a model change listener */
         ChangeListener modelChangeListener = new ChangeListener()
         {
             @Override
@@ -116,6 +126,19 @@ public class BuilderOptionsPanel
 
     }
 
+    /**
+     * Sets the frequencies of given tiles.
+     *
+     * @param tile1
+     * @param tile2
+     * @param tile3
+     * @param tile4
+     * @param tile5
+     * @param tile6
+     * @param mult1
+     * @param mult2
+     * @param mult3
+     */
     public void setFrequencies(int tile1, int tile2, int tile3, int tile4,
                                int tile5, int tile6, int mult1, int mult2, int mult3)
     {
@@ -130,6 +153,11 @@ public class BuilderOptionsPanel
         mult3Model.setValue(mult3);
     }
 
+    /**
+     * Sets frequencies of the Board
+     *
+     * @param b: the Board
+     */
     public void setFrequencies(Board b)
     {
         SquareFactory f = b.getFactory();
@@ -144,6 +172,9 @@ public class BuilderOptionsPanel
         mult3Model.setValue(f.getFreqx3());
     }
 
+    /**
+     * Sets frequencies of tiles as defaults
+     */
     public void setFrequenciesToDefault()
     {
         tile1Model.setValue(20);
@@ -157,6 +188,9 @@ public class BuilderOptionsPanel
         mult3Model.setValue(10);
     }
 
+    /**
+     * Returns a hash map of Frequencies
+     */
     public HashMap<String, Integer> getFrequencies()
     {
         HashMap<String, Integer> hm = new HashMap<String, Integer>();
@@ -206,6 +240,7 @@ public class BuilderOptionsPanel
         label1.setText("<html><h3>1</h3></html>");
         panel2.add(label1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile1Freq = new JSpinner();
+        tile1Freq.setName("freq1");
         panel2.add(tile1Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label2 = new JLabel();
         label2.setText("%");
@@ -218,6 +253,7 @@ public class BuilderOptionsPanel
         label3.setText("<html><h3>x1</h3></html>");
         panel3.add(label3, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         mult1Freq = new JSpinner();
+        mult1Freq.setName("freqx1");
         panel3.add(mult1Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label4 = new JLabel();
         label4.setText("%");
@@ -230,6 +266,7 @@ public class BuilderOptionsPanel
         label5.setText("<html><h3>2</h3></html>");
         panel4.add(label5, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile2Freq = new JSpinner();
+        tile2Freq.setName("freq2");
         panel4.add(tile2Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label6 = new JLabel();
         label6.setText("%");
@@ -242,6 +279,7 @@ public class BuilderOptionsPanel
         label7.setText("<html><h3>x2</h3></html>");
         panel5.add(label7, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         mult2Freq = new JSpinner();
+        mult2Freq.setName("freqx2");
         panel5.add(mult2Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label8 = new JLabel();
         label8.setText("%");
@@ -254,6 +292,7 @@ public class BuilderOptionsPanel
         label9.setText("<html><h3>3</h3></html>");
         panel6.add(label9, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile3Freq = new JSpinner();
+        tile3Freq.setName("freq3");
         panel6.add(tile3Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label10 = new JLabel();
         label10.setText("%");
@@ -266,6 +305,7 @@ public class BuilderOptionsPanel
         label11.setText("<html><h3>4</h3></html>");
         panel7.add(label11, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile4Freq = new JSpinner();
+        tile4Freq.setName("freq4");
         panel7.add(tile4Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label12 = new JLabel();
         label12.setText("%");
@@ -278,6 +318,7 @@ public class BuilderOptionsPanel
         label13.setText("<html><h3>5</h3></html>");
         panel8.add(label13, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile5Freq = new JSpinner();
+        tile5Freq.setName("freq5");
         panel8.add(tile5Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label14 = new JLabel();
         label14.setText("%");
@@ -290,6 +331,7 @@ public class BuilderOptionsPanel
         label15.setText("<html><h3>6</h3></html>");
         panel9.add(label15, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         tile6Freq = new JSpinner();
+        tile6Freq.setName("freq6");
         panel9.add(tile6Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label16 = new JLabel();
         label16.setText("%");
@@ -302,6 +344,7 @@ public class BuilderOptionsPanel
         label17.setText("<html><h3>x3</h3></html>");
         panel10.add(label17, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         mult3Freq = new JSpinner();
+        mult3Freq.setName("freqx3");
         panel10.add(mult3Freq, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label18 = new JLabel();
         label18.setText("%");
@@ -315,6 +358,7 @@ public class BuilderOptionsPanel
         panel12.setOpaque(false);
         builderOptionsPanel.add(panel12, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 1, false));
         defaultsButton = new JButton();
+        defaultsButton.setName("defaultsButton");
         defaultsButton.setText("Defaults");
         panel12.add(defaultsButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel13 = new JPanel();
@@ -322,6 +366,7 @@ public class BuilderOptionsPanel
         panel13.setOpaque(false);
         builderOptionsPanel.add(panel13, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         closeButton = new JButton();
+        closeButton.setName("closeOptionsButton");
         closeButton.setText("Close");
         panel13.add(closeButton, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
