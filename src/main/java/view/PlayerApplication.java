@@ -14,6 +14,7 @@ public class PlayerApplication extends JFrame {
     private PlayerMenuPanel menuPanel;
     private PlayerLevelSelectPanel playerLevelSelectPanel;
     private PlayerPlayPanel playerPlayPanel;
+    private BadgesViewPanel badgesViewPanel;
     private Game game;
 
     // Since this is a standalone Controller, the app has a special reference.
@@ -102,6 +103,8 @@ public class PlayerApplication extends JFrame {
         playerApplication.add(playerLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
         playerPlayPanel = new PlayerPlayPanel();
         playerApplication.add(playerPlayPanel.$$$getRootComponent$$$(), "playPanel");
+        badgesViewPanel = new BadgesViewPanel();
+        playerApplication.add(badgesViewPanel.$$$getRootComponent$$$(), "achievement");
     }
 
     /**
