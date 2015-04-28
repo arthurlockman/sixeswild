@@ -164,6 +164,9 @@ public class Square
      */
     public boolean isSatisfied()
     {
-        return this.isBucket && this.getTile().getValue() == 6;
+        if (this.getTile() != null)
+            return this.isBucket && this.getTile().getValue() == 6;
+        else
+            return false;
     }
 }

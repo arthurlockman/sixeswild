@@ -59,12 +59,20 @@ public class SquareViewPanel
      */
     public void refresh()
     {
-        if (currentSquare.isBucket() && currentSquare.getTile().getValue() != 6)
+        if (currentSquare.isBucket())
         {
-            squareNumber.setText("Bckt");
-            squarePanel.setBackground(new Color(227, 242, 209));
-            squareNumber.setForeground(new Color(0, 0, 0));
-            squareNumber.setForeground(new Color(0, 0, 0));
+            if (!currentSquare.isSatisfied())
+            {
+                squareNumber.setText("Bckt");
+                squarePanel.setBackground(new Color(227, 242, 209));
+                squareNumber.setForeground(new Color(0, 0, 0));
+                squareNumber.setForeground(new Color(0, 0, 0));
+            } else {
+                squareNumber.setText("6");
+                squarePanel.setBackground(new Color(65, 0, 50)); //6
+                multiplierLabel.setForeground(new Color(255, 255, 255));
+                squareNumber.setForeground(new Color(255, 255, 255));
+            }
         } else if (currentSquare.isActive())
         {
             Tile currentTile = this.currentSquare.getTile();
