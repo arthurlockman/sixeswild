@@ -35,13 +35,13 @@ public class TestGravity extends TestCase
         move1.addSquare(b.getSquares()[73]);
         move1.addSquare(b.getSquares()[74]);
         assertEquals(true, move1.isValid());
-        move1.doMove();
+        b.makeMove(move1);
         RemoveTileMove move2 = new RemoveTileMove(b);
         move2.addSquare(b.getSquares()[72]);
         move2.addSquare(b.getSquares()[73]);
         move2.addSquare(b.getSquares()[74]);
         assertEquals(true, move2.isValid());
-        move2.doMove();
+        b.makeMove(move2);
 
         //Make sure 6s fell properly.
         assertEquals(6, b.getSquares()[18].getTile().getValue());

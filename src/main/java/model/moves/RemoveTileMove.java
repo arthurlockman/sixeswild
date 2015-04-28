@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 /**
  * A move that removes tiles from the board. This move is used
- * to remove tiles from a user selection.
+ * to remove tiles from a user selection and as a result of
+ * the removeTile special move.
  *
  * @author arthurlockman
  */

@@ -12,7 +12,6 @@ public class TestBoard extends TestCase
     /**
      * A test to test the areNeighboring method of the board which determines
      * if two squares are neighboring on the board.
-     * TODO: Implement this test case.
      */
     public void testAreNeighboring()
     {

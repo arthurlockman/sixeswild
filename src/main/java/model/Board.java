@@ -29,6 +29,7 @@ public class Board
     Stack<IReversibleMove> redoHistory;
     SquareFactory factory;
     int twoStarScore, threeStarScore;
+    boolean populate;
 
     /**
      * Board Constructor.
@@ -42,7 +43,30 @@ public class Board
         undoHistory = new Stack<IReversibleMove>();
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
+        this.populate = populate;
+        resetBoard();
+    }
 
+    /**
+     * Board Constructor with no parameters
+     */
+    public Board()
+    {
+        undoHistory = new Stack<IReversibleMove>();
+        redoHistory = new Stack<IReversibleMove>();
+        squares = new Square[81];
+        for (int i = 0; i < 81; i++)
+        {
+            squares[i] = new Square();
+            squares[i].setInactive();
+        }
+    }
+
+    /**
+     * Re-generates the board based on the level set in the constructor.
+     */
+    public void resetBoard()
+    {
         //Process level
         String delims = " ";
 
@@ -100,21 +124,6 @@ public class Board
                     squares[i].setActive();
                 }
             }
-        }
-    }
-
-    /**
-     * Board Constructor with no parameters
-     */
-    public Board()
-    {
-        undoHistory = new Stack<IReversibleMove>();
-        redoHistory = new Stack<IReversibleMove>();
-        squares = new Square[81];
-        for (int i = 0; i < 81; i++)
-        {
-            squares[i] = new Square();
-            squares[i].setInactive();
         }
     }
 
