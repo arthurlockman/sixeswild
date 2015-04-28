@@ -25,8 +25,6 @@ public class BadgesViewPanel {
                 CardLayout layout = (CardLayout) parent.getLayout();
                 layout.show(parent, "menuPanel");
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, badgesViewPanel);
-                topLevelFrame.setSize(new Dimension(500, 600));
-                topLevelFrame.setLocationRelativeTo(null);
             }
         });
 
