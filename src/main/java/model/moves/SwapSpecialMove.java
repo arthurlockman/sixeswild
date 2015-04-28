@@ -48,7 +48,6 @@ public class SwapSpecialMove implements IMove
     public boolean isValid()
     {
         return this.square1.isActive() && this.square2.isActive()
-                && !this.square1.isMarked() && !this.square2.isMarked()
                 && this.square1.getTile() != null && this.square2.getTile() != null
                 && board.areNeighboring(this.square1, this.square2);
     }

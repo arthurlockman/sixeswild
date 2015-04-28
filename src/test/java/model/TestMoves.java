@@ -1,6 +1,7 @@
 package model;
 
 import junit.framework.TestCase;
+import model.moves.RemoveSpecialMove;
 import model.moves.ResetSpecialMove;
 import model.moves.SwapSpecialMove;
 
@@ -94,5 +95,32 @@ public class TestMoves extends TestCase
         assertEquals(6, b.getSquares()[80].getTile().getValue());
         assertEquals(1, b.getSquares()[80].getTile().getMultiplier());
         assertNotSame(initial, b.toString());
+    }
+
+    /**
+     * Test the remove special move.
+     */
+    public void testRemoveSpecialMove()
+    {
+        //Set up board
+        Level l = new ReleaseLevel("NewLevel", 1, 0, 50, 100, "TheFirst Puzzle 1 10 " +
+                "200 300 1 20 10 40 10 10 10 80 15 5 1000 1 3 1 1 1 1 1 1 1 1 1 0 1 " +
+                "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 " +
+                "1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 " +
+                "1 1 1 ", false, true, null);
+        Board b = new Board(l, true);
+        assertEquals(6, b.getSquares()[0].getTile().getValue());
+
+        //Create moves.
+        RemoveSpecialMove move1 = new RemoveSpecialMove(b.getSquares()[9], b);
+        RemoveSpecialMove move2 = new RemoveSpecialMove(b.getSquares()[10], b);
+        assertFalse(move2.isValid());
+        assertTrue(move1.isValid());
+        assertTrue(b.makeMove(move1));
+        assertFalse(b.makeMove(move2));
+
+        //Check board.
+        assertEquals(6, b.getSquares()[9].getTile().getValue());
+        assertFalse(b.getSquares()[10].isActive());
     }
 }
