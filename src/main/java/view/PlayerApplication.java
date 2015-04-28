@@ -1,5 +1,6 @@
 package view;
 
+import controllers.player.StartGameController;
 import model.Game;
 
 import javax.swing.*;
@@ -46,6 +47,8 @@ public class PlayerApplication extends JFrame
             public void windowOpened(WindowEvent e)
             {
                 playerLevelSelectPanel.updateLevelList(game);
+                playerLevelSelectPanel.getPlayButton().addMouseListener(new
+                        StartGameController((PlayerApplication) e.getWindow()));
             }
 
             @Override
@@ -85,6 +88,36 @@ public class PlayerApplication extends JFrame
             }
         });
         setVisible(true);
+    }
+
+    public JPanel getPlayerApplication()
+    {
+        return playerApplication;
+    }
+
+    public SplashScreen getSplashScreen()
+    {
+        return splashScreen;
+    }
+
+    public PlayerMenuPanel getMenuPanel()
+    {
+        return menuPanel;
+    }
+
+    public PlayerLevelSelectPanel getPlayerLevelSelectPanel()
+    {
+        return playerLevelSelectPanel;
+    }
+
+    public PlayerPlayPanel getPlayerPlayPanel()
+    {
+        return playerPlayPanel;
+    }
+
+    public Game getGame()
+    {
+        return game;
     }
 
     {

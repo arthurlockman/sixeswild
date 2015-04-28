@@ -49,6 +49,7 @@
                 </constraints>
                 <properties>
                   <horizontalTextPosition value="2"/>
+                  <name value="Play Game"/>
                   <text value="Play Game"/>
                 </properties>
               </component>
@@ -61,6 +62,7 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <name value="Credits"/>
                   <text value="Credits"/>
                 </properties>
               </component>
@@ -83,6 +85,7 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <name value="Achievements"/>
                   <text value="Achievements"/>
                 </properties>
               </component>
@@ -95,6 +98,7 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <name value="Instructions"/>
                   <text value="Instructions"/>
                 </properties>
               </component>
