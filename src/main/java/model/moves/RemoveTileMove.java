@@ -66,13 +66,29 @@ public class RemoveTileMove implements IMove
      */
     public boolean isValid()
     {
+        //TODO: Test added validation code.
+        Square last = null;
+        for (Square s : squares)
+        {
+            if (last == null)
+            {
+                last = s;
+            }
+            else
+            {
+                if (!board.areNeighboring(last, s))
+                {
+                    return false;
+                }
+            }
+            last = s;
+        }
         int sum = 0;
         for (Square s : squares)
         {
             sum += s.getTile().getValue();
         }
         return (sum == 6);
-        //TODO: Validate that tiles in a move are not diagonal from each other.
     }
 
     /**
@@ -97,7 +113,7 @@ public class RemoveTileMove implements IMove
      */
     public void addSquare(Square s)
     {
-        //TODO: Add check for duplicates.
-        squares.add(s);
+        if (!squares.contains(s))
+            squares.add(s);
     }
 }

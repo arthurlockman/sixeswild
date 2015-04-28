@@ -2,6 +2,7 @@ package controllers.player;
 
 import model.*;
 import view.PlayerApplication;
+import view.SquareViewPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,6 +56,15 @@ public class StartGameController extends MouseAdapter
             } else if (l instanceof LightningLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Lightning");
+            }
+
+            //Attach mouse handlers to tile views.
+            for (int i = 0; i < 80; i++)
+            {
+                SquareViewPanel svp = app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i);
+                svp.removeMouseAdapters();
+                svp.attachMouseAdapter(new ConnectTilesController(app,
+                        app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i)));
             }
 
             CardLayout layout = (CardLayout) app.getPlayerApplication().getLayout();

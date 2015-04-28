@@ -29,6 +29,7 @@ public class Board
     SquareFactory factory;
     int twoStarScore, threeStarScore;
     boolean populate;
+    IMove currentMove;
 
     /**
      * Board Constructor.
@@ -66,6 +67,7 @@ public class Board
      */
     public void resetBoard()
     {
+        this.currentMove = null;
         //Process level
         String delims = " ";
 
@@ -127,12 +129,26 @@ public class Board
     }
 
     /**
+     * Preview a board in the builder.
+     * TODO: Test this method
+     */
+    public void preview()
+    {
+        this.level.setBoardData(this.getBoardData());
+        this.resetBoard();
+    }
+
+    /**
      * Make a move with no undo history.
      * @param move A move class to make.
      * @return Whether or not the move was successful.
      */
     public boolean makeMove(IMove move)
     {
+        for (Square s: squares)
+        {
+            s.setSelected(false);
+        }
         return move.doMove();
     }
 
@@ -372,4 +388,54 @@ public class Board
         return;
     }
 
+    /**
+     * Get the current move being built.
+     * @return An IMove, the move being created.
+     * TODO: Write tests
+     */
+    public IMove getCurrentMove()
+    {
+        return currentMove;
+    }
+
+    /**
+     * Set the current move in the board.
+     * @param currentMove The move to create in the board.
+     * TODO: Write tests
+     */
+    public void setCurrentMove(IMove currentMove)
+    {
+        this.currentMove = currentMove;
+    }
+
+    /**
+     * Get if the board is set to populate tiles.
+     * @return True if the board will populate.
+     * TODO: Write tests
+     */
+    public boolean willPopulate()
+    {
+        return populate;
+    }
+
+    /**
+     * Set the board to populate tiles.
+     * @param populate True if the board should populate.
+     * TODO: Write tests
+     */
+    public void setPopulate(boolean populate)
+    {
+        this.populate = populate;
+    }
+
+    /**
+     * Deselct all squares.
+     */
+    public void deselectAll()
+    {
+        for (Square s : squares)
+        {
+            s.setSelected(false);
+        }
+    }
 }

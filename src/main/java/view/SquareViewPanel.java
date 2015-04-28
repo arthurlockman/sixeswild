@@ -24,7 +24,6 @@ public class SquareViewPanel
     private JLabel multiplierLabel;
     private Square currentSquare;
     private MouseAdapter currentMouseAdapter;
-    private MouseMotionAdapter currentMouseMotionAdapter;
 
     /**
      * SquareViewPanel Constructor with no parameters
@@ -33,27 +32,6 @@ public class SquareViewPanel
     {
         $$$setupUI$$$();
         this.setSquare(new Square());
-        squarePanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                super.mouseEntered(e);
-                if (e.getButton() == 1)
-                {
-                    //TODO: Move this to controller class.
-                    System.out.println("Mouse entered pressed.");
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                super.mouseReleased(e);
-            }
-        });
     }
 
     /**
@@ -83,7 +61,10 @@ public class SquareViewPanel
     {
         if (currentSquare.isSelected())
         {
-            //TODO: Highlight tile when selected.
+            squarePanel.setBorder(BorderFactory.createTitledBorder(
+                    BorderFactory.createEtchedBorder(new Color(50, 255, 0), new Color(200, 255, 186)), null));
+        } else {
+            squarePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), null));
         }
         if (currentSquare.isBucket())
         {
@@ -180,18 +161,13 @@ public class SquareViewPanel
         currentMouseAdapter = ma;
     }
 
-    /** Attaches a Mouse Motion Adapter */
-    public void attachMouseMotionAdapter(MouseMotionAdapter mma)
-    {
-        squarePanel.addMouseMotionListener(mma);
-        currentMouseMotionAdapter = mma;
-    }
-
     /** Removes the Mouse Adapters */
     public void removeMouseAdapters()
     {
-        squarePanel.removeMouseListener(currentMouseAdapter);
-        squarePanel.removeMouseMotionListener(currentMouseMotionAdapter);
+        if (currentMouseAdapter != null)
+        {
+            squarePanel.removeMouseListener(currentMouseAdapter);
+        }
     }
 
     /** Creates UI components */

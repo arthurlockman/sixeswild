@@ -96,6 +96,25 @@ public class BuilderEditorPanel
         threeStarSelector.setText("50");
         twoStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
         twoStarSelector.setText("10");
+
+        //TODO: Test this
+        previewButton.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                super.mouseClicked(e);
+                getBoardViewPanel().getBoard().setPopulate(!getBoardViewPanel().getBoard().willPopulate());
+                if (getBoardViewPanel().getBoard().willPopulate())
+                {
+                    getBoardViewPanel().getBoard().preview();
+                } else
+                {
+                    getBoardViewPanel().getBoard().resetBoard();
+                }
+                getBoardViewPanel().refresh();
+            }
+        });
     }
 
     /**

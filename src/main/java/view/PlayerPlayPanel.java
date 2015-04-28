@@ -58,6 +58,24 @@ public class PlayerPlayPanel
                 topLevelFrame.setLocationRelativeTo(null);
             }
         });
+
+        playContentPanel.addMouseListener(new MouseAdapter()
+        {
+            //TODO: Test this
+            @Override
+            public void mouseReleased(MouseEvent e)
+            {
+                super.mouseReleased(e);
+                System.out.println("Mouse released in panel.");
+                if (boardViewPanel.getBoard().getCurrentMove() != null)
+                {
+                    boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
+                } else {
+                    boardViewPanel.getBoard().deselectAll();
+                    boardViewPanel.refresh();
+                }
+            }
+        });
     }
 
     /**
