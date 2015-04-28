@@ -68,6 +68,93 @@ public class PlayerPlayPanel
     {
         this.board = b;
         this.boardViewPanel.setBoard(this.board);
+        this.boardViewPanel.refresh();
+    }
+
+
+    public JPanel getMenuBarPanel()
+    {
+        return menuBarPanel;
+    }
+
+    public JButton getQuitButton()
+    {
+        return quitButton;
+    }
+
+    public JPanel getPlayContentPanel()
+    {
+        return playContentPanel;
+    }
+
+    public JPanel getPlaySidebarPanel()
+    {
+        return playSidebarPanel;
+    }
+
+    public JPanel getBoardPanel()
+    {
+        return boardPanel;
+    }
+
+    public BoardViewPanel getBoardViewPanel()
+    {
+        return boardViewPanel;
+    }
+
+    public JButton getReset1Button()
+    {
+        return reset1Button;
+    }
+
+    public JButton getRemove1Button()
+    {
+        return remove1Button;
+    }
+
+    public JButton getSwap2Button()
+    {
+        return swap2Button;
+    }
+
+    public JProgressBar getScoreBar()
+    {
+        return scoreBar;
+    }
+
+    public JLabel getThreeStarsLabel()
+    {
+        return threeStarsLabel;
+    }
+
+    public JLabel getTwoStarsLabel()
+    {
+        return twoStarsLabel;
+    }
+
+    public JLabel getOneStarLabel()
+    {
+        return oneStarLabel;
+    }
+
+    public JPanel getPlayPanel()
+    {
+        return playPanel;
+    }
+
+    public JLabel getScoreLabel()
+    {
+        return scoreLabel;
+    }
+
+    public JLabel getTitleLabel()
+    {
+        return titleLabel;
+    }
+
+    public Board getBoard()
+    {
+        return board;
     }
 
     {

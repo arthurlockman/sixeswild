@@ -48,4 +48,15 @@ public class RemoveSpecialMove implements IMove
     {
         return square.isActive() && square.getTile() != null;
     }
+
+    /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        return 0;
+    }
 }

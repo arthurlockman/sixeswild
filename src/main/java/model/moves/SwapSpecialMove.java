@@ -50,4 +50,15 @@ public class SwapSpecialMove implements IMove
                 && this.square1.getTile() != null && this.square2.getTile() != null
                 && board.areNeighboring(this.square1, this.square2);
     }
+
+    /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        return 0;
+    }
 }

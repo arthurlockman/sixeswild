@@ -42,6 +42,7 @@ public class StartGameController extends MouseAdapter
         if (!l.isLocked())
         {
             //TODO: Insert level loading logic here.
+            app.getPlayerPlayPanel().setBoard(new Board(l, true));
             if (l instanceof EliminationLevel)
             {
 

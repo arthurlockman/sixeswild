@@ -75,6 +75,22 @@ public class RemoveTileMove implements IMove
     }
 
     /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        int multProduct = 1;
+        for (Square s: squares)
+        {
+            multProduct *= s.getTile().getMultiplier();
+        }
+        return (squares.size() * 10) * multProduct;
+    }
+
+    /**
      * Add a square to the move.
      * @param s The square to add.
      */

@@ -49,4 +49,15 @@ public class ResetSpecialMove implements IMove
     {
         return true;
     }
+
+    /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        return 0;
+    }
 }
