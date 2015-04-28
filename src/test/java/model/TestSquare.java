@@ -16,7 +16,7 @@ public class TestSquare extends TestCase
     {
         Square sq = new Square();
         assertEquals(null, sq.getTile());
-        assertEquals(false, sq.isMarked());
+        assertEquals(false, sq.isBucket());
         assertEquals(false, sq.isActive());
     }
 
@@ -28,7 +28,7 @@ public class TestSquare extends TestCase
         Square sq = new Square(new Tile(6, 1));
         assertEquals(new Tile(6, 1).getValue(), sq.getTile().getValue());
         assertEquals(new Tile(6, 1).getMultiplier(), sq.getTile().getMultiplier());
-        assertEquals(false, sq.isMarked());
+        assertEquals(false, sq.isBucket());
         assertEquals(true, sq.isActive());
     }
 
@@ -39,12 +39,12 @@ public class TestSquare extends TestCase
     {
         Square sq = new Square();
         assertEquals(null, sq.getTile());
-        assertEquals(false, sq.isMarked());
+        assertEquals(false, sq.isBucket());
         assertEquals(false, sq.isActive());
         sq.setActive();
         assertEquals(true, sq.isActive());
-        sq.setMarked(true);
-        assertEquals(true, sq.isMarked());
+        sq.setBucket(true);
+        assertEquals(true, sq.isBucket());
     }
 
     /**

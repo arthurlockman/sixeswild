@@ -1,6 +1,5 @@
 package controllers.builder;
 
-import model.Square;
 import model.Tile;
 import model.moves.UpdateSquareMove;
 import view.BoardViewPanel;
@@ -74,7 +73,7 @@ public class UpdateSquareController extends MouseAdapter
             move = new UpdateSquareMove(new Tile(6, 1), square.getSquare(), true, false);
         } else {
             move = new UpdateSquareMove(null, square.getSquare(),
-                    square.getSquare().isActive(), square.getSquare().isMarked());
+                    square.getSquare().isActive(), square.getSquare().isBucket());
         }
 
         boardView.getBoard().makeMove(move);

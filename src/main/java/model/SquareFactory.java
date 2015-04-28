@@ -97,7 +97,7 @@ public class SquareFactory {
             return ret;
         } else if(state == 2){
             ret = new Square(new Tile(0, 0));
-            ret.mark();
+            ret.setBucket();
             return ret;
         }
         else if(state == 3){

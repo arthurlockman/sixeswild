@@ -3,7 +3,6 @@ package model;
 import model.moves.IMove;
 import model.moves.IReversibleMove;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
@@ -117,7 +116,7 @@ public class Board
                 } else if (state == 2)
                 {
                     squares[i] = new Square(new Tile(0, 1));
-                    squares[i].mark();
+                    squares[i].setBucket();
                 } else if (state == 3)
                 {
                     squares[i] = new Square(new Tile(6, 1));
@@ -134,7 +133,6 @@ public class Board
      */
     public boolean makeMove(IMove move)
     {
-        if (!move.isValid()) return false;
         return move.doMove();
     }
 
@@ -282,7 +280,7 @@ public class Board
         for (int i = 0; i <= 80; i++)
         {
             Square s = this.getSquares()[i];
-            if (s.isMarked())
+            if (s.isBucket())
             {
                 dat += "2 ";
             } else if (s.getTile() != null && s.getTile().getValue() == 6)
@@ -322,7 +320,33 @@ public class Board
         }
     }
 
-    public void pullDown(int index){
+    /**
+     * Pull the tiles down into a specific tile.
+     * @param index The tile to pull into.
+     */
+    public void pullDown(int index)
+    {
+        //If the square is a bucket, need to only allow 6s to move into it
+        if (squares[index].isBucket())
+        {
+            if (index < 9) return;
+            else if (squares[index-9].isActive())
+            {
+                if (squares[index-9].getTile() == null)
+                {
+                    this.pullDown(index - 9);
+                }
+                if (squares[index-9].getTile().getValue() == 6)
+                {
+                    squares[index].setTile(squares[index - 9].getTile());
+                    squares[index].flipCleared();
+                    squares[index - 9].flipCleared();
+                    pullDown(index - 9);
+                }
+                return;
+            }
+        }
+        //If the square is inactive or not empty, return
         if(!squares[index].isActive() || !squares[index].isCleared()){
             return;
         } else if (index < 9 || (!squares[index-9].isActive())) {

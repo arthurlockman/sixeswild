@@ -8,7 +8,6 @@ import model.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 
 /**
@@ -60,7 +59,7 @@ public class SquareViewPanel
      */
     public void refresh()
     {
-        if (currentSquare.isMarked())
+        if (currentSquare.isBucket() && currentSquare.getTile().getValue() != 6)
         {
             squareNumber.setText("Bckt");
             squarePanel.setBackground(new Color(227, 242, 209));

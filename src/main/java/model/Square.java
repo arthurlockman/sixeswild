@@ -10,8 +10,9 @@ public class Square
 {
     Tile tile;
     boolean isInert;
-    boolean marked;
+    boolean isBucket;
     boolean cleared;
+    boolean isEliminated;
 
     /**
      * Square Constructor
@@ -39,9 +40,9 @@ public class Square
         this.tile = t;
     }
 
-    public void mark()
+    public void setBucket()
     {
-        marked = true;
+        isBucket = true;
     }
 
     /** Removes the Square's Tile. */
@@ -103,16 +104,16 @@ public class Square
     }
 
     /** Sets the Square's marking */
-    public void setMarked(boolean m) {
-        marked = m;
+    public void setBucket(boolean m) {
+        isBucket = m;
     }
 
     /**
-     * Returns whether or not the Square is marked.
+     * Returns whether or not the Square is isBucket.
      */
-    public boolean isMarked()
+    public boolean isBucket()
     {
-        return marked;
+        return isBucket;
     }
 
     public boolean isCleared(){
@@ -127,11 +128,42 @@ public class Square
         }
     }
 
+    /**
+     * Get if the square has been eliminated.
+     * @return True if it has been eliminated.
+     */
+    public boolean isEliminated()
+    {
+        return isEliminated;
+    }
+
+    /**
+     * Set whether the square has been eliminated.
+     * @param isEliminated True to eliminate the square.
+     */
+    public void setIsEliminated(boolean isEliminated)
+    {
+        this.isEliminated = isEliminated;
+    }
+
     @Override
     /** Returns the String representation of the Square */
     public String toString()
     {
-        return "Square " + tile.getValue() + "x" + tile.getMultiplier();
+        if (tile != null)
+            return "Square " + tile.getValue() + "x" + tile.getMultiplier();
+        else
+            return "Square emp";
     }
 
+    /**
+     * Get if the square is satisfied. This method only applies
+     * to release levels, and returns true if a bucket is filled
+     * with a 6.
+     * @return True if bucket is filled.
+     */
+    public boolean isSatisfied()
+    {
+        return this.isBucket && this.getTile().getValue() == 6;
+    }
 }

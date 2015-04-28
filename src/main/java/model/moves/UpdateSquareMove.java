@@ -31,7 +31,7 @@ public class UpdateSquareMove implements IReversibleMove
     public boolean doMove()
     {
         if (!isValid()) return false;
-        previousBucket = square.isMarked();
+        previousBucket = square.isBucket();
         previousActive = square.isActive();
         if (tile != null)
         {
@@ -42,7 +42,7 @@ public class UpdateSquareMove implements IReversibleMove
         if (active) square.setActive();
         else square.setInactive();
 
-        square.setMarked(bucket);
+        square.setBucket(bucket);
         return true;
     }
 
@@ -57,7 +57,7 @@ public class UpdateSquareMove implements IReversibleMove
         {
             square.replace(previous);
         }
-        square.setMarked(previousBucket);
+        square.setBucket(previousBucket);
         if (previousActive) square.setActive();
         else square.setInactive();
         return true;
