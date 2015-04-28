@@ -3,6 +3,8 @@ package model;
 import model.moves.IMove;
 import model.moves.IReversibleMove;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -26,18 +28,44 @@ public class Board
     Stack<IReversibleMove> redoHistory;
     SquareFactory factory;
     int twoStarScore, threeStarScore;
+    boolean populate;
 
     /**
      * Board Constructor.
-     * @param l:  the Level whose board will be represented
-     * @param populate:  what does this do?
+     * @param l the Level whose board will be represented
+     * @param populate True if the board should fill squares with tiles
+     *                 according to the spawn frequencies described in the
+     *                 level, false if board should be filled with blank
+     *                 tiles.
      */
-    public Board(Level l, boolean populate)
-    {
+    public Board(Level l, boolean populate) {
         undoHistory = new Stack<IReversibleMove>();
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
+        this.populate = populate;
+        resetBoard();
+    }
 
+    /**
+     * Board Constructor with no parameters
+     */
+    public Board()
+    {
+        undoHistory = new Stack<IReversibleMove>();
+        redoHistory = new Stack<IReversibleMove>();
+        squares = new Square[81];
+        for (int i = 0; i < 81; i++)
+        {
+            squares[i] = new Square();
+            squares[i].setInactive();
+        }
+    }
+
+    /**
+     * Re-generates the board based on the level set in the constructor.
+     */
+    public void resetBoard()
+    {
         //Process level
         String delims = " ";
 
@@ -66,8 +94,7 @@ public class Board
 
         squares = new Square[81];
         factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
-        if (populate)
-        {
+        if (populate) {
             for (int i = 0; i < 81; i++)
             {
                 int state = Integer.parseInt(tData[18 + i]);
@@ -89,7 +116,7 @@ public class Board
                 } else if (state == 2)
                 {
                     squares[i] = new Square(new Tile(0, 1));
-                    squares[i].mark();
+                    squares[i].setBucket();
                 } else if (state == 3)
                 {
                     squares[i] = new Square(new Tile(6, 1));
@@ -100,28 +127,12 @@ public class Board
     }
 
     /**
-     * Board Constructor with no parameters
-     */
-    public Board()
-    {
-        undoHistory = new Stack<IReversibleMove>();
-        redoHistory = new Stack<IReversibleMove>();
-        squares = new Square[81];
-        for (int i = 0; i < 81; i++)
-        {
-            squares[i] = new Square();
-            squares[i].setInactive();
-        }
-    }
-
-    /**
      * Make a move with no undo history.
      * @param move A move class to make.
      * @return Whether or not the move was successful.
      */
     public boolean makeMove(IMove move)
     {
-        if (!move.isValid()) return false;
         return move.doMove();
     }
 
@@ -188,6 +199,24 @@ public class Board
         return squares;
     }
 
+    /**
+     * Determine if two squares are neighboring on the board.
+     * @param s1 The first square.
+     * @param s2 The second square.
+     * @return True if the squares are neighboring.
+     */
+    public boolean areNeighboring(Square s1, Square s2)
+    {
+        List<Square> l = Arrays.asList(this.squares);
+        if (!l.contains(s1) || !l.contains(s2)) return false;
+
+        int idx1 = l.indexOf(s1);
+        int idx2 = l.indexOf(s2);
+        int diff = Math.abs(idx1 - idx2);
+
+        return diff <= 1 || diff == 9;
+    }
+
     /** Returns the Board's SquareFactory */
     public SquareFactory getFactory()
     {
@@ -198,13 +227,11 @@ public class Board
     public String toString() {
         String result = "";
 
-        for(int i = 0; i < 81; i++) {
-
-            result.concat(squares[i].getTile().getValue() + "x" + squares[i].getTile().getValue() + " ");
+        for(int i = 1; i <= 81; i++)
+        {
+            result += this.getSquares()[i - 1].toString() + "\t";
+            if (i % 9 == 0 && i > 1) result += "\n";
         }
-
-        System.out.println(result);
-
         return result;
     }
 
@@ -253,7 +280,7 @@ public class Board
         for (int i = 0; i <= 80; i++)
         {
             Square s = this.getSquares()[i];
-            if (s.isMarked())
+            if (s.isBucket())
             {
                 dat += "2 ";
             } else if (s.getTile() != null && s.getTile().getValue() == 6)
@@ -281,4 +308,68 @@ public class Board
     {
         level = l;
     }
+
+    /**
+     * Refill the entire board and any emptied squares.
+     */
+    public void refill()
+    {
+        for (int i = 80; i >= 0; i--)
+        {
+            this.pullDown(i);
+        }
+    }
+
+    /**
+     * Pull the tiles down into a specific tile.
+     * @param index The tile to pull into.
+     */
+    public void pullDown(int index)
+    {
+        //If the square is a bucket, need to only allow 6s to move into it
+        if (squares[index].isBucket())
+        {
+            if (index < 9) return;
+            else if (squares[index-9].isActive())
+            {
+                if (squares[index-9].getTile() == null)
+                {
+                    this.pullDown(index - 9);
+                }
+                if (squares[index-9].getTile().getValue() == 6)
+                {
+                    squares[index].setTile(squares[index - 9].getTile());
+                    squares[index].flipCleared();
+                    squares[index - 9].flipCleared();
+                    pullDown(index - 9);
+                }
+                return;
+            }
+        }
+        //If the square is inactive or not empty, return
+        if(!squares[index].isActive() || !squares[index].isCleared()){
+            return;
+        } else if (index < 9 || (!squares[index-9].isActive())) {
+            //generate new tile from board’s square factory
+            squares[index].setTile(factory.genTile());
+            squares[index].flipCleared();
+        } else if(!squares[index-9].isCleared()) {
+            //above square’s tile is now this square’s tile
+            squares[index].setTile(squares[index - 9].getTile());
+            squares[index].flipCleared();
+
+            //above square called for pulldown
+            squares[index-9].flipCleared();
+            pullDown(index - 9);
+        } else if (squares[index-9].isCleared()){
+            //above square calls pullDown
+            pullDown(index - 9);
+            //above square 's tile is now my tile
+            squares[index].setTile(squares[index - 9].getTile());
+            squares[index-9].flipCleared();
+            squares[index].flipCleared();
+        }
+        return;
+    }
+
 }
