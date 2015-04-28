@@ -1,6 +1,5 @@
 package controllers.builder;
 
-import model.EliminationLevel;
 import model.Level;
 import view.BuilderApplication;
 

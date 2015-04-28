@@ -2,7 +2,6 @@ package model.moves;
 
 import model.Board;
 import model.Square;
-import model.Tile;
 
 import java.util.ArrayList;
 
