@@ -72,6 +72,7 @@ public class RemoveTileMove implements IMove
             sum += s.getTile().getValue();
         }
         return (sum == 6);
+        //TODO: Validate that tiles in a move are not diagonal from each other.
     }
 
     /**
@@ -96,6 +97,7 @@ public class RemoveTileMove implements IMove
      */
     public void addSquare(Square s)
     {
+        //TODO: Add check for duplicates.
         squares.add(s);
     }
 }

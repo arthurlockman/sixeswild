@@ -4,7 +4,7 @@ package model;
  * Square Class.
  * Manages the contents and behavior of Square objects in Sixes Wild.
  *
- * @authors ..., Bryce Kaw-uh
+ * @authors arthurlockman, Bryce Kaw-uh
  */
 public class Square
 {
@@ -13,6 +13,7 @@ public class Square
     boolean isBucket;
     boolean cleared;
     boolean isEliminated;
+    boolean isSelected;
 
     /**
      * Square Constructor
@@ -26,6 +27,7 @@ public class Square
         }
 
         this.cleared = false;
+        this.isSelected = false;
     }
 
     /**
@@ -34,6 +36,9 @@ public class Square
     public Square()
     {
         this.isInert = true;
+        this.isSelected = false;
+        this.cleared = false;
+
     }
 
     public void setTile(Tile t){
@@ -168,5 +173,13 @@ public class Square
             return this.isBucket && this.getTile().getValue() == 6;
         else
             return false;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
     }
 }

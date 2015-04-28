@@ -45,16 +45,16 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().setBoard(new Board(l, true));
             if (l instanceof EliminationLevel)
             {
-
+                app.getPlayerPlayPanel().getTitleLabel().setText("Elimination");
             } else if (l instanceof PuzzleLevel)
             {
-
+                app.getPlayerPlayPanel().getTitleLabel().setText("Puzzle");
             } else if (l instanceof ReleaseLevel)
             {
-
+                app.getPlayerPlayPanel().getTitleLabel().setText("Release");
             } else if (l instanceof LightningLevel)
             {
-
+                app.getPlayerPlayPanel().getTitleLabel().setText("Lightning");
             }
 
             CardLayout layout = (CardLayout) app.getPlayerApplication().getLayout();

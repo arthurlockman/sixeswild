@@ -8,6 +8,7 @@ import model.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 /**
@@ -32,6 +33,27 @@ public class SquareViewPanel
     {
         $$$setupUI$$$();
         this.setSquare(new Square());
+        squarePanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                if (e.getButton() == 1)
+                {
+                    //TODO: Move this to controller class.
+                    System.out.println("Mouse entered pressed.");
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mousePressed(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+            }
+        });
     }
 
     /**
@@ -59,6 +81,10 @@ public class SquareViewPanel
      */
     public void refresh()
     {
+        if (currentSquare.isSelected())
+        {
+            //TODO: Highlight tile when selected.
+        }
         if (currentSquare.isBucket())
         {
             if (!currentSquare.isSatisfied())
