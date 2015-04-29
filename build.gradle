@@ -11,6 +11,7 @@ apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'eclipse'
 
 sourceCompatibility = 1.7
 version = '1.0'
@@ -45,14 +46,11 @@ task(builder, dependsOn: builderStartScript, type: JavaExec ) {
 
 distZip {
     baseName = archivesBaseName
-    classifier = 'app'
-    //include our extra start script
-    //this is a bit weird, I'm open to suggestions on how to do this better
-    into("${baseName}-${version}-${classifier}/bin") {
+    into("${baseName}-${version}-${'builder'}/bin") {
         from builderStartScript
         fileMode = 0755
     }
-    into("${baseName}-${version}-${classifier}/bin") {
+    into("${baseName}-${version}-${'player'}/bin") {
         from playerStartScript
         fileMode = 0755
     }
