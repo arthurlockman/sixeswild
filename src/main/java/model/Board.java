@@ -15,7 +15,7 @@ import java.util.Stack;
  */
 public class Board
 {
-    Timer timer;
+    Countdown timer;
     int movesAllowed;
     int timeLimit;
     int score;
@@ -43,6 +43,7 @@ public class Board
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
         this.populate = populate;
+
         resetBoard();
     }
 

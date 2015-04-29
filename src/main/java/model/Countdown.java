@@ -33,13 +33,19 @@ public class Countdown
         // updating the display of it
         ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                //update time remaining
                 timeRemaining--;
+
+                // check if no time left
+                if(timeRemaining == 0){
+                    time.stop();
+                    // end level
+                }
             }
         };
 
         time = new Timer(delay, taskPerformer);
         time.setRepeats(true);
-
     }
 
     /**
