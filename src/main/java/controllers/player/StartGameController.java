@@ -44,6 +44,14 @@ public class StartGameController extends MouseAdapter
         {
             //TODO: Insert level loading logic here.
             app.getPlayerPlayPanel().setBoard(new Board(l, true));
+            app.getPlayerPlayPanel().getScoreLabel().setText("Score: 0");
+            app.getPlayerPlayPanel().getScoreBar().setMaximum(l.getThreeStarScore() +
+                    (int)((double)l.getThreeStarScore() / 6));
+            app.getPlayerPlayPanel().getScoreBar().setMinimum(0);
+            app.getPlayerPlayPanel().getScoreBar().setValue(0);
+            app.getPlayerPlayPanel().getRemove1Button().setEnabled(l.isSpecialMovesAllowed());
+            app.getPlayerPlayPanel().getSwap2Button().setEnabled(l.isSpecialMovesAllowed());
+            app.getPlayerPlayPanel().getReset1Button().setEnabled(l.isSpecialMovesAllowed());
             if (l instanceof EliminationLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Elimination");
@@ -56,10 +64,11 @@ public class StartGameController extends MouseAdapter
             } else if (l instanceof LightningLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Lightning");
+                //Create timer.
             }
 
             //Attach mouse handlers to tile views.
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 81; i++)
             {
                 SquareViewPanel svp = app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i);
                 svp.removeMouseAdapters();

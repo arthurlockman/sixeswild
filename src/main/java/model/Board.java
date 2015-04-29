@@ -45,6 +45,7 @@ public class Board
         this.level = l;
         this.populate = populate;
         resetBoard();
+        score = 0;
     }
 
     /**
@@ -60,6 +61,7 @@ public class Board
             squares[i] = new Square();
             squares[i].setInactive();
         }
+        score = 0;
     }
 
     /**
@@ -145,11 +147,14 @@ public class Board
      */
     public boolean makeMove(IMove move)
     {
-        for (Square s: squares)
+        deselectAll();
+        if (move.doMove())
         {
-            s.setSelected(false);
+            score += move.getScore();
+            moveCount++;
+            return true;
         }
-        return move.doMove();
+        return false;
     }
 
     /**
@@ -332,7 +337,8 @@ public class Board
     {
         for (int i = 80; i >= 0; i--)
         {
-            this.pullDown(i);
+            if (!squares[i].isSatisfied())
+                this.pullDown(i);
         }
     }
 
@@ -437,5 +443,14 @@ public class Board
         {
             s.setSelected(false);
         }
+    }
+
+    /**
+     * Gets the current board score.
+     * @return The score.
+     */
+    public int getScore()
+    {
+        return score;
     }
 }

@@ -146,7 +146,7 @@ public class Square
      * Set whether the square has been eliminated.
      * @param isEliminated True to eliminate the square.
      */
-    public void setIsEliminated(boolean isEliminated)
+    public void setEliminated(boolean isEliminated)
     {
         this.isEliminated = isEliminated;
     }

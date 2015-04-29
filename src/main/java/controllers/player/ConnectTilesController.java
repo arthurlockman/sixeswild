@@ -42,7 +42,8 @@ public class ConnectTilesController extends MouseAdapter
         super.mouseEntered(e);
         if (e.getButton() == 1)
         {
-            if (board.getCurrentMove() != null)
+            if (board.getCurrentMove() != null && !square.getSquare().isBucket()
+                    && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive())
             {
                 if (board.getCurrentMove() instanceof RemoveTileMove)
                 {
@@ -63,7 +64,8 @@ public class ConnectTilesController extends MouseAdapter
     public void mousePressed(MouseEvent e)
     {
         super.mousePressed(e);
-        if (board.getCurrentMove() == null)
+        if (board.getCurrentMove() == null && !square.getSquare().isBucket()
+                && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive())
         {
             board.setCurrentMove(new RemoveTileMove(board, square.getSquare()));
             square.getSquare().setSelected(true);
@@ -89,5 +91,7 @@ public class ConnectTilesController extends MouseAdapter
         square.getSquare().setSelected(false);
         board.deselectAll();
         app.getPlayerPlayPanel().getBoardViewPanel().refresh();
+        app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
+        app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());
     }
 }

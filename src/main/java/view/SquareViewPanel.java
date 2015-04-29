@@ -63,6 +63,10 @@ public class SquareViewPanel
         {
             squarePanel.setBorder(BorderFactory.createTitledBorder(
                     BorderFactory.createEtchedBorder(new Color(50, 255, 0), new Color(200, 255, 186)), null));
+        } else if (currentSquare.isSatisfied() || currentSquare.isEliminated())
+        {
+            squarePanel.setBorder(BorderFactory.createTitledBorder(
+                    BorderFactory.createEtchedBorder(new Color(55, 69, 255), new Color(159, 146, 255)), null));
         } else {
             squarePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), null));
         }

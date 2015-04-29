@@ -240,6 +240,7 @@ public class BoardViewPanel
         {
             this.getSquareView(i).setSquare(board.getSquares()[i]);
         }
+        panel1.repaint();
     }
 
     /**

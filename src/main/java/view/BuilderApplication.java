@@ -58,6 +58,8 @@ public class BuilderApplication extends JFrame
                         LoadLevelController((BuilderApplication) e.getWindow()));
                 builderEditorPanel.getSaveAndExitButton().addMouseListener(new
                         SaveLevelController((BuilderApplication) e.getWindow()));
+                builderEditorPanel.getPreviewButton().addMouseListener(new
+                        PreviewLevelController((BuilderApplication) e.getWindow()));
             }
 
             @Override

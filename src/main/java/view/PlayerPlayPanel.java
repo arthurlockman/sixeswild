@@ -70,7 +70,8 @@ public class PlayerPlayPanel
                 if (boardViewPanel.getBoard().getCurrentMove() != null)
                 {
                     boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
-                } else {
+                } else
+                {
                     boardViewPanel.getBoard().deselectAll();
                     boardViewPanel.refresh();
                 }
@@ -80,6 +81,7 @@ public class PlayerPlayPanel
 
     /**
      * Sets the Board
+     *
      * @param b: the Board
      */
     public void setBoard(Board b)
@@ -222,7 +224,7 @@ public class PlayerPlayPanel
         scoreBar = new JProgressBar();
         scoreBar.setForeground(new Color(-8388603));
         scoreBar.setOrientation(1);
-        scoreBar.setStringPainted(true);
+        scoreBar.setStringPainted(false);
         scoreBar.setValue(0);
         panel2.add(scoreBar, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JPanel panel3 = new JPanel();

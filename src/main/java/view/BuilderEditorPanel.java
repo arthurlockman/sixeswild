@@ -3,10 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
-import model.Board;
-import model.Level;
-import model.LightningLevel;
-import model.PuzzleLevel;
+import model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +14,7 @@ import java.awt.event.MouseEvent;
  * BuilderEditorPanel Class.
  * Manages the contents and behavior of the BuilderEditorPanel.
  *
- * @authors ...
+ * @authors arthurlockman
  */
 public class BuilderEditorPanel
 {
@@ -96,25 +93,6 @@ public class BuilderEditorPanel
         threeStarSelector.setText("50");
         twoStarSelector.setInputVerifier(new EditorIntegerInputVerifier());
         twoStarSelector.setText("10");
-
-        //TODO: Test this
-        previewButton.addMouseListener(new MouseAdapter()
-        {
-            @Override
-            public void mouseClicked(MouseEvent e)
-            {
-                super.mouseClicked(e);
-                getBoardViewPanel().getBoard().setPopulate(!getBoardViewPanel().getBoard().willPopulate());
-                if (getBoardViewPanel().getBoard().willPopulate())
-                {
-                    getBoardViewPanel().getBoard().preview();
-                } else
-                {
-                    getBoardViewPanel().getBoard().resetBoard();
-                }
-                getBoardViewPanel().refresh();
-            }
-        });
     }
 
     /**
@@ -257,6 +235,15 @@ public class BuilderEditorPanel
     public JButton getSaveAndExitButton()
     {
         return saveAndExitButton;
+    }
+
+    /**
+     * Returns the preview button.
+     * @return A JButton, the preview button.
+     */
+    public JButton getPreviewButton()
+    {
+        return previewButton;
     }
 
     {
