@@ -1,7 +1,9 @@
 package controllers.player;
 
 import model.Board;
+import model.moves.RemoveSpecialMove;
 import model.moves.RemoveTileMove;
+import model.moves.SwapSpecialMove;
 import view.PlayerApplication;
 import view.SquareViewPanel;
 
@@ -55,9 +57,13 @@ public class ConnectTilesController extends MouseAdapter
                         m.addSquare(square.getSquare());
                         square.getSquare().setSelected(true);
                     }
-                    app.getPlayerPlayPanel().getBoardViewPanel().refresh();
-                } //TODO: Handle other move types.
+                } else if (board.getCurrentMove() instanceof SwapSpecialMove)
+                {
+                    square.getSquare().setSelected(((SwapSpecialMove) board.getCurrentMove()).addSquare(
+                            square.getSquare()));
+                }
             }
+            app.getPlayerPlayPanel().getBoardViewPanel().refresh();
         }
     }
 
@@ -75,8 +81,16 @@ public class ConnectTilesController extends MouseAdapter
         {
             board.setCurrentMove(new RemoveTileMove(board, square.getSquare()));
             square.getSquare().setSelected(true);
-            app.getPlayerPlayPanel().getBoardViewPanel().refresh();
+        } else if (board.getCurrentMove() instanceof RemoveSpecialMove)
+        {
+            square.getSquare().setSelected(true);
+            board.setCurrentMove(new RemoveSpecialMove(square.getSquare(), board));
+        } else if (board.getCurrentMove() instanceof SwapSpecialMove)
+        {
+            square.getSquare().setSelected(((SwapSpecialMove) board.getCurrentMove()).addSquare(
+                    square.getSquare()));
         }
+        app.getPlayerPlayPanel().getBoardViewPanel().refresh();
     }
 
     /**

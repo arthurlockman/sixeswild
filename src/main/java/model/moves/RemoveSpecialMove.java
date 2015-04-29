@@ -26,6 +26,14 @@ public class RemoveSpecialMove implements IMove
     }
 
     /**
+     * Create an empty move.
+     */
+    public RemoveSpecialMove()
+    {
+
+    }
+
+    /**
      * Complete the move.
      * @return True if the move was successful.
      */

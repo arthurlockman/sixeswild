@@ -29,6 +29,31 @@ public class SwapSpecialMove implements IMove
     }
 
     /**
+     * Create an empty move.
+     * @param b The board associated with the move.
+     */
+    public SwapSpecialMove(Board b)
+    {
+        this.board = b;
+    }
+
+    /**
+     * Add a square to the move.
+     * @param s The square to add.
+     * @return False if move is full.
+     */
+    public boolean addSquare(Square s)
+    {
+        if (square1 == null)
+            square1 = s;
+        else if (square2 == null)
+            square2 = s;
+        else
+            return false;
+        return true;
+    }
+
+    /**
      * Perform the move which will swap two tiles in
      * two neighboring squares.
      * @return True if the move was successful, false otherwise.

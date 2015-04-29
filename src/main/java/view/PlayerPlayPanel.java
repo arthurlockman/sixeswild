@@ -4,6 +4,9 @@ import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
 import model.Board;
+import model.moves.RemoveSpecialMove;
+import model.moves.ResetSpecialMove;
+import model.moves.SwapSpecialMove;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,6 +79,37 @@ public class PlayerPlayPanel
                     boardViewPanel.getBoard().deselectAll();
                     boardViewPanel.refresh();
                 }
+            }
+        });
+        remove1Button.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent me)
+            {
+                super.mouseClicked(me);
+                boardViewPanel.getBoard().setCurrentMove(new RemoveSpecialMove());
+            }
+        });
+        swap2Button.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                super.mouseClicked(e);
+                boardViewPanel.getBoard().setCurrentMove(new SwapSpecialMove(boardViewPanel.getBoard()));
+            }
+        });
+        reset1Button.addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                boardViewPanel.getBoard().setCurrentMove(new ResetSpecialMove(boardViewPanel.getBoard(),
+                        boardViewPanel.getBoard().getCurrentLevel()));
+                boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
+                boardViewPanel.refresh();
+                movesLabel.setText("Moves: " + (boardViewPanel.getBoard().getMovesAllowed() -
+                        boardViewPanel.getBoard().getMoveCount()));
             }
         });
     }
