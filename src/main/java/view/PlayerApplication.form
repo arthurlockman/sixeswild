@@ -27,6 +27,16 @@
           <card name="playPanel"/>
         </constraints>
       </nested-form>
+            <nested-form id="cats1" form-file="view/BadgesViewPanel.form" binding="badgesViewPanel">
+        <constraints>
+          <card name="achievement"/>
+        </constraints>
+      </nested-form>
+            <nested-form id="dogs2" form-file="view/InstructionViewPanel.form" binding="instructionViewPanel">
+        <constraints>
+          <card name="instructions"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>
