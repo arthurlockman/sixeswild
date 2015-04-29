@@ -77,7 +77,6 @@ public class TestGravity extends TestCase
         //Create remove moves.
         RemoveSpecialMove move1 = new RemoveSpecialMove(b.getSquares()[19], b);
         RemoveSpecialMove move2 = new RemoveSpecialMove(b.getSquares()[20], b);
-        RemoveSpecialMove move3 = new RemoveSpecialMove(b.getSquares()[11], b);
 
         //Do moves.
         b.refill();
@@ -85,13 +84,7 @@ public class TestGravity extends TestCase
         b.makeMove(move1);
         assertTrue(b.getSquares()[28].isSatisfied());
         b.makeMove(move2);
-        b.makeMove(move3);
-        assertFalse(b.getSquares()[29].isSatisfied());
-        assertFalse(b.getSquares()[30].isSatisfied());
-        assertFalse(b.getSquares()[31].isSatisfied());
-        assertFalse(b.getSquares()[32].isSatisfied());
-        assertFalse(b.getSquares()[33].isSatisfied());
-        assertFalse(b.getSquares()[34].isSatisfied());
-        assertFalse(b.getSquares()[35].isSatisfied());
+        b.makeMove(move2);
+        assertTrue(b.getSquares()[29].isSatisfied());
     }
 }
