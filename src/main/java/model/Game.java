@@ -132,7 +132,7 @@ public class Game
         for(int i = 0; i < levels.size(); i++)
         {
             String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
-            Badge newBadge = new Badge("ScoreBadge", levels.get(i).name, newBadgeDescription);
+            Badge newBadge = new Badge("ScoreBadge", (levels.get(i).name + "-ScoreBadge"), newBadgeDescription);
             newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
             badges.add(newBadge);
         }
@@ -140,6 +140,7 @@ public class Game
 
     public void checkBadges()
     {
+        System.out.println("");
         System.out.println("*** THE BADGE CHECK ***");
         for(int i = 0; i < badges.size(); i++)
         {
@@ -147,6 +148,7 @@ public class Game
             System.out.println("Badge: " + badge.name);
             System.out.println("- Type: " + badge.type);
             System.out.println("- Desc: " + badge.description);
+            System.out.println("- Earn: " + badge.earned);
             System.out.println(" ");
         }
     }
