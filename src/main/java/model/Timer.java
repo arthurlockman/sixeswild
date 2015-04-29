@@ -4,7 +4,7 @@ package model;
  * Timer Class.
  * Governs the contents and behavior of Sixes Wild Timer objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class Timer
 {

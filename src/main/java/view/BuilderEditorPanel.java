@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * BuilderEditorPanel Class.
  * Manages the contents and behavior of the BuilderEditorPanel.
  *
- * @authors arthurlockman
+ * @author arthurlockman
  */
 public class BuilderEditorPanel
 {

@@ -12,7 +12,7 @@ import java.util.Enumeration;
  *  SetLevelTypeController Class.
  *  Manages the setting of level types for levels in the Builder.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class SetLevelTypeController implements ActionListener
 {

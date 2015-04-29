@@ -4,7 +4,7 @@ package model;
  * Square Class.
  * Manages the contents and behavior of Square objects in Sixes Wild.
  *
- * @authors arthurlockman, Bryce Kaw-uh
+ * @author arthurlockman, Bryce Kaw-uh
  */
 public class Square
 {

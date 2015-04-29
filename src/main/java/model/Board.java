@@ -1,8 +1,10 @@
 package model;
 
+import controllers.IActionListener;
 import model.moves.IMove;
 import model.moves.IReversibleMove;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
@@ -11,7 +13,7 @@ import java.util.Stack;
  *  Board Class.
  *  Manages the contents and behavior of Sixes Wild Board objects.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author arthurlockman, Bryce Kaw-uh
  */
 public class Board
 {
@@ -30,6 +32,7 @@ public class Board
     int twoStarScore, threeStarScore;
     boolean populate;
     IMove currentMove;
+    ArrayList<IActionListener> actionListeners;
 
     /**
      * Board Constructor.
@@ -46,6 +49,7 @@ public class Board
         this.populate = populate;
         resetBoard();
         score = 0;
+        actionListeners = new ArrayList<IActionListener>();
     }
 
     /**
@@ -152,6 +156,7 @@ public class Board
         {
             score += move.getScore();
             moveCount++;
+            isWon();
             return true;
         }
         return false;
@@ -202,10 +207,42 @@ public class Board
         return true;
     }
 
-    /** Returns true if the game has been won */
+    /**
+     * Returns true if the game has been won. This will also trigger
+     * any attached event listeners to the board.
+     * TODO: Tests
+     */
     public boolean isWon()
     {
-        return false;
+        boolean flag = false;
+        if (this.level instanceof ReleaseLevel)
+        {
+            int i = 0, j = 0;
+            for (Square s : squares)
+            {
+                if (s.isBucket()) i++;
+                if (s.isSatisfied()) j++;
+            }
+            flag = i==j;
+        } else if (this.level instanceof EliminationLevel)
+        {
+
+        } else if (this.level instanceof PuzzleLevel)
+        {
+
+        } else if (this.level instanceof LightningLevel)
+        {
+
+        }
+
+        if (flag)
+        {
+            for (IActionListener al : actionListeners)
+            {
+                al.actionPerformed();
+            }
+        }
+        return flag;
     }
 
     /** Refreshes the Board */
@@ -452,5 +489,24 @@ public class Board
     public int getScore()
     {
         return score;
+    }
+
+    /**
+     * Add an event listener that will be triggered when the game is won.
+     * @param listener The event listener to attach.
+     * TODO: Test
+     */
+    public void addListener(IActionListener listener)
+    {
+        this.actionListeners.add(listener);
+    }
+
+    /**
+     * Removes all action listeners from the board.
+     * TODO: Test
+     */
+    public void removeListeners()
+    {
+        this.actionListeners.clear();
     }
 }

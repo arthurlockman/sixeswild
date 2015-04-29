@@ -14,7 +14,7 @@ import java.util.HashMap;
  * BoardViewPanel Class.
  * Manages the contents and behavior of BoardViewPanel objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class BoardViewPanel
 {

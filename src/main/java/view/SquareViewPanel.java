@@ -15,7 +15,7 @@ import java.awt.event.MouseMotionAdapter;
  * SquareViewPanel Class.
  * Manage the contents and behavior of Sixes Wild SquareViewPanel objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class SquareViewPanel
 {

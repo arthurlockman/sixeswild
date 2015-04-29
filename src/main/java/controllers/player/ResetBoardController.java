@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  ResetBoardController Class.
  *  Manages the resetting of the board in Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class ResetBoardController
 {

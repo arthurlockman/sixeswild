@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  * BuilderMenuPanel Class.
  * Manages the contents and behavior of BuilderMenuPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class BuilderMenuPanel {
     private JPanel builderMenuPanel;

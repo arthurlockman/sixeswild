@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  *  Responsible for managing loading a level for the
  *  level editor in the Sixes Wild Builder application.
  *
- *  @authors Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Bryce Kaw-uh
  */
 public class LoadLevelController extends MouseAdapter
 {

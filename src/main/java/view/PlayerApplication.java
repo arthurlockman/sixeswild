@@ -12,7 +12,7 @@ import java.awt.event.WindowListener;
  * PlayerApplication Class.
  * Manages the contents and behavior of the PlayerApplication.
  *
- * @authors ...
+ * @author ...
  */
 public class PlayerApplication extends JFrame
 {

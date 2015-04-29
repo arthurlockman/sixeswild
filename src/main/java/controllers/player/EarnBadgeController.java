@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  EarnBadgeController Class.
  *  Manages the earning and unlocking of badges in the Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class EarnBadgeController
 {

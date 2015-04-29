@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  *  ConnectTilesController Class.
  *  Manages the connecting of tiles when playing a level.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class ConnectTilesController extends MouseAdapter
 {
@@ -47,8 +47,13 @@ public class ConnectTilesController extends MouseAdapter
             {
                 if (board.getCurrentMove() instanceof RemoveTileMove)
                 {
-                    ((RemoveTileMove)board.getCurrentMove()).addSquare(square.getSquare());
-                    square.getSquare().setSelected(true);
+                    RemoveTileMove m = ((RemoveTileMove) board.getCurrentMove());
+                    //Only add squares to move if they are neighboring
+                    if (board.areNeighboring(square.getSquare(), m.getLastAdded()))
+                    {
+                        m.addSquare(square.getSquare());
+                        square.getSquare().setSelected(true);
+                    }
                     app.getPlayerPlayPanel().getBoardViewPanel().refresh();
                 } //TODO: Handle other move types.
             }

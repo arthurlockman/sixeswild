@@ -4,7 +4,7 @@ package model;
  *  Badge Class.
  *  Governs the contents and behavior of the Sixes Wild Badge objects.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class Badge
 {

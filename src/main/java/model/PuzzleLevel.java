@@ -6,7 +6,7 @@ import java.io.File;
  * PuzzleLevel Class.
  * Manages the contents and behavior of Puzzle Levels.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class PuzzleLevel extends Level
 {

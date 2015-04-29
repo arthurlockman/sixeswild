@@ -6,7 +6,7 @@ import java.io.File;
  * LightningLevel Class.
  * Manages the contents and behavior of Lightning Levels.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class LightningLevel extends Level
 {

@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
  *  StartGameController Class.
  *  Manages the starting of a game selected by the user in Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class StartGameController extends MouseAdapter
 {
@@ -76,6 +76,7 @@ public class StartGameController extends MouseAdapter
                         app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i)));
             }
 
+            app.getPlayerPlayPanel().getBoard().addListener(new CompleteLevelController(app));
             CardLayout layout = (CardLayout) app.getPlayerApplication().getLayout();
             layout.show(app.getPlayerApplication(), "playPanel");
             app.setSize(new Dimension(700, 625));

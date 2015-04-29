@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  CompleteMoveController Class.
  *  Manages the completion of moves in the Player application.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class CompleteMoveController
 {

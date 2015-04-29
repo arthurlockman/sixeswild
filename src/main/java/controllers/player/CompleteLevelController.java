@@ -1,14 +1,15 @@
 package controllers.player;
 
+import controllers.IActionListener;
 import view.PlayerApplication;
 
 /**
  *  CompleteLevelController Class.
  *  Manages the completion stage of a level.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author arthurlockman, Bryce Kaw-uh
  */
-public class CompleteLevelController
+public class CompleteLevelController implements IActionListener
 {
     PlayerApplication app;
 
@@ -25,8 +26,9 @@ public class CompleteLevelController
     /**
      *  Recognizes that the level has been completed, then displays...?
      */
-    public void doAction()
+    @Override
+    public void actionPerformed()
     {
-
+        System.out.println("Level complete!");
     }
 }

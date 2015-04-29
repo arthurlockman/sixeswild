@@ -6,7 +6,7 @@ import java.io.*;
  * Level Class.
  * Manages the contents and behavior of the Sixes Wild Level objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class Level
 {

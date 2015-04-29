@@ -11,7 +11,7 @@ import java.util.Scanner;
  * Game Class.
  * Manages the contents and behavior of Sixes Wild Games.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class Game
 {

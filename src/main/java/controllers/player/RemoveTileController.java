@@ -6,7 +6,7 @@ import view.PlayerApplication;
  * RemoveTileController Class.
  * Manages the removing of Tiles in the Player.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class RemoveTileController
 {

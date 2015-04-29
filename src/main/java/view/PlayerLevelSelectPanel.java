@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * PlayerLevelSelectPanel Class.
  * Manages the contents and behavior of PlayerLevelSelectPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class PlayerLevelSelectPanel
 {

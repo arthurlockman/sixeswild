@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  ReturnToLevelSelectController Class.
  *  Allows the user to return to the level select menu of the Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class ReturnToLevelSelectController
 {

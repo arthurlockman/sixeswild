@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  * PlayerMenuPanel Class.
  * Manages the contents and behavior of PlayerMenuPanels.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class PlayerMenuPanel
 {

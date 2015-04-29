@@ -116,4 +116,14 @@ public class RemoveTileMove implements IMove
         if (!squares.contains(s))
             squares.add(s);
     }
+
+    /**
+     * Get the last square added to the move.
+     * @return A square, the last added. Null if no squares.
+     */
+    public Square getLastAdded()
+    {
+        if (squares.size() == 0) return null;
+        else return squares.get(squares.size() - 1);
+    }
 }
