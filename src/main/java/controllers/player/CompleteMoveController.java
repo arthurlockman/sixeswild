@@ -12,13 +12,16 @@ public class CompleteMoveController
 {
     PlayerApplication app;
 
+    EarnBadgeController badgeController;
     /**
      * CompleteMoveController Constructor.
      * @param app:  the Player application
+
      */
     public CompleteMoveController(PlayerApplication app)
     {
         this.app = app;
+        badgeController = app.getBadgeController();
     }
 
     /**
@@ -27,5 +30,9 @@ public class CompleteMoveController
     public void doAction()
     {
 
+
+        // This is how we fire the doAction method in BadgeController,
+        // If we figure out how to generate Actions, we can also do it that way...
+        badgeController.doAction();
     }
 }

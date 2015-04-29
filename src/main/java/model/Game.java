@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Game
 {
     protected Board board;
-    protected Badge [] badges;
+    protected ArrayList<Badge> badges;
     protected ArrayList<Level> levels;
 
     /**
@@ -26,6 +26,8 @@ public class Game
     public Game()
     {
         reloadFromDisk();
+        createBadges();
+        checkBadges();
     }
 
     /** Reloads the Game from its location on disk. */
@@ -140,5 +142,42 @@ public class Game
     public Board getBoard()
     {
         return board;
+    }
+
+    public ArrayList<Badge> getBadges()
+    {
+        return badges;
+    }
+
+    public void createBadges()
+    {
+        badges = new ArrayList<Badge>();
+        createScoreBadges();
+    }
+
+    public void createScoreBadges()
+    {
+        for(int i = 0; i < levels.size(); i++)
+        {
+            String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
+            Badge newBadge = new Badge("ScoreBadge", (levels.get(i).name + "-ScoreBadge"), newBadgeDescription);
+            newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
+            badges.add(newBadge);
+        }
+    }
+
+    public void checkBadges()
+    {
+        System.out.println("");
+        System.out.println("*** THE BADGE CHECK ***");
+        for(int i = 0; i < badges.size(); i++)
+        {
+            Badge badge = badges.get(i);
+            System.out.println("Badge: " + badge.name);
+            System.out.println("- Type: " + badge.type);
+            System.out.println("- Desc: " + badge.description);
+            System.out.println("- Earn: " + badge.earned);
+            System.out.println(" ");
+        }
     }
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controllers.player.EarnBadgeController;
 import model.Game;
 
 import javax.swing.*;
@@ -20,7 +21,12 @@ public class PlayerApplication extends JFrame
     private PlayerMenuPanel menuPanel;
     private PlayerLevelSelectPanel playerLevelSelectPanel;
     private PlayerPlayPanel playerPlayPanel;
+    private BadgesViewPanel badgesViewPanel;
+    private InstructionViewPanel instructionViewPanel;
     private Game game;
+
+    // Since this is a standalone Controller, the app has a special reference.
+    private EarnBadgeController badgeController;
 
     /**
      * PlayerApplication Constructor.
@@ -36,6 +42,7 @@ public class PlayerApplication extends JFrame
         this.setLocationRelativeTo(null);
         this.setTitle("Sixes Wild");
         this.game = new Game();
+        badgeController = new EarnBadgeController(this);
 //        this.playerPlayPanel.setBoard(this.game.getBoard());
 
         /** Adds a window listener */
@@ -43,48 +50,50 @@ public class PlayerApplication extends JFrame
         {
             //Add controllers once window is initialized.
             @Override
-            public void windowOpened(WindowEvent e)
-            {
+            public void windowOpened(WindowEvent e) {
                 playerLevelSelectPanel.updateLevelList(game);
             }
 
             @Override
-            public void windowClosing(WindowEvent e)
-            {
+            public void windowClosing(WindowEvent e) {
 
             }
 
             @Override
-            public void windowClosed(WindowEvent e)
-            {
+            public void windowClosed(WindowEvent e) {
 
             }
 
             @Override
-            public void windowIconified(WindowEvent e)
-            {
+            public void windowIconified(WindowEvent e) {
 
             }
 
             @Override
-            public void windowDeiconified(WindowEvent e)
-            {
+            public void windowDeiconified(WindowEvent e) {
 
             }
 
             @Override
-            public void windowActivated(WindowEvent e)
-            {
+            public void windowActivated(WindowEvent e) {
 
             }
 
             @Override
-            public void windowDeactivated(WindowEvent e)
-            {
+            public void windowDeactivated(WindowEvent e) {
 
             }
         });
         setVisible(true);
+
+    }
+
+    public EarnBadgeController getBadgeController() {
+        return badgeController;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     {
@@ -101,8 +110,7 @@ public class PlayerApplication extends JFrame
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         playerApplication = new JPanel();
         playerApplication.setLayout(new CardLayout(0, 0));
         splashScreen = new SplashScreen();
@@ -113,13 +121,16 @@ public class PlayerApplication extends JFrame
         playerApplication.add(playerLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
         playerPlayPanel = new PlayerPlayPanel();
         playerApplication.add(playerPlayPanel.$$$getRootComponent$$$(), "playPanel");
+        badgesViewPanel = new BadgesViewPanel();
+        playerApplication.add(badgesViewPanel.$$$getRootComponent$$$(), "achievement");
+        instructionViewPanel = new InstructionViewPanel();
+        playerApplication.add(instructionViewPanel.$$$getRootComponent$$$(), "instructions");
     }
 
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return playerApplication;
     }
 }

@@ -3,6 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 
+import javax.smartcardio.Card;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -31,32 +32,57 @@ public class PlayerMenuPanel
      */
     public PlayerMenuPanel()
     {
-        /** Adds a mouse listener */
-        creditsButton.addMouseListener(new MouseAdapter()
         {
-            public void mouseReleased(MouseEvent e)
+            /** Adds a mouse listener */
+            creditsButton.addMouseListener(new MouseAdapter()
             {
-                super.mouseReleased(e);
-                JPanel parent = (JPanel) playerMenuPanel.getParent();
-                CardLayout layout = (CardLayout) parent.getLayout();
-                layout.show(parent, "splash");
-                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
-                topLevelFrame.setSize(new Dimension(500, 600));
-                topLevelFrame.setLocationRelativeTo(null);
-            }
-        });
-        /** Adds a mouse listener */
-        playGameButton.addMouseListener(new MouseAdapter()
-        {
-            public void mouseReleased(MouseEvent e)
+                public void mouseReleased(MouseEvent e)
+                {
+                    super.mouseReleased(e);
+                    JPanel parent = (JPanel) playerMenuPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "splash");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+                    topLevelFrame.setSize(new Dimension(500, 600));
+                    topLevelFrame.setLocationRelativeTo(null);
+                }
+            });
+            /** Adds a mouse listener */
+            playGameButton.addMouseListener(new MouseAdapter()
             {
-                super.mouseReleased(e);
-                JPanel parent = (JPanel) playerMenuPanel.getParent();
-                CardLayout layout = (CardLayout) parent.getLayout();
-                layout.show(parent, "levelSelect");
-                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
-            }
-        });
+                public void mouseReleased(MouseEvent e)
+                {
+                    super.mouseReleased(e);
+                    JPanel parent = (JPanel) playerMenuPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "levelSelect");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+                }
+            });
+            achievementsButton.addMouseListener(new MouseAdapter()
+            {
+                public void mouseReleased(MouseEvent e)
+                {
+                    super.mouseReleased(e);
+                    JPanel parent = (JPanel) playerMenuPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "achievement");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+                }
+            });
+            instructionsButton.addMouseListener(new MouseAdapter()
+            {
+                public void mouseReleased(MouseEvent e)
+                {
+                    super.mouseReleased(e);
+                    JPanel parent = (JPanel) playerMenuPanel.getParent();
+                    CardLayout layout = (CardLayout) parent.getLayout();
+                    layout.show(parent, "instructions");
+                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+                }
+            });
+        }
+
     }
 
     {
