@@ -10,12 +10,13 @@ import java.util.Scanner;
 public class Game
 {
     protected Board board;
-    protected Badge [] badges;
+    protected ArrayList<Badge> badges;
     protected ArrayList<Level> levels;
 
     public Game()
     {
         reloadFromDisk();
+        createBadges();
     }
 
     public void reloadFromDisk()
@@ -114,8 +115,25 @@ public class Game
         return board;
     }
 
-    public Badge[] getBadges()
+    public ArrayList<Badge> getBadges()
     {
         return badges;
+    }
+
+    public void createBadges()
+    {
+        badges = new ArrayList<Badge>();
+        createScoreBadges();
+    }
+
+    public void createScoreBadges()
+    {
+        for(int i = 0; i < levels.size(); i++)
+        {
+            String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
+            Badge newBadge = new Badge("ScoreBadge", levels.get(i).name, newBadgeDescription);
+            newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
+            badges.add(newBadge);
+        }
     }
 }
