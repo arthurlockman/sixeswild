@@ -230,7 +230,7 @@ public class Board
             for (Square s : squares)
             {
                 if (s.isEliminated()) i++;
-                j++;
+                if (s.isActive()) j++;
             }
             flag = i==j;
         } else if (this.level instanceof PuzzleLevel)

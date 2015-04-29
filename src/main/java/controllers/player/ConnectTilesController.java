@@ -46,9 +46,9 @@ public class ConnectTilesController extends MouseAdapter
         if (SwingUtilities.isLeftMouseButton(e))
         {
             if (board.getCurrentMove() != null && !square.getSquare().isBucket()
-                    && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive())
+                    && square.getSquare().isActive())
             {
-                if (board.getCurrentMove() instanceof RemoveTileMove)
+                if (board.getCurrentMove() instanceof RemoveTileMove && square.getSquare().getTile().getValue() != 6)
                 {
                     RemoveTileMove m = ((RemoveTileMove) board.getCurrentMove());
                     //Only add squares to move if they are neighboring
@@ -77,8 +77,7 @@ public class ConnectTilesController extends MouseAdapter
     {
         super.mousePressed(e);
         if (board.getCurrentMove() == null && !square.getSquare().isBucket()
-                && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive())
-        {
+                && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive()) {
             board.setCurrentMove(new RemoveTileMove(board, square.getSquare()));
             square.getSquare().setSelected(true);
         } else if (board.getCurrentMove() instanceof RemoveSpecialMove)
