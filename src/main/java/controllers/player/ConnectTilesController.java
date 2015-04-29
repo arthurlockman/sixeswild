@@ -5,6 +5,7 @@ import model.moves.RemoveTileMove;
 import view.PlayerApplication;
 import view.SquareViewPanel;
 
+import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -40,7 +41,7 @@ public class ConnectTilesController extends MouseAdapter
     @Override
     public void mouseEntered(MouseEvent e) {
         super.mouseEntered(e);
-        if (e.getButton() == 1)
+        if (SwingUtilities.isLeftMouseButton(e))
         {
             if (board.getCurrentMove() != null && !square.getSquare().isBucket()
                     && square.getSquare().getTile().getValue() != 6 && square.getSquare().isActive())
