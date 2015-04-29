@@ -3,10 +3,20 @@ package controllers.player;
 import model.Badge;
 import view.PlayerApplication;
 
+/**
+ *  EarnBadgeController Class.
+ *  Manages the earning and unlocking of badges in the Player.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class EarnBadgeController
 {
     PlayerApplication app;
 
+    /**
+     * EarnBadgeController Constructor.
+     * @param app:  the Player application
+     */
     public EarnBadgeController(PlayerApplication app)
     {
         this.app = app;
@@ -17,7 +27,6 @@ public class EarnBadgeController
      * different functions for checking different types of badges. This way, every time a badge triggering event happens
      * our program will only check for relevant badges, to see if any of their earning condition is met.
      */
-
     public void doAction()
     {
         // In the future, doAction will get an argument and decide which of the check functions to run.

@@ -8,7 +8,14 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class PlayerApplication extends JFrame {
+/**
+ * PlayerApplication Class.
+ * Manages the contents and behavior of the PlayerApplication.
+ *
+ * @authors ...
+ */
+public class PlayerApplication extends JFrame
+{
     private JPanel playerApplication;
     private SplashScreen splashScreen;
     private PlayerMenuPanel menuPanel;
@@ -21,7 +28,11 @@ public class PlayerApplication extends JFrame {
     // Since this is a standalone Controller, the app has a special reference.
     private EarnBadgeController badgeController;
 
-    public PlayerApplication() {
+    /**
+     * PlayerApplication Constructor.
+     */
+    public PlayerApplication()
+    {
         super("Sixes Wild");
         setContentPane(playerApplication);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -34,7 +45,9 @@ public class PlayerApplication extends JFrame {
         badgeController = new EarnBadgeController(this);
 //        this.playerPlayPanel.setBoard(this.game.getBoard());
 
-        this.addWindowListener(new WindowListener() {
+        /** Adds a window listener */
+        this.addWindowListener(new WindowListener()
+        {
             //Add controllers once window is initialized.
             @Override
             public void windowOpened(WindowEvent e) {

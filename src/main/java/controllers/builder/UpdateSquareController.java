@@ -1,6 +1,5 @@
 package controllers.builder;
 
-import model.Square;
 import model.Tile;
 import model.moves.UpdateSquareMove;
 import view.BoardViewPanel;
@@ -12,6 +11,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Enumeration;
 
+/**
+ * UpdateSquareController Class.
+ * Manages the updating of Squares.
+ *
+ * @authors  ..., Bryce Kaw-uh
+ */
 public class UpdateSquareController extends MouseAdapter
 {
     BuilderApplication app;
@@ -19,6 +24,12 @@ public class UpdateSquareController extends MouseAdapter
     SquareViewPanel square;
     BoardViewPanel boardView;
 
+    /**
+     * UpdateSquareController Constructor.
+     *
+     * @param app: the Builder application
+     * @param s:   the SquareViewPanel being controlled
+     */
     public UpdateSquareController(BuilderApplication app, SquareViewPanel s)
     {
         this.app = app;
@@ -28,6 +39,10 @@ public class UpdateSquareController extends MouseAdapter
     }
 
     @Override
+    /**
+     *  Updates the Square type as specified by the user's selection.
+     *  @param e:  the mouse event that initiated this move
+     */
     public void mouseClicked(MouseEvent e)
     {
         super.mouseClicked(e);
@@ -58,7 +73,7 @@ public class UpdateSquareController extends MouseAdapter
             move = new UpdateSquareMove(new Tile(6, 1), square.getSquare(), true, false);
         } else {
             move = new UpdateSquareMove(null, square.getSquare(),
-                    square.getSquare().isActive(), square.getSquare().isMarked());
+                    square.getSquare().isActive(), square.getSquare().isBucket());
         }
 
         boardView.getBoard().makeMove(move);

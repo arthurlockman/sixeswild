@@ -8,12 +8,21 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ *  SplashScreen Class.
+ *  Manages the contents and behavior of Sixes Wild Splash Screens.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class SplashScreen {
     private JPanel splashScreen;
     private JLabel logoView;
     private JLabel creditsView;
     protected JButton playButton;
 
+    /**
+     * SplashScreen Constructor.
+     */
     public SplashScreen() {
         playButton.addMouseListener(new MouseAdapter() {
             @Override

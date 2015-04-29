@@ -2,18 +2,31 @@ package controllers.player;
 
 import view.PlayerApplication;
 
+/**
+ *  CompleteMoveController Class.
+ *  Manages the completion of moves in the Player application.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class CompleteMoveController
 {
     PlayerApplication app;
 
     EarnBadgeController badgeController;
+    /**
+     * CompleteMoveController Constructor.
+     * @param app:  the Player application
 
+     */
     public CompleteMoveController(PlayerApplication app)
     {
         this.app = app;
         badgeController = app.getBadgeController();
     }
 
+    /**
+     * Completes a move once it has been indicated.
+     */
     public void doAction()
     {
 

@@ -9,8 +9,15 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.util.HashMap;
 
+/**
+ * BoardViewPanel Class.
+ * Manages the contents and behavior of BoardViewPanel objects.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class BoardViewPanel
 {
+    /** Creates a JPanel and 81 SquareViewPanels */
     private JPanel panel1;
     private SquareViewPanel squareViewPanel1;
     private SquareViewPanel squareViewPanel2;
@@ -97,6 +104,9 @@ public class BoardViewPanel
     private Board board;
     private HashMap<Integer, SquareViewPanel> boardMap;
 
+    /**
+     * BoardViewPanel Constructor with no parameters
+     */
     public BoardViewPanel()
     {
         boardMap = new HashMap<Integer, SquareViewPanel>();
@@ -188,6 +198,10 @@ public class BoardViewPanel
         }
     }
 
+    /**
+     * BoardViewPanel Constructor.
+     * @param b: the Board
+     */
     public BoardViewPanel(Board b)
     {
         this();

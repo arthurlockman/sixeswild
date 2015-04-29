@@ -1,5 +1,11 @@
 package model;
 
+/**
+ *  Badge Class.
+ *  Governs the contents and behavior of the Sixes Wild Badge objects.
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
 public class Badge
 {
     String type;
@@ -46,16 +52,21 @@ public class Badge
         }
     }
 
+    /** Returns true if the Badge has been unlocked. */
     public boolean isEarned()
     {
         return earned;
     }
 
+    /** Returns the name of the Badge object. */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Returns the description of the Badge.
+     */
     public String getDescription()
     {
         return description;
