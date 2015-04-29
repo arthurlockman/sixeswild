@@ -35,7 +35,7 @@ public class CompleteLevelController implements IActionListener
     {
         System.out.println("Level complete!");
         JOptionPane.showMessageDialog(null, "Level completed!", "Success", JOptionPane.INFORMATION_MESSAGE);
-        ((CardLayout)app.getPlayerApplication().getLayout()).show(app.getPlayerApplication(), "menuPanel");
+        ((CardLayout)app.getPlayerApplication().getLayout()).show(app.getPlayerApplication(), "levelSelect");
         app.setSize(new Dimension(500, 500));
         app.setLocationRelativeTo(null);
     }
