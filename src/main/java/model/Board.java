@@ -226,7 +226,13 @@ public class Board
             flag = i==j;
         } else if (this.level instanceof EliminationLevel)
         {
-
+            int i = 0, j = 0;
+            for (Square s : squares)
+            {
+                if (s.isEliminated()) i++;
+                j++;
+            }
+            flag = i==j;
         } else if (this.level instanceof PuzzleLevel)
         {
 
@@ -508,5 +514,14 @@ public class Board
     public void removeListeners()
     {
         this.actionListeners.clear();
+    }
+
+    /**
+     * Get the current level associated with the board.
+     * @return A level object, the level.
+     */
+    public Level getCurrentLevel()
+    {
+        return this.level;
     }
 }

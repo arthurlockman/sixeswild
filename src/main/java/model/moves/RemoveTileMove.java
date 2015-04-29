@@ -1,6 +1,7 @@
 package model.moves;
 
 import model.Board;
+import model.EliminationLevel;
 import model.Square;
 
 import java.util.ArrayList;
@@ -55,6 +56,10 @@ public class RemoveTileMove implements IMove
         {
             s.removeTile();
             s.flipCleared();
+            if (board.getCurrentLevel() instanceof EliminationLevel)
+            {
+                s.setEliminated(true);
+            }
         }
         board.refill();
         return true;
