@@ -17,6 +17,47 @@ version = '1.0'
 
 mainClassName = "application.BuilderLauncher"
 
+task builderStartScript(type: CreateStartScripts) {
+    description "Creates OS specific scripts to call the 'builder' entry point"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+    mainClassName = 'application.BuilderLauncher'
+    applicationName = 'builder'
+}
+
+task playerStartScript(type: CreateStartScripts) {
+    description "Creates OS specific scripts to call the 'player' entry point"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+    mainClassName = 'application.PlayerLauncher'
+    applicationName = 'player'
+}
+
+task(player, dependsOn: playerStartScript, type: JavaExec ) {
+    main = 'application.PlayerLauncher'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task(builder, dependsOn: builderStartScript, type: JavaExec ) {
+    main = 'application.BuilderLauncher'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+distZip {
+    baseName = archivesBaseName
+    classifier = 'app'
+    //include our extra start script
+    //this is a bit weird, I'm open to suggestions on how to do this better
+    into("${baseName}-${version}-${classifier}/bin") {
+        from builderStartScript
+        fileMode = 0755
+    }
+    into("${baseName}-${version}-${classifier}/bin") {
+        from playerStartScript
+        fileMode = 0755
+    }
+}
+
 repositories {
     mavenCentral()
 }
