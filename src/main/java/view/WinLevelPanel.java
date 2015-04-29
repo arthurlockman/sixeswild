@@ -7,11 +7,13 @@ import com.intellij.uiDesigner.core.Spacer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 /**
- *  WinLevelPanel Class.
- *  Manages the contents and behavior of Sixes Wild Splash WinLevelPanel.
+ * WinLevelPanel Class.
+ * Manages the contents and behavior of Sixes Wild WinLevelPanel.
+ * Pops up after successful win condition and is used to select next action
  *
- *  @authors ..., Brendan Casey
+ * @authors ..., Brendan Casey
  */
 public class WinLevelPanel extends JDialog {
     private JPanel contentPane;
@@ -65,23 +67,21 @@ public class WinLevelPanel extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 
-
     }
 
     /**
      * sets the text in the label's and buttons
      * then repaints the panel
      */
-    private void setUp(){
+    private void setUp() {
         levelName.setText(name);
-        levelHighScore.setText("High Score: "+highScore);
-        levelScore.setText("Score: "+score);
-        Stars.setText(stars+" Stars");
-        if(pass){
+        levelHighScore.setText("High Score: " + highScore);
+        levelScore.setText("Score: " + score);
+        Stars.setText(stars + " Stars");
+        if (pass) {
             Passed.setText("Passed");
             buttonOK.setText("Continue");
-        }
-        else{
+        } else {
             Passed.setText("Not Passed");
             buttonOK.setText("Repeat");
         }
