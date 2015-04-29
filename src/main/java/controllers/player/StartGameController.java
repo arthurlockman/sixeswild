@@ -52,12 +52,15 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().getRemove1Button().setEnabled(l.isSpecialMovesAllowed());
             app.getPlayerPlayPanel().getSwap2Button().setEnabled(l.isSpecialMovesAllowed());
             app.getPlayerPlayPanel().getReset1Button().setEnabled(l.isSpecialMovesAllowed());
+            app.getPlayerPlayPanel().getMovesLabel().setVisible(false);
             if (l instanceof EliminationLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Elimination");
             } else if (l instanceof PuzzleLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Puzzle");
+                app.getPlayerPlayPanel().getMovesLabel().setVisible(true);
+                app.getPlayerPlayPanel().getMovesLabel().setText("Moves: " + ((PuzzleLevel) l).getMoveLimit());
             } else if (l instanceof ReleaseLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Release");

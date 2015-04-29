@@ -99,5 +99,6 @@ public class ConnectTilesController extends MouseAdapter
         app.getPlayerPlayPanel().getBoardViewPanel().refresh();
         app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
         app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());
+        app.getPlayerPlayPanel().getMovesLabel().setText("Moves: " + (board.getMovesAllowed() - board.getMoveCount()));
     }
 }

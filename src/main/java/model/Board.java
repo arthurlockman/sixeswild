@@ -156,7 +156,7 @@ public class Board
         {
             score += move.getScore();
             moveCount++;
-            isWon();
+            isComplete();
             return true;
         }
         return false;
@@ -212,7 +212,7 @@ public class Board
      * any attached event listeners to the board.
      * TODO: Tests
      */
-    public boolean isWon()
+    public boolean isComplete()
     {
         boolean flag = false;
         if (this.level instanceof ReleaseLevel)
@@ -235,7 +235,7 @@ public class Board
             flag = i==j;
         } else if (this.level instanceof PuzzleLevel)
         {
-
+            flag = !(movesAllowed != 0 && moveCount < movesAllowed);
         } else if (this.level instanceof LightningLevel)
         {
 
