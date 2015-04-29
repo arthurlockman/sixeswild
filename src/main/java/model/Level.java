@@ -100,4 +100,9 @@ public class Level
     {
         return this.levelData;
     }
+
+    public int getLevelNumber()
+    {
+        return levelNumber;
+    }
 }

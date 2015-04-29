@@ -113,4 +113,9 @@ public class Game
     {
         return board;
     }
+
+    public Badge[] getBadges()
+    {
+        return badges;
+    }
 }

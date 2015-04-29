@@ -57,7 +57,7 @@ public class BadgesViewPanel {
         list1 = new JList();
         scrollPane1.setViewportView(list1);
         backButton = new JButton();
-        backButton.setBackground(new Color(-3167898));
+        backButton.setBackground(new Color(-12828863));
         backButton.setText("Back");
         badgesViewPanel.add(backButton, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
