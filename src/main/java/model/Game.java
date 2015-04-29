@@ -17,6 +17,7 @@ public class Game
     {
         reloadFromDisk();
         createBadges();
+        checkBadges();
     }
 
     public void reloadFromDisk()
@@ -134,6 +135,19 @@ public class Game
             Badge newBadge = new Badge("ScoreBadge", levels.get(i).name, newBadgeDescription);
             newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
             badges.add(newBadge);
+        }
+    }
+
+    public void checkBadges()
+    {
+        System.out.println("*** THE BADGE CHECK ***");
+        for(int i = 0; i < badges.size(); i++)
+        {
+            Badge badge = badges.get(i);
+            System.out.println("Badge: " + badge.name);
+            System.out.println("- Type: " + badge.type);
+            System.out.println("- Desc: " + badge.description);
+            System.out.println(" ");
         }
     }
 }
