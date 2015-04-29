@@ -50,6 +50,15 @@ public class PlayerMenuPanel {
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
             }
         });
+        instructionsButton.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                JPanel parent = (JPanel) playerMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                layout.show(parent, "instructions");
+                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerMenuPanel);
+            }
+        });
     }
 
     {

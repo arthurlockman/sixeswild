@@ -32,6 +32,11 @@
           <card name="achievement"/>
         </constraints>
       </nested-form>
+            <nested-form id="dogs2" form-file="view/InstructionViewPanel.form" binding="instructionViewPanel">
+        <constraints>
+          <card name="instructions"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>
