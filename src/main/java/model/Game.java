@@ -3,9 +3,7 @@ package model;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Game Class.
@@ -46,8 +44,21 @@ public class Game
         }
         File[] listOfFiles = folder.listFiles();
 
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch(NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
         for(File file : listOfFiles)
         {
+            System.out.println(file.getPath());
             String content = null;
             try {
                 Scanner scanner = new Scanner(file);
