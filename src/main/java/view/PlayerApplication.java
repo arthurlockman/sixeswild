@@ -13,7 +13,7 @@ import java.awt.event.WindowListener;
  * PlayerApplication Class.
  * Manages the contents and behavior of the PlayerApplication.
  *
- * @author ...
+ * @author arthurlockman
  */
 public class PlayerApplication extends JFrame
 {
@@ -44,7 +44,6 @@ public class PlayerApplication extends JFrame
         this.setTitle("Sixes Wild");
         this.game = new Game();
         badgeController = new EarnBadgeController(this);
-//        this.playerPlayPanel.setBoard(this.game.getBoard());
 
         /** Adds a window listener */
         this.addWindowListener(new WindowListener()

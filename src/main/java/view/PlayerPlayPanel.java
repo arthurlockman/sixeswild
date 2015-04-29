@@ -107,6 +107,7 @@ public class PlayerPlayPanel
                 boardViewPanel.getBoard().setCurrentMove(new ResetSpecialMove(boardViewPanel.getBoard(),
                         boardViewPanel.getBoard().getCurrentLevel()));
                 boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
+                boardViewPanel.getBoard().refill();
                 boardViewPanel.refresh();
                 movesLabel.setText("Moves: " + (boardViewPanel.getBoard().getMovesAllowed() -
                         boardViewPanel.getBoard().getMoveCount()));

@@ -3,6 +3,9 @@ package controllers.player;
 import controllers.IActionListener;
 import view.PlayerApplication;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *  CompleteLevelController Class.
  *  Manages the completion stage of a level.
@@ -24,11 +27,16 @@ public class CompleteLevelController implements IActionListener
     }
 
     /**
-     *  Recognizes that the level has been completed, then displays...?
+     *  Recognizes that the level has been completed, displays level
+     *  statistics.
      */
     @Override
     public void actionPerformed()
     {
         System.out.println("Level complete!");
+        JOptionPane.showMessageDialog(null, "Level completed!", "Success", JOptionPane.INFORMATION_MESSAGE);
+        ((CardLayout)app.getPlayerApplication().getLayout()).show(app.getPlayerApplication(), "menuPanel");
+        app.setSize(new Dimension(500, 500));
+        app.setLocationRelativeTo(null);
     }
 }
