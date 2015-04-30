@@ -53,6 +53,7 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().getSwap2Button().setEnabled(l.isSpecialMovesAllowed());
             app.getPlayerPlayPanel().getReset1Button().setEnabled(l.isSpecialMovesAllowed());
             app.getPlayerPlayPanel().getMovesLabel().setVisible(false);
+            app.getPlayerPlayPanel().getTimerViewPanel().$$$getRootComponent$$$().setVisible(false);
             if (l instanceof EliminationLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Elimination");
@@ -67,7 +68,9 @@ public class StartGameController extends MouseAdapter
             } else if (l instanceof LightningLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Lightning");
-                app.getPlayerPlayPanel().getBoard().setTimer(new Countdown(((LightningLevel)l).getTimeLimit()));
+                app.getPlayerPlayPanel().getBoard().setTimer(new Countdown(((LightningLevel) l).getTimeLimit(),
+                        app.getPlayerPlayPanel().getTimerViewPanel()));
+                app.getPlayerPlayPanel().getTimerViewPanel().$$$getRootComponent$$$().setVisible(true);
                 app.getPlayerPlayPanel().getBoard().getTimer().run();
             }
 
@@ -80,7 +83,10 @@ public class StartGameController extends MouseAdapter
                         app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i)));
             }
 
-            app.getPlayerPlayPanel().getBoard().addListener(new CompleteLevelController(app));
+            CompleteLevelController clc = new CompleteLevelController(app);
+            app.getPlayerPlayPanel().getBoard().addListener(clc);
+            if (app.getPlayerPlayPanel().getBoard().getTimer() != null)
+                app.getPlayerPlayPanel().getBoard().getTimer().attachListener(clc);
             CardLayout layout = (CardLayout) app.getPlayerApplication().getLayout();
             layout.show(app.getPlayerApplication(), "playPanel");
             app.setSize(new Dimension(700, 625));

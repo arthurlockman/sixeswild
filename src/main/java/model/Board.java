@@ -237,9 +237,6 @@ public class Board
         } else if (this.level instanceof PuzzleLevel)
         {
             flag = !(movesAllowed != 0 && moveCount < movesAllowed);
-        } else if (this.level instanceof LightningLevel)
-        {
-
         }
 
         if (flag)
