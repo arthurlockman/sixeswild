@@ -200,6 +200,7 @@ public class Level
      */
     public void setLocked(boolean lock)
     {
+        //TODO: Fix this so that it actually replaces the correct item in the data.
         this.locked = lock;
         char lockStatus = (lock) ? '0' : '1';
         char[] arr = levelData.toCharArray();
