@@ -1,5 +1,6 @@
 package view;
 
+import controllers.player.ReturnToLevelSelectController;
 import controllers.player.StartGameController;
 import controllers.player.EarnBadgeController;
 import model.Game;
@@ -54,6 +55,8 @@ public class PlayerApplication extends JFrame
                 playerLevelSelectPanel.updateLevelList(game);
                 playerLevelSelectPanel.getPlayButton().addMouseListener(new
                         StartGameController((PlayerApplication) e.getWindow()));
+                playerPlayPanel.getQuitButton().addMouseListener(new
+                        ReturnToLevelSelectController((PlayerApplication) e.getWindow()));
             }
 
             @Override

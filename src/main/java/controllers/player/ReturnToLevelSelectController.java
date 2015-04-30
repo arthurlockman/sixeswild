@@ -2,13 +2,18 @@ package controllers.player;
 
 import view.PlayerApplication;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 /**
  *  ReturnToLevelSelectController Class.
  *  Allows the user to return to the level select menu of the Player.
  *
  *  @author ..., Bryce Kaw-uh
  */
-public class ReturnToLevelSelectController
+public class ReturnToLevelSelectController extends MouseAdapter
 {
     PlayerApplication app;
 
@@ -22,11 +27,18 @@ public class ReturnToLevelSelectController
         this.app = app;
     }
 
-    /**
-     *  Returns the user to the level select menu in Player.
-     */
-    public void doAction()
+    @Override
+    public void mouseClicked(MouseEvent me)
     {
-
+        super.mouseClicked(me);
+        if (this.app.getPlayerPlayPanel().getBoard().getTimer() != null)
+            this.app.getPlayerPlayPanel().getBoard().getTimer().stop();
+        JPanel parent = (JPanel) this.app.getPlayerPlayPanel().getPlayPanel().getParent();
+        CardLayout layout = (CardLayout) parent.getLayout();
+        layout.show(parent, "levelSelect");
+        JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class,
+                this.app.getPlayerPlayPanel().getPlayPanel());
+        topLevelFrame.setSize(new Dimension(500, 500));
+        topLevelFrame.setLocationRelativeTo(null);
     }
 }

@@ -67,7 +67,8 @@ public class StartGameController extends MouseAdapter
             } else if (l instanceof LightningLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Lightning");
-                //Create timer.
+                app.getPlayerPlayPanel().getBoard().setTimer(new Countdown(((LightningLevel)l).getTimeLimit()));
+                app.getPlayerPlayPanel().getBoard().getTimer().run();
             }
 
             //Attach mouse handlers to tile views.

@@ -3,6 +3,7 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import controllers.player.ReturnToLevelSelectController;
 import model.Board;
 import model.moves.RemoveSpecialMove;
 import model.moves.ResetSpecialMove;
@@ -48,21 +49,6 @@ public class PlayerPlayPanel
         /**
          * Adds a MouseListener
          */
-        quitButton.addMouseListener(new MouseAdapter()
-        {
-            @Override
-            public void mouseClicked(MouseEvent e)
-            {
-                super.mouseClicked(e);
-                JPanel parent = (JPanel) playPanel.getParent();
-                CardLayout layout = (CardLayout) parent.getLayout();
-                layout.show(parent, "levelSelect");
-                JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playPanel);
-                topLevelFrame.setSize(new Dimension(500, 500));
-                topLevelFrame.setLocationRelativeTo(null);
-            }
-        });
-
         playContentPanel.addMouseListener(new MouseAdapter()
         {
             //TODO: Test this

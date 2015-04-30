@@ -17,7 +17,7 @@ import java.util.Stack;
  */
 public class Board
 {
-    Timer timer;
+    Countdown timer;
     int movesAllowed;
     int timeLimit;
     int score;
@@ -47,6 +47,7 @@ public class Board
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
         this.populate = populate;
+
         resetBoard();
         score = 0;
         actionListeners = new ArrayList<IActionListener>();
@@ -524,5 +525,15 @@ public class Board
     public Level getCurrentLevel()
     {
         return this.level;
+    }
+
+    public Countdown getTimer()
+    {
+        return timer;
+    }
+
+    public void setTimer(Countdown timer)
+    {
+        this.timer = timer;
     }
 }
