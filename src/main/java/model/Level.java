@@ -193,4 +193,19 @@ public class Level
                 this.locked, this.specialMovesAllowed, this.diskLocation);
         return l;
     }
+
+    /**
+     * Sets the locked/unlocked state of a level and saves it to disk.
+     * @param lock True for locked, false for unlocked.
+     */
+    public void setLocked(boolean lock)
+    {
+        this.locked = lock;
+        char lockStatus = (lock) ? '0' : '1';
+        char[] arr = levelData.toCharArray();
+        arr[17] = lockStatus;
+        this.levelData = String.valueOf(arr);
+        System.out.println(this.levelData);
+        this.saveLevel();
+    }
 }

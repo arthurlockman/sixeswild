@@ -42,7 +42,6 @@ public class StartGameController extends MouseAdapter
         Level l = (Level) list.getSelectedValue();
         if (!l.isLocked())
         {
-            //TODO: Insert level loading logic here.
             app.getPlayerPlayPanel().setBoard(new Board(l, true));
             app.getPlayerPlayPanel().getScoreLabel().setText("Score: 0");
             app.getPlayerPlayPanel().getScoreBar().setMaximum(l.getThreeStarScore() +
