@@ -24,10 +24,10 @@ public class TimerPanel
     {
         System.out.println(time);
         timeRem.setText("<html><h2>" + time + "</h2></html>");
-        if (time <= 10)
-            timeRem.setForeground(new Color(181, 26, 170));
-        else if (time <= 5)
+        if (time <= 5)
             timeRem.setForeground(new Color(181, 0, 6));
+        else if (time <= 10)
+            timeRem.setForeground(new Color(181, 26, 170));
         else
             timeRem.setForeground(new Color(0, 0, 0));
         this.panel1.repaint();
