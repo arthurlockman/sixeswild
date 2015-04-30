@@ -35,22 +35,11 @@ public class CompleteLevelController implements IActionListener
     public void actionPerformed()
     {
         System.out.println("Level complete!");
-        //TODO: Insert logic handling how each level is 'won' and unlocking next level.
         Level l = app.getPlayerPlayPanel().getBoard().getCurrentLevel();
-        if (l instanceof LightningLevel)
-        {
+        Board b = app.getPlayerPlayPanel().getBoardViewPanel().getBoard();
 
-        } else if (l instanceof ReleaseLevel)
-        {
-
-        } else if (l instanceof PuzzleLevel)
-        {
-
-        } else if (l instanceof EliminationLevel)
-        {
-
-        }
-        app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(false);
+        boolean didWin = b.getScore() >= 1;
+        app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
 
         JOptionPane.showMessageDialog(null, "Level completed!", "Success", JOptionPane.INFORMATION_MESSAGE);
         ((CardLayout)app.getPlayerApplication().getLayout()).show(app.getPlayerApplication(), "levelSelect");
