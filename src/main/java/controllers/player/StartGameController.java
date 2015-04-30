@@ -46,7 +46,7 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().setBoard(new Board(l, true));
             app.getPlayerPlayPanel().getScoreLabel().setText("Score: 0");
             app.getPlayerPlayPanel().getScoreBar().setMaximum(l.getThreeStarScore() +
-                    (int)((double)l.getThreeStarScore() / 6));
+                    (int) ((double) l.getThreeStarScore() / 6));
             app.getPlayerPlayPanel().getScoreBar().setMinimum(0);
             app.getPlayerPlayPanel().getScoreBar().setValue(0);
             app.getPlayerPlayPanel().getRemove1Button().setEnabled(l.isSpecialMovesAllowed());
@@ -82,6 +82,10 @@ public class StartGameController extends MouseAdapter
                 svp.attachMouseAdapter(new ConnectTilesController(app,
                         app.getPlayerPlayPanel().getBoardViewPanel().getSquareView(i)));
             }
+
+            app.getPlayerPlayPanel().getThreeStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/threestar-empty.png")));
+            app.getPlayerPlayPanel().getTwoStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/twostar-empty.png")));
+            app.getPlayerPlayPanel().getOneStarLabel().setIcon(new ImageIcon(getClass().getResource("/view/onestar-empty.png")));
 
             CompleteLevelController clc = new CompleteLevelController(app);
             app.getPlayerPlayPanel().getBoard().addListener(clc);
