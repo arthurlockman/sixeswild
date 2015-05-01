@@ -41,6 +41,7 @@ public class CompleteLevelController implements IActionListener
         boolean didWin = !(b.getScore() >= 1);
         System.out.println(didWin);
         app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
+        app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
 
         app.getGame().reloadFromDisk();
         JOptionPane.showMessageDialog(null, "Level completed!", "Success", JOptionPane.INFORMATION_MESSAGE);

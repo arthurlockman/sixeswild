@@ -201,7 +201,6 @@ public class Level
      */
     public void setLocked(boolean lock)
     {
-        //TODO: Fix this so that it actually replaces the correct item in the data.
         this.locked = lock;
         String lockStatus = (lock) ? "0" : "1";
         String[] levData = levelData.split(" ");
@@ -213,5 +212,27 @@ public class Level
             this.levelData += " ";
         }
         this.saveLevel();
+    }
+
+    /**
+     * Set the high score for the level and save it to disk.
+     * @param score The high score to set. If the score is not higher
+     *              than the stored high score, it will not be saved.
+     */
+    public void setHighScore(int score)
+    {
+        if (score > this.getHighScore())
+        {
+            this.highScore = score;
+            String[] levData = levelData.split(" ");
+            levData[16] = "" + highScore;
+            this.levelData = "";
+            for (String s : levData)
+            {
+                this.levelData += s;
+                this.levelData += " ";
+            }
+            this.saveLevel();
+        }
     }
 }
