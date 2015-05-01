@@ -104,7 +104,6 @@ public class ConnectTilesController extends MouseAdapter
         if (board.getCurrentMove() != null)
         {
             board.makeMove(board.getCurrentMove());
-            app.getPlayerPlayPanel().getBoardViewPanel().refresh();
             board.setCurrentMove(null);
         }
         square.getSquare().setSelected(false);
