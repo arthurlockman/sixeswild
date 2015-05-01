@@ -5,6 +5,7 @@ import view.BuilderApplication;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * A controller that handles previewing a level.
@@ -31,6 +32,14 @@ public class PreviewLevelController extends MouseAdapter
     public void mouseClicked(MouseEvent e)
     {
         super.mouseClicked(e);
+        if (app.getBuilderEditorPanel().getBoardViewPanel().getBoard().getCurrentLevel() == null)
+        {
+            for (MouseListener ml : app.getBuilderEditorPanel().getSaveAndExitButton().getMouseListeners())
+            {
+                if (ml instanceof SaveLevelController)
+                    ((SaveLevelController) ml).doAction();
+            }
+        }
         app.getBuilderEditorPanel().getBoardViewPanel().getBoard().setPopulate(
                 !app.getBuilderEditorPanel().getBoardViewPanel().getBoard().willPopulate());
         int freq1 = app.getBuilderEditorPanel().getOptionsPanel().getFrequencies().get("1");
