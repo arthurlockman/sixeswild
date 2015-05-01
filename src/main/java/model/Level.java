@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Level Class.
@@ -202,11 +203,15 @@ public class Level
     {
         //TODO: Fix this so that it actually replaces the correct item in the data.
         this.locked = lock;
-        char lockStatus = (lock) ? '0' : '1';
-        char[] arr = levelData.toCharArray();
-        arr[17] = lockStatus;
-        this.levelData = String.valueOf(arr);
-        System.out.println(this.levelData);
+        String lockStatus = (lock) ? "0" : "1";
+        String[] levData = levelData.split(" ");
+        levData[17] = lockStatus;
+        this.levelData = "";
+        for (String s : levData)
+        {
+            this.levelData += s;
+            this.levelData += " ";
+        }
         this.saveLevel();
     }
 }

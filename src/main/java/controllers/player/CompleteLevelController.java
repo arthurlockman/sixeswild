@@ -42,6 +42,7 @@ public class CompleteLevelController implements IActionListener
         System.out.println(didWin);
         app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
 
+        app.getGame().reloadFromDisk();
         JOptionPane.showMessageDialog(null, "Level completed!", "Success", JOptionPane.INFORMATION_MESSAGE);
         ((CardLayout)app.getPlayerApplication().getLayout()).show(app.getPlayerApplication(), "levelSelect");
         app.setSize(new Dimension(500, 500));
