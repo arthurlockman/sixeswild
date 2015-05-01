@@ -39,6 +39,11 @@ public class StartGameController extends MouseAdapter
     public void mouseClicked(MouseEvent me)
     {
         super.mouseClicked(me);
+        this.doAction();
+    }
+
+    public void doAction()
+    {
         Level l = (Level) list.getSelectedValue();
         if (!l.isLocked())
         {

@@ -201,17 +201,20 @@ public class Level
      */
     public void setLocked(boolean lock)
     {
-        this.locked = lock;
-        String lockStatus = (lock) ? "0" : "1";
-        String[] levData = levelData.split(" ");
-        levData[17] = lockStatus;
-        this.levelData = "";
-        for (String s : levData)
+        if (this.locked)
         {
-            this.levelData += s;
-            this.levelData += " ";
+            this.locked = lock;
+            String lockStatus = (lock) ? "0" : "1";
+            String[] levData = levelData.split(" ");
+            levData[17] = lockStatus;
+            this.levelData = "";
+            for (String s : levData)
+            {
+                this.levelData += s;
+                this.levelData += " ";
+            }
+            this.saveLevel();
         }
-        this.saveLevel();
     }
 
     /**

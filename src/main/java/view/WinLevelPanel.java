@@ -27,6 +27,7 @@ public class WinLevelPanel extends JDialog {
     private String name;
     private int highScore, score, stars;
     private boolean pass;
+    private int response;
 
     public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass) {
         this.name = name;
@@ -34,10 +35,13 @@ public class WinLevelPanel extends JDialog {
         this.score = score;
         this.stars = stars;
         this.pass = pass;
+        $$$setupUI$$$();
 
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        this.setSize(220, 220);
+        this.setLocationRelativeTo(null);
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +55,6 @@ public class WinLevelPanel extends JDialog {
             }
         });
 
-// call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -59,28 +62,19 @@ public class WinLevelPanel extends JDialog {
             }
         });
 
-// call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
-
-    }
-
-    /**
-     * sets the text in the label's and buttons
-     * then repaints the panel
-     */
-    private void setUp() {
         levelName.setText(name);
         levelHighScore.setText("High Score: " + highScore);
         levelScore.setText("Score: " + score);
         Stars.setText(stars + " Stars");
         if (pass) {
             Passed.setText("Passed");
-            buttonOK.setText("Continue");
+            buttonOK.setText("Next Level");
         } else {
             Passed.setText("Not Passed");
             buttonOK.setText("Repeat");
@@ -90,12 +84,19 @@ public class WinLevelPanel extends JDialog {
 
     private void onOK() {
 // add your code here
+        response = 1;
         dispose();
     }
 
     private void onCancel() {
 // add your code here if necessary
+        response = 0;
         dispose();
+    }
+
+    public int getResponse()
+    {
+        return response;
     }
 
     {
