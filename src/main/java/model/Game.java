@@ -1,7 +1,6 @@
 package model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -18,6 +17,7 @@ public class Game
     protected Board board;
     protected ArrayList<Badge> badges;
     protected ArrayList<Level> levels;
+    protected int [] userBadges;
 
     /**
      * Game Constructor.
@@ -27,6 +27,12 @@ public class Game
     {
         reloadFromDisk();
         createBadges();
+        checkBadges();
+        readBadges();
+        checkBadges();
+        saveBadges();
+        checkBadges();
+        readBadges();
         checkBadges();
     }
 
@@ -179,5 +185,114 @@ public class Game
             System.out.println("- Earn: " + badge.earned);
             System.out.println(" ");
         }
+    }
+
+    public void readBadges()
+    {
+        int i = 1;
+
+        levels = new ArrayList<Level>();
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        File folder = null;
+        try
+        {
+            folder = new File(classLoader.getResource("user").toURI().getPath());
+        } catch (URISyntaxException e)
+        {
+            e.printStackTrace();
+        }
+        File[] listOfFiles = folder.listFiles();
+
+        for(File file : listOfFiles)
+        {
+            String content = null;
+            try {
+                Scanner scanner = new Scanner(file);
+                content = scanner.useDelimiter("\\Z").next();
+                scanner.close();
+                this.loadBadges(content);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (NoSuchElementException e)
+            {
+                System.out.println("Empty user file.");
+            }
+            i++;
+        }
+    }
+
+    public void loadBadges(String data)
+    {
+        String bData = data;
+        System.out.println("DATA FOR BADGES: " + bData);
+        String delims = " ";
+        String[] badgeData = bData.split(delims);
+
+        int i = 0;
+        for(String s : badgeData)
+        {
+            if(Integer.parseInt(s) == 1)
+            {
+                badges.get(i).earned = true;
+            }
+            else
+            {
+                badges.get(i).earned = false;
+            }
+            i++;
+        }
+        i = 0;
+    }
+
+    public void saveBadges()
+    {
+        String data = new String();
+
+        int i = 0;
+        for(Badge b : badges)
+        {
+            if(b.earned == true)
+            {
+                data = data + "1";
+            }
+            else
+            {
+                data = data + "0";
+            }
+
+            i++;
+
+            if(badges.size() != i)
+            {
+                data = data + " ";
+            }
+        }
+        i = 0;
+
+        ClassLoader classLoader = getClass().getClassLoader();
+        File folder = null;
+        try
+        {
+            folder = new File(classLoader.getResource("user").toURI().getPath());
+        } catch (URISyntaxException e)
+        {
+            e.printStackTrace();
+        }
+        File[] listOfFiles = folder.listFiles();
+
+            System.out.println("~ Destination: " + folder.getPath() + "/badges");
+            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(folder.getPath() + "/badges"), "utf-8")))
+            {
+                System.out.println("~ Writing: " + "1 1");
+                writer.write("1 1");
+                writer.close();
+            }
+            catch (IOException ex)
+            {
+                // report
+            }
+            System.out.println("~ Complete. ");
     }
 }
