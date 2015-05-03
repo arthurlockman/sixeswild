@@ -1,5 +1,12 @@
 package model;
 
+/**
+ *  BadgeRequirement Class.
+ *  Manages the requirements for Badge objects
+ *
+ *  @authors ..., Bryce Kaw-uh
+ */
+
 public class BadgeRequirement
 {
 
