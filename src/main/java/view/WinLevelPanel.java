@@ -15,8 +15,7 @@ import java.awt.event.*;
  *
  * @authors ..., Brendan Casey
  */
-public class WinLevelPanel extends JDialog
-{
+public class WinLevelPanel extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -30,8 +29,7 @@ public class WinLevelPanel extends JDialog
     private boolean pass;
     private int response;
 
-    public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass)
-    {
+    public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass) {
         this.name = name;
         this.highScore = highScore;
         this.score = score;
@@ -45,35 +43,27 @@ public class WinLevelPanel extends JDialog
         this.setSize(220, 220);
         this.setLocationRelativeTo(null);
 
-        buttonOK.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
+        buttonOK.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 onOK();
             }
         });
 
-        buttonCancel.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
+        buttonCancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         });
 
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        addWindowListener(new WindowAdapter()
-        {
-            public void windowClosing(WindowEvent e)
-            {
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
                 onCancel();
             }
         });
 
-        contentPane.registerKeyboardAction(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
+        contentPane.registerKeyboardAction(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
@@ -81,35 +71,46 @@ public class WinLevelPanel extends JDialog
         levelName.setText(name);
         levelHighScore.setText("High Score: " + highScore);
         levelScore.setText("Score: " + score);
-        Stars.setText(stars + " Stars");
-        if (pass)
-        {
+
+
+        if (stars == 1) {
+            System.out.println("1s");
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/onestaricn.png"));
+            Stars.setIcon(icon);
+        } else if (stars == 2) {
+            System.out.println("2s");
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/twostaricn.png"));
+            Stars.setIcon(icon);
+        } else if (stars == 3) {
+            System.out.println("3s");
+            ImageIcon icon = new ImageIcon(getClass().getResource("/view/threestaricn.png"));
+            Stars.setIcon(icon);
+        }
+
+
+        if (pass) {
             Passed.setText("Passed");
             buttonOK.setText("Next Level");
-        } else
-        {
+        } else {
             Passed.setText("Not Passed");
             buttonOK.setText("Repeat");
         }
         this.repaint();
     }
 
-    private void onOK()
-    {
+    private void onOK() {
 // add your code here
         response = 1;
         dispose();
     }
 
-    private void onCancel()
-    {
+    private void onCancel() {
 // add your code here if necessary
         response = 0;
         dispose();
     }
 
-    public int getResponse()
-    {
+    public int getResponse() {
         return response;
     }
 
@@ -120,8 +121,7 @@ public class WinLevelPanel extends JDialog
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         contentPane = new JPanel();
         contentPane.setLayout(new GridLayoutManager(2, 1, new Insets(10, 10, 10, 10), -1, -1));
         final JPanel panel1 = new JPanel();
@@ -149,23 +149,22 @@ public class WinLevelPanel extends JDialog
         panel3.add(spacer2, new GridConstraints(5, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         Passed = new JLabel();
         Passed.setText("Pass Level");
-        panel3.add(Passed, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        panel3.add(Passed, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelHighScore = new JLabel();
         levelHighScore.setText("High Score");
         panel3.add(levelHighScore, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        Stars = new JLabel();
-        Stars.setText("Stars");
-        panel3.add(Stars, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelScore = new JLabel();
         levelScore.setText("Your Score");
         panel3.add(levelScore, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        Stars = new JLabel();
+        Stars.setText("");
+        panel3.add(Stars, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return contentPane;
     }
 }
