@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="instructionsViewPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="500" height="577"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -23,7 +23,7 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Button"/>
+              <text value="Back"/>
             </properties>
           </component>
           <grid id="dd3b4" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -34,16 +34,24 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="187df" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+              <scrollpane id="bd8ad">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="50"/>
-                  </grid>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties>
-                  <text value=""/>
-                </properties>
-              </component>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="471e5" class="javax.swing.JLabel">
+                    <constraints/>
+                    <properties>
+                      <maximumSize width="360" height="575"/>
+                      <minimumSize width="360" height="575"/>
+                      <preferredSize width="360" height="575"/>
+                      <text value="&lt;html&gt;&lt;body style = 'width: 370px; padding: 5px;'&gt;Welcome to Sixes Wild!&lt;br&gt;&lt;br&gt;Here's how to play:&lt;br&gt;&lt;br&gt;When you load a level, you will see a board with 81 squares. The squares will either be active or inactive. You earn points by connecting active squares, but be careful - inactive squares are barriers and cannot be selected.&lt;br&gt;&lt;br&gt;Each active square contains a number and a multiplier. The score you earn from a basic move is determined by the following equation:  move points = [sum of numbers] x [product of multipliers] x 10.&lt;br&gt;&lt;br&gt;When you make a move, the squares you selected will disappear and new tiles will fall down to replace them. Moves are only valid if the sum of the selected squares equals 6, but squares that have the number 6 cannot be removed!&lt;br&gt;&lt;br&gt;Levels are won by reaching a certain number of total points and meeting another special level requirement. For all levels, you can achieve 1-star, 2-star, and 3-star victories depending on how many points you earn. The special level requirement will depend on what type of level you are playing:  Lightning, Puzzle, Elimination, or Release.&lt;br&gt;&lt;br&gt;In a Lightning level, you must win at least one star before the timer runs out. Puzzle levels, on the other hand, give you a limited number of moves with which to play. In an Elimination level, you have to perform a basic move on every active square in the board. And in Release levels, you need to fill every &quot;bucket&quot; with a square that has the number 6.&lt;br&gt;&lt;br&gt;Sixes Wild has three special moves:  Swap, Remove, and Reset. Swap allows you to swap the positions of two neighboring squares, Remove allows you to delete a square from the board, and Reset allows you to reset the entire game board. Special moves can help you win the game, but use your special moves strategically - you only have a few of them.&lt;br&gt;&lt;br&gt;Good luck!&lt;/html&gt;"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
           <component id="c6d55" class="javax.swing.JLabel">
