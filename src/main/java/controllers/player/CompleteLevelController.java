@@ -41,6 +41,7 @@ public class CompleteLevelController implements IActionListener
         Board b = app.getPlayerPlayPanel().getBoardViewPanel().getBoard();
 
         boolean didWin = !(b.getScore() >= 1);
+        boolean isNewHighScore = (b.getScore() > app.getPlayerPlayPanel().getBoard().getCurrentLevel().getHighScore());
         app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
         app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
 
@@ -52,7 +53,7 @@ public class CompleteLevelController implements IActionListener
         else if (b.getScore() >= 1)
             stars = 1;
         WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l),
-                l.getHighScore(), b.getScore(), stars, !didWin);
+                l.getHighScore(), b.getScore(), stars, !didWin, isNewHighScore);
         wl.setVisible(true);
         int response = wl.getResponse();
         if (response == 0)
