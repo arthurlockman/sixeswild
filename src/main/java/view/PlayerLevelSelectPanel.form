@@ -72,6 +72,7 @@
                 </constraints>
                 <properties>
                   <horizontalTextPosition value="2"/>
+                  <name value="playButton"/>
                   <text value="Play"/>
                 </properties>
               </component>
@@ -90,6 +91,7 @@
             <constraints/>
             <properties>
               <model/>
+              <name value="levelList"/>
             </properties>
           </component>
         </children>

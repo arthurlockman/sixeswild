@@ -264,6 +264,7 @@ public class PlayerPlayPanel
         playSidebarPanel.add(panel1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         scoreBar = new JProgressBar();
         scoreBar.setForeground(new Color(-8388603));
+        scoreBar.setName("scoreBar");
         scoreBar.setOrientation(1);
         scoreBar.setStringPainted(false);
         scoreBar.setValue(0);
@@ -296,9 +297,11 @@ public class PlayerPlayPanel
         panel7.setLayout(new GridLayoutManager(2, 1, new Insets(0, 20, 0, 20), -1, -1));
         panel6.add(panel7, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         scoreLabel = new JLabel();
+        scoreLabel.setName("scoreLabel");
         scoreLabel.setText("Score: 0");
         panel7.add(scoreLabel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         movesLabel = new JLabel();
+        movesLabel.setName("movesLabel");
         movesLabel.setText("Moves: 0");
         panel7.add(movesLabel, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JPanel panel8 = new JPanel();

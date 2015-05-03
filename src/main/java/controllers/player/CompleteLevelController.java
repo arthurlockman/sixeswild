@@ -42,7 +42,13 @@ public class CompleteLevelController implements IActionListener
 
         boolean didWin = !(b.getScore() >= 1);
         boolean isNewHighScore = (b.getScore() > app.getPlayerPlayPanel().getBoard().getCurrentLevel().getHighScore());
-        app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
+        try
+        {
+            app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
+        } catch (java.lang.IndexOutOfBoundsException e)
+        {
+            System.out.println("All levels unlocked.");
+        }
         app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
 
         int stars = 0;

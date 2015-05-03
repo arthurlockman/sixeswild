@@ -55,6 +55,7 @@ public class PlayerLevelSelectPanel
 
     /**
      * Updates the Level List
+     *
      * @param g: the Game
      */
     public void updateLevelList(Game g)
@@ -68,7 +69,9 @@ public class PlayerLevelSelectPanel
         levelList.setSelectedIndex(0);
     }
 
-    /** Returns the Play Button */
+    /**
+     * Returns the Play Button
+     */
     public JButton getPlayButton()
     {
         return playButton;
@@ -144,6 +147,7 @@ public class PlayerLevelSelectPanel
         menuBarPanel.add(panel2, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         playButton = new JButton();
         playButton.setHorizontalTextPosition(2);
+        playButton.setName("playButton");
         playButton.setText("Play");
         panel2.add(playButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelListScrollPane = new JScrollPane();
@@ -151,6 +155,7 @@ public class PlayerLevelSelectPanel
         levelList = new JList();
         final DefaultListModel defaultListModel1 = new DefaultListModel();
         levelList.setModel(defaultListModel1);
+        levelList.setName("levelList");
         levelListScrollPane.setViewportView(levelList);
     }
 
