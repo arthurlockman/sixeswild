@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  * PlayerPlayPanel Class.
  * Manages the contents and behavior of PlayerPlayPanels.
  *
- * @author ..., Bryce Kaw-uh
+ * @authors ..., Bryce Kaw-uh
  */
 public class PlayerPlayPanel
 {

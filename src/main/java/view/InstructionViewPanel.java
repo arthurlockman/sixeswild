@@ -19,6 +19,7 @@ public class InstructionViewPanel {
     private JTextArea textArea1;
     private JPanel Panel;
 
+    /** InstructionViewPanel Constructor. */
     public InstructionViewPanel() {
         backButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
