@@ -36,6 +36,15 @@ public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<
         rsrc = (value.isLocked()) ? "/view/" + value.getType().toLowerCase() +
                 "lock.png" : "/view/" + value.getType().toLowerCase() + "icn.png";
 
+        if (!value.isLocked())
+        {
+            if (value.getHighScore() >= value.getThreeStarScore())
+                rsrc = "/view/threestaricn.png";
+            else if (value.getHighScore() >= value.getTwoStarScore())
+                rsrc = "/view/twostaricn.png";
+            else if (value.getHighScore() >= 1)
+                rsrc = "/view/onestaricn.png";
+        }
         URL iconURL = getClass().getResource(rsrc);
         iconURL = (iconURL == null) ? getClass().getResource("/view/puzzlelock.png") : iconURL;
         icon = new ImageIcon(iconURL);
