@@ -9,10 +9,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- *  SplashScreen Class.
- *  Manages the contents and behavior of Sixes Wild Splash Screens.
+ * SplashScreen Class.
+ * Manages the contents and behavior of Sixes Wild Splash Screens.
  *
- *  @author ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class SplashScreen {
     private JPanel splashScreen;
@@ -82,7 +82,7 @@ public class SplashScreen {
         creditsView.setHorizontalTextPosition(0);
         creditsView.setMaximumSize(new Dimension(500, 160));
         creditsView.setMinimumSize(new Dimension(50, 160));
-        creditsView.setText("<html><center><h1>Sixes Wild</h1>\n<br>\nConcept by George Heineman\n<br><br>\n<strong>Implementation Team</strong><br>\nArthur Lockman<br>\nBryce Kaw-uh<br>\nJesse Marciano<br>\nBrendan Casey<br>\nDavid Laovoravit<br><center>\n</html>");
+        creditsView.setText("<html><center><h1>Sixes Wild</h1>\n<br>\nConcept by George Heineman\n<br><br>\n<strong>Implementation Team</strong><br>\nArthur Lockman<br>\nBryce Kaw-uh<br>\nYigit Uyan<br>\nJesse Marciano<br>\nBrendan Casey<br>\nDavid Laovoravit<br><center>\n</html>");
         creditsView.setVerticalAlignment(0);
         panel1.add(creditsView, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JPanel panel2 = new JPanel();
