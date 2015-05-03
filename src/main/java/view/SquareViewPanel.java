@@ -8,22 +8,36 @@ import model.Tile;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 /**
  * SquareViewPanel Class.
  * Manage the contents and behavior of Sixes Wild SquareViewPanel objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class SquareViewPanel
 {
+    /**
+     * Static vars to hold colors for tiles.
+     */
+    public static Color SQUARE_1_COLOR = new Color(141, 211, 199);
+    public static Color SQUARE_2_COLOR = new Color(255, 255, 179);
+    public static Color SQUARE_3_COLOR = new Color(190, 186, 218);
+    public static Color SQUARE_4_COLOR = new Color(251, 128, 114);
+    public static Color SQUARE_5_COLOR = new Color(128, 177, 211);
+    public static Color SQUARE_6_COLOR = new Color(253, 180, 98);
+    public static Color SQUARE_BKT_COLOR = new Color(179, 222, 105);
+    public static Color SQUARE_INACTIVE_COLOR = new Color(200, 200, 200);
+    public static Color SQUARE_ACTIVE_COLOR = new Color(252, 205, 229);
+    public static Color SQUARE_LABEL_COLOR = new Color(0, 0, 0);
+
     private JPanel squarePanel;
     private JLabel squareNumber;
     private JLabel multiplierLabel;
     private Square currentSquare;
     private MouseAdapter currentMouseAdapter;
-    private MouseMotionAdapter currentMouseMotionAdapter;
 
     /**
      * SquareViewPanel Constructor with no parameters
@@ -36,6 +50,7 @@ public class SquareViewPanel
 
     /**
      * SquareViewPanel Constructor
+     *
      * @param s: the Square
      */
     public SquareViewPanel(Square s)
@@ -46,6 +61,7 @@ public class SquareViewPanel
 
     /**
      * Sets the Square
+     *
      * @param s: the Square it is to be set as
      */
     public void setSquare(Square s)
@@ -59,19 +75,28 @@ public class SquareViewPanel
      */
     public void refresh()
     {
+        if (currentSquare.isSelected())
+        {
+            squarePanel.setBorder(BorderFactory.createTitledBorder(
+                    BorderFactory.createEtchedBorder(new Color(50, 255, 0), new Color(200, 255, 186)), null));
+        } else if (currentSquare.isSatisfied() || currentSquare.isEliminated())
+        {
+            squarePanel.setBorder(BorderFactory.createTitledBorder(
+                    BorderFactory.createEtchedBorder(new Color(55, 69, 255), new Color(159, 146, 255)), null));
+        } else
+        {
+            squarePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), null));
+        }
         if (currentSquare.isBucket())
         {
             if (!currentSquare.isSatisfied())
             {
                 squareNumber.setText("Bckt");
-                squarePanel.setBackground(new Color(227, 242, 209));
-                squareNumber.setForeground(new Color(0, 0, 0));
-                squareNumber.setForeground(new Color(0, 0, 0));
-            } else {
+                squarePanel.setBackground(SQUARE_BKT_COLOR);
+            } else
+            {
                 squareNumber.setText("6");
-                squarePanel.setBackground(new Color(65, 0, 50)); //6
-                multiplierLabel.setForeground(new Color(255, 255, 255));
-                squareNumber.setForeground(new Color(255, 255, 255));
+                squarePanel.setBackground(SQUARE_6_COLOR); //6
             }
         } else if (currentSquare.isActive())
         {
@@ -86,42 +111,28 @@ public class SquareViewPanel
             switch (currentTile.getValue())
             {
                 case 0:
-                    squarePanel.setBackground(new Color(187, 242, 226));
-                    squareNumber.setForeground(new Color(0, 0, 0));
-                    squareNumber.setForeground(new Color(0, 0, 0));
+                    squarePanel.setBackground(SQUARE_ACTIVE_COLOR); //Active empty
                     break;
                 case 1:
-                    squarePanel.setBackground(new Color(99, 189, 179)); //1
-                    squareNumber.setForeground(new Color(0, 0, 0));
-                    squareNumber.setForeground(new Color(0, 0, 0));
+                    squarePanel.setBackground(SQUARE_1_COLOR); //1
                     break;
                 case 2:
-                    squarePanel.setBackground(new Color(207, 169, 102)); //2
+                    squarePanel.setBackground(SQUARE_2_COLOR); //2
                     break;
                 case 3:
-                    squarePanel.setBackground(new Color(86, 95, 182)); //3
-                    multiplierLabel.setForeground(new Color(255, 255, 255));
-                    squareNumber.setForeground(new Color(255, 255, 255));
+                    squarePanel.setBackground(SQUARE_3_COLOR); //3
                     break;
                 case 4:
-                    squarePanel.setBackground(new Color(91, 44, 125)); //4
-                    multiplierLabel.setForeground(new Color(255, 255, 255));
-                    squareNumber.setForeground(new Color(255, 255, 255));
+                    squarePanel.setBackground(SQUARE_4_COLOR); //4
                     break;
                 case 5:
-                    squarePanel.setBackground(new Color(120, 0, 50)); //5
-                    multiplierLabel.setForeground(new Color(255, 255, 255));
-                    squareNumber.setForeground(new Color(255, 255, 255));
+                    squarePanel.setBackground(SQUARE_5_COLOR); //5
                     break;
                 case 6:
-                    squarePanel.setBackground(new Color(65, 0, 50)); //6
-                    multiplierLabel.setForeground(new Color(255, 255, 255));
-                    squareNumber.setForeground(new Color(255, 255, 255));
+                    squarePanel.setBackground(SQUARE_6_COLOR); //6
                     break;
                 default:
-                    squarePanel.setBackground(new Color(65, 0, 50)); //6
-                    multiplierLabel.setForeground(new Color(255, 255, 255));
-                    squareNumber.setForeground(new Color(255, 255, 255));
+                    squarePanel.setBackground(SQUARE_6_COLOR);
                     break;
             }
 
@@ -137,38 +148,41 @@ public class SquareViewPanel
         {
             multiplierLabel.setText(" ");
             squareNumber.setText(" ");
-            squarePanel.setBackground(new Color(200, 200, 200));
+            squarePanel.setBackground(SQUARE_INACTIVE_COLOR);
         }
     }
 
-    /** Returns the Square */
+    /**
+     * Returns the Square
+     */
     public Square getSquare()
     {
         return this.currentSquare;
     }
 
-    /** Attaches a Mouse Adapter */
+    /**
+     * Attaches a Mouse Adapter
+     */
     public void attachMouseAdapter(MouseAdapter ma)
     {
         squarePanel.addMouseListener(ma);
         currentMouseAdapter = ma;
     }
 
-    /** Attaches a Mouse Motion Adapter */
-    public void attachMouseMotionAdapter(MouseMotionAdapter mma)
-    {
-        squarePanel.addMouseMotionListener(mma);
-        currentMouseMotionAdapter = mma;
-    }
-
-    /** Removes the Mouse Adapters */
+    /**
+     * Removes the Mouse Adapters
+     */
     public void removeMouseAdapters()
     {
-        squarePanel.removeMouseListener(currentMouseAdapter);
-        squarePanel.removeMouseMotionListener(currentMouseMotionAdapter);
+        if (currentMouseAdapter != null)
+        {
+            squarePanel.removeMouseListener(currentMouseAdapter);
+        }
     }
 
-    /** Creates UI components */
+    /**
+     * Creates UI components
+     */
     private void createUIComponents()
     {
         squarePanel = new JPanel();
@@ -178,6 +192,7 @@ public class SquareViewPanel
 
     /**
      * Set component name for FEST testing.
+     *
      * @param name The name to set.
      */
     protected void setName(String name)

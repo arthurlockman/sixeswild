@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  ResetBadgesController Class.
  *  Manages the resetting of badges in the Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class ResetBadgesController
 {

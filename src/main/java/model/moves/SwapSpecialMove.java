@@ -2,7 +2,6 @@ package model.moves;
 
 import model.Board;
 import model.Square;
-import model.Tile;
 
 /**
  * A special move used to swap the tiles in two neighboring
@@ -30,6 +29,31 @@ public class SwapSpecialMove implements IMove
     }
 
     /**
+     * Create an empty move.
+     * @param b The board associated with the move.
+     */
+    public SwapSpecialMove(Board b)
+    {
+        this.board = b;
+    }
+
+    /**
+     * Add a square to the move.
+     * @param s The square to add.
+     * @return False if move is full.
+     */
+    public boolean addSquare(Square s)
+    {
+        if (square1 == null)
+            square1 = s;
+        else if (square2 == null)
+            square2 = s;
+        else
+            return false;
+        return true;
+    }
+
+    /**
      * Perform the move which will swap two tiles in
      * two neighboring squares.
      * @return True if the move was successful, false otherwise.
@@ -50,5 +74,16 @@ public class SwapSpecialMove implements IMove
         return this.square1.isActive() && this.square2.isActive()
                 && this.square1.getTile() != null && this.square2.getTile() != null
                 && board.areNeighboring(this.square1, this.square2);
+    }
+
+    /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        return 0;
     }
 }

@@ -26,6 +26,14 @@ public class RemoveSpecialMove implements IMove
     }
 
     /**
+     * Create an empty move.
+     */
+    public RemoveSpecialMove()
+    {
+
+    }
+
+    /**
      * Complete the move.
      * @return True if the move was successful.
      */
@@ -47,5 +55,16 @@ public class RemoveSpecialMove implements IMove
     public boolean isValid()
     {
         return square.isActive() && square.getTile() != null;
+    }
+
+    /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        return 0;
     }
 }

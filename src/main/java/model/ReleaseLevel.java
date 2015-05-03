@@ -6,7 +6,7 @@ import java.io.File;
  * ReleaseLevel Class.
  * Manages the contents and behavior of Release Levels.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class ReleaseLevel extends Level
 {

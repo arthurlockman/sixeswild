@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  SwapTilesController Class.
  *  Manages the swapping of tiles in the Player.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author ..., Bryce Kaw-uh
  */
 public class SwapTilesController
 {

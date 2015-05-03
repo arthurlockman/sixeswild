@@ -2,6 +2,7 @@ package controllers.builder;
 
 import application.BuilderLauncher;
 import lib.GUITestCase;
+import view.SquareViewPanel;
 
 import java.awt.*;
 
@@ -41,29 +42,29 @@ public class TestUndoRedoController extends GUITestCase
         window.panel("square1").click();
         assertEquals("Bckt", window.label("square1numberlabel").text());
         assertEquals(" ", window.label("square1multiplierlabel").text());
-        assertEquals(new Color(227, 242, 209), window.panel("square1").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_BKT_COLOR, window.panel("square1").component().getBackground());
 
         window.radioButton("activeTileButton").click();
         window.panel("square80").click();
         assertEquals(" ", window.label("square80numberlabel").text());
         assertEquals(" ", window.label("square80multiplierlabel").text());
-        assertEquals(new Color(187, 242, 226), window.panel("square80").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_ACTIVE_COLOR, window.panel("square80").component().getBackground());
 
         //Undo those tiles.
         window.button("undoButton").click();
         assertEquals(" ", window.label("square80numberlabel").text());
         assertEquals(" ", window.label("square80multiplierlabel").text());
-        assertEquals(new Color(200, 200, 200), window.panel("square80").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square80").component().getBackground());
 
         window.button("undoButton").click();
         assertEquals(" ", window.label("square1numberlabel").text());
         assertEquals(" ", window.label("square1multiplierlabel").text());
-        assertEquals(new Color(200, 200, 200), window.panel("square1").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square1").component().getBackground());
 
         window.button("undoButton").click();
         assertEquals(" ", window.label("square0numberlabel").text());
         assertEquals(" ", window.label("square0multiplierlabel").text());
-        assertEquals(new Color(200, 200, 200), window.panel("square0").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square0").component().getBackground());
 
         //Redo tiles
         window.button("redoButton").click();
@@ -73,12 +74,12 @@ public class TestUndoRedoController extends GUITestCase
         window.button("redoButton").click();
         assertEquals("Bckt", window.label("square1numberlabel").text());
         assertEquals(" ", window.label("square1multiplierlabel").text());
-        assertEquals(new Color(227, 242, 209), window.panel("square1").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_BKT_COLOR, window.panel("square1").component().getBackground());
 
         window.button("redoButton").click();
         assertEquals(" ", window.label("square80numberlabel").text());
         assertEquals(" ", window.label("square80multiplierlabel").text());
-        assertEquals(new Color(187, 242, 226), window.panel("square80").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_ACTIVE_COLOR, window.panel("square80").component().getBackground());
     }
 
     public void testUndoRedoCutoff()
@@ -95,24 +96,24 @@ public class TestUndoRedoController extends GUITestCase
         window.panel("square1").click();
         assertEquals("Bckt", window.label("square1numberlabel").text());
         assertEquals(" ", window.label("square1multiplierlabel").text());
-        assertEquals(new Color(227, 242, 209), window.panel("square1").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_BKT_COLOR, window.panel("square1").component().getBackground());
 
         window.radioButton("activeTileButton").click();
         window.panel("square80").click();
         assertEquals(" ", window.label("square80numberlabel").text());
         assertEquals(" ", window.label("square80multiplierlabel").text());
-        assertEquals(new Color(187, 242, 226), window.panel("square80").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_ACTIVE_COLOR, window.panel("square80").component().getBackground());
 
         //Undo those tiles.
         window.button("undoButton").click();
         assertEquals(" ", window.label("square80numberlabel").text());
         assertEquals(" ", window.label("square80multiplierlabel").text());
-        assertEquals(new Color(200, 200, 200), window.panel("square80").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square80").component().getBackground());
 
         window.button("undoButton").click();
         assertEquals(" ", window.label("square1numberlabel").text());
         assertEquals(" ", window.label("square1multiplierlabel").text());
-        assertEquals(new Color(200, 200, 200), window.panel("square1").component().getBackground());
+        assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square1").component().getBackground());
 
         //Place some new tiles
         window.radioButton("sixTileButton").click();
@@ -122,6 +123,6 @@ public class TestUndoRedoController extends GUITestCase
 
         //Press redo, ensure that tile did not go back.
         window.button("redoButton").click();
-        assertNotSame(new Color(187, 242, 226), window.panel("square80").component().getBackground());
+        assertNotSame(SquareViewPanel.SQUARE_ACTIVE_COLOR, window.panel("square80").component().getBackground());
     }
 }

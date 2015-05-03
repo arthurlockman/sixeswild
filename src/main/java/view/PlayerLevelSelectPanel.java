@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * PlayerLevelSelectPanel Class.
  * Manages the contents and behavior of PlayerLevelSelectPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class PlayerLevelSelectPanel
 {
@@ -51,31 +51,6 @@ public class PlayerLevelSelectPanel
         levelList.setModel(levelListModel);
         levelList.setCellRenderer(new PlayerLevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        /** Adds a mouse listener */
-        playButton.addMouseListener(new MouseAdapter()
-        {
-            @Override
-            public void mouseClicked(MouseEvent e)
-            {
-                super.mouseClicked(e);
-                if (!((Level) levelList.getSelectedValue()).isLocked())
-                {
-                    //Change card to level viewer, set current level of player to
-                    //retrieved level.
-                    JPanel parent = (JPanel) playerLevelSelectPanel.getParent();
-                    CardLayout layout = (CardLayout) parent.getLayout();
-                    layout.show(parent, "playPanel");
-                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
-                    topLevelFrame.setSize(new Dimension(700, 625));
-                    topLevelFrame.setLocationRelativeTo(null);
-                } else
-                {
-                    JOptionPane.showMessageDialog(null, "Sorry, you'll have to unlock that level " +
-                            "before you can play it. Keep trying!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
     }
 
     /**
@@ -97,6 +72,41 @@ public class PlayerLevelSelectPanel
     public JButton getPlayButton()
     {
         return playButton;
+    }
+
+    public JPanel getPlayerLevelSelectPanel()
+    {
+        return playerLevelSelectPanel;
+    }
+
+    public JButton getBackButton()
+    {
+        return backButton;
+    }
+
+    public JLabel getTitleLabel()
+    {
+        return titleLabel;
+    }
+
+    public JPanel getMenuBarPanel()
+    {
+        return menuBarPanel;
+    }
+
+    public JScrollPane getLevelListScrollPane()
+    {
+        return levelListScrollPane;
+    }
+
+    public JList getLevelList()
+    {
+        return levelList;
+    }
+
+    public DefaultListModel<Level> getLevelListModel()
+    {
+        return levelListModel;
     }
 
     /**

@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
  *  RedoEditController Class.
  *  Manages the redo functionality of the level editor.
  *
- *  @authors Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Bryce Kaw-uh
  */
 public class RedoEditController extends MouseAdapter
 {

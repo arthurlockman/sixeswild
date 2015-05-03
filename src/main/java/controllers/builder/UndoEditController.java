@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
  * UndoEditController Class.
  * Manages the undoing functionality of the level editor.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class UndoEditController extends MouseAdapter
 {

@@ -11,11 +11,50 @@ apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'eclipse'
 
 sourceCompatibility = 1.7
 version = '1.0'
 
 mainClassName = "application.BuilderLauncher"
+
+task builderStartScript(type: CreateStartScripts) {
+    description "Creates OS specific scripts to call the 'builder' entry point"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+    mainClassName = 'application.BuilderLauncher'
+    applicationName = 'builder'
+}
+
+task playerStartScript(type: CreateStartScripts) {
+    description "Creates OS specific scripts to call the 'player' entry point"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+    mainClassName = 'application.PlayerLauncher'
+    applicationName = 'player'
+}
+
+task(player, dependsOn: playerStartScript, type: JavaExec ) {
+    main = 'application.PlayerLauncher'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task(builder, dependsOn: builderStartScript, type: JavaExec ) {
+    main = 'application.BuilderLauncher'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+distZip {
+    baseName = archivesBaseName
+    into("${baseName}-${version}-${'builder'}/bin") {
+        from builderStartScript
+        fileMode = 0755
+    }
+    into("${baseName}-${version}-${'player'}/bin") {
+        from playerStartScript
+        fileMode = 0755
+    }
+}
 
 repositories {
     mavenCentral()

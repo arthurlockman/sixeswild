@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
  * BuilderLevelSelectPanel Class.
  * Manages the contents and behavior of the BuilderLevelSelectPanel.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class BuilderLevelSelectPanel
 {

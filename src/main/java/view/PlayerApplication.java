@@ -1,5 +1,7 @@
 package view;
 
+import controllers.player.ReturnToLevelSelectController;
+import controllers.player.StartGameController;
 import controllers.player.EarnBadgeController;
 import model.Game;
 
@@ -12,7 +14,7 @@ import java.awt.event.WindowListener;
  * PlayerApplication Class.
  * Manages the contents and behavior of the PlayerApplication.
  *
- * @authors ...
+ * @author arthurlockman
  */
 public class PlayerApplication extends JFrame
 {
@@ -43,7 +45,6 @@ public class PlayerApplication extends JFrame
         this.setTitle("Sixes Wild");
         this.game = new Game();
         badgeController = new EarnBadgeController(this);
-//        this.playerPlayPanel.setBoard(this.game.getBoard());
 
         /** Adds a window listener */
         this.addWindowListener(new WindowListener()
@@ -52,6 +53,11 @@ public class PlayerApplication extends JFrame
             @Override
             public void windowOpened(WindowEvent e) {
                 playerLevelSelectPanel.updateLevelList(game);
+                playerLevelSelectPanel.getPlayButton().addMouseListener(new
+                        StartGameController((PlayerApplication) e.getWindow()));
+                playerPlayPanel.getQuitButton().addMouseListener(new
+                        ReturnToLevelSelectController((PlayerApplication) e.getWindow()));
+                badgesViewPanel.setListModel(game);
             }
 
             @Override
@@ -92,7 +98,33 @@ public class PlayerApplication extends JFrame
         return badgeController;
     }
 
-    public Game getGame() {
+    public JPanel getPlayerApplication()
+    {
+        return playerApplication;
+    }
+
+    public SplashScreen getSplashScreen()
+    {
+        return splashScreen;
+    }
+
+    public PlayerMenuPanel getMenuPanel()
+    {
+        return menuPanel;
+    }
+
+    public PlayerLevelSelectPanel getPlayerLevelSelectPanel()
+    {
+        return playerLevelSelectPanel;
+    }
+
+    public PlayerPlayPanel getPlayerPlayPanel()
+    {
+        return playerPlayPanel;
+    }
+
+    public Game getGame()
+    {
         return game;
     }
 

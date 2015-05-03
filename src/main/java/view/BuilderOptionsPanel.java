@@ -18,7 +18,7 @@ import java.util.HashMap;
  * BuilderOptionsPanel Class.
  * Manages the contents and behavior of BuilderOptionsPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class BuilderOptionsPanel
 {

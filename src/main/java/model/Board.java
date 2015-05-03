@@ -1,8 +1,10 @@
 package model;
 
+import controllers.IActionListener;
 import model.moves.IMove;
 import model.moves.IReversibleMove;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
@@ -11,11 +13,11 @@ import java.util.Stack;
  *  Board Class.
  *  Manages the contents and behavior of Sixes Wild Board objects.
  *
- *  @authors ..., Bryce Kaw-uh
+ *  @author arthurlockman, Bryce Kaw-uh
  */
 public class Board
 {
-    Timer timer;
+    Countdown timer;
     int movesAllowed;
     int timeLimit;
     int score;
@@ -29,6 +31,8 @@ public class Board
     SquareFactory factory;
     int twoStarScore, threeStarScore;
     boolean populate;
+    IMove currentMove;
+    ArrayList<IActionListener> actionListeners;
 
     /**
      * Board Constructor.
@@ -43,7 +47,10 @@ public class Board
         redoHistory = new Stack<IReversibleMove>();
         this.level = l;
         this.populate = populate;
+
         resetBoard();
+        score = 0;
+        actionListeners = new ArrayList<IActionListener>();
     }
 
     /**
@@ -59,6 +66,7 @@ public class Board
             squares[i] = new Square();
             squares[i].setInactive();
         }
+        score = 0;
     }
 
     /**
@@ -66,6 +74,7 @@ public class Board
      */
     public void resetBoard()
     {
+        this.currentMove = null;
         //Process level
         String delims = " ";
 
@@ -127,13 +136,31 @@ public class Board
     }
 
     /**
+     * Preview a board in the builder.
+     * TODO: Test this method
+     */
+    public void preview()
+    {
+        this.level.setBoardData(this.getBoardData());
+        this.resetBoard();
+    }
+
+    /**
      * Make a move with no undo history.
      * @param move A move class to make.
      * @return Whether or not the move was successful.
      */
     public boolean makeMove(IMove move)
     {
-        return move.doMove();
+        deselectAll();
+        if (move.doMove())
+        {
+            score += move.getScore();
+            moveCount++;
+            isComplete();
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -181,10 +208,45 @@ public class Board
         return true;
     }
 
-    /** Returns true if the game has been won */
-    public boolean isWon()
+    /**
+     * Returns true if the game has been won. This will also trigger
+     * any attached event listeners to the board.
+     * TODO: Tests
+     */
+    public boolean isComplete()
     {
-        return false;
+        boolean flag = false;
+        if (this.level instanceof ReleaseLevel)
+        {
+            int i = 0, j = 0;
+            for (Square s : squares)
+            {
+                if (s.isBucket()) i++;
+                if (s.isSatisfied()) j++;
+            }
+            flag = i==j;
+        } else if (this.level instanceof EliminationLevel)
+        {
+            int i = 0, j = 0;
+            for (Square s : squares)
+            {
+                if (s.isEliminated()) i++;
+                if (s.isActive()) j++;
+            }
+            flag = i==j;
+        } else if (this.level instanceof PuzzleLevel)
+        {
+            flag = !(movesAllowed != 0 && moveCount < movesAllowed);
+        }
+
+        if (flag)
+        {
+            for (IActionListener al : actionListeners)
+            {
+                al.actionPerformed();
+            }
+        }
+        return flag;
     }
 
     /** Refreshes the Board */
@@ -316,8 +378,10 @@ public class Board
     {
         for (int i = 80; i >= 0; i--)
         {
-            this.pullDown(i);
+            if (!squares[i].isSatisfied())
+                this.pullDown(i);
         }
+        this.isComplete();
     }
 
     /**
@@ -372,4 +436,101 @@ public class Board
         return;
     }
 
+    /**
+     * Get the current move being built.
+     * @return An IMove, the move being created.
+     * TODO: Write tests
+     */
+    public IMove getCurrentMove()
+    {
+        return currentMove;
+    }
+
+    /**
+     * Set the current move in the board.
+     * @param currentMove The move to create in the board.
+     * TODO: Write tests
+     */
+    public void setCurrentMove(IMove currentMove)
+    {
+        this.currentMove = currentMove;
+    }
+
+    /**
+     * Get if the board is set to populate tiles.
+     * @return True if the board will populate.
+     * TODO: Write tests
+     */
+    public boolean willPopulate()
+    {
+        return populate;
+    }
+
+    /**
+     * Set the board to populate tiles.
+     * @param populate True if the board should populate.
+     * TODO: Write tests
+     */
+    public void setPopulate(boolean populate)
+    {
+        this.populate = populate;
+    }
+
+    /**
+     * Deselct all squares.
+     */
+    public void deselectAll()
+    {
+        for (Square s : squares)
+        {
+            s.setSelected(false);
+        }
+    }
+
+    /**
+     * Gets the current board score.
+     * @return The score.
+     */
+    public int getScore()
+    {
+        return score;
+    }
+
+    /**
+     * Add an event listener that will be triggered when the game is won.
+     * @param listener The event listener to attach.
+     * TODO: Test
+     */
+    public void addListener(IActionListener listener)
+    {
+        this.actionListeners.add(listener);
+    }
+
+    /**
+     * Removes all action listeners from the board.
+     * TODO: Test
+     */
+    public void removeListeners()
+    {
+        this.actionListeners.clear();
+    }
+
+    /**
+     * Get the current level associated with the board.
+     * @return A level object, the level.
+     */
+    public Level getCurrentLevel()
+    {
+        return this.level;
+    }
+
+    public Countdown getTimer()
+    {
+        return timer;
+    }
+
+    public void setTimer(Countdown timer)
+    {
+        this.timer = timer;
+    }
 }
