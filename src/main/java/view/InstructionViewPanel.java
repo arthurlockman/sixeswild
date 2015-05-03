@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * Created by David on 4/28/2015.
+ * Instructions added and formatted by Bryce on 3 May 2015.
  */
 public class InstructionViewPanel {
     private JPanel instructionsViewPanel;

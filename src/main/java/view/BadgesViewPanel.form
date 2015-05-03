@@ -47,7 +47,7 @@
         </constraints>
         <properties>
           <foreground color="-15987700"/>
-          <text value="Achivements"/>
+          <text value="Achievements"/>
         </properties>
       </component>
       <hspacer id="51bb0">
