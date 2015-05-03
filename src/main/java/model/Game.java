@@ -165,10 +165,72 @@ public class Game
     {
         for(int i = 0; i < levels.size(); i++)
         {
-            String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
-            Badge newBadge = new Badge("ScoreBadge", (levels.get(i).name + "-ScoreBadge"), newBadgeDescription);
-            newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
-            badges.add(newBadge);
+            if(i < 16)
+            {
+                String name = "";
+                String description = "";
+
+                int howMany = (i / 4) + 1;
+                description = description + "Aced " + howMany + " ";
+
+                if(levels.get(i) instanceof EliminationLevel)
+                {
+                    name = name + "Elimination";
+                    description = description + "Elimination";
+                }
+                else if(levels.get(i) instanceof LightningLevel)
+                {
+                    name = name + "Lightning";
+                    description = description + "Lightning";
+                }
+                else if(levels.get(i) instanceof PuzzleLevel)
+                {
+                    name = name + "Puzzle";
+                    description = description + "Puzzle";
+                }
+                else if(levels.get(i) instanceof ReleaseLevel)
+                {
+                    name = name + "Release";
+                    description = description + "Release";
+                }
+                else
+                {
+                    name = name + "Unknown";
+                    description = description + "Unknown";
+                }
+                name = name + " ";
+                description = description + " Levels.";
+                int c = i / 4;
+                if(c == 0)
+                {
+                    name = name + "Noob";
+                }
+                else if(c == 1)
+                {
+                    name = name + "Guy";
+                }
+                else if(c == 2)
+                {
+                    name = name + "King";
+                }
+                else if(c == 3)
+                {
+                    name = name + "Master";
+                }
+                else
+                {
+                    name = name + "Cat";
+                }
+                Badge newBadge = new Badge("ScoreBadge", name, description);
+                badges.add(newBadge);
+            }
+            else
+            {
+                String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
+                Badge newBadge = new Badge("ScoreBadge", (levels.get(i).name + "-ScoreBadge"), newBadgeDescription);
+                newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
+                badges.add(newBadge);
+            }
         }
     }
 
