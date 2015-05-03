@@ -27,6 +27,11 @@
           <card name="editPanel"/>
         </constraints>
       </nested-form>
+      <nested-form id="34f90" form-file="view/BuilderInstructionViewPanel.form" binding="builderInstructionViewPanel">
+        <constraints>
+          <card name="builderInstructionPanel"/>
+        </constraints>
+      </nested-form>
     </children>
   </grid>
 </form>

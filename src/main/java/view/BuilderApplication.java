@@ -14,18 +14,19 @@ import java.awt.event.WindowListener;
  *
  * @author ..., Bryce Kaw-uh
  */
-public class BuilderApplication extends JFrame
-{
+public class BuilderApplication extends JFrame {
     private JPanel builderApplication;
     private BuilderMenuPanel builderMenuPanel;
     private SplashScreen splashScreen;
     private BuilderLevelSelectPanel builderLevelSelectPanel;
     private BuilderEditorPanel builderEditorPanel;
     private Game game;
+    private BuilderInstructionViewPanel builderInstructionViewPanel;
 
-    /** BuilderApplication Constructor */
-    public BuilderApplication()
-    {
+    /**
+     * BuilderApplication Constructor
+     */
+    public BuilderApplication() {
         super("Sixes Wild");
         setContentPane(builderApplication);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -36,12 +37,10 @@ public class BuilderApplication extends JFrame
         this.setTitle("Sixes Wild");
         this.game = new Game();
 
-        this.addWindowListener(new WindowListener()
-        {
+        this.addWindowListener(new WindowListener() {
             @Override
             /** Add controllers once window is initialized. */
-            public void windowOpened(WindowEvent e)
-            {
+            public void windowOpened(WindowEvent e) {
                 builderEditorPanel.getLevelTypeSelector().addActionListener(new
                         SetLevelTypeController((BuilderApplication) e.getWindow()));
                 builderEditorPanel.getLevelTypeSelector().setSelectedIndex(0);
@@ -64,73 +63,70 @@ public class BuilderApplication extends JFrame
 
             @Override
             /** Close windows? */
-            public void windowClosing(WindowEvent e)
-            {
+            public void windowClosing(WindowEvent e) {
 
             }
 
             @Override
-            public void windowClosed(WindowEvent e)
-            {
+            public void windowClosed(WindowEvent e) {
 
             }
 
             @Override
-            public void windowIconified(WindowEvent e)
-            {
+            public void windowIconified(WindowEvent e) {
 
             }
 
             @Override
-            public void windowDeiconified(WindowEvent e)
-            {
+            public void windowDeiconified(WindowEvent e) {
 
             }
 
             @Override
-            public void windowActivated(WindowEvent e)
-            {
+            public void windowActivated(WindowEvent e) {
 
             }
 
             @Override
-            public void windowDeactivated(WindowEvent e)
-            {
+            public void windowDeactivated(WindowEvent e) {
 
             }
         });
         setVisible(true);
     }
 
-    /** Returns the Builder Application */
-    public JPanel getBuilderApplication()
-    {
+    /**
+     * Returns the Builder Application
+     */
+    public JPanel getBuilderApplication() {
         return builderApplication;
     }
 
-    /** Returns the Builder Menu Panel */
-    public BuilderMenuPanel getBuilderMenu()
-    {
+    /**
+     * Returns the Builder Menu Panel
+     */
+    public BuilderMenuPanel getBuilderMenu() {
         return builderMenuPanel;
     }
 
-    /** Returns the Builder Level Select Panel */
-    public BuilderLevelSelectPanel getBuilderLevelSelectPanel()
-    {
+    /**
+     * Returns the Builder Level Select Panel
+     */
+    public BuilderLevelSelectPanel getBuilderLevelSelectPanel() {
         return builderLevelSelectPanel;
     }
 
     /**
      * Returns the Builder Editor Panel
      */
-    public BuilderEditorPanel getBuilderEditorPanel()
-    {
+    public BuilderEditorPanel getBuilderEditorPanel() {
         return builderEditorPanel;
     }
 
-    /** Returns the Game */
-    public Game getGame()
-    {
+    /**
+     * Returns the Game
+     */
+    public Game getGame() {
         return game;
     }
 
@@ -148,8 +144,7 @@ public class BuilderApplication extends JFrame
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         builderApplication = new JPanel();
         builderApplication.setLayout(new CardLayout(0, 0));
         builderMenuPanel = new BuilderMenuPanel();
@@ -160,13 +155,14 @@ public class BuilderApplication extends JFrame
         builderApplication.add(builderLevelSelectPanel.$$$getRootComponent$$$(), "levelSelect");
         builderEditorPanel = new BuilderEditorPanel();
         builderApplication.add(builderEditorPanel.$$$getRootComponent$$$(), "editPanel");
+        builderInstructionViewPanel = new BuilderInstructionViewPanel();
+        builderApplication.add(builderInstructionViewPanel.$$$getRootComponent$$$(), "builderInstructionPanel");
     }
 
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return builderApplication;
     }
 }

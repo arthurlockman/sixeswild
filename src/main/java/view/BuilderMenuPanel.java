@@ -78,6 +78,15 @@ public class BuilderMenuPanel {
                 layout.show(parent, "editPanel");
             }
         });
+        instructionsButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                JPanel parent = (JPanel) builderMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                BuilderApplication topLevelFrame = (BuilderApplication) SwingUtilities.getAncestorOfClass(BuilderApplication.class, builderMenuPanel);
+                layout.show(parent, "builderInstructionPanel");
+            }
+        });
     }
 
     {
