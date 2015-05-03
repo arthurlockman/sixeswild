@@ -20,6 +20,7 @@ public class BadgesViewPanel {
     private JPanel badgesViewPanel;
     private DefaultListModel<Badge> badgeListModel;
 
+    /** BadgesViewPanel Constructor */
     public BadgesViewPanel() {
         backButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
@@ -33,6 +34,7 @@ public class BadgesViewPanel {
         badgeList.setCellRenderer(new BadgeCellRenderer());
     }
 
+    /** Sets the badges list model. */
     public void setListModel(Game g) {
         badgeListModel = new DefaultListModel<Badge>();
         for (Badge b : g.getBadges()) {

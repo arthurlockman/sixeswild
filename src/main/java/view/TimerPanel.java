@@ -15,11 +15,16 @@ public class TimerPanel
     private JPanel panel1;
     private JLabel timeRem;
 
+    /** TimerPanel Constructor. */
     public TimerPanel()
     {
 
     }
 
+    /** Sets the timer's to the given time
+     *
+     * @param time:  the time to set the time
+     */
     public void setTime(int time)
     {
         System.out.println(time);
