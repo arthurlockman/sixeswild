@@ -3,6 +3,8 @@ package view;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import model.Badge;
+import model.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,9 +15,10 @@ import java.awt.event.MouseEvent;
  * Created by David on 4/26/2015.
  */
 public class BadgesViewPanel {
-    private JList list1;
+    private JList badgeList;
     private JButton backButton;
     private JPanel badgesViewPanel;
+    private DefaultListModel<Badge> badgeListModel;
 
     public BadgesViewPanel() {
         backButton.addMouseListener(new MouseAdapter() {
@@ -27,8 +30,15 @@ public class BadgesViewPanel {
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, badgesViewPanel);
             }
         });
+        badgeList.setCellRenderer(new BadgeCellRenderer());
+    }
 
-
+    public void setListModel(Game g) {
+        badgeListModel = new DefaultListModel<Badge>();
+        for (Badge b : g.getBadges()) {
+            badgeListModel.addElement(b);
+        }
+        badgeList.setModel(badgeListModel);
     }
 
     {
@@ -54,15 +64,14 @@ public class BadgesViewPanel {
         badgesViewPanel.add(panel1, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
         panel1.add(scrollPane1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
-        list1 = new JList();
-        scrollPane1.setViewportView(list1);
+        badgeList = new JList();
+        scrollPane1.setViewportView(badgeList);
         backButton = new JButton();
-        backButton.setBackground(new Color(-3167898));
         backButton.setText("Back");
         badgesViewPanel.add(backButton, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setForeground(new Color(-15987700));
-        label1.setText("Achivement");
+        label1.setText("Achivements");
         badgesViewPanel.add(label1, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         badgesViewPanel.add(spacer1, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));

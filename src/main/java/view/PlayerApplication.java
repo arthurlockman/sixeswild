@@ -57,6 +57,7 @@ public class PlayerApplication extends JFrame
                         StartGameController((PlayerApplication) e.getWindow()));
                 playerPlayPanel.getQuitButton().addMouseListener(new
                         ReturnToLevelSelectController((PlayerApplication) e.getWindow()));
+                badgesViewPanel.setListModel(game);
             }
 
             @Override
