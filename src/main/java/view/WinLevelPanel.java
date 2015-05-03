@@ -71,7 +71,7 @@ public class WinLevelPanel extends JDialog {
         levelName.setText(name);
         if (isNewHigh) {
             levelHighScore.setText("You Set A New High Score!");
-        } else{
+        } else {
             levelHighScore.setText("High Score: " + highScore);
         }
         levelScore.setText("Score: " + score);
