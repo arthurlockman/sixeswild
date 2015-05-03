@@ -6,6 +6,8 @@ import view.PlayerApplication;
 import view.WinLevelPanel;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -44,6 +46,17 @@ public class CompleteLevelController implements IActionListener
         boolean isNewHighScore = (b.getScore() > app.getPlayerPlayPanel().getBoard().getCurrentLevel().getHighScore());
         app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
         app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
+
+
+        if(didWin){
+            // play victory sound
+            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
+            clip.play();
+        } else{
+            // play failure sound
+            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+            clip.play();
+        }
 
         int stars = 0;
         if (b.getScore() >= l.getThreeStarScore())

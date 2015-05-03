@@ -8,8 +8,11 @@ import view.PlayerApplication;
 import view.SquareViewPanel;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 /**
  *  ConnectTilesController Class.
@@ -103,7 +106,15 @@ public class ConnectTilesController extends MouseAdapter
         super.mouseReleased(e);
         if (board.getCurrentMove() != null)
         {
-            board.makeMove(board.getCurrentMove());
+            if(board.makeMove(board.getCurrentMove())){
+                // play success sound
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
+                clip.play();
+            } else{
+                // play error sound
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+                clip.play();
+            }
             board.setCurrentMove(null);
         }
         square.getSquare().setSelected(false);
