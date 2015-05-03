@@ -25,13 +25,7 @@ public class Game
     {
         reloadFromDisk();
         createBadges();
-        checkBadges();
         readBadges();
-        checkBadges();
-        saveBadges();
-        checkBadges();
-        readBadges();
-        checkBadges();
     }
 
     /** Reloads the Game from its location on disk. */

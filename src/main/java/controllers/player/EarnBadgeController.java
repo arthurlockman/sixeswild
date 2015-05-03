@@ -31,6 +31,8 @@ public class EarnBadgeController
     {
         // In the future, doAction will get an argument and decide which of the check functions to run.
         checkScoreBadges();
+        app.getGame().saveBadges();
+        app.getBadgeViewPanel().setListModel(app.getGame());
     }
 
     // So far, we only have score badges.
