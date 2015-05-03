@@ -101,14 +101,18 @@ public class Board
         int freqx2 = Integer.parseInt(tData[14]);
         int freqx3 = Integer.parseInt(tData[15]);
 
-        squares = new Square[81];
+        if (squares == null)
+            squares = new Square[81];
         factory = new SquareFactory(freq1, freq2, freq3, freq4, freq5, freq6, freqx1, freqx2, freqx3);
         if (populate) {
             for (int i = 0; i < 81; i++)
             {
                 int state = Integer.parseInt(tData[18 + i]);
 
-                squares[i] = factory.gen(state);
+                if (squares[i] == null)
+                    squares[i] = factory.gen(state);
+                else
+                    squares[i].setTile(factory.gen(state).getTile());
             }
         } else {
             for (int i = 0; i < 81; i++)
