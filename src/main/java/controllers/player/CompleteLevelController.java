@@ -44,7 +44,15 @@ public class CompleteLevelController implements IActionListener
         app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
         app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
 
-        WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l), l.getHighScore(), b.getScore(), 1, !didWin);
+        int stars = 0;
+        if (b.getScore() >= l.getThreeStarScore())
+            stars = 3;
+        else if (b.getScore() >= l.getTwoStarScore())
+            stars = 2;
+        else if (b.getScore() >= 1)
+            stars = 1;
+        WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l),
+                l.getHighScore(), b.getScore(), stars, !didWin);
         wl.setVisible(true);
         int response = wl.getResponse();
         if (response == 0)
