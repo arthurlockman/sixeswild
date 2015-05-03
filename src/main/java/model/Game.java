@@ -282,9 +282,10 @@ public class Game
         File[] listOfFiles = folder.listFiles();
 
             System.out.println("~ Destination: " + folder.getPath() + "/badges");
-            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(folder.getPath() + "/badges"), "utf-8")))
+            try
             {
+                Writer writer = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream(folder.getPath() + "/badges"), "utf-8"));
                 System.out.println("~ Writing: " + "1 1");
                 writer.write("1 1");
                 writer.close();
