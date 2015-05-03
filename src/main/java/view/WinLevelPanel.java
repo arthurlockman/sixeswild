@@ -29,7 +29,7 @@ public class WinLevelPanel extends JDialog {
     private boolean pass;
     private int response;
 
-    public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass) {
+    public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass, boolean isNewHigh) {
         this.name = name;
         this.highScore = highScore;
         this.score = score;
@@ -69,20 +69,21 @@ public class WinLevelPanel extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         levelName.setText(name);
-        levelHighScore.setText("High Score: " + highScore);
+        if (isNewHigh) {
+            levelHighScore.setText("You Set A New High Score!");
+        } else{
+            levelHighScore.setText("High Score: " + highScore);
+        }
         levelScore.setText("Score: " + score);
 
 
         if (stars == 1) {
-            System.out.println("1s");
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/onestaricn.png"));
             Stars.setIcon(icon);
         } else if (stars == 2) {
-            System.out.println("2s");
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/twostaricn.png"));
             Stars.setIcon(icon);
         } else if (stars == 3) {
-            System.out.println("3s");
             ImageIcon icon = new ImageIcon(getClass().getResource("/view/threestaricn.png"));
             Stars.setIcon(icon);
         }
