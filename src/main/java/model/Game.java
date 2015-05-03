@@ -191,7 +191,6 @@ public class Game
     {
         int i = 1;
 
-        levels = new ArrayList<Level>();
 
         ClassLoader classLoader = getClass().getClassLoader();
         File folder = null;
