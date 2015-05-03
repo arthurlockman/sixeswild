@@ -112,8 +112,8 @@ public class ConnectTilesController extends MouseAdapter
                 clip.play();
             } else{
                 // play error sound
-                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
-                clip.play();
+             //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+               // clip.play();
             }
             board.setCurrentMove(null);
         }

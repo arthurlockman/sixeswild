@@ -54,8 +54,8 @@ public class CompleteLevelController implements IActionListener
             clip.play();
         } else{
             // play failure sound
-            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
-            clip.play();
+         //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+           // clip.play();
         }
 
         int stars = 0;
