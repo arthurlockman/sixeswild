@@ -81,3 +81,8 @@ jacocoTestReport {
 
 test.dependsOn 'clean'
 test.mustRunAfter 'clean'
+
+task copyRuntimeLibs(type: Copy) {
+    into "lib"
+    from configurations.testRuntime - configurations.runtime
+}
