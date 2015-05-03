@@ -52,7 +52,8 @@ public class TestSaveLevelController extends GUITestCase
 
         for (File f : listOfFiles)
         {
-            if (!f.getPath().contains("level1.txt") && !f.getPath().contains("level2.txt"))
+            if (!f.getPath().contains("level1.txt") && !f.getPath().contains("level2.txt") &&
+                    !f.getPath().contains("level3.txt"))
             {
                 try
                 {
