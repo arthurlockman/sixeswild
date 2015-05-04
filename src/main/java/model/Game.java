@@ -303,17 +303,18 @@ public class Game
         String[] badgeData = bData.split(delims);
 
         int i = 0;
-        for(String s : badgeData)
+        try {
+            for (String s : badgeData) {
+                if (Integer.parseInt(s) == 1) {
+                    badges.get(i).earned = true;
+                } else {
+                    badges.get(i).earned = false;
+                }
+                i++;
+            }
+        } catch (java.lang.IndexOutOfBoundsException e)
         {
-            if(Integer.parseInt(s) == 1)
-            {
-                badges.get(i).earned = true;
-            }
-            else
-            {
-                badges.get(i).earned = false;
-            }
-            i++;
+            System.out.println(e.toString());
         }
         i = 0;
     }
