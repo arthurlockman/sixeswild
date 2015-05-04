@@ -37,16 +37,6 @@ public class BadgesViewPanel {
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, badgesViewPanel);
             }
         });
-        resetButton.addMouseListener(new MouseAdapter() {
-            public void mouseReleased(MouseEvent e) {
-                super.mouseReleased(e);
-                PlayerApplication app = new PlayerApplication();
-                ResetBadgesController test = new ResetBadgesController(app);
-                test.doAction();
-            }
-        });
-
-
         badgeList.setCellRenderer(new BadgeCellRenderer());
     }
 
@@ -59,6 +49,14 @@ public class BadgesViewPanel {
             badgeListModel.addElement(b);
         }
         badgeList.setModel(badgeListModel);
+    }
+
+    /**
+     * Gets the JButton associated with reset.
+     */
+    public JButton getResetButton()
+    {
+        return resetButton;
     }
 
     {
