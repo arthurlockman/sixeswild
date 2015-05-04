@@ -108,12 +108,14 @@ public class ConnectTilesController extends MouseAdapter
         {
             if(board.makeMove(board.getCurrentMove())){
                 // play success sound
+                // sound made by Jesse Marciano
                 AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
                 clip.play();
             } else{
                 // play error sound
-             //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
-               // clip.play();
+                // sound from free version of http://www.sonniss.com/sound-effects/ui-soundpacks-sfx-library/, by Michael Theiler
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+                clip.play();
             }
             board.setCurrentMove(null);
         }

@@ -50,12 +50,14 @@ public class CompleteLevelController implements IActionListener
 
         if(didWin){
             // play victory sound
+            // sound from free version of http://www.sonniss.com/sound-effects/laughs-sound-effects/, by Sound Ex Machina
             AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
             clip.play();
         } else{
             // play failure sound
-         //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
-           // clip.play();
+            // sound from free version of http://www.sonniss.com/sound-effects/crowd-laughter-sound-effects/, by Timothy McHugh
+            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+            clip.play();
         }
 
         int stars = 0;
