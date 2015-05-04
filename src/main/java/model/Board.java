@@ -110,9 +110,17 @@ public class Board
                 int state = Integer.parseInt(tData[18 + i]);
 
                 if (squares[i] == null)
+                {
                     squares[i] = factory.gen(state);
-                else
+                }
+                else if (this.level instanceof ReleaseLevel)
+                {
+                    if (squares[i].getTile().getValue() != 6)
+                        squares[i].setTile(factory.gen(state).getTile());
+                } else
+                {
                     squares[i].setTile(factory.gen(state).getTile());
+                }
             }
         } else {
             for (int i = 0; i < 81; i++)

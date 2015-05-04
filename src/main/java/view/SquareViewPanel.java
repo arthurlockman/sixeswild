@@ -92,10 +92,12 @@ public class SquareViewPanel
             if (!currentSquare.isSatisfied())
             {
                 squareNumber.setText("Bckt");
+                multiplierLabel.setText(" ");
                 squarePanel.setBackground(SQUARE_BKT_COLOR);
             } else
             {
                 squareNumber.setText("6");
+                multiplierLabel.setText(" ");
                 squarePanel.setBackground(SQUARE_6_COLOR); //6
             }
         } else if (currentSquare.isActive())
