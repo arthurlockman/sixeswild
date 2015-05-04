@@ -55,7 +55,7 @@ public class CompleteLevelController implements IActionListener
             clip.play();
         } else{
             // play failure sound
-            // sound from free version of http://www.sonniss.com/sound-effects/crowd-laughter-sound-effects/, by Timothy McHugh
+            // sound from The Pric Is Right
             AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
             clip.play();
         }
