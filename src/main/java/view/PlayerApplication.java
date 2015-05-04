@@ -1,5 +1,6 @@
 package view;
 
+import controllers.player.ResetBadgesController;
 import controllers.player.ReturnToLevelSelectController;
 import controllers.player.StartGameController;
 import controllers.player.EarnBadgeController;
@@ -29,6 +30,7 @@ public class PlayerApplication extends JFrame
 
     // Since this is a standalone Controller, the app has a special reference.
     private EarnBadgeController badgeController;
+    private ResetBadgesController resetController;
 
     /**
      * PlayerApplication Constructor.
@@ -96,6 +98,11 @@ public class PlayerApplication extends JFrame
 
     public EarnBadgeController getBadgeController() {
         return badgeController;
+    }
+
+    public ResetBadgesController getResetController()
+    {
+        return resetController;
     }
 
     public JPanel getPlayerApplication()
