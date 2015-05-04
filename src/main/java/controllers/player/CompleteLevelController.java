@@ -11,7 +11,6 @@ import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.net.MalformedURLException;
 
 /**
  *  CompleteLevelController Class.
@@ -52,22 +51,13 @@ public class CompleteLevelController implements IActionListener
         if(didWin){
             // play victory sound
             // sound from free version of http://www.sonniss.com/sound-effects/laughs-sound-effects/, by Sound Ex Machina
-            System.out.println("win");
             AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
             clip.play();
         } else{
-            System.out.println("lose");
-
             // play failure sound
             // sound from free version of http://www.sonniss.com/sound-effects/crowd-laughter-sound-effects/, by Timothy McHugh
-         //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
-           try {
-               AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
-
-               clip.play();
-           } catch (Exception murle) {
-               System.out.println(murle);
-           }
+            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+            clip.play();
         }
 
         int stars = 0;
