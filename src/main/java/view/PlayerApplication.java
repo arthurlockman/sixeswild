@@ -6,6 +6,8 @@ import controllers.player.EarnBadgeController;
 import model.Game;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -16,8 +18,7 @@ import java.awt.event.WindowListener;
  *
  * @author arthurlockman
  */
-public class PlayerApplication extends JFrame
-{
+public class PlayerApplication extends JFrame {
     private JPanel playerApplication;
     private SplashScreen splashScreen;
     private PlayerMenuPanel menuPanel;
@@ -26,6 +27,7 @@ public class PlayerApplication extends JFrame
     private BadgesViewPanel badgesViewPanel;
     private InstructionViewPanel instructionViewPanel;
     private Game game;
+    private AudioClip[] clips = new AudioClip[6];
 
     // Since this is a standalone Controller, the app has a special reference.
     private EarnBadgeController badgeController;
@@ -33,9 +35,17 @@ public class PlayerApplication extends JFrame
     /**
      * PlayerApplication Constructor.
      */
-    public PlayerApplication()
-    {
+    public PlayerApplication() {
         super("Sixes Wild");
+
+        clips[0] = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
+        clips[1] = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+        clips[2] = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
+        clips[3] = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+        clips[4] = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
+        clips[5] = Applet.newAudioClip(getClass().getResource("/sounds/remove.wav"));
+
+
         setContentPane(playerApplication);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
@@ -47,8 +57,7 @@ public class PlayerApplication extends JFrame
         badgeController = new EarnBadgeController(this);
 
         /** Adds a window listener */
-        this.addWindowListener(new WindowListener()
-        {
+        this.addWindowListener(new WindowListener() {
             //Add controllers once window is initialized.
             @Override
             public void windowOpened(WindowEvent e) {
@@ -98,34 +107,63 @@ public class PlayerApplication extends JFrame
         return badgeController;
     }
 
-    public JPanel getPlayerApplication()
-    {
+    public JPanel getPlayerApplication() {
         return playerApplication;
     }
 
-    public SplashScreen getSplashScreen()
-    {
+    public SplashScreen getSplashScreen() {
         return splashScreen;
     }
 
-    public PlayerMenuPanel getMenuPanel()
-    {
+    public PlayerMenuPanel getMenuPanel() {
         return menuPanel;
     }
 
-    public PlayerLevelSelectPanel getPlayerLevelSelectPanel()
-    {
+    public PlayerLevelSelectPanel getPlayerLevelSelectPanel() {
         return playerLevelSelectPanel;
     }
 
-    public PlayerPlayPanel getPlayerPlayPanel()
-    {
+    public PlayerPlayPanel getPlayerPlayPanel() {
         return playerPlayPanel;
     }
 
-    public Game getGame()
-    {
+    public Game getGame() {
         return game;
+    }
+
+    public void playSound(int soundNum) {
+        switch (soundNum) {
+            case 0:
+                clips[0].play();
+                break;
+
+            case 1:
+                clips[1].play();
+                break;
+
+            case 2:
+                clips[2].play();
+                break;
+
+            case 3:
+                clips[3].play();
+                break;
+
+            case 4:
+                clips[4].play();
+                break;
+
+            case 5:
+                clips[5].play();
+                break;
+
+            default:
+                break;
+        }
+
+
+        return;
+
     }
 
     {

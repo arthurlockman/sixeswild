@@ -44,12 +44,15 @@ public class PlayerPlayPanel
     private JPanel timerPlaceholder;
     private TimerPanel timerViewPanel;
     private Board board;
+    private AudioClip clip;
 
     /**
      * PlayerPlayPanel Constructor.
      */
     public PlayerPlayPanel()
     {
+        clip = Applet.newAudioClip(getClass().getResource("/sounds/reset.wav"));
+
         /**
          * Adds a MouseListener
          */
@@ -100,7 +103,6 @@ public class PlayerPlayPanel
 
                 // play reset sound
                 // sound from free version of http://www.sonniss.com/sound-effects/users-tomorrow-sound-effects-library/, by SoundMorph
-                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/reset.wav"));
                 clip.play();
                 boardViewPanel.getBoard().refill();
                 boardViewPanel.refresh();
