@@ -106,15 +106,6 @@ public class ConnectTilesController extends MouseAdapter
         super.mouseReleased(e);
         if (board.getCurrentMove() != null)
         {
-            if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
-                    board.getCurrentMove() instanceof SwapSpecialMove))
-            {
-                JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
-                                "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
-                        JOptionPane.QUESTION_MESSAGE, null,
-                        new String[]{"Buy ($0.99)"}, "default");
-                board.replenishSpecialMoves();
-            }
             if(board.makeMove(board.getCurrentMove())){
                 if(board.getCurrentMove() instanceof RemoveSpecialMove){
                     // play remove sound
