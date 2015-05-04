@@ -132,7 +132,9 @@ public class ConnectTilesController extends MouseAdapter
         app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
         app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());
         app.getPlayerPlayPanel().getMovesLabel().setText("Moves: " + (board.getMovesAllowed() - board.getMoveCount()));
-
+        app.getPlayerPlayPanel().getReset1Button().setText("Reset (" + board.getNumResetMoves() + ")");
+        app.getPlayerPlayPanel().getSwap2Button().setText("Swap (" + board.getNumSwapMoves() + ")");
+        app.getPlayerPlayPanel().getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
         //Set star icons.
         String threestaricon = (board.getScore() >= board.getThreeStarScore()) ? "/view/threestaricn.png" : "/view/threestar-empty.png";
         String twostaricon = (board.getScore() >= board.getTwoStarScore()) ? "/view/twostaricn.png" : "/view/twostar-empty.png";

@@ -81,6 +81,18 @@ public class PlayerPlayPanel
             {
                 super.mouseClicked(me);
                 boardViewPanel.getBoard().setCurrentMove(new RemoveSpecialMove());
+                if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
+                        board.getCurrentMove() instanceof SwapSpecialMove))
+                {
+                    JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
+                                    "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, null,
+                            new String[]{"Buy ($0.99)"}, "default");
+                    board.replenishSpecialMoves();
+                }
+                getReset1Button().setText("Reset (" + board.getNumResetMoves() + ")");
+                getSwap2Button().setText("Swap (" + board.getNumSwapMoves() + ")");
+                getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
             }
         });
         swap2Button.addMouseListener(new MouseAdapter()
@@ -90,6 +102,18 @@ public class PlayerPlayPanel
             {
                 super.mouseClicked(e);
                 boardViewPanel.getBoard().setCurrentMove(new SwapSpecialMove(boardViewPanel.getBoard()));
+                if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
+                        board.getCurrentMove() instanceof SwapSpecialMove))
+                {
+                    JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
+                                    "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, null,
+                            new String[]{"Buy ($0.99)"}, "default");
+                    board.replenishSpecialMoves();
+                }
+                getReset1Button().setText("Reset (" + board.getNumResetMoves() + ")");
+                getSwap2Button().setText("Swap (" + board.getNumSwapMoves() + ")");
+                getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
             }
         });
         reset1Button.addMouseListener(new MouseAdapter()
@@ -99,7 +123,16 @@ public class PlayerPlayPanel
             {
                 boardViewPanel.getBoard().setCurrentMove(new ResetSpecialMove(boardViewPanel.getBoard(),
                         boardViewPanel.getBoard().getCurrentLevel()));
+                if (!boardViewPanel.getBoard().enoughSpecialRemaining())
+                {
+                    JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
+                                    "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
+                            JOptionPane.QUESTION_MESSAGE, null,
+                            new String[]{"Buy ($0.99)"}, "default");
+                    boardViewPanel.getBoard().replenishSpecialMoves();
+                }
                 boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
+
 
                 // play reset sound
                 // sound from free version of http://www.sonniss.com/sound-effects/users-tomorrow-sound-effects-library/, by SoundMorph
@@ -108,6 +141,7 @@ public class PlayerPlayPanel
                 boardViewPanel.refresh();
                 movesLabel.setText("Moves: " + (boardViewPanel.getBoard().getMovesAllowed() -
                         boardViewPanel.getBoard().getMoveCount()));
+                getReset1Button().setText("Reset (" + boardViewPanel.getBoard().getNumResetMoves() + ")");
             }
         });
     }
