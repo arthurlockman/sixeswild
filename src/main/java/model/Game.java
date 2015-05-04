@@ -25,13 +25,7 @@ public class Game
     {
         reloadFromDisk();
         createBadges();
-        checkBadges();
         readBadges();
-        checkBadges();
-        saveBadges();
-        checkBadges();
-        readBadges();
-        checkBadges();
     }
 
     /** Reloads the Game from its location on disk. */
@@ -58,7 +52,7 @@ public class Game
                     int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
                     int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
                     return i1 - i2;
-                } catch(NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     throw new AssertionError(e);
                 }
             }
@@ -66,7 +60,7 @@ public class Game
 
         for(File file : listOfFiles)
         {
-            System.out.println(file.getPath());
+            //System.out.println(file.getPath());
             String content = null;
             try {
                 Scanner scanner = new Scanner(file);
@@ -105,7 +99,7 @@ public class Game
     public void initializeLevel(int levelNumber, String levelData, File diskLocation)
     {
         String lData = levelData;
-        System.out.println("DATA FOR LEVEL: " + levelNumber + ": " + levelData);
+        //System.out.println("DATA FOR LEVEL: " + levelNumber + ": " + levelData);
         String delims = " ";
         String[] levData = lData.split(delims);
 
@@ -233,13 +227,14 @@ public class Game
                     name = name + "Cat";
                 }
                 Badge newBadge = new Badge("ScoreBadge", name, description);
+                newBadge.setBadgeScoreRequirement(i + 1, levels.get(i).threeStarScore);
                 badges.add(newBadge);
             }
             else
             {
                 String newBadgeDescription = "Got " + levels.get(i).threeStarScore + " points in level " + i;
                 Badge newBadge = new Badge("ScoreBadge", (levels.get(i).name + "-ScoreBadge"), newBadgeDescription);
-                newBadge.setBadgeScoreRequirement(i, levels.get(i).threeStarScore);
+                newBadge.setBadgeScoreRequirement(i + 1, levels.get(i).threeStarScore);
                 badges.add(newBadge);
             }
         }
@@ -258,6 +253,11 @@ public class Game
             System.out.println("- Earn: " + badge.earned);
             System.out.println(" ");
         }
+    }
+
+    public void setBoard(Board b)
+    {
+        board = b;
     }
 
     public void readBadges()
@@ -297,22 +297,24 @@ public class Game
     public void loadBadges(String data)
     {
         String bData = data;
-        System.out.println("DATA FOR BADGES: " + bData);
+        System.out.println("~ Loading Badges... ");
+        System.out.println("Badges: " + bData);
         String delims = " ";
         String[] badgeData = bData.split(delims);
 
         int i = 0;
-        for(String s : badgeData)
+        try {
+            for (String s : badgeData) {
+                if (Integer.parseInt(s) == 1) {
+                    badges.get(i).earned = true;
+                } else {
+                    badges.get(i).earned = false;
+                }
+                i++;
+            }
+        } catch (java.lang.IndexOutOfBoundsException e)
         {
-            if(Integer.parseInt(s) == 1)
-            {
-                badges.get(i).earned = true;
-            }
-            else
-            {
-                badges.get(i).earned = false;
-            }
-            i++;
+            System.out.println(e.toString());
         }
         i = 0;
     }
@@ -358,14 +360,36 @@ public class Game
             {
                 Writer writer = new BufferedWriter(new OutputStreamWriter(
                         new FileOutputStream(folder.getPath() + "/badges"), "utf-8"));
-                System.out.println("~ Writing: " + "1 1");
-                writer.write("1 1");
+                System.out.println("~ Writing: ");
+                for(Badge b : badges)
+                {
+                    if(b.earned)
+                    {
+                        System.out.println("1 ");
+                        writer.write("1 ");
+                    }
+                    else
+                    {
+                        System.out.println("0 ");
+                        writer.write("0 ");
+                    }
+                }
+
                 writer.close();
             }
             catch (IOException ex)
             {
+                System.out.println("** COULD NOT WRITE ON THE DISK!");
                 // report
             }
             System.out.println("~ Complete. ");
+    }
+
+    public void resetBadges()
+    {
+        for(Badge b : badges)
+        {
+            b.earned = false;
+        }
     }
 }

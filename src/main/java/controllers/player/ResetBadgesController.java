@@ -1,5 +1,6 @@
 package controllers.player;
 
+import model.Badge;
 import view.PlayerApplication;
 
 /**
@@ -27,6 +28,8 @@ public class ResetBadgesController
      */
     public void doAction()
     {
-
+        app.getGame().resetBadges();
+        app.getGame().saveBadges();
+        app.getBadgeViewPanel().setListModel(app.getGame());
     }
 }

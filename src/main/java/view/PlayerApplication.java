@@ -1,5 +1,6 @@
 package view;
 
+import controllers.player.ResetBadgesController;
 import controllers.player.ReturnToLevelSelectController;
 import controllers.player.StartGameController;
 import controllers.player.EarnBadgeController;
@@ -31,6 +32,7 @@ public class PlayerApplication extends JFrame {
 
     // Since this is a standalone Controller, the app has a special reference.
     private EarnBadgeController badgeController;
+    private ResetBadgesController resetController;
 
     /**
      * PlayerApplication Constructor.
@@ -107,6 +109,11 @@ public class PlayerApplication extends JFrame {
         return badgeController;
     }
 
+    public ResetBadgesController getResetController()
+    {
+        return resetController;
+    }
+
     public JPanel getPlayerApplication() {
         return playerApplication;
     }
@@ -129,6 +136,10 @@ public class PlayerApplication extends JFrame {
 
     public Game getGame() {
         return game;
+    }
+
+    public BadgesViewPanel getBadgeViewPanel() {
+        return badgesViewPanel;
     }
 
     public void playSound(int soundNum) {
@@ -160,10 +171,6 @@ public class PlayerApplication extends JFrame {
             default:
                 break;
         }
-
-
-        return;
-
     }
 
     {

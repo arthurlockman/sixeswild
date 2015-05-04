@@ -21,6 +21,7 @@ import java.awt.event.MouseListener;
 public class CompleteLevelController implements IActionListener
 {
     PlayerApplication app;
+    EarnBadgeController badgeController;
 
     /**
      * CompleteLevelController Class.
@@ -30,6 +31,7 @@ public class CompleteLevelController implements IActionListener
     public CompleteLevelController(PlayerApplication app)
     {
         this.app = app;
+        badgeController = app.getBadgeController();
     }
 
     /**
@@ -39,6 +41,14 @@ public class CompleteLevelController implements IActionListener
     @Override
     public void actionPerformed()
     {
+        System.out.println("PlayerPanel: " + app.getPlayerPlayPanel().getBoard().getCurrentLevel());
+        //System.out.println("Game: " + app.getGame().getBoard().getCurrentLevel());
+
+        // This is how we fire the doAction method in BadgeController,
+        // If we figure out how to generate Actions, we can also do it that way...
+        app.getGame().setBoard(app.getPlayerPlayPanel().getBoard());
+        badgeController.doAction();
+
         Level l = app.getPlayerPlayPanel().getBoard().getCurrentLevel();
         Board b = app.getPlayerPlayPanel().getBoardViewPanel().getBoard();
 
