@@ -106,6 +106,15 @@ public class ConnectTilesController extends MouseAdapter
         super.mouseReleased(e);
         if (board.getCurrentMove() != null)
         {
+            if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
+                    board.getCurrentMove() instanceof SwapSpecialMove))
+            {
+                JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
+                                "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
+                        JOptionPane.QUESTION_MESSAGE, null,
+                        new String[]{"Buy ($0.99)"}, "default");
+                board.replenishSpecialMoves();
+            }
             if(board.makeMove(board.getCurrentMove())){
                 if(board.getCurrentMove() instanceof RemoveSpecialMove){
                     // play remove sound
@@ -132,7 +141,9 @@ public class ConnectTilesController extends MouseAdapter
         app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
         app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());
         app.getPlayerPlayPanel().getMovesLabel().setText("Moves: " + (board.getMovesAllowed() - board.getMoveCount()));
-
+        app.getPlayerPlayPanel().getReset1Button().setText("Reset (" + board.getNumResetMoves() + ")");
+        app.getPlayerPlayPanel().getSwap2Button().setText("Swap (" + board.getNumSwapMoves() + ")");
+        app.getPlayerPlayPanel().getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
         //Set star icons.
         String threestaricon = (board.getScore() >= board.getThreeStarScore()) ? "/view/threestaricn.png" : "/view/threestar-empty.png";
         String twostaricon = (board.getScore() >= board.getTwoStarScore()) ? "/view/twostaricn.png" : "/view/twostar-empty.png";

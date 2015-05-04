@@ -58,6 +58,9 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().getReset1Button().setEnabled(l.isSpecialMovesAllowed());
             app.getPlayerPlayPanel().getMovesLabel().setVisible(false);
             app.getPlayerPlayPanel().getTimerViewPanel().$$$getRootComponent$$$().setVisible(false);
+            app.getPlayerPlayPanel().getReset1Button().setText("Reset (5)");
+            app.getPlayerPlayPanel().getSwap2Button().setText("Swap (5)");
+            app.getPlayerPlayPanel().getRemove1Button().setText("Remove (5)");
             if (l instanceof EliminationLevel)
             {
                 app.getPlayerPlayPanel().getTitleLabel().setText("Elimination");

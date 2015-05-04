@@ -1,8 +1,7 @@
 package model;
 
 import controllers.IActionListener;
-import model.moves.IMove;
-import model.moves.IReversibleMove;
+import model.moves.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,6 +32,7 @@ public class Board
     boolean populate;
     IMove currentMove;
     ArrayList<IActionListener> actionListeners;
+    int numSwapMoves = 5, numResetMoves = 5, numRemoveMoves = 5;
 
     /**
      * Board Constructor.
@@ -161,6 +161,16 @@ public class Board
         {
             score += move.getScore();
             moveCount++;
+            if (move instanceof RemoveSpecialMove)
+            {
+                numRemoveMoves--;
+            } else if (move instanceof ResetSpecialMove)
+            {
+                numResetMoves--;
+            } else if (move instanceof SwapSpecialMove)
+            {
+                numSwapMoves--;
+            }
             isComplete();
             return true;
         }
@@ -517,6 +527,61 @@ public class Board
     public void removeListeners()
     {
         this.actionListeners.clear();
+    }
+
+    public int getNumRemoveMoves() {
+        return numRemoveMoves;
+    }
+
+    public int getNumSwapMoves() {
+        return numSwapMoves;
+    }
+
+    public int getNumResetMoves() {
+        return numResetMoves;
+    }
+
+    /**
+     * Determines if there are enough special moves left of the current
+     * special move type.
+     * @return True if there are enough of the proper type.
+     */
+    public boolean enoughSpecialRemaining()
+    {
+        if (this.currentMove != null)
+        {
+            if (this.currentMove instanceof RemoveSpecialMove)
+            {
+                return this.numRemoveMoves > 0;
+            } else if (this.currentMove instanceof ResetSpecialMove)
+            {
+                return this.numResetMoves > 0;
+            } else if (this.currentMove instanceof SwapSpecialMove)
+            {
+                return this.numSwapMoves > 0;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Replenish the currently active special move type.
+     */
+    public void replenishSpecialMoves()
+    {
+        if (this.currentMove != null)
+        {
+            if (this.currentMove instanceof RemoveSpecialMove)
+            {
+                numRemoveMoves = 5;
+            } else if (this.currentMove instanceof ResetSpecialMove)
+            {
+                numResetMoves = 5;
+            } else if (this.currentMove instanceof SwapSpecialMove)
+            {
+                numSwapMoves = 5;
+            }
+        }
     }
 
     /**
