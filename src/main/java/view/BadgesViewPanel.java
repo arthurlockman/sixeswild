@@ -1,8 +1,11 @@
 package view;
 
+
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+
+import controllers.player.ResetBadgesController;
 import model.Badge;
 import model.Game;
 
@@ -18,9 +21,12 @@ public class BadgesViewPanel {
     private JList badgeList;
     private JButton backButton;
     private JPanel badgesViewPanel;
+    private JButton resetButton;
     private DefaultListModel<Badge> badgeListModel;
 
-    /** BadgesViewPanel Constructor */
+    /**
+     * BadgesViewPanel Constructor
+     */
     public BadgesViewPanel() {
         backButton.addMouseListener(new MouseAdapter() {
             public void mouseReleased(MouseEvent e) {
@@ -31,10 +37,22 @@ public class BadgesViewPanel {
                 JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, badgesViewPanel);
             }
         });
+        resetButton.addMouseListener(new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                super.mouseReleased(e);
+                PlayerApplication app = new PlayerApplication();
+                ResetBadgesController test = new ResetBadgesController(app);
+                test.doAction();
+            }
+        });
+
+
         badgeList.setCellRenderer(new BadgeCellRenderer());
     }
 
-    /** Sets the badges list model. */
+    /**
+     * Sets the badges list model.
+     */
     public void setListModel(Game g) {
         badgeListModel = new DefaultListModel<Badge>();
         for (Badge b : g.getBadges()) {
@@ -59,11 +77,11 @@ public class BadgesViewPanel {
      */
     private void $$$setupUI$$$() {
         badgesViewPanel = new JPanel();
-        badgesViewPanel.setLayout(new GridLayoutManager(2, 5, new Insets(0, 0, 0, 0), -1, -1));
+        badgesViewPanel.setLayout(new GridLayoutManager(2, 6, new Insets(0, 0, 0, 0), -1, -1));
         badgesViewPanel.setBackground(new Color(-3167898));
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        badgesViewPanel.add(panel1, new GridConstraints(1, 0, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        badgesViewPanel.add(panel1, new GridConstraints(1, 0, 1, 6, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JScrollPane scrollPane1 = new JScrollPane();
         panel1.add(scrollPane1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         badgeList = new JList();
@@ -77,6 +95,9 @@ public class BadgesViewPanel {
         badgesViewPanel.add(label1, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer1 = new Spacer();
         badgesViewPanel.add(spacer1, new GridConstraints(0, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
+        resetButton = new JButton();
+        resetButton.setText("Reset");
+        badgesViewPanel.add(resetButton, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final Spacer spacer2 = new Spacer();
         badgesViewPanel.add(spacer2, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
