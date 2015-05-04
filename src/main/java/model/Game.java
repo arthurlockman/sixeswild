@@ -362,4 +362,12 @@ public class Game
             }
             System.out.println("~ Complete. ");
     }
+
+    public void resetBadges()
+    {
+        for(Badge b : badges)
+        {
+            b.earned = false;
+        }
+    }
 }
