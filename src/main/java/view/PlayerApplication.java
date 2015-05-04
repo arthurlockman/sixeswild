@@ -69,6 +69,8 @@ public class PlayerApplication extends JFrame {
                 playerPlayPanel.getQuitButton().addMouseListener(new
                         ReturnToLevelSelectController((PlayerApplication) e.getWindow()));
                 badgesViewPanel.setListModel(game);
+                badgesViewPanel.getResetButton().addMouseListener(new
+                        ResetBadgesController((PlayerApplication) e.getWindow()));
             }
 
             @Override
