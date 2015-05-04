@@ -10,6 +10,8 @@ import model.moves.ResetSpecialMove;
 import model.moves.SwapSpecialMove;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -95,6 +97,11 @@ public class PlayerPlayPanel
                 boardViewPanel.getBoard().setCurrentMove(new ResetSpecialMove(boardViewPanel.getBoard(),
                         boardViewPanel.getBoard().getCurrentLevel()));
                 boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
+
+                // play reset sound
+                // sound from free version of http://www.sonniss.com/sound-effects/users-tomorrow-sound-effects-library/, by SoundMorph
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/reset.wav"));
+                clip.play();
                 boardViewPanel.getBoard().refill();
                 boardViewPanel.refresh();
                 movesLabel.setText("Moves: " + (boardViewPanel.getBoard().getMovesAllowed() -

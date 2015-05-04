@@ -8,8 +8,11 @@ import view.PlayerApplication;
 import view.SquareViewPanel;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.net.URL;
 
 /**
  *  ConnectTilesController Class.
@@ -103,7 +106,28 @@ public class ConnectTilesController extends MouseAdapter
         super.mouseReleased(e);
         if (board.getCurrentMove() != null)
         {
-            board.makeMove(board.getCurrentMove());
+            if(board.makeMove(board.getCurrentMove())){
+                if(board.getCurrentMove() instanceof RemoveSpecialMove){
+                    // play remove sound
+                    // sound from free version of http://www.sonniss.com/sound-effects/hits-and-whoosh/, by Mechanical Wave
+                    AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/remove.wav"));
+                    clip.play();
+                } else if(board.getCurrentMove() instanceof SwapSpecialMove){
+                    // play swap sound
+                    // sound from free version of http://www.sonniss.com/sound-effects/spaceship-interface-sound-pack-01/, by Debsound
+                    AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
+                    clip.play();
+                }
+                // play success sound
+                // sound made by Jesse Marciano
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
+                clip.play();
+            } else{
+                // play error sound
+                // sound from free version of http://www.sonniss.com/sound-effects/ui-soundpacks-sfx-library/, by Michael Theiler
+                AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+                clip.play();
+            }
             board.setCurrentMove(null);
         }
         square.getSquare().setSelected(false);
