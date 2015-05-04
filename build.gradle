@@ -35,11 +35,13 @@ task playerStartScript(type: CreateStartScripts) {
 }
 
 task(player, dependsOn: playerStartScript, type: JavaExec ) {
+    description 'Compiles and runs the Sixes Wild game.'
     main = 'application.PlayerLauncher'
     classpath = sourceSets.main.runtimeClasspath
 }
 
 task(builder, dependsOn: builderStartScript, type: JavaExec ) {
+    description 'Compiles and runs the level builder.'
     main = 'application.BuilderLauncher'
     classpath = sourceSets.main.runtimeClasspath
 }
