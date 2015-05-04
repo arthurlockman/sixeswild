@@ -128,6 +128,7 @@ public class ConnectTilesController extends MouseAdapter
         }
         square.getSquare().setSelected(false);
         board.deselectAll();
+        app.getPlayerPlayPanel().getBoard().refill();
         app.getPlayerPlayPanel().getBoardViewPanel().refresh();
         app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
         app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());

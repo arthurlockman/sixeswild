@@ -82,6 +82,7 @@ public class CompleteLevelController implements IActionListener
                 stars = 2;
             else if (b.getScore() >= 1)
                 stars = 1;
+            app.getPlayerPlayPanel().getBoardViewPanel().refresh();
             WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l),
                     l.getHighScore(), b.getScore(), stars, didWin, isNewHighScore);
             wl.setVisible(true);
