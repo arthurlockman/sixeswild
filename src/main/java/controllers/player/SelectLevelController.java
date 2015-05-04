@@ -6,7 +6,7 @@ import view.PlayerApplication;
  * SelectLevelController Class.
  * Manages the selecting of levels from the level select menu in Player.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class SelectLevelController
 {

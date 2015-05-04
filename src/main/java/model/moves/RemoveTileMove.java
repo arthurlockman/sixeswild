@@ -1,8 +1,8 @@
 package model.moves;
 
 import model.Board;
+import model.EliminationLevel;
 import model.Square;
-import model.Tile;
 
 import java.util.ArrayList;
 
@@ -56,6 +56,10 @@ public class RemoveTileMove implements IMove
         {
             s.removeTile();
             s.flipCleared();
+            if (board.getCurrentLevel() instanceof EliminationLevel)
+            {
+                s.setEliminated(true);
+            }
         }
         board.refill();
         return true;
@@ -67,6 +71,23 @@ public class RemoveTileMove implements IMove
      */
     public boolean isValid()
     {
+        //TODO: Test added validation code.
+        Square last = null;
+        for (Square s : squares)
+        {
+            if (last == null)
+            {
+                last = s;
+            }
+            else
+            {
+                if (!board.areNeighboring(last, s))
+                {
+                    return false;
+                }
+            }
+            last = s;
+        }
         int sum = 0;
         for (Square s : squares)
         {
@@ -76,11 +97,38 @@ public class RemoveTileMove implements IMove
     }
 
     /**
+     * Get the move score.
+     * @return The score.
+     * TODO: Add tests for this method.
+     */
+    @Override
+    public int getScore()
+    {
+        int multProduct = 1;
+        for (Square s: squares)
+        {
+            multProduct *= s.getTile().getMultiplier();
+        }
+        return (squares.size() * 10) * multProduct;
+    }
+
+    /**
      * Add a square to the move.
      * @param s The square to add.
      */
     public void addSquare(Square s)
     {
-        squares.add(s);
+        if (!squares.contains(s))
+            squares.add(s);
+    }
+
+    /**
+     * Get the last square added to the move.
+     * @return A square, the last added. Null if no squares.
+     */
+    public Square getLastAdded()
+    {
+        if (squares.size() == 0) return null;
+        else return squares.get(squares.size() - 1);
     }
 }

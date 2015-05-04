@@ -6,7 +6,7 @@ import java.io.File;
  * EliminationLevel Class.
  * Manages the contents and behavior of Elimination Levels.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class EliminationLevel extends Level
 {

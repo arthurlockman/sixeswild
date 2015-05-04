@@ -45,7 +45,21 @@ public class SaveLevelController extends MouseAdapter
     public void mouseClicked(MouseEvent me)
     {
         super.mouseClicked(me);
+        doAction();
+        JOptionPane.showMessageDialog(null, "Level saved successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
 
+    /**
+     * Complete the desired controller action.
+     */
+    public void doAction()
+    {
+        if (app.getBuilderEditorPanel().getBoardViewPanel().getBoard().willPopulate())
+        {
+            app.getBuilderEditorPanel().getBoardViewPanel().getBoard().setPopulate(false);
+            app.getBuilderEditorPanel().getBoardViewPanel().getBoard().resetBoard();
+            app.getBuilderEditorPanel().getBoardViewPanel().refresh();
+        }
         String levelType = app.getBuilderEditorPanel().getLevelTypeSelector().getSelectedItem().toString();
         int timeLimit = 0;
         if (!app.getBuilderEditorPanel().getTimeLimitSelector().getText().equals(""))
@@ -150,6 +164,5 @@ public class SaveLevelController extends MouseAdapter
         }
         game.reloadFromDisk();
         app.getBuilderLevelSelectPanel().updateLevelList(game);
-        JOptionPane.showMessageDialog(null, "Level saved successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }

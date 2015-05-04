@@ -7,13 +7,14 @@ import model.Board;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.HashMap;
 
 /**
  * BoardViewPanel Class.
  * Manages the contents and behavior of BoardViewPanel objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class BoardViewPanel
 {
@@ -239,6 +240,7 @@ public class BoardViewPanel
         {
             this.getSquareView(i).setSquare(board.getSquares()[i]);
         }
+        panel1.repaint();
     }
 
     /**

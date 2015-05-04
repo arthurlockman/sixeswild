@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="view.BuilderInstructionViewPanel">
+  <grid id="27dc6" binding="builderInstructionsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="8d1ef" binding="Panel" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-3167898"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="478ef" class="javax.swing.JButton" binding="backButton">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Back"/>
+            </properties>
+          </component>
+          <grid id="1a481" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <scrollpane id="72690">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="c4b5d" class="javax.swing.JLabel">
+                    <constraints/>
+                    <properties>
+                      <maximumSize width="360" height="450"/>
+                      <minimumSize width="360" height="450"/>
+                      <preferredSize width="360" height="450"/>
+                      <text value="&lt;html&gt;&lt;body style = 'width: 375px; padding: 10px;'&gt;Welcome to the Sixes Wild Builder!&lt;br&gt;&lt;br&gt;To create a new level, press the New Level button. To edit an existing level, click the Edit Level button. Both buttons will take you to the level editor. &lt;br&gt;&lt;br&gt;Once in the level editor, you will see a grid of 81 squares. These squares can be set as Active, Inactive, Bucket, or Six. Active squares can hold numbered tiles, whereas Inactive Squares cannot. Inactive squares typically serve as obstacles. The Bucket square and Six square options are only accessible when editing a Release level. Undo and redo buttons for square edits can be found in the top-right corner of the level editor window.&lt;br&gt;&lt;br&gt;You will also see a number of options under Settings. Here, you can change the level type, which will in turn allow you to set a time or move limit depending on which level type you selected. You can also set the scores necessary for achieving two-star and three-star victories when playing this level.&lt;br&gt;&lt;br&gt;To allow special moves for the level you are editing, simply check the Allow Special Moves box, located in the Settings section. And to set the frequency of numbered tiles and their multipliers, click on the Set Frequencies button. &lt;br&gt;&lt;br&gt;You may choose to save your changes or exit the level editor at any time. You may also preview the level you created by hitting the Preview button. Once you are done editing a level, just save and exit the Builder application and start the Sixes Wild Player.&lt;br&gt;&lt;br&gt;Have fun!&lt;/html&gt;"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+          <component id="3a9b6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Instructions"/>
+            </properties>
+          </component>
+          <hspacer id="d1549">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="26e6a">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

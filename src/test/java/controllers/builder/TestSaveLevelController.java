@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class TestSaveLevelController extends GUITestCase
@@ -50,7 +52,8 @@ public class TestSaveLevelController extends GUITestCase
 
         for (File f : listOfFiles)
         {
-            if (!f.getPath().contains("level1.txt") && !f.getPath().contains("level2.txt"))
+            if (!f.getPath().contains("level1.txt") && !f.getPath().contains("level2.txt") &&
+                    !f.getPath().contains("level3.txt"))
             {
                 try
                 {
@@ -96,7 +99,21 @@ public class TestSaveLevelController extends GUITestCase
             e.printStackTrace();
         }
         File[] listOfFiles = folder.listFiles();
-        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level3.txt"));
+
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch (NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
+        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level" +
+                listOfFiles.length  +".txt"));
 
         String content = null;
         Scanner scanner = null;
@@ -137,7 +154,21 @@ public class TestSaveLevelController extends GUITestCase
             e.printStackTrace();
         }
         File[] listOfFiles = folder.listFiles();
-        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level3.txt"));
+
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch (NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
+        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level" +
+                listOfFiles.length  +".txt"));
 
         String content = null;
         Scanner scanner = null;
@@ -178,7 +209,21 @@ public class TestSaveLevelController extends GUITestCase
             e.printStackTrace();
         }
         File[] listOfFiles = folder.listFiles();
-        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level3.txt"));
+
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch (NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
+        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level" +
+                listOfFiles.length  +".txt"));
 
         String content = null;
         Scanner scanner = null;
@@ -219,7 +264,21 @@ public class TestSaveLevelController extends GUITestCase
             e.printStackTrace();
         }
         File[] listOfFiles = folder.listFiles();
-        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level3.txt"));
+
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch (NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
+        assertTrue(listOfFiles[listOfFiles.length - 1].getPath().contains("level" +
+                listOfFiles.length  +".txt"));
 
         String content = null;
         Scanner scanner = null;
@@ -353,8 +412,20 @@ public class TestSaveLevelController extends GUITestCase
             e.printStackTrace();
         }
         File[] listOfFiles = folder.listFiles();
-        assertTrue(listOfFiles[0].getPath().contains("level1.txt"));
 
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                try {
+                    int i1 = Integer.parseInt(f1.getName().replace("level", "").replace(".txt", ""));
+                    int i2 = Integer.parseInt(f2.getName().replace("level", "").replace(".txt", ""));
+                    return i1 - i2;
+                } catch (NumberFormatException e) {
+                    throw new AssertionError(e);
+                }
+            }
+        });
+
+        assertTrue(listOfFiles[0].getPath().contains("level1.txt"));
         String content = null;
         Scanner scanner = null;
         try

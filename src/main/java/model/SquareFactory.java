@@ -4,7 +4,7 @@ package model;
  * SquareFactory Class.
  * Jesse, please write the description since you know way more about this Class than I do.
  *
- * @authors Jesse Marciano, ...
+ * @author Jesse Marciano, ...
  */
 public class SquareFactory {
 

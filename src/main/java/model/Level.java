@@ -1,12 +1,13 @@
 package model;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Level Class.
  * Manages the contents and behavior of the Sixes Wild Level objects.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class Level
 {
@@ -192,5 +193,49 @@ public class Level
                 this.twoStarScore, this.threeStarScore, this.levelData,
                 this.locked, this.specialMovesAllowed, this.diskLocation);
         return l;
+    }
+
+    /**
+     * Sets the locked/unlocked state of a level and saves it to disk.
+     * @param lock True for locked, false for unlocked.
+     */
+    public void setLocked(boolean lock)
+    {
+        if (this.locked)
+        {
+            this.locked = lock;
+            String lockStatus = (lock) ? "0" : "1";
+            String[] levData = levelData.split(" ");
+            levData[17] = lockStatus;
+            this.levelData = "";
+            for (String s : levData)
+            {
+                this.levelData += s;
+                this.levelData += " ";
+            }
+            this.saveLevel();
+        }
+    }
+
+    /**
+     * Set the high score for the level and save it to disk.
+     * @param score The high score to set. If the score is not higher
+     *              than the stored high score, it will not be saved.
+     */
+    public void setHighScore(int score)
+    {
+        if (score > this.getHighScore())
+        {
+            this.highScore = score;
+            String[] levData = levelData.split(" ");
+            levData[16] = "" + highScore;
+            this.levelData = "";
+            for (String s : levData)
+            {
+                this.levelData += s;
+                this.levelData += " ";
+            }
+            this.saveLevel();
+        }
     }
 }

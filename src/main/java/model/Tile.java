@@ -4,7 +4,7 @@ package model;
  * Tile Class.
  * Governs the contents and behavior of Tile objects in Sixes Wild.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author ..., Bryce Kaw-uh
  */
 public class Tile
 {

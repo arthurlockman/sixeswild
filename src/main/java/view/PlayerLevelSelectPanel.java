@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  * PlayerLevelSelectPanel Class.
  * Manages the contents and behavior of PlayerLevelSelectPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class PlayerLevelSelectPanel
 {
@@ -51,35 +51,11 @@ public class PlayerLevelSelectPanel
         levelList.setModel(levelListModel);
         levelList.setCellRenderer(new PlayerLevelCellRenderer());
         levelList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
-        /** Adds a mouse listener */
-        playButton.addMouseListener(new MouseAdapter()
-        {
-            @Override
-            public void mouseClicked(MouseEvent e)
-            {
-                super.mouseClicked(e);
-                if (!((Level) levelList.getSelectedValue()).isLocked())
-                {
-                    //Change card to level viewer, set current level of player to
-                    //retrieved level.
-                    JPanel parent = (JPanel) playerLevelSelectPanel.getParent();
-                    CardLayout layout = (CardLayout) parent.getLayout();
-                    layout.show(parent, "playPanel");
-                    JFrame topLevelFrame = (JFrame) SwingUtilities.getAncestorOfClass(JFrame.class, playerLevelSelectPanel);
-                    topLevelFrame.setSize(new Dimension(700, 625));
-                    topLevelFrame.setLocationRelativeTo(null);
-                } else
-                {
-                    JOptionPane.showMessageDialog(null, "Sorry, you'll have to unlock that level " +
-                            "before you can play it. Keep trying!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }
-        });
     }
 
     /**
      * Updates the Level List
+     *
      * @param g: the Game
      */
     public void updateLevelList(Game g)
@@ -93,10 +69,47 @@ public class PlayerLevelSelectPanel
         levelList.setSelectedIndex(0);
     }
 
-    /** Returns the Play Button */
+    /**
+     * Returns the Play Button
+     */
     public JButton getPlayButton()
     {
         return playButton;
+    }
+
+    public JPanel getPlayerLevelSelectPanel()
+    {
+        return playerLevelSelectPanel;
+    }
+
+    public JButton getBackButton()
+    {
+        return backButton;
+    }
+
+    public JLabel getTitleLabel()
+    {
+        return titleLabel;
+    }
+
+    public JPanel getMenuBarPanel()
+    {
+        return menuBarPanel;
+    }
+
+    public JScrollPane getLevelListScrollPane()
+    {
+        return levelListScrollPane;
+    }
+
+    public JList getLevelList()
+    {
+        return levelList;
+    }
+
+    public DefaultListModel<Level> getLevelListModel()
+    {
+        return levelListModel;
     }
 
     /**
@@ -134,6 +147,7 @@ public class PlayerLevelSelectPanel
         menuBarPanel.add(panel2, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         playButton = new JButton();
         playButton.setHorizontalTextPosition(2);
+        playButton.setName("playButton");
         playButton.setText("Play");
         panel2.add(playButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         levelListScrollPane = new JScrollPane();
@@ -141,6 +155,7 @@ public class PlayerLevelSelectPanel
         levelList = new JList();
         final DefaultListModel defaultListModel1 = new DefaultListModel();
         levelList.setModel(defaultListModel1);
+        levelList.setName("levelList");
         levelListScrollPane.setViewportView(levelList);
     }
 

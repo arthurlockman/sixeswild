@@ -45,7 +45,7 @@
               <horizontalTextPosition value="0"/>
               <maximumSize width="500" height="160"/>
               <minimumSize width="50" height="160"/>
-              <text value="&lt;html&gt;&lt;center&gt;&lt;h1&gt;Sixes Wild&lt;/h1&gt;&#10;&lt;br&gt;&#10;Concept by George Heineman&#10;&lt;br&gt;&lt;br&gt;&#10;&lt;strong&gt;Implementation Team&lt;/strong&gt;&lt;br&gt;&#10;Arthur Lockman&lt;br&gt;&#10;Bryce Kaw-uh&lt;br&gt;&#10;Jesse Marciano&lt;br&gt;&#10;Brendan Casey&lt;br&gt;&#10;David Laovoravit&lt;br&gt;&lt;center&gt;&#10;&lt;/html&gt;"/>
+              <text value="&lt;html&gt;&lt;center&gt;&lt;h1&gt;Sixes Wild&lt;/h1&gt;&#10;&lt;br&gt;&#10;Concept by George Heineman&#10;&lt;br&gt;&lt;br&gt;&#10;&lt;strong&gt;Implementation Team&lt;/strong&gt;&lt;br&gt;&#10;Arthur Lockman&lt;br&gt;&#10;Bryce Kaw-uh&lt;br&gt;&#10;Yigit Uyan&lt;br&gt;&#10;Jesse Marciano&lt;br&gt;&#10;Brendan Casey&lt;br&gt;&#10;David Laovoravit&lt;br&gt;&lt;center&gt;&#10;&lt;/html&gt;"/>
               <verticalAlignment value="0"/>
             </properties>
           </component>

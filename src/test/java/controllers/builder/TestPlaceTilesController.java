@@ -2,6 +2,7 @@ package controllers.builder;
 
 import application.BuilderLauncher;
 import lib.GUITestCase;
+import view.SquareViewPanel;
 
 import java.awt.*;
 
@@ -48,7 +49,7 @@ public class TestPlaceTilesController extends GUITestCase
             window.panel("square" + i).click();
             assertEquals("Bckt", window.label("square" + i + "numberlabel").text());
             assertEquals(" ", window.label("square" + i + "multiplierlabel").text());
-            assertEquals(new Color(227, 242, 209), window.panel("square" + i).component().getBackground());
+            assertEquals(SquareViewPanel.SQUARE_BKT_COLOR, window.panel("square" + i).component().getBackground());
         }
     }
 
@@ -61,7 +62,7 @@ public class TestPlaceTilesController extends GUITestCase
             window.panel("square" + i).click();
             assertEquals(" ", window.label("square" + i + "numberlabel").text());
             assertEquals(" ", window.label("square" + i + "multiplierlabel").text());
-            assertEquals(new Color(187, 242, 226), window.panel("square" + i).component().getBackground());
+            assertEquals(SquareViewPanel.SQUARE_ACTIVE_COLOR, window.panel("square" + i).component().getBackground());
         }
     }
 
@@ -74,7 +75,7 @@ public class TestPlaceTilesController extends GUITestCase
             window.panel("square" + i).click();
             assertEquals(" ", window.label("square" + i + "numberlabel").text());
             assertEquals(" ", window.label("square" + i + "multiplierlabel").text());
-            assertEquals(new Color(200, 200, 200), window.panel("square" + i).component().getBackground());
+            assertEquals(SquareViewPanel.SQUARE_INACTIVE_COLOR, window.panel("square" + i).component().getBackground());
         }
     }
 }

@@ -1,9 +1,14 @@
 package view;
 
+import controllers.player.ResetBadgesController;
+import controllers.player.ReturnToLevelSelectController;
+import controllers.player.StartGameController;
 import controllers.player.EarnBadgeController;
 import model.Game;
 
 import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -12,10 +17,9 @@ import java.awt.event.WindowListener;
  * PlayerApplication Class.
  * Manages the contents and behavior of the PlayerApplication.
  *
- * @authors ...
+ * @author arthurlockman
  */
-public class PlayerApplication extends JFrame
-{
+public class PlayerApplication extends JFrame {
     private JPanel playerApplication;
     private SplashScreen splashScreen;
     private PlayerMenuPanel menuPanel;
@@ -24,16 +28,26 @@ public class PlayerApplication extends JFrame
     private BadgesViewPanel badgesViewPanel;
     private InstructionViewPanel instructionViewPanel;
     private Game game;
+    private AudioClip[] clips = new AudioClip[6];
 
     // Since this is a standalone Controller, the app has a special reference.
     private EarnBadgeController badgeController;
+    private ResetBadgesController resetController;
 
     /**
      * PlayerApplication Constructor.
      */
-    public PlayerApplication()
-    {
+    public PlayerApplication() {
         super("Sixes Wild");
+
+        clips[0] = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
+        clips[1] = Applet.newAudioClip(getClass().getResource("/sounds/error.wav"));
+        clips[2] = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
+        clips[3] = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+        clips[4] = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
+        clips[5] = Applet.newAudioClip(getClass().getResource("/sounds/remove.wav"));
+
+
         setContentPane(playerApplication);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ((CardLayout) playerApplication.getLayout()).show(playerApplication, "splash");
@@ -43,15 +57,18 @@ public class PlayerApplication extends JFrame
         this.setTitle("Sixes Wild");
         this.game = new Game();
         badgeController = new EarnBadgeController(this);
-//        this.playerPlayPanel.setBoard(this.game.getBoard());
 
         /** Adds a window listener */
-        this.addWindowListener(new WindowListener()
-        {
+        this.addWindowListener(new WindowListener() {
             //Add controllers once window is initialized.
             @Override
             public void windowOpened(WindowEvent e) {
                 playerLevelSelectPanel.updateLevelList(game);
+                playerLevelSelectPanel.getPlayButton().addMouseListener(new
+                        StartGameController((PlayerApplication) e.getWindow()));
+                playerPlayPanel.getQuitButton().addMouseListener(new
+                        ReturnToLevelSelectController((PlayerApplication) e.getWindow()));
+                badgesViewPanel.setListModel(game);
             }
 
             @Override
@@ -92,8 +109,68 @@ public class PlayerApplication extends JFrame
         return badgeController;
     }
 
+    public ResetBadgesController getResetController()
+    {
+        return resetController;
+    }
+
+    public JPanel getPlayerApplication() {
+        return playerApplication;
+    }
+
+    public SplashScreen getSplashScreen() {
+        return splashScreen;
+    }
+
+    public PlayerMenuPanel getMenuPanel() {
+        return menuPanel;
+    }
+
+    public PlayerLevelSelectPanel getPlayerLevelSelectPanel() {
+        return playerLevelSelectPanel;
+    }
+
+    public PlayerPlayPanel getPlayerPlayPanel() {
+        return playerPlayPanel;
+    }
+
     public Game getGame() {
         return game;
+    }
+
+    public BadgesViewPanel getBadgeViewPanel() {
+        return badgesViewPanel;
+    }
+
+    public void playSound(int soundNum) {
+        switch (soundNum) {
+            case 0:
+                clips[0].play();
+                break;
+
+            case 1:
+                clips[1].play();
+                break;
+
+            case 2:
+                clips[2].play();
+                break;
+
+            case 3:
+                clips[3].play();
+                break;
+
+            case 4:
+                clips[4].play();
+                break;
+
+            case 5:
+                clips[5].play();
+                break;
+
+            default:
+                break;
+        }
     }
 
     {

@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  * BuilderMenuPanel Class.
  * Manages the contents and behavior of BuilderMenuPanels.
  *
- * @authors ...
+ * @author ...
  */
 public class BuilderMenuPanel {
     private JPanel builderMenuPanel;
@@ -76,6 +76,15 @@ public class BuilderMenuPanel {
                 topLevelFrame.setLocationRelativeTo(null);
                 topLevelFrame.getBuilderEditorPanel().createNewLevel();
                 layout.show(parent, "editPanel");
+            }
+        });
+        instructionsButton.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                JPanel parent = (JPanel) builderMenuPanel.getParent();
+                CardLayout layout = (CardLayout) parent.getLayout();
+                BuilderApplication topLevelFrame = (BuilderApplication) SwingUtilities.getAncestorOfClass(BuilderApplication.class, builderMenuPanel);
+                layout.show(parent, "builderInstructionPanel");
             }
         });
     }
