@@ -11,6 +11,7 @@ import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.net.MalformedURLException;
 
 /**
  *  CompleteLevelController Class.
@@ -42,22 +43,31 @@ public class CompleteLevelController implements IActionListener
         Level l = app.getPlayerPlayPanel().getBoard().getCurrentLevel();
         Board b = app.getPlayerPlayPanel().getBoardViewPanel().getBoard();
 
-        boolean didWin = !(b.getScore() >= 1);
+        boolean didWin = (b.getScore() >= 1);
         boolean isNewHighScore = (b.getScore() > app.getPlayerPlayPanel().getBoard().getCurrentLevel().getHighScore());
-        app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
+        app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(!didWin);
         app.getPlayerPlayPanel().getBoard().getCurrentLevel().setHighScore(b.getScore());
 
 
         if(didWin){
             // play victory sound
             // sound from free version of http://www.sonniss.com/sound-effects/laughs-sound-effects/, by Sound Ex Machina
+            System.out.println("win");
             AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/victory.wav"));
             clip.play();
         } else{
+            System.out.println("lose");
+
             // play failure sound
             // sound from free version of http://www.sonniss.com/sound-effects/crowd-laughter-sound-effects/, by Timothy McHugh
-            AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
-            clip.play();
+         //   AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/failure.wav"));
+           try {
+               AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
+
+               clip.play();
+           } catch (Exception murle) {
+               System.out.println(murle);
+           }
         }
 
         int stars = 0;
@@ -68,7 +78,7 @@ public class CompleteLevelController implements IActionListener
         else if (b.getScore() >= 1)
             stars = 1;
         WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l),
-                l.getHighScore(), b.getScore(), stars, !didWin, isNewHighScore);
+                l.getHighScore(), b.getScore(), stars, didWin, isNewHighScore);
         wl.setVisible(true);
         int response = wl.getResponse();
         if (response == 0)
@@ -79,7 +89,7 @@ public class CompleteLevelController implements IActionListener
         }
         else if (response == 1)
         {
-            if (!didWin)
+            if (didWin)
             {
                 app.getPlayerLevelSelectPanel().getLevelList().setSelectedIndex(app.getGame().getLevels().indexOf(l) + 1);
             } else {

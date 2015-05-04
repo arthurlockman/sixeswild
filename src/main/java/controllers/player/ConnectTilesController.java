@@ -107,6 +107,17 @@ public class ConnectTilesController extends MouseAdapter
         if (board.getCurrentMove() != null)
         {
             if(board.makeMove(board.getCurrentMove())){
+                if(board.getCurrentMove() instanceof RemoveSpecialMove){
+                    // play remove sound
+                    // sound from free version of http://www.sonniss.com/sound-effects/hits-and-whoosh/, by Mechanical Wave
+                    AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/remove.wav"));
+                    clip.play();
+                } else if(board.getCurrentMove() instanceof SwapSpecialMove){
+                    // play swap sound
+                    // sound from free version of http://www.sonniss.com/sound-effects/spaceship-interface-sound-pack-01/, by Debsound
+                    AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/swap.wav"));
+                    clip.play();
+                }
                 // play success sound
                 // sound made by Jesse Marciano
                 AudioClip clip = Applet.newAudioClip(getClass().getResource("/sounds/success.wav"));
