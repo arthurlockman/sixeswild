@@ -80,7 +80,7 @@ public class Game
     /**
      * Replaces a Level.
      * @param l:  Level to replace.
-     * @param index: ?
+     * @param index: location of the level in the storage file
      */
     public boolean replaceLevel(Level l, int index)
     {
@@ -275,6 +275,9 @@ public class Game
         board = b;
     }
 
+    /**
+     * Loads up the badges from disk
+     */
     public void readBadges()
     {
         int i = 1;
@@ -309,6 +312,10 @@ public class Game
         }
     }
 
+    /**
+     *  Converts the loaded badge data from String to Badges
+     * @param data : loaded badge data in String form
+     */
     public void loadBadges(String data)
     {
         String bData = data;
@@ -334,6 +341,10 @@ public class Game
         i = 0;
     }
 
+    /**
+     *  Saves badges to disk
+     *  prints if it was or was not successful
+     */
     public void saveBadges()
     {
         String data = new String();
@@ -400,6 +411,9 @@ public class Game
             System.out.println("~ Complete. ");
     }
 
+    /**
+     *  Resets the earned boolean of badges to false
+     */
     public void resetBadges()
     {
         for(Badge b : badges)

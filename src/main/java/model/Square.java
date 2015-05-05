@@ -41,10 +41,17 @@ public class Square
 
     }
 
+    /**
+     *  Set tile for the Square
+     * @param t tile
+     */
     public void setTile(Tile t){
         this.tile = t;
     }
 
+    /**
+     * Set if the Square is a bucket
+     */
     public void setBucket()
     {
         isBucket = true;
@@ -121,16 +128,19 @@ public class Square
         return isBucket;
     }
 
+    /**
+     * Returns that the Square is cleared
+     * @return is cleared
+     */
     public boolean isCleared(){
         return cleared;
     }
 
+    /**
+     * swaps the state of the cleared indicator
+     */
     public void flipCleared(){
-        if(cleared){
-            cleared = false;
-        } else{
-            cleared = true;
-        }
+        cleared = !cleared;
     }
 
     /**
@@ -175,10 +185,18 @@ public class Square
             return false;
     }
 
+    /**
+     * Return if the Square is selected or not
+     * @return Square selected
+     */
     public boolean isSelected() {
         return isSelected;
     }
 
+    /**
+     * Set the Square selected indicator
+     * @param isSelected Square selected
+     */
     public void setSelected(boolean isSelected) {
         this.isSelected = isSelected;
     }

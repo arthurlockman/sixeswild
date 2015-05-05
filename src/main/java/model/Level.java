@@ -32,15 +32,15 @@ public class Level
 
     /**
      * Level Constructor.
-     * @param name
-     * @param number
-     * @param highScore
-     * @param twoStarScore
-     * @param threeStarScore
-     * @param levelData
-     * @param locked
-     * @param specialMovesAllowed
-     * @param diskLocation
+     * @param name  name of the level
+     * @param number  level number
+     * @param highScore current highest score achieved
+     * @param twoStarScore  score requirement for two stars
+     * @param threeStarScore  score requirement for three stars
+     * @param levelData String representation of the level
+     * @param locked whether or not the level is locked
+     * @param specialMovesAllowed whether or not special moves are allowed
+     * @param diskLocation  where on the disk that the data is stored
      */
     public Level(String name, int number,
                  int highScore, int twoStarScore, int threeStarScore, String levelData,
@@ -74,46 +74,87 @@ public class Level
         this.specialMovesAllowed = l.isSpecialMovesAllowed();
     }
 
+    /**
+     * Gets the level number from the level
+     * @return level number
+     */
     public int getLevelNumber() {
         return levelNumber;
     }
 
+    /**
+     * sets the level number
+     * @param levelNumber where the level will appear
+     */
     public void setLevelNumber(int levelNumber) {
         this.levelNumber = levelNumber;
     }
 
+    /**
+     * Gets the score requirement for two stars
+     * @return the score for two stars
+     */
     public int getTwoStarScore() {
         return twoStarScore;
     }
 
+    /**
+     * Sets the score requirement for two stars
+     * @param twoStarScore score for two stars
+     */
     public void setTwoStarScore(int twoStarScore) {
         this.twoStarScore = twoStarScore;
     }
-
+    /**
+     * Gets the score requirement for three stars
+     * @return score for three stars
+     */
     public int getThreeStarScore() {
         return threeStarScore;
     }
-
+    /**
+     * Sets the score requirement for three stars
+     * @param threeStarScore score for three stars
+     */
     public void setThreeStarScore(int threeStarScore) {
         this.threeStarScore = threeStarScore;
     }
 
+    /**
+     * Returns the file location of the level
+     * @return the file
+     */
     public File getDiskLocation() {
         return diskLocation;
     }
-
+    /**
+     * Sets the file location of the level
+     * @return the file
+     */
     public void setDiskLocation(File diskLocation) {
         this.diskLocation = diskLocation;
     }
 
+    /**
+     * Returns are special moves allowed
+     * @return Are special moves allowed
+     */
     public boolean isSpecialMovesAllowed() {
         return specialMovesAllowed;
     }
 
+    /**
+     * Sets if special moves are allowed
+     * @param specialMovesAllowed boolean
+     */
     public void setSpecialMovesAllowed(boolean specialMovesAllowed) {
         this.specialMovesAllowed = specialMovesAllowed;
     }
 
+    /**
+     * Returns the name of the Level
+     * @return name of the Level
+     */
     public String getName()
     {
         return name;
