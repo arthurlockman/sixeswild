@@ -2,7 +2,9 @@ package model;
 
 /**
  *  Badge Class.
- *  Governs the contents and behavior of the Sixes Wild Badge objects.
+ *  Governs the contents and behavior of the Sixes Wild Badge objects,
+ *  which are used to help the user celebrate and mark their progress
+ *  through the Sixes Wild app.
  *
  *  @author ..., Bryce Kaw-uh
  */
@@ -47,6 +49,8 @@ public class Badge
 
     /**
      * Sets the required score for the desired level in order to achieve this badge
+     * @param level: the desired level
+     * @param score: the required score for the level
      */
     public void setBadgeScoreRequirement(int level, int score)
     {
@@ -69,13 +73,19 @@ public class Badge
         }
     }
 
-    /** Returns true if the Badge has been unlocked. */
+    /**
+     * Returns whether the Badge has been unlocked.
+     * @return true if the badge has been unlocked, false otherwise
+     */
     public boolean isEarned()
     {
         return earned;
     }
 
-    /** Returns the name of the Badge object. */
+    /**
+     * Returns the name of the Badge object.
+     * @return the name of the Badge object.
+     */
     public String getName()
     {
         return name;
@@ -83,6 +93,7 @@ public class Badge
 
     /**
      * Returns the description of the Badge.
+     * @return the description of the Badge
      */
     public String getDescription()
     {
@@ -90,7 +101,8 @@ public class Badge
     }
 
     /**
-     * Returns type as a String
+     * Returns the badge type as a String
+     * @return the badge type as String
      */
     public String getType()
     {

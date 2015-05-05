@@ -23,7 +23,8 @@ public class BadgeScoreRequirement extends BadgeRequirement
 
     @Override
     /**
-     * Returns if the badge requirement has been achieved
+     * Returns whether the badge requirement has been achieved
+     * @return true if the badge requirement has been achieved, false otherwise
      */
     public boolean isMet(Game game) {
         System.out.println("++ Checking: " + game.getBoard().level.getLevelNumber() + " - " + levelNumber + " ; " + game.getBoard().score + " - " + score);

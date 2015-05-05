@@ -20,7 +20,7 @@ public class BadgeRequirement
 
     /**
      * Default requirement for a badge is met
-     * @return true
+     * @return true as default
      */
     public boolean isMet(Game game)
     {

@@ -22,7 +22,10 @@ public class BadgeRequirements
         this.score = score;
     }
 
-    /** Returns true if the Badge has been earned */
+    /**
+     * Returns true if the Badge has been earned
+     * @return false as default
+     */
     boolean checkEarned()
     {
 

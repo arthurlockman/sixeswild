@@ -5,6 +5,7 @@ import view.PlayerApplication;
 /**
  *  BadgeSeenRequirement Class.
  *  Manages the requirements for visibility of Badge
+ *
  *  @authors ...,
  */
 public class BadgeSeenRequirement extends BadgeRequirement
