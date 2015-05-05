@@ -10,7 +10,10 @@ import java.util.Stack;
 
 /**
  *  Board Class.
- *  Manages the contents and behavior of Sixes Wild Board objects.
+ *  Manages the contents and behavior of Sixes Wild Board objects,
+ *  which are used in the Builder and Player to hold Squares in a
+ *  nine by nine grid. The board also keeps track of the moves made,
+ *  so that undo and redo capabilities are available.
  *
  *  @author arthurlockman, Bryce Kaw-uh
  */
@@ -141,7 +144,6 @@ public class Board
 
     /**
      * Preview a board in the builder.
-     * TODO: Test this method
      */
     public void preview()
     {
@@ -269,7 +271,10 @@ public class Board
 
     }
 
-    /** Returns an array of the Board's Squares */
+    /**
+     * Returns an array of the Board's Squares
+     * @return the board's squares
+     * */
     public Square[] getSquares()
     {
         return squares;
@@ -293,13 +298,19 @@ public class Board
         return diff <= 1 || diff == 9;
     }
 
-    /** Returns the Board's SquareFactory */
+    /**
+     * Returns the Board's SquareFactory
+     * @return the Board's SquareFactory
+     * */
     public SquareFactory getFactory()
     {
         return factory;
     }
 
-    /** Returns a String representation of the Board */
+    /**
+     * Returns a String representation of the Board
+     * @return the String represenatation of the Board
+     */
     public String toString() {
         String result = "";
 
@@ -311,37 +322,58 @@ public class Board
         return result;
     }
 
-    /** Returns the time limit */
+    /**
+     * Returns the time limit
+     * @return the time limit
+     */
     public int getTimeLimit() {
         return timeLimit;
     }
 
-    /** Returns the number of moves allowed */
+    /**
+     * Returns the number of moves allowed
+     * @return the number of moves allowed
+     */
     public int getMovesAllowed() {
         return movesAllowed;
     }
 
-    /** Returns the count of moves */
+    /**
+     * Returns the count of moves
+     * @return the count of moves
+     */
     public int getMoveCount() {
         return moveCount;
     }
 
-    /** Returns true if special moves are allowed */
+    /**
+     * Returns whether special moves are allowed
+     * @return true if special moves are allowed, false otherwise
+     */
     public boolean isSpecialMovesAllowed() {
         return specialMovesAllowed;
     }
 
-    /** Returns the score necessary for three stars */
+    /**
+     * Returns the score necessary for three stars
+     * @return threeStarScore
+     */
     public int getThreeStarScore() {
         return threeStarScore;
     }
 
-    /** Returns the score necessary for two stars */
+    /**
+     * Returns the score necessary for two stars
+     * @return twoStarScore
+     */
     public int getTwoStarScore() {
         return twoStarScore;
     }
 
-    /** Returns the Board data in the form of a String */
+    /**
+     * Returns the Board data in the form of a String
+     * @return the Board data
+     */
     public String getBoardData()
     {
         String dat = "";
@@ -373,13 +405,19 @@ public class Board
         return dat;
     }
 
-    /** Sets the Board Square Factory */
+    /**
+     * Sets the Board Square Factory
+     * @param f:  the Square Factory to set the Board's Square Factory as
+     */
     public void setSquareFactory(SquareFactory f)
     {
         this.factory = f;
     }
 
-    /** Sets the Board Level */
+    /**
+     * Sets the Board Level
+     * @param l:  the level to set the Board Level as
+     */
     public void setLevel(Level l)
     {
         level = l;
@@ -529,14 +567,26 @@ public class Board
         this.actionListeners.clear();
     }
 
+    /**
+     * Returns the number of remove moves available
+     * @return the number of remove moves available
+     */
     public int getNumRemoveMoves() {
         return numRemoveMoves;
     }
 
+    /**
+     * Returns the number of swap moves available
+     * @return the number of swap moves available
+     */
     public int getNumSwapMoves() {
         return numSwapMoves;
     }
 
+    /**
+     * Returns the number of reset moves available
+     * @return the number of reset moves available
+     */
     public int getNumResetMoves() {
         return numResetMoves;
     }
@@ -544,7 +594,7 @@ public class Board
     /**
      * Determines if there are enough special moves left of the current
      * special move type.
-     * @return True if there are enough of the proper type.
+     * @return True if there are enough of the proper type, false otherwise
      */
     public boolean enoughSpecialRemaining()
     {
