@@ -159,91 +159,163 @@ public class PlayerPlayPanel
     }
 
 
+    /**
+     * Returns the menuBarPanel
+     * @return the menuBarPanel
+     */
     public JPanel getMenuBarPanel()
     {
         return menuBarPanel;
     }
 
+    /**
+     * Returns the quitButton
+     * @return the quitButton
+     */
     public JButton getQuitButton()
     {
         return quitButton;
     }
 
+    /**
+     * Returns the playContentPanel
+     * @return the playContentPanel
+     */
     public JPanel getPlayContentPanel()
     {
         return playContentPanel;
     }
 
+    /**
+     * Returns the playSidebarPanel
+     * @return the playSidebarPanel
+     */
     public JPanel getPlaySidebarPanel()
     {
         return playSidebarPanel;
     }
 
+    /**
+     * Returns the boardPanel
+     * @return the boardPanel
+     */
     public JPanel getBoardPanel()
     {
         return boardPanel;
     }
 
+    /**
+     * Returns the boardViewPanel
+     * @return the boardViewPanel
+     */
     public BoardViewPanel getBoardViewPanel()
     {
         return boardViewPanel;
     }
 
+    /**
+     * Returns the reset1Button
+     * @return the reset1Button
+     */
     public JButton getReset1Button()
     {
         return reset1Button;
     }
 
+    /**
+     * Returns the remove1Button
+     * @return the remove1Button
+     */
     public JButton getRemove1Button()
     {
         return remove1Button;
     }
 
+    /**
+     * Returns the swap2Button
+     * @return the swap2Button
+     */
     public JButton getSwap2Button()
     {
         return swap2Button;
     }
 
+    /**
+     * Returns the scoreBar
+     * @return the scoreBar
+     */
     public JProgressBar getScoreBar()
     {
         return scoreBar;
     }
 
+    /**
+     * Returns the threeStarsLabel
+     * @return the threeStarsLabel
+     */
     public JLabel getThreeStarsLabel()
     {
         return threeStarsLabel;
     }
 
+    /**
+     * Returns the twoStarsLabel
+     * @return twoStarsLabel
+     */
     public JLabel getTwoStarsLabel()
     {
         return twoStarsLabel;
     }
 
+    /**
+     * Returns the oneStarLabel
+     * @return oneStarLabel
+     */
     public JLabel getOneStarLabel()
     {
         return oneStarLabel;
     }
 
+    /**
+     * Returns the playPanel
+     * @return the playPanel
+     */
     public JPanel getPlayPanel()
     {
         return playPanel;
     }
 
+    /**
+     * Returns the scoreLabel
+     * @return the scoreLabel
+     */
     public JLabel getScoreLabel()
     {
         return scoreLabel;
     }
 
+    /**
+     * Returns the titleLabel
+     * @return the titleLabel
+     */
     public JLabel getTitleLabel()
     {
         return titleLabel;
     }
 
+    /**
+     * Returns the board
+     * @return the board
+     */
     public Board getBoard()
     {
         return board;
     }
 
+    /**
+     * Returns the movesLabel
+     * @return the movesLabel
+     */
     public JLabel getMovesLabel()
     {
         return movesLabel;
@@ -254,6 +326,10 @@ public class PlayerPlayPanel
         this.movesLabel = movesLabel;
     }
 
+    /**
+     * Returns the timerViewPanel
+     * @return the timerViewPanel
+     */
     public TimerPanel getTimerViewPanel()
     {
         return timerViewPanel;

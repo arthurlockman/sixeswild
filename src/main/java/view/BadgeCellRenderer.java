@@ -6,8 +6,23 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * BadgeCellRenderer Class.
+ * Responsible for rendering the badge cells.
+ *
+ * @authors ..., Bryce Kaw-uh
+ */
 public class BadgeCellRenderer extends JLabel implements ListCellRenderer<Badge>
 {
+    /**
+     * getListCellRendererComponent Constructor.
+     * @param list
+     * @param value
+     * @param index
+     * @param isSelected
+     * @param cellHasFocus
+     * @return the Component
+     */
     @Override
     public Component getListCellRendererComponent(JList<? extends Badge> list, Badge value,
                                                   int index, boolean isSelected, boolean cellHasFocus) {

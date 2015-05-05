@@ -162,6 +162,7 @@ public class SquareViewPanel
 
     /**
      * Attaches a Mouse Adapter
+     * @param ma: the MouseAdapter to attach
      */
     public void attachMouseAdapter(MouseAdapter ma)
     {
