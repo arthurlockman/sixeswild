@@ -29,7 +29,16 @@ public class WinLevelPanel extends JDialog {
     private boolean pass;
     private int response;
 
-    /** WinLevelPanel Constructor. */
+    /**
+     * WinLevelPanel Constructor
+     *
+     * @param name
+     * @param highScore
+     * @param score
+     * @param stars
+     * @param pass
+     * @param isNewHigh
+     */
     public WinLevelPanel(String name, int highScore, int score, int stars, boolean pass, boolean isNewHigh) {
         this.name = name;
         this.highScore = highScore;
@@ -100,21 +109,24 @@ public class WinLevelPanel extends JDialog {
         this.repaint();
     }
 
-    /** If on OK */
+    /** Sets response as 1 if on OK */
     private void onOK() {
 // add your code here
         response = 1;
         dispose();
     }
 
-    /** If on Cancel */
+    /** Sets response as 0 if on Cancel */
     private void onCancel() {
 // add your code here if necessary
         response = 0;
         dispose();
     }
 
-    /** Returns the response */
+    /**
+     * Returns the response.
+     * @return response
+     */
     public int getResponse() {
         return response;
     }

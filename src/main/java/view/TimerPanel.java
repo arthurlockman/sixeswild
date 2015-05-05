@@ -8,7 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * TimerPanel Class.
+ * The Boundary for our timer.
+ * Responsible for displaying the timer.
+ *
  * Created by jamarciano on 4/29/15.
+ * Comments edited by bckawuh
  */
 public class TimerPanel
 {
@@ -23,7 +28,7 @@ public class TimerPanel
 
     /** Sets the timer's to the given time
      *
-     * @param time:  the time to set the time
+     * @param time:  the given time
      */
     public void setTime(int time)
     {

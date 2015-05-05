@@ -12,7 +12,9 @@ import java.util.HashMap;
 
 /**
  * BoardViewPanel Class.
- * Manages the contents and behavior of BoardViewPanel objects.
+ * Manages the contents and behavior of the BoardViewPanel, which is
+ * used in both the Builder and Player applications. Contains a nine
+ * by nine grid of 81 squares.
  *
  * @author ..., Bryce Kaw-uh
  */

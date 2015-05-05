@@ -4,7 +4,8 @@ import java.io.File;
 
 /**
  * LightningLevel Class.
- * Manages the contents and behavior of Lightning Levels.
+ * Manages the contents and behavior of Lightning Levels, which are levels
+ * where the minimum score must be achieved within a specified amount of time.
  *
  * @author ..., Bryce Kaw-uh
  */
@@ -44,11 +45,15 @@ public class LightningLevel extends Level
     }
 
     @Override
-    /** Returns the level Type */
+    /**
+     * Returns the Level type
+     * @return the Level type
+     */
     public String getType()
     {
         return "Lightning";
     }
+
     /** Returns the level time limit */
     public int getTimeLimit()
     {
@@ -62,7 +67,10 @@ public class LightningLevel extends Level
     }
 
     @Override
-    /** Returns the level metadata in the form of a String */
+    /**
+     * Returns the level metadata in the form of a String
+     * @return the level metadata
+     */
     public String getLevelMetadata()
     {
         String dat = "";

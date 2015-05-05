@@ -7,7 +7,7 @@ import model.Square;
  * A special move used to swap the tiles in two neighboring
  * squares.
  *
- * @author arthurlockman
+ * @author arthurlockman, bckawuh
  */
 public class SwapSpecialMove implements IMove
 {
@@ -40,7 +40,7 @@ public class SwapSpecialMove implements IMove
     /**
      * Add a square to the move.
      * @param s The square to add.
-     * @return False if move is full.
+     * @return False if move is full, true otherwise
      */
     public boolean addSquare(Square s)
     {

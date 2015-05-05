@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 /**
  * Countdown Class.
- * Governs the contents and behavior of Sixes Wild Timer objects.
+ * Governs the contents and behavior of Sixes Wild Timer objects,
+ * which are responsible for displaying the amount of time remaining
+ * to the user.
  *
  * @authors ..., Jesse Marciano, Bryce Kaw-uh
  */
@@ -25,6 +27,7 @@ public class Countdown
     /**
      * Countdown Constructor.
      * @param inputTime:  the time at which the Countdown starts its countdown
+     * @param tp:  the Timer Panel
      */
     public Countdown(int inputTime, TimerPanel tp)
     {
@@ -64,6 +67,7 @@ public class Countdown
 
     /**
      * Runs the timer.
+     * @return true since the timer is running
      */
     public boolean run()
     {
@@ -73,7 +77,7 @@ public class Countdown
 
     /**
      * Get the amount of time remaining.
-     * @return
+     * @return : time Remaining
      */
     public int getTimeRemaining()
     {
@@ -98,7 +102,7 @@ public class Countdown
     }
 
     /**
-     * Remove all attached listeners.
+     * Removes all attached listeners.
      */
     public void removeListeners()
     {

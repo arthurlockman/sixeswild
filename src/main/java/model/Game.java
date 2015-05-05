@@ -81,7 +81,7 @@ public class Game
     /**
      * Replaces a Level.
      * @param l:  Level to replace.
-     * @param index: ?
+     * @param index: location of the level in the storage file
      */
     public boolean replaceLevel(Level l, int index)
     {
@@ -142,6 +142,7 @@ public class Game
 
     /**
      * Returns a list of the Levels.
+     * @return list of levels
      */
     public ArrayList<Level> getLevels()
     {
@@ -150,23 +151,35 @@ public class Game
 
     /**
      * Returns the board.
+     * @return the board
      */
     public Board getBoard()
     {
         return board;
     }
 
+    /**
+     * Returns an array list of badges
+     * @return arraylist of badges
+     */
     public ArrayList<Badge> getBadges()
     {
         return badges;
     }
 
+    /**
+     * Creates an empty array list of badges.
+     */
     public void createBadges()
     {
         badges = new ArrayList<Badge>();
         createScoreBadges();
     }
 
+    /**
+     * Creates score badges for each level with the correct level type
+     *
+     */
     public void createScoreBadges()
     {
         for(int i = 0; i < levels.size(); i++)
@@ -242,6 +255,9 @@ public class Game
         }
     }
 
+    /**
+     * Prints a full list of badges with their name, type, description, and if they have been earned
+     */
     public void checkBadges()
     {
         System.out.println("");
@@ -257,11 +273,18 @@ public class Game
         }
     }
 
+    /**
+     * Sets the board
+     * @param b: the given board that should be assigned as the Game's board
+     */
     public void setBoard(Board b)
     {
         board = b;
     }
 
+    /**
+     * Loads up the badges from disk
+     */
     public void readBadges()
     {
         int i = 1;
@@ -296,6 +319,10 @@ public class Game
         }
     }
 
+    /**
+     * Converts the loaded badge data from String to Badges
+     * @param data : loaded badge data in String form
+     */
     public void loadBadges(String data)
     {
         String bData = data;
@@ -321,6 +348,10 @@ public class Game
         i = 0;
     }
 
+    /**
+     *  Saves badges to disk
+     *  prints if it was or was not successful
+     */
     public void saveBadges()
     {
         String data = new String();
@@ -387,6 +418,9 @@ public class Game
             System.out.println("~ Complete. ");
     }
 
+    /**
+     *  Resets the earned boolean of badges to false
+     */
     public void resetBadges()
     {
         for(Badge b : badges)

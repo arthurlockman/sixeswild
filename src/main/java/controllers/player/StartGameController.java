@@ -42,6 +42,9 @@ public class StartGameController extends MouseAdapter
         this.doAction();
     }
 
+    /**
+     * Starts the level selected and changes the view
+     */
     public void doAction()
     {
         Level l = (Level) list.getSelectedValue();

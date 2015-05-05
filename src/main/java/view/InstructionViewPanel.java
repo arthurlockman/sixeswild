@@ -10,6 +10,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * InstructionViewPanel Class.
+ * Responsible for the contents and display of the Sixes Wild
+ * Player instructions screen, which informs the user on how to
+ * play our wonderful game.
+ *
  * Created by David on 4/28/2015.
  * Instructions added and formatted by Bryce on 3 May 2015.
  */

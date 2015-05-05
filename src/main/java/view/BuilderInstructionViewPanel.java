@@ -10,6 +10,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * BuilerInstructionViewPanel.
+ * Responsible for the contents and behavior of the BuilderInstructionViewPanel,
+ * which is what the user sees when they wish to view the Builder instructions.
+ * This panel displays text along with a scroll bar. The user can choose to return
+ * to the Builder menu at any time by pressing the back button.
+ *
  * Created by David on 4/28/2015.
  * Instructions added and formatted by Bryce on 3 May 2015.
  */
