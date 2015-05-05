@@ -155,17 +155,26 @@ public class Game
         return board;
     }
 
+    /**
+     * Returns an array list of badges
+     */
     public ArrayList<Badge> getBadges()
     {
         return badges;
     }
 
+    /**
+     * Creates an empty array list of badges
+     */
     public void createBadges()
     {
         badges = new ArrayList<Badge>();
         createScoreBadges();
     }
 
+    /**
+     * Creates score badges for each level with the correct level type
+     */
     public void createScoreBadges()
     {
         for(int i = 0; i < levels.size(); i++)
@@ -240,6 +249,9 @@ public class Game
         }
     }
 
+    /**
+     * Prints a full list of badges with their name, type, description, and if they have been earned
+     */
     public void checkBadges()
     {
         System.out.println("");
@@ -255,6 +267,9 @@ public class Game
         }
     }
 
+    /**
+     *Sets the board
+     */
     public void setBoard(Board b)
     {
         board = b;

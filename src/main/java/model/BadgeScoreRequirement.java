@@ -1,10 +1,20 @@
 package model;
-
+/**
+ *  BadgeScoreRequirement Class.
+ *  Manages the requirements for Badge objects
+ *
+ *  @authors ...,
+ */
 public class BadgeScoreRequirement extends BadgeRequirement
 {
     int levelNumber;
     int score;
 
+    /**
+     * BadgeScoreRequirement Constructor
+     * @param level:...
+     * @param score:...
+     */
     public BadgeScoreRequirement(int level, int score)
     {
         levelNumber = level;

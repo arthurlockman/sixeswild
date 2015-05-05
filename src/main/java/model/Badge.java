@@ -14,6 +14,13 @@ public class Badge
     BadgeRequirement requirement;
     boolean earned;
 
+    /**
+     * Badge Constructor
+     * creates a new badge with given parameters
+     * @param type:...
+     * @param name:...
+     * @param description:...
+     */
     public Badge(String type, String name, String description)
     {
         this.type = type;
@@ -23,6 +30,10 @@ public class Badge
         setBadgeRequirements();
     }
 
+    /**
+     * Sets the default badge requirements
+     * <p>if a ScoreBadge requirement is achieved<p/>
+     */
     public void setBadgeRequirements()
     {
         if(type.equalsIgnoreCase("ScoreBadge"))
@@ -35,11 +46,18 @@ public class Badge
         }
     }
 
+    /**
+     * Sets the required score for the desired level in order to achieve this badge
+     */
     public void setBadgeScoreRequirement(int level, int score)
     {
         requirement = new BadgeScoreRequirement(level, score);
     }
 
+    /**
+     * Determines if the requirement for winning had been achieved
+     * @param game
+     */
     public void earn(Game game)
     {
         if(requirement.isMet(game))
@@ -72,6 +90,9 @@ public class Badge
         return description;
     }
 
+    /**
+     * Returns type as a String
+     */
     public String getType()
     {
         return type;
