@@ -15,7 +15,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * BadgesViewPanel Class.
+ * Responsible for the contents and behavior of the BadgesViewPanel, which
+ * is what the users see when looking at their badge collection (their
+ * achievements). The users can return to the Player menu at any time by
+ * using the back button. They may also choose to reset their badges by
+ * using the reset button.
+ *
  * Created by David on 4/26/2015.
+ * @authors David, bckawuh
  */
 public class BadgesViewPanel {
     private JList badgeList;
@@ -53,6 +61,7 @@ public class BadgesViewPanel {
 
     /**
      * Gets the JButton associated with reset.
+     * @return the resetButton
      */
     public JButton getResetButton()
     {

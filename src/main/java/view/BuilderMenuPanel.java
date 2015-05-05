@@ -10,9 +10,12 @@ import java.awt.event.MouseEvent;
 
 /**
  * BuilderMenuPanel Class.
- * Manages the contents and behavior of BuilderMenuPanels.
+ * Manages the contents and behavior of the BuilderMenuPanel, which is
+ * what the user sees when they are on the Builder Menu screen. From this
+ * panel, they can choose to create a new level, edit an existing level,
+ * view the Builder instructions, or view the credits.
  *
- * @author ...
+ * @author ..., bckawuh
  */
 public class BuilderMenuPanel {
     private JPanel builderMenuPanel;

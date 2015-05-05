@@ -12,9 +12,13 @@ import java.awt.event.MouseEvent;
 
 /**
  * BuilderEditorPanel Class.
- * Manages the contents and behavior of the BuilderEditorPanel.
+ * Manages the contents and behavior of the BuilderEditorPanel, which
+ * displays all the panels and buttons needed by the user to successfully
+ * make edits to a new or existing level. The user can choose to exit the
+ * panel at any time, but they will be warned that exiting without saving
+ * would cause them to lose their progress.
  *
- * @author arthurlockman
+ * @author arthurlockman, bckawuh
  */
 public class BuilderEditorPanel
 {
@@ -135,6 +139,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Builder Options Panel
+     * @return the optionsPanel
      */
     public BuilderOptionsPanel getOptionsPanel()
     {
@@ -143,6 +148,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Level Type Selector
+     * @return the levelTypeSelector
      */
     public JComboBox getLevelTypeSelector()
     {
@@ -151,6 +157,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Time Limit Selector
+     * @return the timeLimitSelector
      */
     public JTextField getTimeLimitSelector()
     {
@@ -159,6 +166,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the current Level
+     * @return the currentLevel
      */
     public Level getCurrentLevel()
     {
@@ -167,6 +175,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Move Limit Selector
+     * @return the moveLimitSelector
      */
     public JTextField getMoveLimitSelector()
     {
@@ -175,6 +184,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Three Star Selector
+     * @return the threeStarSelector
      */
     public JTextField getThreeStarSelector()
     {
@@ -183,6 +193,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Two Star Selector
+     * @return the twoStarSelector
      */
     public JTextField getTwoStarSelector()
     {
@@ -191,6 +202,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the SpecialMovesAllowedSelector
+     * @return the specialMovesAllowedSelector
      */
     public JCheckBox getSpecialMovesAllowedSelector()
     {
@@ -199,6 +211,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the TileSelectButtonGroup
+     * @return the tileSelectButtonGroup
      */
     public ButtonGroup getTileSelectButtonGroup()
     {
@@ -207,6 +220,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the BoardViewPanel
+     * @return the boardViewPanel
      */
     public BoardViewPanel getBoardViewPanel()
     {
@@ -215,6 +229,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Undo Button
+     * @return the undoButton
      */
     public JButton getUndoButton()
     {
@@ -223,6 +238,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Redo Button
+     * @return the redoButton
      */
     public JButton getRedoButton()
     {
@@ -231,6 +247,7 @@ public class BuilderEditorPanel
 
     /**
      * Returns the Save And Exit Button
+     * @return the saveAndExitButton
      */
     public JButton getSaveAndExitButton()
     {
