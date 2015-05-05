@@ -157,8 +157,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of number 2 tiles
-     * @return the freq2
+     * Gets the Frequency of the 2 tile
+     * @return Frequency
      */
     public int getFreq2()
     {
@@ -166,8 +166,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of number 3 tiles
-     * @return the freq3
+     * Gets the Frequency of the 3 tile
+     * @return Frequency
      */
     public int getFreq3()
     {
@@ -175,8 +175,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of number 4 tiles
-     * @return the freq4
+     * Gets the Frequency of the 4 tile
+     * @return Frequency
      */
     public int getFreq4()
     {
@@ -184,8 +184,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of number 5 tiles
-     * @return the freq5
+     * Gets the Frequency of the 5 tile
+     * @return Frequency
      */
     public int getFreq5()
     {
@@ -193,8 +193,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of number 6 tiles
-     * @return the freq6
+     * Gets the Frequency of the 6 tile
+     * @return Frequency
      */
     public int getFreq6()
     {
@@ -202,8 +202,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of the x1 multiplier
-     * @return the freqx1
+     * Gets the Frequency of the 1x in tiles
+     * @return Frequency
      */
     public int getFreqx1()
     {
@@ -211,8 +211,8 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of the x2 multiplier
-     * @return the freqx2
+     * Gets the Frequency of the 2x in tiles
+     * @return Frequency
      */
     public int getFreqx2()
     {
@@ -220,12 +220,15 @@ public class SquareFactory {
     }
 
     /**
-     * Return the frequency of the x3 multiplier
-     * @return the freqx3
+     * Gets the Frequency of the 3x in tiles
+     * @return Frequency
      */
     public int getFreqx3() { return freqx3; }
 
     @Override
+    /**
+     * converts the current frequency data to string freq 1-6 freq 1x-3x
+     */
     public String toString()
     {
         String dat = "";

@@ -23,8 +23,7 @@ import java.awt.event.MouseEvent;
  *
  * @authors ..., Bryce Kaw-uh
  */
-public class PlayerPlayPanel
-{
+public class PlayerPlayPanel {
     private JPanel menuBarPanel;
     private JButton quitButton;
     private JPanel playContentPanel;
@@ -50,41 +49,33 @@ public class PlayerPlayPanel
     /**
      * PlayerPlayPanel Constructor.
      */
-    public PlayerPlayPanel()
-    {
+    public PlayerPlayPanel() {
         clip = Applet.newAudioClip(getClass().getResource("/sounds/reset.wav"));
 
         /**
          * Adds a MouseListener
          */
-        playContentPanel.addMouseListener(new MouseAdapter()
-        {
+        playContentPanel.addMouseListener(new MouseAdapter() {
             //TODO: Test this
             @Override
-            public void mouseReleased(MouseEvent e)
-            {
+            public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
                 System.out.println("Mouse released in panel.");
-                if (boardViewPanel.getBoard().getCurrentMove() != null)
-                {
+                if (boardViewPanel.getBoard().getCurrentMove() != null) {
                     boardViewPanel.getBoard().makeMove(boardViewPanel.getBoard().getCurrentMove());
-                } else
-                {
+                } else {
                     boardViewPanel.getBoard().deselectAll();
                     boardViewPanel.refresh();
                 }
             }
         });
-        remove1Button.addMouseListener(new MouseAdapter()
-        {
+        remove1Button.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent me)
-            {
+            public void mouseClicked(MouseEvent me) {
                 super.mouseClicked(me);
                 boardViewPanel.getBoard().setCurrentMove(new RemoveSpecialMove());
                 if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
-                        board.getCurrentMove() instanceof SwapSpecialMove))
-                {
+                        board.getCurrentMove() instanceof SwapSpecialMove)) {
                     JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
                                     "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
                             JOptionPane.QUESTION_MESSAGE, null,
@@ -96,16 +87,13 @@ public class PlayerPlayPanel
                 getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
             }
         });
-        swap2Button.addMouseListener(new MouseAdapter()
-        {
+        swap2Button.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e)
-            {
+            public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 boardViewPanel.getBoard().setCurrentMove(new SwapSpecialMove(boardViewPanel.getBoard()));
                 if (!board.enoughSpecialRemaining() && (board.getCurrentMove() instanceof RemoveSpecialMove ||
-                        board.getCurrentMove() instanceof SwapSpecialMove))
-                {
+                        board.getCurrentMove() instanceof SwapSpecialMove)) {
                     JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
                                     "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
                             JOptionPane.QUESTION_MESSAGE, null,
@@ -117,15 +105,12 @@ public class PlayerPlayPanel
                 getRemove1Button().setText("Remove (" + board.getNumRemoveMoves() + ")");
             }
         });
-        reset1Button.addMouseListener(new MouseAdapter()
-        {
+        reset1Button.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e)
-            {
+            public void mouseClicked(MouseEvent e) {
                 boardViewPanel.getBoard().setCurrentMove(new ResetSpecialMove(boardViewPanel.getBoard(),
                         boardViewPanel.getBoard().getCurrentLevel()));
-                if (!boardViewPanel.getBoard().enoughSpecialRemaining())
-                {
+                if (!boardViewPanel.getBoard().enoughSpecialRemaining()) {
                     JOptionPane.showOptionDialog(null, "You're out of that kind of move. " +
                                     "Would you like to purchase more?", "Uh-oh!", JOptionPane.OK_OPTION,
                             JOptionPane.QUESTION_MESSAGE, null,
@@ -152,8 +137,7 @@ public class PlayerPlayPanel
      *
      * @param b: the Board
      */
-    public void setBoard(Board b)
-    {
+    public void setBoard(Board b) {
         this.board = b;
         this.boardViewPanel.setBoard(this.board);
         this.boardViewPanel.refresh();
@@ -162,177 +146,176 @@ public class PlayerPlayPanel
 
     /**
      * Returns the menuBarPanel
+     *
      * @return the menuBarPanel
      */
-    public JPanel getMenuBarPanel()
-    {
+    public JPanel getMenuBarPanel() {
         return menuBarPanel;
     }
 
     /**
      * Returns the quitButton
+     *
      * @return the quitButton
      */
-    public JButton getQuitButton()
-    {
+    public JButton getQuitButton() {
         return quitButton;
     }
 
     /**
      * Returns the playContentPanel
+     *
      * @return the playContentPanel
      */
-    public JPanel getPlayContentPanel()
-    {
+    public JPanel getPlayContentPanel() {
         return playContentPanel;
     }
 
     /**
      * Returns the playSidebarPanel
+     *
      * @return the playSidebarPanel
      */
-    public JPanel getPlaySidebarPanel()
-    {
+    public JPanel getPlaySidebarPanel() {
         return playSidebarPanel;
     }
 
     /**
      * Returns the boardPanel
+     *
      * @return the boardPanel
      */
-    public JPanel getBoardPanel()
-    {
+    public JPanel getBoardPanel() {
         return boardPanel;
     }
 
     /**
      * Returns the boardViewPanel
+     *
      * @return the boardViewPanel
      */
-    public BoardViewPanel getBoardViewPanel()
-    {
+    public BoardViewPanel getBoardViewPanel() {
         return boardViewPanel;
     }
 
     /**
      * Returns the reset1Button
+     *
      * @return the reset1Button
      */
-    public JButton getReset1Button()
-    {
+    public JButton getReset1Button() {
         return reset1Button;
     }
 
     /**
      * Returns the remove1Button
+     *
      * @return the remove1Button
      */
-    public JButton getRemove1Button()
-    {
+    public JButton getRemove1Button() {
         return remove1Button;
     }
 
     /**
      * Returns the swap2Button
+     *
      * @return the swap2Button
      */
-    public JButton getSwap2Button()
-    {
+    public JButton getSwap2Button() {
         return swap2Button;
     }
 
     /**
      * Returns the scoreBar
+     *
      * @return the scoreBar
      */
-    public JProgressBar getScoreBar()
-    {
+    public JProgressBar getScoreBar() {
         return scoreBar;
     }
 
     /**
      * Returns the threeStarsLabel
+     *
      * @return the threeStarsLabel
      */
-    public JLabel getThreeStarsLabel()
-    {
+    public JLabel getThreeStarsLabel() {
         return threeStarsLabel;
     }
 
     /**
      * Returns the twoStarsLabel
+     *
      * @return twoStarsLabel
      */
-    public JLabel getTwoStarsLabel()
-    {
+    public JLabel getTwoStarsLabel() {
         return twoStarsLabel;
     }
 
     /**
      * Returns the oneStarLabel
+     *
      * @return oneStarLabel
      */
-    public JLabel getOneStarLabel()
-    {
+    public JLabel getOneStarLabel() {
         return oneStarLabel;
     }
 
     /**
      * Returns the playPanel
+     *
      * @return the playPanel
      */
-    public JPanel getPlayPanel()
-    {
+    public JPanel getPlayPanel() {
         return playPanel;
     }
 
     /**
      * Returns the scoreLabel
+     *
      * @return the scoreLabel
      */
-    public JLabel getScoreLabel()
-    {
+    public JLabel getScoreLabel() {
         return scoreLabel;
     }
 
     /**
      * Returns the titleLabel
+     *
      * @return the titleLabel
      */
-    public JLabel getTitleLabel()
-    {
+    public JLabel getTitleLabel() {
         return titleLabel;
     }
 
     /**
      * Returns the board
+     *
      * @return the board
      */
-    public Board getBoard()
-    {
+    public Board getBoard() {
         return board;
     }
 
     /**
      * Returns the movesLabel
+     *
      * @return the movesLabel
      */
-    public JLabel getMovesLabel()
-    {
+    public JLabel getMovesLabel() {
         return movesLabel;
     }
 
-    public void setMovesLabel(JLabel movesLabel)
-    {
+    public void setMovesLabel(JLabel movesLabel) {
         this.movesLabel = movesLabel;
     }
 
     /**
      * Returns the timerViewPanel
+     *
      * @return the timerViewPanel
      */
-    public TimerPanel getTimerViewPanel()
-    {
+    public TimerPanel getTimerViewPanel() {
         return timerViewPanel;
     }
 
@@ -350,8 +333,7 @@ public class PlayerPlayPanel
      *
      * @noinspection ALL
      */
-    private void $$$setupUI$$$()
-    {
+    private void $$$setupUI$$$() {
         playPanel = new JPanel();
         playPanel.setLayout(new GridLayoutManager(2, 1, new Insets(0, 0, 0, 0), -1, -1));
         playPanel.setMaximumSize(new Dimension(700, 625));
@@ -428,13 +410,13 @@ public class PlayerPlayPanel
         panel8.setLayout(new GridLayoutManager(3, 1, new Insets(0, 10, 10, 20), -1, -1));
         panel6.add(panel8, new GridConstraints(1, 0, 3, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         reset1Button = new JButton();
-        reset1Button.setText("Reset (1)");
+        reset1Button.setText("Reset (5)");
         panel8.add(reset1Button, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         remove1Button = new JButton();
-        remove1Button.setText("Remove (1)");
+        remove1Button.setText("Remove (5)");
         panel8.add(remove1Button, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         swap2Button = new JButton();
-        swap2Button.setText("Swap (2)");
+        swap2Button.setText("Swap (5)");
         panel8.add(swap2Button, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayoutManager(1, 1, new Insets(5, 5, 5, 5), -1, -1));
@@ -446,8 +428,7 @@ public class PlayerPlayPanel
     /**
      * @noinspection ALL
      */
-    public JComponent $$$getRootComponent$$$()
-    {
+    public JComponent $$$getRootComponent$$$() {
         return playPanel;
     }
 }

@@ -73,7 +73,7 @@ public class Countdown
 
     /**
      * Get the amount of time remaining.
-     * @return
+     * @return : time Remaining
      */
     public int getTimeRemaining()
     {
@@ -98,7 +98,7 @@ public class Countdown
     }
 
     /**
-     * Remove all attached listeners.
+     * Removes all attached listeners.
      */
     public void removeListeners()
     {
