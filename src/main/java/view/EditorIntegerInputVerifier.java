@@ -16,6 +16,7 @@ public class EditorIntegerInputVerifier extends InputVerifier
      * Verifies that the integer input is acceptable.
      *
      * @param input: the integer input written by the user
+     * @return true if the editor integer input is valid, false otherwise
      */
     public boolean verify(JComponent input)
     {

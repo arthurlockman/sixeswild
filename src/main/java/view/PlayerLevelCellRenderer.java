@@ -26,6 +26,7 @@ public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<
      * @param index
      * @param isSelected
      * @param cellHasFocus
+     * @return the Component
      */
     public Component getListCellRendererComponent(JList<? extends Level> list, Level value, int index, boolean isSelected, boolean cellHasFocus)
     {
