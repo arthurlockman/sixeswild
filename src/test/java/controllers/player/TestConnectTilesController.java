@@ -18,6 +18,34 @@ public class TestConnectTilesController extends GUITestCase
     }
 
     /**
+     * Tests connecting an invalid move.
+     */
+    public void testConnectInvalidMove()
+    {
+        window.button("Play Game").click();
+        window.button("Play Game").click();
+        window.list("levelList").selectItem(2);
+        window.button("playButton").click();
+        robot.moveMouse(window.panel("square0").target);
+        robot.pressMouse(MouseButton.LEFT_BUTTON);
+        robot.moveMouse(window.panel("square1").target);
+        robot.moveMouse(window.panel("square2").target);
+        robot.moveMouse(window.panel("square3").target);
+        robot.moveMouse(window.panel("square4").target);
+        robot.releaseMouseButtons();
+        assertEquals("Score: 0", window.label("scoreLabel").text());
+        assertEquals("Moves: 10", window.label("movesLabel").text());
+        robot.moveMouse(window.panel("square0").target);
+        robot.pressMouse(MouseButton.LEFT_BUTTON);
+        robot.moveMouse(window.panel("square1").target);
+        robot.moveMouse(window.panel("square2").target);
+        robot.moveMouse(window.panel("square3").target);
+        robot.releaseMouseButtons();
+        assertEquals("Score: 0", window.label("scoreLabel").text());
+        assertEquals("Moves: 10", window.label("movesLabel").text());
+    }
+
+    /**
      * Tests connecting a valid move.
      */
     public void testConnectValidMove()
@@ -42,30 +70,7 @@ public class TestConnectTilesController extends GUITestCase
         robot.moveMouse(window.panel("square2").target);
         robot.releaseMouseButtons();
         window.dialog().requireVisible();
-    }
-
-    public void testConnectInvalidMove()
-    {
-        window.button("Play Game").click();
-        window.button("Play Game").click();
-        window.list("levelList").selectItem(2);
-        window.button("playButton").click();
-        robot.moveMouse(window.panel("square0").target);
-        robot.pressMouse(MouseButton.LEFT_BUTTON);
-        robot.moveMouse(window.panel("square1").target);
-        robot.moveMouse(window.panel("square2").target);
-        robot.moveMouse(window.panel("square3").target);
-        robot.moveMouse(window.panel("square4").target);
-        robot.releaseMouseButtons();
-        assertEquals("Score: 0", window.label("scoreLabel").text());
-        assertEquals("Moves: 10", window.label("movesLabel").text());
-        robot.moveMouse(window.panel("square0").target);
-        robot.pressMouse(MouseButton.LEFT_BUTTON);
-        robot.moveMouse(window.panel("square1").target);
-        robot.moveMouse(window.panel("square2").target);
-        robot.moveMouse(window.panel("square3").target);
-        robot.releaseMouseButtons();
-        assertEquals("Score: 0", window.label("scoreLabel").text());
-        assertEquals("Moves: 10", window.label("movesLabel").text());
+        window.dialog().close();
+        window.dialog().close();
     }
 }
