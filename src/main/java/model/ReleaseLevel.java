@@ -4,7 +4,10 @@ import java.io.File;
 
 /**
  * ReleaseLevel Class.
- * Manages the contents and behavior of Release Levels.
+ * Manages the contents and behavior of Release Levels, which
+ * are levels where a Tile with the number 6 has to be guided
+ * into a bucket. This is in addition to achieving the minimum
+ * score set for the level.
  *
  * @author ..., Bryce Kaw-uh
  */
@@ -40,14 +43,20 @@ public class ReleaseLevel extends Level
     }
 
     @Override
-    /** Returns the Level type */
+    /**
+     * Returns the Level type
+     * @return the Level type
+     */
     public String getType()
     {
         return "Release";
     }
 
     @Override
-    /** Returns the level metadata in the form of a String */
+    /**
+     * Returns the level metadata in the form of a String
+     * @return the level metadata
+     */
     public String getLevelMetadata()
     {
         String dat = "";

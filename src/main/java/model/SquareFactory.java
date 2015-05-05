@@ -2,9 +2,11 @@ package model;
 
 /**
  * SquareFactory Class.
- * Jesse, please write the description since you know way more about this Class than I do.
+ * Responsible for the creation of Squares as needed by the Board.
+ * The SquareFactory also keeps track of the Tile number and
+ * multiplier frequencies.
  *
- * @author Jesse Marciano, ...
+ * @author Jesse Marciano, Bryce Kaw-uh
  */
 public class SquareFactory {
 
@@ -85,9 +87,9 @@ public class SquareFactory {
     }
 
     /**
-     * Jesse, what does this do?
+     * Creates a new Square
      * @param state
-     * @return
+     * @return the newly created Square with a Tile
      */
     public Square gen(int state){
         Square ret;
@@ -145,46 +147,82 @@ public class SquareFactory {
         return new Tile(tile, mult);
     }
 
+    /**
+     * Return the frequency of number 1 tiles
+     * @return the freq1
+     */
     public int getFreq1()
     {
         return freq1;
     }
 
+    /**
+     * Return the frequency of number 2 tiles
+     * @return the freq2
+     */
     public int getFreq2()
     {
         return freq2;
     }
 
+    /**
+     * Return the frequency of number 3 tiles
+     * @return the freq3
+     */
     public int getFreq3()
     {
         return freq3;
     }
 
+    /**
+     * Return the frequency of number 4 tiles
+     * @return the freq4
+     */
     public int getFreq4()
     {
         return freq4;
     }
 
+    /**
+     * Return the frequency of number 5 tiles
+     * @return the freq5
+     */
     public int getFreq5()
     {
         return freq5;
     }
 
+    /**
+     * Return the frequency of number 6 tiles
+     * @return the freq6
+     */
     public int getFreq6()
     {
         return freq6;
     }
 
+    /**
+     * Return the frequency of the x1 multiplier
+     * @return the freqx1
+     */
     public int getFreqx1()
     {
         return freqx1;
     }
 
+    /**
+     * Return the frequency of the x2 multiplier
+     * @return the freqx2
+     */
     public int getFreqx2()
     {
         return freqx2;
     }
 
+    /**
+     * Return the frequency of the x3 multiplier
+     * @return the freqx3
+     */
     public int getFreqx3() { return freqx3; }
 
     @Override
