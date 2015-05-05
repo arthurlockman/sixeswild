@@ -28,6 +28,10 @@ public class PreviewLevelController extends MouseAdapter
         this.app = app;
     }
 
+    /**
+     * Handles if the level being edited is to be previewed
+     * @param e Mouse Event
+     */
     @Override
     public void mouseClicked(MouseEvent e)
     {
