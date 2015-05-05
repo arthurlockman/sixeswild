@@ -13,8 +13,8 @@ public class BadgeRequirements
 
     /**
      * BadgeRequirements Constructor.
-     * @param level: ...
-     * @param score: ...
+     * @param level: the position of the level in the file
+     * @param score: the score to beat
      */
     public BadgeRequirements(int level, int score)
     {

@@ -12,8 +12,8 @@ public class BadgeScoreRequirement extends BadgeRequirement
 
     /**
      * BadgeScoreRequirement Constructor
-     * @param level:...
-     * @param score:...
+     * @param level: the position of the level in the file
+     * @param score: the score to beat
      */
     public BadgeScoreRequirement(int level, int score)
     {
@@ -22,6 +22,9 @@ public class BadgeScoreRequirement extends BadgeRequirement
     }
 
     @Override
+    /**
+     * Returns if the badge requirement has been achieved
+     */
     public boolean isMet(Game game) {
         System.out.println("++ Checking: " + game.getBoard().level.getLevelNumber() + " - " + levelNumber + " ; " + game.getBoard().score + " - " + score);
         if (game.getBoard().level.getLevelNumber() == levelNumber && game.getBoard().score > score) {

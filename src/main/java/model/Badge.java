@@ -17,9 +17,9 @@ public class Badge
     /**
      * Badge Constructor
      * creates a new badge with given parameters
-     * @param type:...
-     * @param name:...
-     * @param description:...
+     * @param type: the level type associated with the badge
+     * @param name: the to be name of the badge
+     * @param description: the to be description of the badge
      */
     public Badge(String type, String name, String description)
     {
@@ -31,8 +31,7 @@ public class Badge
     }
 
     /**
-     * Sets the default badge requirements
-     * <p>if a ScoreBadge requirement is achieved<p/>
+     * Sets the badge score requirements
      */
     public void setBadgeRequirements()
     {
@@ -56,7 +55,7 @@ public class Badge
 
     /**
      * Determines if the requirement for winning had been achieved
-     * @param game
+     * @param game: the game that is being played
      */
     public void earn(Game game)
     {

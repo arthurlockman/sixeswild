@@ -10,7 +10,7 @@ package model;
 public class BadgeRequirement
 {
     /**
-     * BadgeRequirement Constructor
+     * BadgeRequirement Constructor takes no parameters
      * meant to be an Abstract Class
      */
     public BadgeRequirement()
