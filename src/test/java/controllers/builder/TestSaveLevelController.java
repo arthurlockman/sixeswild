@@ -197,7 +197,6 @@ public class TestSaveLevelController extends GUITestCase
 
         window.radioButton("activeTileButton").click();
         window.panel("square0").click();
-        //TODO: Add in setting of puzzle-specific components.
         window.button("saveButton").click();
         ClassLoader classLoader = getClass().getClassLoader();
         File folder = null;
@@ -252,7 +251,6 @@ public class TestSaveLevelController extends GUITestCase
 
         window.radioButton("activeTileButton").click();
         window.panel("square0").click();
-        //TODO: Add in setting of lightning-specific components.
         window.button("saveButton").click();
         ClassLoader classLoader = getClass().getClassLoader();
         File folder = null;

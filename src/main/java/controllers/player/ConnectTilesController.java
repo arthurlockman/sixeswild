@@ -29,7 +29,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * ConnectTilesController Constructor.
      * @param app:  the Player application
-     * TODO: Write tests
      */
     public ConnectTilesController(PlayerApplication app, SquareViewPanel svp)
     {
@@ -41,7 +40,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse enters a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -73,7 +71,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse is pressed on a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mousePressed(MouseEvent e)
@@ -98,7 +95,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse is released on a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mouseReleased(MouseEvent e)

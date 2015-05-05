@@ -55,7 +55,6 @@ public class PlayerPlayPanel {
          * Adds a MouseListener
          */
         playContentPanel.addMouseListener(new MouseAdapter() {
-            //TODO: Test this
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);

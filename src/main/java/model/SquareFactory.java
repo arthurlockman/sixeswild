@@ -104,7 +104,6 @@ public class SquareFactory {
             ret = new Square(new Tile(6, 1));
             return ret;
         } else if (state != 1){
-            // TODO exception
         }
         return new Square(this.genTile());
     }

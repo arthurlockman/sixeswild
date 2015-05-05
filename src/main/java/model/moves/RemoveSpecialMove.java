@@ -60,7 +60,6 @@ public class RemoveSpecialMove implements IMove
     /**
      * Get the move score.
      * @return The score.
-     * TODO: Add tests for this method.
      */
     @Override
     public int getScore()

@@ -141,7 +141,6 @@ public class Board
 
     /**
      * Preview a board in the builder.
-     * TODO: Test this method
      */
     public void preview()
     {
@@ -225,7 +224,6 @@ public class Board
     /**
      * Returns true if the game has been won. This will also trigger
      * any attached event listeners to the board.
-     * TODO: Tests
      */
     public boolean isComplete()
     {
@@ -261,12 +259,6 @@ public class Board
             }
         }
         return flag;
-    }
-
-    /** Refreshes the Board */
-    public void refresh()
-    {
-
     }
 
     /** Returns an array of the Board's Squares */
@@ -453,7 +445,6 @@ public class Board
     /**
      * Get the current move being built.
      * @return An IMove, the move being created.
-     * TODO: Write tests
      */
     public IMove getCurrentMove()
     {
@@ -463,7 +454,6 @@ public class Board
     /**
      * Set the current move in the board.
      * @param currentMove The move to create in the board.
-     * TODO: Write tests
      */
     public void setCurrentMove(IMove currentMove)
     {
@@ -473,7 +463,6 @@ public class Board
     /**
      * Get if the board is set to populate tiles.
      * @return True if the board will populate.
-     * TODO: Write tests
      */
     public boolean willPopulate()
     {
@@ -483,7 +472,6 @@ public class Board
     /**
      * Set the board to populate tiles.
      * @param populate True if the board should populate.
-     * TODO: Write tests
      */
     public void setPopulate(boolean populate)
     {
@@ -513,20 +501,10 @@ public class Board
     /**
      * Add an event listener that will be triggered when the game is won.
      * @param listener The event listener to attach.
-     * TODO: Test
      */
     public void addListener(IActionListener listener)
     {
         this.actionListeners.add(listener);
-    }
-
-    /**
-     * Removes all action listeners from the board.
-     * TODO: Test
-     */
-    public void removeListeners()
-    {
-        this.actionListeners.clear();
     }
 
     public int getNumRemoveMoves() {
