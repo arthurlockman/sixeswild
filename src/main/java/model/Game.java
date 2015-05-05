@@ -141,6 +141,7 @@ public class Game
 
     /**
      * Returns a list of the Levels.
+     * @return list of levels
      */
     public ArrayList<Level> getLevels()
     {
@@ -149,6 +150,7 @@ public class Game
 
     /**
      * Returns the board.
+     * @return the board
      */
     public Board getBoard()
     {
@@ -157,6 +159,7 @@ public class Game
 
     /**
      * Returns an array list of badges
+     * @return arraylist of badges
      */
     public ArrayList<Badge> getBadges()
     {
@@ -164,7 +167,7 @@ public class Game
     }
 
     /**
-     * Creates an empty array list of badges
+     * Creates an empty array list of badges.
      */
     public void createBadges()
     {
@@ -174,6 +177,7 @@ public class Game
 
     /**
      * Creates score badges for each level with the correct level type
+     *
      */
     public void createScoreBadges()
     {
@@ -268,7 +272,8 @@ public class Game
     }
 
     /**
-     *Sets the board
+     * Sets the board
+     * @param b: the given board that should be assigned as the Game's board
      */
     public void setBoard(Board b)
     {
@@ -313,7 +318,7 @@ public class Game
     }
 
     /**
-     *  Converts the loaded badge data from String to Badges
+     * Converts the loaded badge data from String to Badges
      * @param data : loaded badge data in String form
      */
     public void loadBadges(String data)
