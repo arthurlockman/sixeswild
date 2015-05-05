@@ -1,5 +1,6 @@
 package model;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -229,6 +230,7 @@ public class Game
                 Badge newBadge = new Badge("ScoreBadge", name, description);
                 newBadge.setBadgeScoreRequirement(i + 1, levels.get(i).threeStarScore);
                 badges.add(newBadge);
+
             }
             else
             {

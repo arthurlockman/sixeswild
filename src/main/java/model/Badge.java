@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.*;
+
 /**
  *  Badge Class.
  *  Governs the contents and behavior of the Sixes Wild Badge objects.
@@ -45,6 +47,7 @@ public class Badge
         if(requirement.isMet(game))
         {
             earned = true;
+            JOptionPane.showMessageDialog(null, "You Earned: " + this.name + " Badge", "Such Badge, WoW!", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
