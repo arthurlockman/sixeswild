@@ -12,7 +12,7 @@ import java.net.URL;
  *  Manages the gathering of level information for display in the
  *  Player level select menu.
  *
- *  @author Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh, jamarciano
  */
 public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 {
@@ -26,6 +26,7 @@ public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<
      * @param index
      * @param isSelected
      * @param cellHasFocus
+     * @return the Component
      */
     public Component getListCellRendererComponent(JList<? extends Level> list, Level value, int index, boolean isSelected, boolean cellHasFocus)
     {

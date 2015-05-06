@@ -4,9 +4,11 @@ import java.io.File;
 
 /**
  * EliminationLevel Class.
- * Manages the contents and behavior of Elimination Levels.
+ * Manages the contents and behavior of Elimination Levels, which
+ * are levels where the user must eliminate a Tile in every active
+ * Square in addition to achieving the minimum score.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class EliminationLevel extends Level
 {
@@ -41,14 +43,20 @@ public class EliminationLevel extends Level
     }
 
     @Override
-    /** Returns the Level type */
+    /**
+     * Returns the Level type
+     * @return the Level type
+     */
     public String getType()
     {
         return "Elimination";
     }
 
     @Override
-    /** Returns the Level meta data in the form of a String */
+    /**
+     * Returns the Level meta data in the form of a String
+     * @return the Level meta data
+     */
     public String getLevelMetadata()
     {
         String dat = "";

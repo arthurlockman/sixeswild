@@ -15,7 +15,7 @@ import java.util.Enumeration;
  * UpdateSquareController Class.
  * Manages the updating of Squares.
  *
- * @author  ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class UpdateSquareController extends MouseAdapter
 {

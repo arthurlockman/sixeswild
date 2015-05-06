@@ -16,9 +16,12 @@ import java.util.HashMap;
 
 /**
  * BuilderOptionsPanel Class.
- * Manages the contents and behavior of BuilderOptionsPanels.
+ * Manages the contents and behavior of the BuilderOptionsPanel,
+ * which is the popup that shows up when the user clicks on the
+ * "Set Frequencies" button while in the Sixes Wild Builder level
+ * editor.
  *
- * @author ...
+ * @author Arthur Lockman, bckawuh
  */
 public class BuilderOptionsPanel
 {
@@ -127,7 +130,7 @@ public class BuilderOptionsPanel
     }
 
     /**
-     * Sets the frequencies of given tiles.
+     * Sets frequencies for the tiles and multipliers.
      *
      * @param tile1
      * @param tile2
@@ -154,7 +157,8 @@ public class BuilderOptionsPanel
     }
 
     /**
-     * Sets frequencies of the Board
+     * Sets the Board's frequencies for tiles and multipliers
+     * to what is already in place for each tile and multiplier.
      *
      * @param b: the Board
      */
@@ -190,6 +194,8 @@ public class BuilderOptionsPanel
 
     /**
      * Returns a hash map of Frequencies
+     *
+     * @return hm:  a hash map of frequencies
      */
     public HashMap<String, Integer> getFrequencies()
     {

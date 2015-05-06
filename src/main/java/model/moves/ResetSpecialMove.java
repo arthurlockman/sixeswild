@@ -32,7 +32,7 @@ public class ResetSpecialMove implements IMove
 
     /**
      * Perform the move.
-     * @return True if the move was successful.
+     * @return True if the move was successful, false otherwise.
      */
     public boolean doMove()
     {
@@ -53,7 +53,6 @@ public class ResetSpecialMove implements IMove
     /**
      * Get the move score.
      * @return The score.
-     * TODO: Add tests for this method.
      */
     @Override
     public int getScore()

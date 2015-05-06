@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 /**
  * Test the frequencies of the square factory's tile generation.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class TestSquareFactory extends TestCase
 {

@@ -2,9 +2,11 @@ package model;
 
 /**
  * SquareFactory Class.
- * Jesse, please write the description since you know way more about this Class than I do.
+ * Responsible for the creation of Squares as needed by the Board.
+ * The SquareFactory also keeps track of the Tile number and
+ * multiplier frequencies.
  *
- * @author Jesse Marciano, ...
+ * @author Arthur Lockman, Brendan Casey, bckawuh, jamarciano
  */
 public class SquareFactory {
 
@@ -85,9 +87,9 @@ public class SquareFactory {
     }
 
     /**
-     * Jesse, what does this do?
+     * Creates a new Square
      * @param state
-     * @return
+     * @return the newly created Square with a Tile
      */
     public Square gen(int state){
         Square ret;
@@ -104,7 +106,6 @@ public class SquareFactory {
             ret = new Square(new Tile(6, 1));
             return ret;
         } else if (state != 1){
-            // TODO exception
         }
         return new Square(this.genTile());
     }
@@ -145,49 +146,88 @@ public class SquareFactory {
         return new Tile(tile, mult);
     }
 
+    /**
+     * Return the frequency of number 1 tiles
+     * @return the freq1
+     */
     public int getFreq1()
     {
         return freq1;
     }
 
+    /**
+     * Gets the Frequency of the 2 tile
+     * @return Frequency
+     */
     public int getFreq2()
     {
         return freq2;
     }
 
+    /**
+     * Gets the Frequency of the 3 tile
+     * @return Frequency
+     */
     public int getFreq3()
     {
         return freq3;
     }
 
+    /**
+     * Gets the Frequency of the 4 tile
+     * @return Frequency
+     */
     public int getFreq4()
     {
         return freq4;
     }
 
+    /**
+     * Gets the Frequency of the 5 tile
+     * @return Frequency
+     */
     public int getFreq5()
     {
         return freq5;
     }
 
+    /**
+     * Gets the Frequency of the 6 tile
+     * @return Frequency
+     */
     public int getFreq6()
     {
         return freq6;
     }
 
+    /**
+     * Gets the Frequency of the 1x in tiles
+     * @return Frequency
+     */
     public int getFreqx1()
     {
         return freqx1;
     }
 
+    /**
+     * Gets the Frequency of the 2x in tiles
+     * @return Frequency
+     */
     public int getFreqx2()
     {
         return freqx2;
     }
 
+    /**
+     * Gets the Frequency of the 3x in tiles
+     * @return Frequency
+     */
     public int getFreqx3() { return freqx3; }
 
     @Override
+    /**
+     * converts the current frequency data to string freq 1-6 freq 1x-3x
+     */
     public String toString()
     {
         String dat = "";

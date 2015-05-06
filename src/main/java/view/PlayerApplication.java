@@ -15,9 +15,11 @@ import java.awt.event.WindowListener;
 
 /**
  * PlayerApplication Class.
- * Manages the contents and behavior of the PlayerApplication.
+ * Manages the contents and behavior of the PlayerApplication, which includes
+ * displaying the various Player panels and playing sounds as appropriate
+ * during the game.
  *
- * @author arthurlockman
+ * @author Arthur Lockman, David Laovoravit, Yiğit Uyan, bckawuh, jamarciano
  */
 public class PlayerApplication extends JFrame {
     private JPanel playerApplication;
@@ -73,31 +75,49 @@ public class PlayerApplication extends JFrame {
                         ResetBadgesController((PlayerApplication) e.getWindow()));
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowClosing(WindowEvent e) {
 
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowClosed(WindowEvent e) {
 
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowIconified(WindowEvent e) {
 
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowDeiconified(WindowEvent e) {
 
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowActivated(WindowEvent e) {
 
             }
 
+            /**
+             * @param e the WindowEvent
+             */
             @Override
             public void windowDeactivated(WindowEvent e) {
 
@@ -107,43 +127,84 @@ public class PlayerApplication extends JFrame {
 
     }
 
+    /**
+     * Returns the badgeController
+     * @return the badgeController
+     */
     public EarnBadgeController getBadgeController() {
         return badgeController;
     }
 
+    /**
+     * Returns the resetController
+     * @return the resetController
+     */
     public ResetBadgesController getResetController()
     {
         return resetController;
     }
 
+    /**
+     * Returns the playerApplication
+     * @return the playerApplication
+     */
     public JPanel getPlayerApplication() {
         return playerApplication;
     }
 
+    /**
+     * Returns the splashScreen
+     * @return the splashScreen
+     */
     public SplashScreen getSplashScreen() {
         return splashScreen;
     }
 
+    /**
+     * Returns the menuPanel
+     * @return the menuPanel
+     */
     public PlayerMenuPanel getMenuPanel() {
         return menuPanel;
     }
 
+    /**
+     * Returns the playerLevelSelectPanel
+     * @return the playerLevelSelectPanel
+     */
     public PlayerLevelSelectPanel getPlayerLevelSelectPanel() {
         return playerLevelSelectPanel;
     }
 
+    /**
+     * Returns the playerPlayPanel
+     * @return the playerPlayPanel
+     */
     public PlayerPlayPanel getPlayerPlayPanel() {
         return playerPlayPanel;
     }
 
+    /**
+     * Returns the game
+     * @return the game
+     */
     public Game getGame() {
         return game;
     }
 
+    /**
+     * Returns the badgesViewPanel
+     * @return the badgesViewPanel
+     */
     public BadgesViewPanel getBadgeViewPanel() {
         return badgesViewPanel;
     }
 
+    /**
+     * Plays the sound, depending on which one it is.
+     *
+     * @param soundNum the number of the sound to play
+     */
     public void playSound(int soundNum) {
         switch (soundNum) {
             case 0:

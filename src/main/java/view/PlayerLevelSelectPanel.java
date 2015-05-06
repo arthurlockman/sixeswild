@@ -12,9 +12,11 @@ import java.awt.event.MouseEvent;
 
 /**
  * PlayerLevelSelectPanel Class.
- * Manages the contents and behavior of PlayerLevelSelectPanels.
+ * Manages the contents and behavior of the PlayerLevelSelectPanel, which
+ * is what the user sees when they are in the Player application and are
+ * deciding which level to play.
  *
- * @author ...
+ * @author Arthur Lockman, bckawuh, jamarciano
  */
 public class PlayerLevelSelectPanel
 {
@@ -70,43 +72,72 @@ public class PlayerLevelSelectPanel
     }
 
     /**
-     * Returns the Play Button
+     * Returns the playButton
+     * @return the playButton
      */
     public JButton getPlayButton()
     {
         return playButton;
     }
 
+    /**
+     * Returns the playerLevelSelectPane
+     * @return the playerLevelSelectPane
+     */
     public JPanel getPlayerLevelSelectPanel()
     {
         return playerLevelSelectPanel;
     }
 
+    /**
+     * Returns the backButton
+     * @return the backButton
+     */
     public JButton getBackButton()
     {
         return backButton;
     }
 
+    /**
+     * Returns the titleLabel
+     * @return the titleLabel
+     */
     public JLabel getTitleLabel()
     {
         return titleLabel;
     }
 
+    /**
+     * Returns the menuBarPanel
+     * @return the menuBarPanel
+     */
     public JPanel getMenuBarPanel()
     {
         return menuBarPanel;
     }
 
+    /**
+     * Returns the levelListScrollPane
+     * @return the levelListScrollPane
+     */
     public JScrollPane getLevelListScrollPane()
     {
         return levelListScrollPane;
     }
 
+    /**
+     * Returns the levelList
+     * @return the levelList
+     */
     public JList getLevelList()
     {
         return levelList;
     }
 
+    /**
+     * Returns the levelListModel
+     * @return the levelListModel
+     */
     public DefaultListModel<Level> getLevelListModel()
     {
         return levelListModel;

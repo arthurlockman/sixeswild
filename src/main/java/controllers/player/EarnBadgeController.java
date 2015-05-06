@@ -7,7 +7,7 @@ import view.PlayerApplication;
  *  EarnBadgeController Class.
  *  Manages the earning and unlocking of badges in the Player.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class EarnBadgeController
 {
@@ -35,6 +35,12 @@ public class EarnBadgeController
         app.getBadgeViewPanel().setListModel(app.getGame());
     }
 
+
+    /**
+     * every very time a badge triggering event happens
+     * our program will only check for relevant score badges,
+     * to see if any of their earning condition is met.
+     */
     // So far, we only have score badges.
     public void checkScoreBadges()
     {

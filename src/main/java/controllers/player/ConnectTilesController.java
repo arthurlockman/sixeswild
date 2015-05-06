@@ -18,7 +18,7 @@ import java.net.URL;
  *  ConnectTilesController Class.
  *  Manages the connecting of tiles when playing a level.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh, jamarciano
  */
 public class ConnectTilesController extends MouseAdapter
 {
@@ -29,7 +29,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * ConnectTilesController Constructor.
      * @param app:  the Player application
-     * TODO: Write tests
      */
     public ConnectTilesController(PlayerApplication app, SquareViewPanel svp)
     {
@@ -41,7 +40,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse enters a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -73,7 +71,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse is pressed on a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mousePressed(MouseEvent e)
@@ -98,7 +95,6 @@ public class ConnectTilesController extends MouseAdapter
     /**
      * Handle when the mouse is released on a tile.
      * @param e The mouse event.
-     * TODO: Write tests
      */
     @Override
     public void mouseReleased(MouseEvent e)
@@ -128,6 +124,7 @@ public class ConnectTilesController extends MouseAdapter
         }
         square.getSquare().setSelected(false);
         board.deselectAll();
+        app.getPlayerPlayPanel().getBoard().refill();
         app.getPlayerPlayPanel().getBoardViewPanel().refresh();
         app.getPlayerPlayPanel().getScoreLabel().setText("Score: " + board.getScore());
         app.getPlayerPlayPanel().getScoreBar().setValue(board.getScore());
@@ -142,7 +139,9 @@ public class ConnectTilesController extends MouseAdapter
         app.getPlayerPlayPanel().getThreeStarsLabel().setIcon(new ImageIcon(getClass().getResource(threestaricon)));
         app.getPlayerPlayPanel().getTwoStarsLabel().setIcon(new ImageIcon(getClass().getResource(twostaricon)));
         app.getPlayerPlayPanel().getOneStarLabel().setIcon(new ImageIcon(getClass().getResource(onestaricon)));
+        System.out.println("Updating labels from connect.");
 
         app.getPlayerPlayPanel().$$$getRootComponent$$$().repaint();
+        board.isComplete();
     }
 }

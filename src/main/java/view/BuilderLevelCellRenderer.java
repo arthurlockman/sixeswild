@@ -12,7 +12,7 @@ import java.net.URL;
  *  Manages the gathering of level information for display in the
  *  Builder level select menu.
  *
- *  @author Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh
  */
 public class BuilderLevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 {
@@ -21,11 +21,12 @@ public class BuilderLevelCellRenderer extends JLabel implements ListCellRenderer
      * Gets the necessary information for a level, which will be displayed
      * in the Builder level select menu.
      *
-     * @param list
-     * @param value
-     * @param index
-     * @param isSelected
-     * @param cellHasFocus
+     * @param list The list object that this is the renderer for.
+     * @param value The selected item in the list.
+     * @param index The index of the selected item.
+     * @param isSelected If the item is selected by the user.
+     * @param cellHasFocus If the list cell has focus.
+     * @return the Component The rendered component ready to display in the list.
      */
     public Component getListCellRendererComponent(JList<? extends Level> list, Level value, int index, boolean isSelected, boolean cellHasFocus)
     {

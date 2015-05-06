@@ -5,6 +5,8 @@ import model.Square;
 
 /**
  * A special move that removes a tile from the board.
+ *
+ * @author Arthur Lockman, bckawuh
  */
 public class RemoveSpecialMove implements IMove
 {
@@ -35,7 +37,7 @@ public class RemoveSpecialMove implements IMove
 
     /**
      * Complete the move.
-     * @return True if the move was successful.
+     * @return True if the move was successful, false otherwise
      */
     @Override
     public boolean doMove()
@@ -49,7 +51,7 @@ public class RemoveSpecialMove implements IMove
 
     /**
      * Determine if the move is valid.
-     * @return True if the move is valid.
+     * @return True if the move is valid, false otherwise
      */
     @Override
     public boolean isValid()
@@ -60,7 +62,6 @@ public class RemoveSpecialMove implements IMove
     /**
      * Get the move score.
      * @return The score.
-     * TODO: Add tests for this method.
      */
     @Override
     public int getScore()

@@ -4,9 +4,11 @@ import java.io.File;
 
 /**
  * PuzzleLevel Class.
- * Manages the contents and behavior of Puzzle Levels.
+ * Manages the contents and behavior of Puzzle Levels, which
+ * are levels where the minimum score must be achieved within
+ * a specified number of moves.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class PuzzleLevel extends Level
 {
@@ -43,26 +45,39 @@ public class PuzzleLevel extends Level
         super(l);
     }
     @Override
-    /** Returns the Level type */
+
+    /**
+     * Returns the Level type
+     * @return the Level type
+     */
     public String getType()
     {
         return "Puzzle";
     }
 
-    /** Returns the Level move limit */
+    /**
+     * Returns the Level move limit
+     * @return the move limit
+     */
     public int getMoveLimit()
     {
         return moveLimit;
     }
 
-    /** Sets the Level move limit */
+    /**
+     * Sets the Level move limit
+     * @param ml: the move limit
+     */
     public void setMoveLimit(int ml)
     {
         moveLimit = ml;
     }
 
     @Override
-    /** Returns the level meta data in the form of a String */
+    /**
+     * Returns the level metadata in the form of a String
+     * @return the level metadata
+     */
     public String getLevelMetadata()
     {
         String dat = "";

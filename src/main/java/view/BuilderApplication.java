@@ -10,9 +10,10 @@ import java.awt.event.WindowListener;
 
 /**
  * BuilderApplication Class.
- * Manages the contents and behavior of the Sixes Wild Builder Application.
+ * Manages the contents and behavior of the Sixes Wild Builder Application,
+ * which is responsible for launching everything needed for the Builder.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, David Laovoravit, bckawuh
  */
 public class BuilderApplication extends JFrame {
     private JPanel builderApplication;
@@ -61,32 +62,49 @@ public class BuilderApplication extends JFrame {
                         PreviewLevelController((BuilderApplication) e.getWindow()));
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
-            /** Close windows? */
             public void windowClosing(WindowEvent e) {
 
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
             public void windowClosed(WindowEvent e) {
 
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
             public void windowIconified(WindowEvent e) {
 
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
             public void windowDeiconified(WindowEvent e) {
 
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
             public void windowActivated(WindowEvent e) {
 
             }
 
+            /*
+             * @param e: the WindowEvent
+             */
             @Override
             public void windowDeactivated(WindowEvent e) {
 
@@ -97,6 +115,7 @@ public class BuilderApplication extends JFrame {
 
     /**
      * Returns the Builder Application
+     * @return the builderApplication
      */
     public JPanel getBuilderApplication() {
         return builderApplication;
@@ -104,6 +123,7 @@ public class BuilderApplication extends JFrame {
 
     /**
      * Returns the Builder Menu Panel
+     * @return the builderMenuPanel
      */
     public BuilderMenuPanel getBuilderMenu() {
         return builderMenuPanel;
@@ -111,6 +131,7 @@ public class BuilderApplication extends JFrame {
 
     /**
      * Returns the Builder Level Select Panel
+     * @return the builderLevelSelectPanel
      */
     public BuilderLevelSelectPanel getBuilderLevelSelectPanel() {
         return builderLevelSelectPanel;
@@ -118,6 +139,7 @@ public class BuilderApplication extends JFrame {
 
     /**
      * Returns the Builder Editor Panel
+     * @return the builderEditorPanel
      */
     public BuilderEditorPanel getBuilderEditorPanel() {
         return builderEditorPanel;
@@ -125,6 +147,7 @@ public class BuilderApplication extends JFrame {
 
     /**
      * Returns the Game
+     * @return the game
      */
     public Game getGame() {
         return game;

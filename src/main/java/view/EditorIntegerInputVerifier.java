@@ -7,7 +7,7 @@ import javax.swing.*;
  *  Ensures that the integer input for the Builder level editor
  *  is within the accepted range.
  *
- *  @author Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh
  */
 public class EditorIntegerInputVerifier extends InputVerifier
 {
@@ -16,6 +16,7 @@ public class EditorIntegerInputVerifier extends InputVerifier
      * Verifies that the integer input is acceptable.
      *
      * @param input: the integer input written by the user
+     * @return true if the editor integer input is valid, false otherwise
      */
     public boolean verify(JComponent input)
     {

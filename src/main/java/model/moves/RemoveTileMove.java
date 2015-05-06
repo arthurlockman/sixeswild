@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * to remove tiles from a user selection and as a result of
  * the removeTile special move.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class RemoveTileMove implements IMove
 {
@@ -71,7 +71,6 @@ public class RemoveTileMove implements IMove
      */
     public boolean isValid()
     {
-        //TODO: Test added validation code.
         Square last = null;
         for (Square s : squares)
         {
@@ -99,7 +98,6 @@ public class RemoveTileMove implements IMove
     /**
      * Get the move score.
      * @return The score.
-     * TODO: Add tests for this method.
      */
     @Override
     public int getScore()

@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
  *  StartGameController Class.
  *  Manages the starting of a game selected by the user in Player.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, bckawuh
  */
 public class StartGameController extends MouseAdapter
 {
@@ -42,6 +42,9 @@ public class StartGameController extends MouseAdapter
         this.doAction();
     }
 
+    /**
+     * Starts the level selected and changes the view
+     */
     public void doAction()
     {
         Level l = (Level) list.getSelectedValue();
@@ -93,6 +96,7 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().getThreeStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/threestar-empty.png")));
             app.getPlayerPlayPanel().getTwoStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/twostar-empty.png")));
             app.getPlayerPlayPanel().getOneStarLabel().setIcon(new ImageIcon(getClass().getResource("/view/onestar-empty.png")));
+            System.out.println("Updating labels from start.");
 
             CompleteLevelController clc = new CompleteLevelController(app);
             app.getPlayerPlayPanel().getBoard().addListener(clc);

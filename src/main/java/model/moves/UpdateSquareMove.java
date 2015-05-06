@@ -3,6 +3,13 @@ package model.moves;
 import model.Square;
 import model.Tile;
 
+/**
+ * UpdateSquareMove Class.
+ * Responsible for updating a Square to active, inactive,
+ * or a bucket, or to place a Tile into it.
+ *
+ * @author Arthur Lockman, bckawuh
+ */
 public class UpdateSquareMove implements IReversibleMove
 {
     Tile tile;
@@ -66,7 +73,6 @@ public class UpdateSquareMove implements IReversibleMove
     /**
      * Get the move score.
      * @return The score.
-     * TODO: Add tests for this method.
      */
     @Override
     public int getScore()

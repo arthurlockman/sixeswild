@@ -10,6 +10,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
+ * BuilerInstructionViewPanel.
+ * Responsible for the contents and behavior of the BuilderInstructionViewPanel,
+ * which is what the user sees when they wish to view the Builder instructions.
+ * This panel displays text along with a scroll bar. The user can choose to return
+ * to the Builder menu at any time by pressing the back button.
+ *
  * Created by David on 4/28/2015.
  * Instructions added and formatted by Bryce on 3 May 2015.
  */
@@ -21,7 +27,9 @@ public class BuilderInstructionViewPanel
     private JPanel builderInstructionsPanel;
     private JTextArea textArea1;
 
-    /** BuilderInstructionViewPanel Constructor. */
+    /**
+     * BuilderInstructionViewPanel Constructor.
+     */
     public BuilderInstructionViewPanel()
     {
         backButton.addMouseListener(new MouseAdapter()
@@ -70,10 +78,10 @@ public class BuilderInstructionViewPanel
         final JScrollPane scrollPane1 = new JScrollPane();
         panel1.add(scrollPane1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
-        label1.setMaximumSize(new Dimension(360, 450));
-        label1.setMinimumSize(new Dimension(360, 450));
-        label1.setPreferredSize(new Dimension(360, 450));
-        label1.setText("<html><body style = 'width: 375px; padding: 10px;'>Welcome to the Sixes Wild Builder!<br><br>To create a new level, press the New Level button. To edit an existing level, click the Edit Level button. Both buttons will take you to the level editor. <br><br>Once in the level editor, you will see a grid of 81 squares. These squares can be set as Active, Inactive, Bucket, or Six. Active squares can hold numbered tiles, whereas Inactive Squares cannot. Inactive squares typically serve as obstacles. The Bucket square and Six square options are only accessible when editing a Release level. Undo and redo buttons for square edits can be found in the top-right corner of the level editor window.<br><br>You will also see a number of options under Settings. Here, you can change the level type, which will in turn allow you to set a time or move limit depending on which level type you selected. You can also set the scores necessary for achieving two-star and three-star victories when playing this level.<br><br>To allow special moves for the level you are editing, simply check the Allow Special Moves box, located in the Settings section. And to set the frequency of numbered tiles and their multipliers, click on the Set Frequencies button. <br><br>You may choose to save your changes or exit the level editor at any time. You may also preview the level you created by hitting the Preview button. Once you are done editing a level, just save and exit the Builder application and start the Sixes Wild Player.<br><br>Have fun!</html>");
+        label1.setMaximumSize(new Dimension(360, 500));
+        label1.setMinimumSize(new Dimension(360, 500));
+        label1.setPreferredSize(new Dimension(360, 500));
+        label1.setText("<html><body style = 'width: 375px; padding: 15px;'>Welcome to the Sixes Wild Builder!<br><br>To create a new level, press the New Level button. To edit an existing level, click the Edit Level button. Both buttons will take you to the level editor. <br><br>Once in the level editor, you will see a grid of 81 squares. These squares can be set as Active, Inactive, Bucket, or Six. Active squares can hold numbered tiles, whereas Inactive Squares cannot. Inactive squares typically serve as obstacles. The Bucket square and Six square options are only accessible when editing a Release level. Undo and redo buttons for square edits can be found in the top-right corner of the level editor window.<br><br>You will also see a number of options under Settings. Here, you can change the level type, which will in turn allow you to set a time or move limit depending on which level type you selected. You can also set the scores necessary for achieving two-star and three-star victories when playing this level.<br><br>To allow special moves for the level you are editing, simply check the Allow Special Moves box, located in the Settings section. And to set the frequency of numbered tiles and their multipliers, click on the Set Frequencies button. <br><br>You may choose to save your changes or exit the level editor at any time. You may also preview the level you created by hitting the Preview button. Once you are done editing a level, just save and exit the Builder application and start the Sixes Wild Player.<br><br>Have fun!</html>");
         scrollPane1.setViewportView(label1);
         final JLabel label2 = new JLabel();
         label2.setText("Instructions");

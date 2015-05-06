@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
  *  ResetBadgesController Class.
  *  Manages the resetting of badges in the Player.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Yiğit Uyan, bckawuh
  */
 public class ResetBadgesController extends MouseAdapter
 {

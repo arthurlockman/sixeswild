@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 /**
  * Tests the square entity class.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class TestSquare extends TestCase
 {

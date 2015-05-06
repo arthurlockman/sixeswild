@@ -10,9 +10,12 @@ import java.util.Stack;
 
 /**
  *  Board Class.
- *  Manages the contents and behavior of Sixes Wild Board objects.
+ *  Manages the contents and behavior of Sixes Wild Board objects,
+ *  which are used in the Builder and Player to hold Squares in a
+ *  nine by nine grid. The board also keeps track of the moves made,
+ *  so that undo and redo capabilities are available.
  *
- *  @author arthurlockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class Board
 {
@@ -110,9 +113,17 @@ public class Board
                 int state = Integer.parseInt(tData[18 + i]);
 
                 if (squares[i] == null)
+                {
                     squares[i] = factory.gen(state);
-                else
+                }
+                else if (this.level instanceof ReleaseLevel)
+                {
+                    if (squares[i].getTile().getValue() != 6)
+                        squares[i].setTile(factory.gen(state).getTile());
+                } else
+                {
                     squares[i].setTile(factory.gen(state).getTile());
+                }
             }
         } else {
             for (int i = 0; i < 81; i++)
@@ -141,7 +152,6 @@ public class Board
 
     /**
      * Preview a board in the builder.
-     * TODO: Test this method
      */
     public void preview()
     {
@@ -171,7 +181,6 @@ public class Board
             {
                 numSwapMoves--;
             }
-            isComplete();
             return true;
         }
         return false;
@@ -225,7 +234,6 @@ public class Board
     /**
      * Returns true if the game has been won. This will also trigger
      * any attached event listeners to the board.
-     * TODO: Tests
      */
     public boolean isComplete()
     {
@@ -263,13 +271,10 @@ public class Board
         return flag;
     }
 
-    /** Refreshes the Board */
-    public void refresh()
-    {
-
-    }
-
-    /** Returns an array of the Board's Squares */
+    /**
+     * Returns an array of the Board's Squares
+     * @return the board's squares
+     */
     public Square[] getSquares()
     {
         return squares;
@@ -293,13 +298,19 @@ public class Board
         return diff <= 1 || diff == 9;
     }
 
-    /** Returns the Board's SquareFactory */
+    /**
+     * Returns the Board's SquareFactory
+     * @return the Board's SquareFactory
+     * */
     public SquareFactory getFactory()
     {
         return factory;
     }
 
-    /** Returns a String representation of the Board */
+    /**
+     * Returns a String representation of the Board
+     * @return the String represenatation of the Board
+     */
     public String toString() {
         String result = "";
 
@@ -311,37 +322,58 @@ public class Board
         return result;
     }
 
-    /** Returns the time limit */
+    /**
+     * Returns the time limit
+     * @return the time limit
+     */
     public int getTimeLimit() {
         return timeLimit;
     }
 
-    /** Returns the number of moves allowed */
+    /**
+     * Returns the number of moves allowed
+     * @return the number of moves allowed
+     */
     public int getMovesAllowed() {
         return movesAllowed;
     }
 
-    /** Returns the count of moves */
+    /**
+     * Returns the count of moves
+     * @return the count of moves
+     */
     public int getMoveCount() {
         return moveCount;
     }
 
-    /** Returns true if special moves are allowed */
+    /**
+     * Returns whether special moves are allowed
+     * @return true if special moves are allowed, false otherwise
+     */
     public boolean isSpecialMovesAllowed() {
         return specialMovesAllowed;
     }
 
-    /** Returns the score necessary for three stars */
+    /**
+     * Returns the score necessary for three stars
+     * @return threeStarScore
+     */
     public int getThreeStarScore() {
         return threeStarScore;
     }
 
-    /** Returns the score necessary for two stars */
+    /**
+     * Returns the score necessary for two stars
+     * @return twoStarScore
+     */
     public int getTwoStarScore() {
         return twoStarScore;
     }
 
-    /** Returns the Board data in the form of a String */
+    /**
+     * Returns the Board data in the form of a String
+     * @return the Board data
+     */
     public String getBoardData()
     {
         String dat = "";
@@ -373,13 +405,19 @@ public class Board
         return dat;
     }
 
-    /** Sets the Board Square Factory */
+    /**
+     * Sets the Board Square Factory
+     * @param f:  the Square Factory to set the Board's Square Factory as
+     */
     public void setSquareFactory(SquareFactory f)
     {
         this.factory = f;
     }
 
-    /** Sets the Board Level */
+    /**
+     * Sets the Board Level
+     * @param l:  the level to set the Board Level as
+     */
     public void setLevel(Level l)
     {
         level = l;
@@ -395,7 +433,6 @@ public class Board
             if (!squares[i].isSatisfied())
                 this.pullDown(i);
         }
-        this.isComplete();
     }
 
     /**
@@ -453,7 +490,6 @@ public class Board
     /**
      * Get the current move being built.
      * @return An IMove, the move being created.
-     * TODO: Write tests
      */
     public IMove getCurrentMove()
     {
@@ -463,7 +499,6 @@ public class Board
     /**
      * Set the current move in the board.
      * @param currentMove The move to create in the board.
-     * TODO: Write tests
      */
     public void setCurrentMove(IMove currentMove)
     {
@@ -473,7 +508,6 @@ public class Board
     /**
      * Get if the board is set to populate tiles.
      * @return True if the board will populate.
-     * TODO: Write tests
      */
     public boolean willPopulate()
     {
@@ -483,7 +517,6 @@ public class Board
     /**
      * Set the board to populate tiles.
      * @param populate True if the board should populate.
-     * TODO: Write tests
      */
     public void setPopulate(boolean populate)
     {
@@ -513,7 +546,6 @@ public class Board
     /**
      * Add an event listener that will be triggered when the game is won.
      * @param listener The event listener to attach.
-     * TODO: Test
      */
     public void addListener(IActionListener listener)
     {
@@ -521,22 +553,25 @@ public class Board
     }
 
     /**
-     * Removes all action listeners from the board.
-     * TODO: Test
+     * Returns the number of remove moves available
+     * @return the number of remove moves available
      */
-    public void removeListeners()
-    {
-        this.actionListeners.clear();
-    }
-
     public int getNumRemoveMoves() {
         return numRemoveMoves;
     }
 
+    /**
+     * Returns the number of swap moves available
+     * @return the number of swap moves available
+     */
     public int getNumSwapMoves() {
         return numSwapMoves;
     }
 
+    /**
+     * Returns the number of reset moves available
+     * @return the number of reset moves available
+     */
     public int getNumResetMoves() {
         return numResetMoves;
     }
@@ -544,7 +579,7 @@ public class Board
     /**
      * Determines if there are enough special moves left of the current
      * special move type.
-     * @return True if there are enough of the proper type.
+     * @return True if there are enough of the proper type, false otherwise
      */
     public boolean enoughSpecialRemaining()
     {

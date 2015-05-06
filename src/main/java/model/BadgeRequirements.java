@@ -4,7 +4,7 @@ package model;
  *  BadgeRequirements Class.
  *  Manages the requirements for Badge objects
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class BadgeRequirements
 {
@@ -13,8 +13,8 @@ public class BadgeRequirements
 
     /**
      * BadgeRequirements Constructor.
-     * @param level: ...
-     * @param score: ...
+     * @param level: the position of the level in the file
+     * @param score: the score to beat
      */
     public BadgeRequirements(int level, int score)
     {
@@ -22,7 +22,10 @@ public class BadgeRequirements
         this.score = score;
     }
 
-    /** Returns true if the Badge has been earned */
+    /**
+     * Returns true if the Badge has been earned
+     * @return false as default
+     */
     boolean checkEarned()
     {
 

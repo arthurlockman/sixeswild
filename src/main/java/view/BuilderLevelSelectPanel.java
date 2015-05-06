@@ -13,9 +13,11 @@ import java.awt.event.MouseEvent;
 
 /**
  * BuilderLevelSelectPanel Class.
- * Manages the contents and behavior of the BuilderLevelSelectPanel.
+ * Manages the contents and behavior of the BuilderLevelSelectPanel,
+ * which is where the user has the option of choosing an existing level
+ * to edit. They can also return to the Builder menu if they so choose.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class BuilderLevelSelectPanel
 {
@@ -72,6 +74,7 @@ public class BuilderLevelSelectPanel
 
     /**
      * Returns the selected Level
+     * @return selected level
      */
     public Level getSelected()
     {
@@ -80,6 +83,7 @@ public class BuilderLevelSelectPanel
 
     /**
      * Returns the Edit button
+     * @return edit button
      */
     public JButton getEditButton()
     {

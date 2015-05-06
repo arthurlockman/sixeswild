@@ -15,7 +15,7 @@ import java.awt.event.MouseMotionAdapter;
  * SquareViewPanel Class.
  * Manage the contents and behavior of Sixes Wild SquareViewPanel objects.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class SquareViewPanel
 {
@@ -92,10 +92,12 @@ public class SquareViewPanel
             if (!currentSquare.isSatisfied())
             {
                 squareNumber.setText("Bckt");
+                multiplierLabel.setText(" ");
                 squarePanel.setBackground(SQUARE_BKT_COLOR);
             } else
             {
                 squareNumber.setText("6");
+                multiplierLabel.setText(" ");
                 squarePanel.setBackground(SQUARE_6_COLOR); //6
             }
         } else if (currentSquare.isActive())
@@ -162,6 +164,7 @@ public class SquareViewPanel
 
     /**
      * Attaches a Mouse Adapter
+     * @param ma: the MouseAdapter to attach
      */
     public void attachMouseAdapter(MouseAdapter ma)
     {

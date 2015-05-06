@@ -16,7 +16,7 @@ import java.awt.event.MouseListener;
  *  CompleteLevelController Class.
  *  Manages the completion stage of a level.
  *
- *  @author arthurlockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class CompleteLevelController implements IActionListener
 {
@@ -58,7 +58,7 @@ public class CompleteLevelController implements IActionListener
             boolean didWin = (b.getScore() >= 1);
             boolean isNewHighScore = (b.getScore() > app.getPlayerPlayPanel().getBoard().getCurrentLevel().getHighScore());
             try {
-                app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(didWin);
+                app.getGame().getLevels().get(app.getGame().getLevels().indexOf(l) + 1).setLocked(!didWin);
             } catch (java.lang.IndexOutOfBoundsException e) {
                 System.out.println("All levels unlocked.");
             }
@@ -82,6 +82,7 @@ public class CompleteLevelController implements IActionListener
                 stars = 2;
             else if (b.getScore() >= 1)
                 stars = 1;
+            app.getPlayerPlayPanel().getBoardViewPanel().refresh();
             WinLevelPanel wl = new WinLevelPanel("Level " + app.getGame().getLevels().indexOf(l),
                     l.getHighScore(), b.getScore(), stars, didWin, isNewHighScore);
             wl.setVisible(true);

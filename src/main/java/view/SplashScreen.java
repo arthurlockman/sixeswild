@@ -12,7 +12,7 @@ import java.awt.event.MouseEvent;
  * SplashScreen Class.
  * Manages the contents and behavior of Sixes Wild Splash Screens.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class SplashScreen {
     private JPanel splashScreen;
