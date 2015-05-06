@@ -3,7 +3,7 @@ package model;
  *  BadgeScoreRequirement Class.
  *  Manages the requirements for Badge objects
  *
- *  @author Brendan Casey, Yiğit Uyan, bckawuh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class BadgeScoreRequirement extends BadgeRequirement
 {

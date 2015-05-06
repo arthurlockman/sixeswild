@@ -6,7 +6,7 @@ import view.PlayerApplication;
  *  BadgeSeenRequirement Class.
  *  Manages the requirements for visibility of Badge
  *
- *  @author Brendan Casey, Yiğit Uyan, bckawuh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class BadgeSeenRequirement extends BadgeRequirement
 {

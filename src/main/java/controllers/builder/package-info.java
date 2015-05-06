@@ -2,6 +2,6 @@
  * This package contains all of the controllers that specifically
  * are used in the level builder.
  *
- * @author 
+ * @author Arthur Lockman
  */
 package controllers.builder;

@@ -3,6 +3,6 @@
  * The BuilderLauncher class is used to launch the level builder,
  * and the PlayerLauncher class is used to launch the game itself.
  *
- * @author 
+ * @author Arthur Lockman
  */
 package application;
