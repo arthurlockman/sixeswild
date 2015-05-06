@@ -96,6 +96,7 @@ public class StartGameController extends MouseAdapter
             app.getPlayerPlayPanel().getThreeStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/threestar-empty.png")));
             app.getPlayerPlayPanel().getTwoStarsLabel().setIcon(new ImageIcon(getClass().getResource("/view/twostar-empty.png")));
             app.getPlayerPlayPanel().getOneStarLabel().setIcon(new ImageIcon(getClass().getResource("/view/onestar-empty.png")));
+            System.out.println("Updating labels from start.");
 
             CompleteLevelController clc = new CompleteLevelController(app);
             app.getPlayerPlayPanel().getBoard().addListener(clc);

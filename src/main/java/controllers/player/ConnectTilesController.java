@@ -139,7 +139,9 @@ public class ConnectTilesController extends MouseAdapter
         app.getPlayerPlayPanel().getThreeStarsLabel().setIcon(new ImageIcon(getClass().getResource(threestaricon)));
         app.getPlayerPlayPanel().getTwoStarsLabel().setIcon(new ImageIcon(getClass().getResource(twostaricon)));
         app.getPlayerPlayPanel().getOneStarLabel().setIcon(new ImageIcon(getClass().getResource(onestaricon)));
+        System.out.println("Updating labels from connect.");
 
         app.getPlayerPlayPanel().$$$getRootComponent$$$().repaint();
+        board.isComplete();
     }
 }

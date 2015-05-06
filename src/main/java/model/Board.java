@@ -181,7 +181,6 @@ public class Board
             {
                 numSwapMoves--;
             }
-            isComplete();
             return true;
         }
         return false;
@@ -434,7 +433,6 @@ public class Board
             if (!squares[i].isSatisfied())
                 this.pullDown(i);
         }
-        this.isComplete();
     }
 
     /**
