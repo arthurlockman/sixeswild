@@ -190,7 +190,7 @@ public class Game
                 String description = "";
 
                 int howMany = (i / 4) + 1;
-                description = description + "Aced " + howMany + " ";
+                description = description + "Aced ";
 
                 if(levels.get(i) instanceof EliminationLevel)
                 {
@@ -218,7 +218,7 @@ public class Game
                     description = description + "Unknown";
                 }
                 name = name + " ";
-                description = description + " Levels.";
+                description = description + " Level Number " + howMany + ".";
                 int c = i / 4;
                 if(c == 0)
                 {
