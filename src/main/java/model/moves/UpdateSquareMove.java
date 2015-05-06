@@ -8,7 +8,7 @@ import model.Tile;
  * Responsible for updating a Square to active, inactive,
  * or a bucket, or to place a Tile into it.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class UpdateSquareMove implements IReversibleMove
 {

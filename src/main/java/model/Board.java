@@ -15,7 +15,7 @@ import java.util.Stack;
  *  nine by nine grid. The board also keeps track of the moves made,
  *  so that undo and redo capabilities are available.
  *
- *  @author arthurlockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class Board
 {

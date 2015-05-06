@@ -21,7 +21,7 @@ import java.util.HashMap;
  * "Set Frequencies" button while in the Sixes Wild Builder level
  * editor.
  *
- * @author ..., bckawuh
+ * @author Arthur Lockman, bckawuh
  */
 public class BuilderOptionsPanel
 {

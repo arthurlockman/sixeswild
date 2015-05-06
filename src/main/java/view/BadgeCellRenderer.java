@@ -10,18 +10,18 @@ import java.awt.*;
  * BadgeCellRenderer Class.
  * Responsible for rendering the badge cells.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class BadgeCellRenderer extends JLabel implements ListCellRenderer<Badge>
 {
     /**
      * getListCellRendererComponent Constructor.
-     * @param list
-     * @param value
-     * @param index
-     * @param isSelected
-     * @param cellHasFocus
-     * @return the Component
+     * @param list The list object that this is the renderer for.
+     * @param value The selected item in the list.
+     * @param index The index of the selected item.
+     * @param isSelected If the item is selected by the user.
+     * @param cellHasFocus If the list cell has focus.
+     * @return the Component The rendered component ready to display in the list.
      */
     @Override
     public Component getListCellRendererComponent(JList<? extends Badge> list, Badge value,

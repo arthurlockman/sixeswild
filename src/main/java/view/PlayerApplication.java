@@ -19,7 +19,7 @@ import java.awt.event.WindowListener;
  * displaying the various Player panels and playing sounds as appropriate
  * during the game.
  *
- * @author arthurlockman, bckawuh
+ * @author Arthur Lockman, David Laovoravit, Yiğit Uyan, bckawuh, jamarciano
  */
 public class PlayerApplication extends JFrame {
     private JPanel playerApplication;

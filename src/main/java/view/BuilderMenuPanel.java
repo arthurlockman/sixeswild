@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
  * panel, they can choose to create a new level, edit an existing level,
  * view the Builder instructions, or view the credits.
  *
- * @author ..., bckawuh
+ * @author Arthur Lockman, David Laovoravit, bckawuh
  */
 public class BuilderMenuPanel {
     private JPanel builderMenuPanel;

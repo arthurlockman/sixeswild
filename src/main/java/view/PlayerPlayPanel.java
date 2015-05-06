@@ -21,7 +21,7 @@ import java.awt.event.MouseEvent;
  * Manages the contents and behavior of the PlayerPlayPanel, which is
  * what the user sees as they are playing a level.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh, jamarciano
  */
 public class PlayerPlayPanel {
     private JPanel menuBarPanel;

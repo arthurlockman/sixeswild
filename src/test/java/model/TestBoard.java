@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 /**
  * A suite of tests for the board class.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class TestBoard extends TestCase
 {

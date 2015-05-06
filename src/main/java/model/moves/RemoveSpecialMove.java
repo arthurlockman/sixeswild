@@ -6,7 +6,7 @@ import model.Square;
 /**
  * A special move that removes a tile from the board.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class RemoveSpecialMove implements IMove
 {

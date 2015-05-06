@@ -4,7 +4,7 @@ package model;
  *  BadgeRequirements Class.
  *  Manages the requirements for Badge objects
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class BadgeRequirements
 {

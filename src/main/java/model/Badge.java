@@ -8,7 +8,7 @@ import javax.swing.*;
  *  which are used to help the user celebrate and mark their progress
  *  through the Sixes Wild app.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh
  */
 public class Badge
 {

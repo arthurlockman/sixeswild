@@ -6,7 +6,7 @@ package model;
  * contain numbers and multipliers. The Tiles are what the user tries to
  * get rid of when they make selections of Squares.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh
  */
 public class Tile
 {

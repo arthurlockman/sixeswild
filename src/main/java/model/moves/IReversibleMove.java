@@ -4,7 +4,7 @@ package model.moves;
  * IReversibleMove Interface.
  * Ensures that reversible moves will have an undo() method.
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public interface IReversibleMove extends IMove
 {

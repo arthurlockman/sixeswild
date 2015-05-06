@@ -12,7 +12,7 @@ import java.net.URL;
  *  Manages the gathering of level information for display in the
  *  Player level select menu.
  *
- *  @author Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh, jamarciano
  */
 public class PlayerLevelCellRenderer extends JLabel implements ListCellRenderer<Level>
 {

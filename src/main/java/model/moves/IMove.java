@@ -5,7 +5,7 @@ package model.moves;
  * Will ensure that all moves have the three methods
  * doMove(), isValid(), and getScore().
  *
- * @authors ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public interface IMove
 {

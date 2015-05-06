@@ -8,7 +8,7 @@ import model.moves.SwapSpecialMove;
 /**
  * A class that is used to run tests on the various move classes.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class TestMoves extends TestCase
 {

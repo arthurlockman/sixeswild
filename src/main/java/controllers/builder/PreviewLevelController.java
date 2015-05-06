@@ -10,7 +10,7 @@ import java.awt.event.MouseListener;
 /**
  * A controller that handles previewing a level.
  *
- * @author arthurlockman
+ * @author Arthur Lockman, Brendan Casey
  */
 public class PreviewLevelController extends MouseAdapter
 {

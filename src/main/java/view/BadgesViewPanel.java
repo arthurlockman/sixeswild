@@ -23,7 +23,7 @@ import java.awt.event.MouseEvent;
  * using the reset button.
  *
  * Created by David on 4/26/2015.
- * @authors David, bckawuh
+ * @author Arthur Lockman, David Laovoravit, Yiğit Uyan, bckawuh
  */
 public class BadgesViewPanel {
     private JList badgeList;

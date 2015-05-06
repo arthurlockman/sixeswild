@@ -8,7 +8,7 @@ import java.io.File;
  * are levels where the minimum score must be achieved within
  * a specified number of moves.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class PuzzleLevel extends Level
 {

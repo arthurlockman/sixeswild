@@ -16,7 +16,7 @@ import java.awt.event.MouseListener;
  *  CompleteLevelController Class.
  *  Manages the completion stage of a level.
  *
- *  @author arthurlockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class CompleteLevelController implements IActionListener
 {

@@ -9,7 +9,7 @@ import java.util.*;
  * Game Class.
  * Manages the contents and behavior of Sixes Wild Games.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh, jamarciano
  */
 public class Game
 {

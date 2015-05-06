@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
  *  ReturnToLevelSelectController Class.
  *  Allows the user to return to the level select menu of the Player.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, bckawuh
  */
 public class ReturnToLevelSelectController extends MouseAdapter
 {

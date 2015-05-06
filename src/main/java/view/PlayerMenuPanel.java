@@ -15,7 +15,7 @@ import java.awt.event.MouseEvent;
  * what the user sees when they have the choice to view their achievements,
  * view the credits, view the instructions, or play a level.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, David Laovoravit, bckawuh
  */
 public class PlayerMenuPanel
 {

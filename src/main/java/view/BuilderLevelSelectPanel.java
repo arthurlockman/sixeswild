@@ -17,7 +17,7 @@ import java.awt.event.MouseEvent;
  * which is where the user has the option of choosing an existing level
  * to edit. They can also return to the Builder menu if they so choose.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class BuilderLevelSelectPanel
 {

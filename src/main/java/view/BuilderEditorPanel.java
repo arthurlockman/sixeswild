@@ -18,7 +18,7 @@ import java.awt.event.MouseEvent;
  * panel at any time, but they will be warned that exiting without saving
  * would cause them to lose their progress.
  *
- * @author arthurlockman, bckawuh
+ * @author Arthur Lockman, David Laovoravit, bckawuh, jamarciano
  */
 public class BuilderEditorPanel
 {

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * which are responsible for displaying the amount of time remaining
  * to the user.
  *
- * @authors ..., Jesse Marciano, Bryce Kaw-uh
+ * @author Arthur Lockman, Brendan Casey, bckawuh, jamarciano
  */
 public class Countdown
 {

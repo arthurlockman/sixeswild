@@ -8,7 +8,7 @@ package model;
  * marked as selected during game play. This helps determine what moves
  * the user is trying to make and whether they are valid.
  *
- * @author arthurlockman, Bryce Kaw-uh
+ * @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh, jamarciano
  */
 public class Square
 {

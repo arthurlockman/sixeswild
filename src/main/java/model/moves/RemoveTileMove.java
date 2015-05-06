@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * to remove tiles from a user selection and as a result of
  * the removeTile special move.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class RemoveTileMove implements IMove
 {

@@ -18,7 +18,7 @@ import java.net.URL;
  *  ConnectTilesController Class.
  *  Manages the connecting of tiles when playing a level.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh, jamarciano
  */
 public class ConnectTilesController extends MouseAdapter
 {

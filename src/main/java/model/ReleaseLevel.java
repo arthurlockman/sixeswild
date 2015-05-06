@@ -9,7 +9,7 @@ import java.io.File;
  * into a bucket. This is in addition to achieving the minimum
  * score set for the level.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class ReleaseLevel extends Level
 {

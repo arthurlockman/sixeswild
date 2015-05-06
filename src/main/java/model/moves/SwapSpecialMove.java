@@ -7,7 +7,7 @@ import model.Square;
  * A special move used to swap the tiles in two neighboring
  * squares.
  *
- * @author arthurlockman, bckawuh
+ * @author Arthur Lockman, bckawuh
  */
 public class SwapSpecialMove implements IMove
 {

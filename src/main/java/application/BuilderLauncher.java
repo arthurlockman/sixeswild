@@ -8,7 +8,7 @@ import javax.swing.*;
  *  BuilderLauncher Class.
  *  Responsible for launching the Sixes Wild Builder application.
  *
- *  @author Arthur Lockman, Bryce Kaw-uh
+ *  @author Arthur Lockman, bckawuh
  */
 public class BuilderLauncher {
     public static void main(String[] args) {

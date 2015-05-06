@@ -16,7 +16,7 @@ import java.util.HashMap;
  * used in both the Builder and Player applications. Contains a nine
  * by nine grid of 81 squares.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh
  */
 public class BoardViewPanel
 {

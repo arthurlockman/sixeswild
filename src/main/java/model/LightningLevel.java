@@ -7,7 +7,7 @@ import java.io.File;
  * Manages the contents and behavior of Lightning Levels, which are levels
  * where the minimum score must be achieved within a specified amount of time.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class LightningLevel extends Level
 {

@@ -6,7 +6,7 @@ package model;
  * The SquareFactory also keeps track of the Tile number and
  * multiplier frequencies.
  *
- * @author Jesse Marciano, Bryce Kaw-uh
+ * @author Arthur Lockman, Brendan Casey, bckawuh, jamarciano
  */
 public class SquareFactory {
 

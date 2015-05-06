@@ -13,7 +13,7 @@ import java.awt.event.*;
  * Manages the contents and behavior of Sixes Wild WinLevelPanel.
  * Pops up after successful win condition and is used to select next action
  *
- * @authors ..., Brendan Casey
+ * @author Arthur Lockman, Brendan Casey, bckawuh, jamarciano
  */
 public class WinLevelPanel extends JDialog {
     private JPanel contentPane;

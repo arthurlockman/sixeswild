@@ -8,7 +8,7 @@ import java.io.File;
  * are levels where the user must eliminate a Tile in every active
  * Square in addition to achieving the minimum score.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Yiğit Uyan, bckawuh, jamarciano
  */
 public class EliminationLevel extends Level
 {

@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
  * is what the user sees when they are in the Player application and are
  * deciding which level to play.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, bckawuh, jamarciano
  */
 public class PlayerLevelSelectPanel
 {

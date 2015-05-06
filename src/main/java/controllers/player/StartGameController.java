@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
  *  StartGameController Class.
  *  Manages the starting of a game selected by the user in Player.
  *
- *  @author ..., Bryce Kaw-uh
+ *  @author Arthur Lockman, Brendan Casey, bckawuh
  */
 public class StartGameController extends MouseAdapter
 {

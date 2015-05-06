@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Manages the contents and behavior of the Sixes Wild Level objects, which
  * hold all the data necessary to load a level to the Builder or Player.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, Brendan Casey, Yiğit Uyan, bckawuh, jamarciano
  */
 public class Level
 {

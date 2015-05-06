@@ -7,7 +7,7 @@ import model.moves.RemoveTileMove;
 /**
  * Tests the board's gravity methods.
  *
- * @author arthurlockman
+ * @author Arthur Lockman
  */
 public class TestGravity extends TestCase
 {

@@ -13,7 +13,7 @@ import java.awt.event.WindowListener;
  * Manages the contents and behavior of the Sixes Wild Builder Application,
  * which is responsible for launching everything needed for the Builder.
  *
- * @author ..., Bryce Kaw-uh
+ * @author Arthur Lockman, David Laovoravit, bckawuh
  */
 public class BuilderApplication extends JFrame {
     private JPanel builderApplication;
