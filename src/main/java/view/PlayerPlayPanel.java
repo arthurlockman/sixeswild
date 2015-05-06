@@ -127,6 +127,7 @@ public class PlayerPlayPanel {
                 movesLabel.setText("Moves: " + (boardViewPanel.getBoard().getMovesAllowed() -
                         boardViewPanel.getBoard().getMoveCount()));
                 getReset1Button().setText("Reset (" + boardViewPanel.getBoard().getNumResetMoves() + ")");
+                boardViewPanel.getBoard().isComplete();
             }
         });
     }
